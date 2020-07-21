@@ -436,11 +436,11 @@
       <category term="java" scheme="http://yoursite.com/categories/java/"/>
     
     
+      <category term="cache" scheme="http://yoursite.com/tags/cache/"/>
+    
       <category term="ignite" scheme="http://yoursite.com/tags/ignite/"/>
     
       <category term="内存关系型数据库" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="cache" scheme="http://yoursite.com/tags/cache/"/>
     
   </entry>
   

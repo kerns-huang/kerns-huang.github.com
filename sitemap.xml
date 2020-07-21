@@ -44,6 +44,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/2020/07/07/cacheline%E5%92%8C%E4%BC%AA%E5%85%B1%E4%BA%AB%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2020-07-20T01:48:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/23/hexo/</loc>
     
     <lastmod>2020-07-20T01:48:49.000Z</lastmod>
@@ -52,13 +59,6 @@
   
   <url>
     <loc>http://yoursite.com/2019/09/02/java%E8%BF%9B%E7%A8%8Bcpu%E8%BF%87%E9%AB%98%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/</loc>
-    
-    <lastmod>2020-07-20T01:48:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/07/07/cacheline%E5%92%8C%E4%BC%AA%E5%85%B1%E4%BA%AB%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2020-07-20T01:48:49.000Z</lastmod>
     
@@ -156,14 +156,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
+    <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2020-07-20T01:48:49.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
+    <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2020-07-20T01:48:49.000Z</lastmod>
     
