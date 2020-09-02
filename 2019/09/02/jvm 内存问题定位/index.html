@@ -185,7 +185,7 @@ pmap -x $pid  | sort -n -k3top -csar123怀疑CP...">
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                340</strong>
+                366</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -224,6 +224,9 @@ pmap -x $pid  | sort -n -k3top -csar123怀疑CP...">
 <h1 id="相关资料-1"><a href="#相关资料-1" class="headerlink" title="相关资料"></a>相关资料</h1><h3 id="内存的定义"><a href="#内存的定义" class="headerlink" title="内存的定义"></a>内存的定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">VSS- Virtual Set Size 虚拟耗用内存（包含共享库占用的内存）</span><br><span class="line">RSS- Resident Set Size 实际使用物理内存（包含共享库占用的内存）</span><br><span class="line">PSS- Proportional Set Size 实际使用的物理内存（比例分配共享库占用的内存）</span><br><span class="line">USS- Unique Set Size 进程独自占用的物理内存（不包含共享库占用的内存）</span><br></pre></td></tr></table></figure>
 
 <h3 id="mmap-文件"><a href="#mmap-文件" class="headerlink" title="mmap 文件"></a>mmap 文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://baike.baidu.com/item/mmap/1322217</span><br></pre></td></tr></table></figure>
+
+<h3 id="很详细的一篇定位文章"><a href="#很详细的一篇定位文章" class="headerlink" title="很详细的一篇定位文章"></a>很详细的一篇定位文章</h3><p><a href="https://mp.weixin.qq.com/s/CPp9z45gvIzM8EasTgopfQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/CPp9z45gvIzM8EasTgopfQ</a></p>
+
     </div>
     
     <div class="post-footer">
@@ -241,17 +244,17 @@ pmap -x $pid  | sort -n -k3top -csar123怀疑CP...">
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2019/09/02/ignite整理/" class="pre-post btn btn-default" title='ignite整理'>
+    <a href="/2019/09/02/java进程cpu过高问题定位/" class="pre-post btn btn-default" title='jvm cpu 过高问题定位'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            ignite整理</span>
+            jvm cpu 过高问题定位</span>
     </a>
     
     
-    <a href="/2019/09/02/java进程cpu过高问题定位/" class="next-post btn btn-default" title='jvm cpu 过高问题定位'>
+    <a href="/2019/09/02/多线程数据读取 -cpu 信/" class="next-post btn btn-default" title='高速缓存'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            jvm cpu 过高问题定位</span><i class="fa fa-angle-right fa-fw"></i>
+            高速缓存</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -290,7 +293,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux-进程-内存查看"><span class="toc-text">linux 进程 内存查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ps-p-pid-o-rss-vsz"><span class="toc-text">ps -p $pid -o rss,vsz</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pmap-x-pid-sort-n-k3"><span class="toc-text">pmap -x $pid  | sort -n -k3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#top-c"><span class="toc-text">top -c</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sar"><span class="toc-text">sar</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gdb"><span class="toc-text">gdb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strace"><span class="toc-text">strace</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#堆内内存查看"><span class="toc-text">堆内内存查看</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-预先防范"><span class="toc-text">1 预先防范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-直接打印-hprof-，线上慎用。"><span class="toc-text">2 直接打印 .hprof ，线上慎用。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-hprof文件分析"><span class="toc-text">3 hprof文件分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关资料"><span class="toc-text">相关资料</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#堆外内存查看"><span class="toc-text">堆外内存查看</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看线程的内存使用"><span class="toc-text">查看线程的内存使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#需要解决的疑问"><span class="toc-text">需要解决的疑问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jvm-的内存计算"><span class="toc-text">jvm 的内存计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#相关资料-1"><span class="toc-text">相关资料</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存的定义"><span class="toc-text">内存的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mmap-文件"><span class="toc-text">mmap 文件</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux-进程-内存查看"><span class="toc-text">linux 进程 内存查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ps-p-pid-o-rss-vsz"><span class="toc-text">ps -p $pid -o rss,vsz</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pmap-x-pid-sort-n-k3"><span class="toc-text">pmap -x $pid  | sort -n -k3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#top-c"><span class="toc-text">top -c</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sar"><span class="toc-text">sar</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gdb"><span class="toc-text">gdb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strace"><span class="toc-text">strace</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#堆内内存查看"><span class="toc-text">堆内内存查看</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-预先防范"><span class="toc-text">1 预先防范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-直接打印-hprof-，线上慎用。"><span class="toc-text">2 直接打印 .hprof ，线上慎用。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-hprof文件分析"><span class="toc-text">3 hprof文件分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关资料"><span class="toc-text">相关资料</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#堆外内存查看"><span class="toc-text">堆外内存查看</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看线程的内存使用"><span class="toc-text">查看线程的内存使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#需要解决的疑问"><span class="toc-text">需要解决的疑问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jvm-的内存计算"><span class="toc-text">jvm 的内存计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#相关资料-1"><span class="toc-text">相关资料</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存的定义"><span class="toc-text">内存的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mmap-文件"><span class="toc-text">mmap 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#很详细的一篇定位文章"><span class="toc-text">很详细的一篇定位文章</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>
