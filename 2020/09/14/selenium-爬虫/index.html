@@ -19,12 +19,13 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="linux">
+<meta name="keywords" content>
 
 
-<meta name="description" content="1.CPU占用最多的前10个进程：1ps auxw|head -1;ps auxw|sort -rn -k3|head -10
-
-2.内存消耗最多的前10个进程1ps auxw|head -1;...">
+<meta name="description" content="安装 seleniumpip install -U selenium
+ps: 在安装的过程中如果遇到被强的问题的，很容易 timeout
+在mac 环境下需要修改下载源
+1234cd ~mkdi...">
 
 
 <meta name="robots" content="all">
@@ -35,7 +36,7 @@
 
 <title>
     
-    linux基本操作 |
+    selenium 爬虫 |
     
     kerns的小窝
 </title>
@@ -150,24 +151,22 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="linux基本操作">
+        <h1 id="selenium 爬虫">
             
-            linux基本操作
+            selenium 爬虫
             
         </h1>
         <div class="post-meta">
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/linux/">linux</a>
+        
     </span>
     
     
     <span class="fa-wrap">
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
-            
-            <a class="tag-link" href="/tags/linux/">linux</a>
             
         </span>
     </span>
@@ -177,50 +176,45 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2019/09/05</span>
+            2020/09/14</span>
     </span>
     
     
 </div>
         
         
-        <p class="fa fa-exclamation-triangle warning">
-            本文于<strong>
-                384</strong>
-            天之前发表，文中内容可能已经过时。
-        </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <h3 id="1-CPU占用最多的前10个进程："><a href="#1-CPU占用最多的前10个进程：" class="headerlink" title="1.CPU占用最多的前10个进程："></a>1.CPU占用最多的前10个进程：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps auxw|head -1;ps auxw|sort -rn -k3|head -10</span><br></pre></td></tr></table></figure>
+        <h2 id="安装-selenium"><a href="#安装-selenium" class="headerlink" title="安装 selenium"></a>安装 selenium</h2><p>pip install -U selenium</p>
+<p>ps: 在安装的过程中如果遇到被强的问题的，很容易 timeout</p>
+<p>在mac 环境下需要修改下载源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">mkdir .pip</span><br><span class="line">cd .pip</span><br><span class="line">vim pip.conf</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-内存消耗最多的前10个进程"><a href="#2-内存消耗最多的前10个进程" class="headerlink" title="2.内存消耗最多的前10个进程"></a>2.内存消耗最多的前10个进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps auxw|head -1;ps auxw|sort -rn -k4|head -10</span><br></pre></td></tr></table></figure>
+<p>接着进入vim编辑，写入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url=http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-虚拟内存使用最多的前10个进程"><a href="#3-虚拟内存使用最多的前10个进程" class="headerlink" title="3.虚拟内存使用最多的前10个进程"></a>3.虚拟内存使用最多的前10个进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps auxw|head -1;ps auxw|sort -rn -k5|head -10</span><br></pre></td></tr></table></figure>
+<h3 id="selenium-等待页面加载完成。"><a href="#selenium-等待页面加载完成。" class="headerlink" title="selenium 等待页面加载完成。"></a>selenium 等待页面加载完成。</h3><p>强制等待,目前用着是最好用的一个操作，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time.sleep</span><br></pre></td></tr></table></figure>
 
-<h3 id="查看-内存信息"><a href="#查看-内存信息" class="headerlink" title="查看 内存信息"></a>查看 内存信息</h3><p>查看内存的统计信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -h</span><br></pre></td></tr></table></figure>
+<p>隐式等待</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.implicitly_wait(10)</span><br></pre></td></tr></table></figure>
 
-<p>查看某个进程内存的具体使用信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pmap -X pid</span><br></pre></td></tr></table></figure>
+<p>显示等待，有些时候执行不成功，具体原因还得定位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element = WebDriverWait(driver, 10).until(</span><br><span class="line">        EC.presence_of_element_located((By.XPATH, &apos;//*[@id=&quot;su&quot;]&apos;))</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
 
-<p>###查看文件句柄数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/sys/fs/file-nr</span><br></pre></td></tr></table></figure>
+<h3 id="后台执行"><a href="#后台执行" class="headerlink" title="后台执行"></a>后台执行</h3><p>当需要在服务端运行的时候，这个非常有用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chrome_options = Options()</span><br><span class="line">chrome_options.add_argument(&apos;--headless&apos;) chrome_options.add_argument(&apos;--no-sandbox&apos;)</span><br><span class="line">chrome_options.add_argument(&apos;--disable-dev-shm-usage&apos;)</span><br><span class="line">chrome_options.add_argument(&apos;--disable-gpu&apos;)</span><br><span class="line">dr = webdriver.Chrome(chrome_options=chrome_options)</span><br></pre></td></tr></table></figure>
 
-<h3 id="查看tcp连接数"><a href="#查看tcp连接数" class="headerlink" title="查看tcp连接数"></a>查看tcp连接数</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -n | awk &apos;/^tcp/ &#123;++S[$NF]&#125; END &#123;for(a in S) print a, S[a]&#125;&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="form-表单模拟登陆"><a href="#form-表单模拟登陆" class="headerlink" title="form 表单模拟登陆"></a>form 表单模拟登陆</h3><p>如下，非常简单的操作，通过send_keys 就可以给表单对象设置value</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">uInput = dr.find_element_by_id(&quot;username&quot;)</span><br><span class="line">uInput.send_keys(&quot;name&quot;)</span><br><span class="line">passInput = dr.find_element_by_id(&quot;password&quot;)</span><br><span class="line">passInput.send_keys(&quot;pasword&quot;)</span><br><span class="line">dr.find_element_by_class_name(&quot;btn-login&quot;).click()</span><br></pre></td></tr></table></figure>
 
-
-<h3 id="查看oom-信息"><a href="#查看oom-信息" class="headerlink" title="查看oom 信息"></a>查看oom 信息</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dmesg | grep -i kill | less</span><br></pre></td></tr></table></figure>
-
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> /proc/$PID/oom_adj</span><br><span class="line">/proc/$PID/oom_score</span><br><span class="line">/proc/$PID/oom_score_adj</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -eo pid,comm,pmem --sort -rss | awk &apos;&#123;&quot;cat /proc/&quot;$1&quot;/oom_score&quot; | getline oom; print $0&quot;\t&quot;oom&#125;&apos;</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看硬盘问题"><a href="#查看硬盘问题" class="headerlink" title="查看硬盘问题"></a>查看硬盘问题</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df -lh</span><br><span class="line">du -sh /*</span><br><span class="line">lsof |grep delete</span><br><span class="line">du|sort -nr|more</span><br></pre></td></tr></table></figure>
-
-
-<p><a href="https://qsli.github.io/2017/12/02/google-perf-tools/" target="_blank" rel="noopener">https://qsli.github.io/2017/12/02/google-perf-tools/</a></p>
+<h2 id="selenium方式的优劣"><a href="#selenium方式的优劣" class="headerlink" title="selenium方式的优劣"></a>selenium方式的优劣</h2><ul>
+<li><p>优势：虽然通过浏览器内核，是简单的通过http模拟是媲美不了的，比较想ajax很多，而且有很多拼接操作的页面，通过http请求，分析各个接口的含义需要花很多的时间，这个时候通过selenium通过浏览器内核直接抓取页面元素会方便很多。</p>
+</li>
+<li><p>劣势：比如模拟表单提交，如果ajax请求很少，或者没有，只有一次请求，但是又有很多动态的元素生成，这种情况下直接分析请求报文是更简单的操作。</p>
+</li>
+</ul>
 
     </div>
     
@@ -239,17 +233,11 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2019/09/07/nginx_base/" class="pre-post btn btn-default" title='nginx的基本操作配置'>
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            nginx的基本操作配置</span>
-    </a>
     
-    
-    <a href="/2019/09/02/G1垃圾收集器配置/" class="next-post btn btn-default" title='G1垃圾收集器配置'>
+    <a href="/2020/09/02/fabric链包部署/" class="next-post btn btn-default" title='fabric 链包开发和部署'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            G1垃圾收集器配置</span><i class="fa fa-angle-right fa-fw"></i>
+            fabric 链包开发和部署</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -288,7 +276,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-CPU占用最多的前10个进程："><span class="toc-text">1.CPU占用最多的前10个进程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-内存消耗最多的前10个进程"><span class="toc-text">2.内存消耗最多的前10个进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-虚拟内存使用最多的前10个进程"><span class="toc-text">3.虚拟内存使用最多的前10个进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看-内存信息"><span class="toc-text">查看 内存信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看tcp连接数"><span class="toc-text">查看tcp连接数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看oom-信息"><span class="toc-text">查看oom 信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看硬盘问题"><span class="toc-text">查看硬盘问题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-selenium"><span class="toc-text">安装 selenium</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#selenium-等待页面加载完成。"><span class="toc-text">selenium 等待页面加载完成。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后台执行"><span class="toc-text">后台执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#form-表单模拟登陆"><span class="toc-text">form 表单模拟登陆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#selenium方式的优劣"><span class="toc-text">selenium方式的优劣</span></a></li></ol>
         
     </div>
 </aside>
