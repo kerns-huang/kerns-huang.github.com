@@ -210,7 +210,7 @@ ps: 在安装的过程中如果遇到被强的问题的，很容易 timeout
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">uInput = dr.find_element_by_id(&quot;username&quot;)</span><br><span class="line">uInput.send_keys(&quot;name&quot;)</span><br><span class="line">passInput = dr.find_element_by_id(&quot;password&quot;)</span><br><span class="line">passInput.send_keys(&quot;pasword&quot;)</span><br><span class="line">dr.find_element_by_class_name(&quot;btn-login&quot;).click()</span><br></pre></td></tr></table></figure>
 
 <h2 id="selenium方式的优劣"><a href="#selenium方式的优劣" class="headerlink" title="selenium方式的优劣"></a>selenium方式的优劣</h2><ul>
-<li><p>优势：虽然通过浏览器内核，是简单的通过http模拟是媲美不了的，比较想ajax很多，而且有很多拼接操作的页面，通过http请求，分析各个接口的含义需要花很多的时间，这个时候通过selenium通过浏览器内核直接抓取页面元素会方便很多。</p>
+<li><p>优势：虽然通过浏览器内核，是简单的通过http模拟是媲美不了的，如果ajax很多，而且有很多拼接操作的页面，通过http请求，分析各个接口的含义需要花很多的时间，这个时候通过selenium通过浏览器内核直接抓取页面元素会方便很多。</p>
 </li>
 <li><p>劣势：比如模拟表单提交，如果ajax请求很少，或者没有，只有一次请求，但是又有很多动态的元素生成，这种情况下直接分析请求报文是更简单的操作。</p>
 </li>
@@ -232,6 +232,12 @@ ps: 在安装的过程中如果遇到被强的问题的，很容易 timeout
     </div>
 </article>
 <div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2020/10/23/mysql连接数问题/" class="pre-post btn btn-default" title='mysql 问题定位'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            mysql 问题定位</span>
+    </a>
     
     
     <a href="/2020/09/02/fabric链包部署/" class="next-post btn btn-default" title='fabric 链包开发和部署'>
