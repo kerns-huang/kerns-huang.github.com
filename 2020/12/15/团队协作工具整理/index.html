@@ -22,11 +22,7 @@
 <meta name="keywords" content>
 
 
-<meta name="description" content="查看所有打开的端口
-1firewall-cmd --zone=public --list-ports
-
-永久添加端口
-1firewall-cmd --zone=public --add-port...">
+<meta name="description" content="办公聊天工具slack集成了很多的开发工具，你可以想安装插件一样在里面添加一些bug追踪工具，聊天的方式也更加的贴合远程协作的开发。对各个终端的支持也很全面，支持ios，android，mac和...">
 
 
 <meta name="robots" content="all">
@@ -37,7 +33,7 @@
 
 <title>
     
-    centos firewall管理 |
+    团队协作工具整理 |
     
     kerns的小窝
 </title>
@@ -152,16 +148,16 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="centos firewall管理">
+        <h1 id="团队协作工具整理">
             
-            centos firewall管理
+            团队协作工具整理
             
         </h1>
         <div class="post-meta">
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/运维/">运维</a> <a class="category-link" href="/categories/运维/linux/">linux</a>
+        
     </span>
     
     
@@ -177,7 +173,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2020/11/06</span>
+            2020/12/15</span>
     </span>
     
     
@@ -187,18 +183,32 @@
     </div>
     
     <div class="post-body post-content">
-        <p>查看所有打开的端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --list-ports</span><br></pre></td></tr></table></figure>
+        <h2 id="办公聊天工具"><a href="#办公聊天工具" class="headerlink" title="办公聊天工具"></a>办公聊天工具</h2><h3 id="slack"><a href="#slack" class="headerlink" title="slack"></a>slack</h3><p>集成了很多的开发工具，你可以想安装插件一样在里面添加一些bug追踪工具，聊天的方式也更加的贴合远程协作的开发。对各个终端的支持也很全面，支持ios，android，mac和window端。</p>
+<h2 id="原型设计协作"><a href="#原型设计协作" class="headerlink" title="原型设计协作"></a>原型设计协作</h2><h3 id="axhub"><a href="#axhub" class="headerlink" title="axhub"></a><a href="https://axhub.im/" target="_blank" rel="noopener">axhub</a></h3><h3 id="墨刀"><a href="#墨刀" class="headerlink" title="墨刀"></a><a href="https://modao.cc/" target="_blank" rel="noopener">墨刀</a></h3><h2 id="前后端交互"><a href="#前后端交互" class="headerlink" title="前后端交互"></a>前后端交互</h2><ul>
+<li><p><a href="https://gitee.com/zhoujingjie/apiManager" target="_blank" rel="noopener">小幺鸡</a></p>
+<p>java编写，开源，对于编写java的人而言，便于维护和继续扩展</p>
+</li>
+<li><p><a href="https://github.com/YMFE/yapi" target="_blank" rel="noopener">yapi</a></p>
+<p>nodejs 编写，页面比小幺鸡美观舒服。做文档是不错</p>
+</li>
+<li><p>swagger</p>
+<p>java的文档标准，在go上也支持，可以在代码里面直接通过文档的方式生成。</p>
+</li>
+</ul>
+<h2 id="公司文档整理"><a href="#公司文档整理" class="headerlink" title="公司文档整理"></a>公司文档整理</h2><ul>
+<li><p>gitbook :</p>
+<p>代码规范制定，可以生成epub等电子书，功能比较强大。<br>安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install npm</span><br><span class="line">npm install gitbook-cli -g</span><br></pre></td></tr></table></figure>
 
-<p>永久添加端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
 
-<p>更新防火墙规则</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<p>删除端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone= public --remove-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
-
+</li>
+</ul>
+<p>  常用的命令：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">服务启动：gitbook serve</span><br><span class="line">编译 : gitbook build</span><br></pre></td></tr></table></figure></p>
+<p>  参考的地址 ：<a href="https://gitee.com/kernsjava/code_rule.git" target="_blank" rel="noopener">https://gitee.com/kernsjava/code_rule.git</a></p>
+<ul>
+<li>docsify ：</li>
+</ul>
+<p>如果嫌弃gitbook build 太慢，没有那么多需要转换的功能，可以用这个。</p>
 
     </div>
     
@@ -217,17 +227,11 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/12/15/团队协作工具整理/" class="pre-post btn btn-default" title='团队协作工具整理'>
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            团队协作工具整理</span>
-    </a>
     
-    
-    <a href="/2020/10/23/mysql连接数问题/" class="next-post btn btn-default" title='mysql 问题定位'>
+    <a href="/2020/11/06/centos-firewalld/" class="next-post btn btn-default" title='centos firewall管理'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            mysql 问题定位</span><i class="fa fa-angle-right fa-fw"></i>
+            centos firewall管理</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -266,7 +270,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <p>暂无目录</p>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#办公聊天工具"><span class="toc-text">办公聊天工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#slack"><span class="toc-text">slack</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型设计协作"><span class="toc-text">原型设计协作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#axhub"><span class="toc-text">axhub</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#墨刀"><span class="toc-text">墨刀</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前后端交互"><span class="toc-text">前后端交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#公司文档整理"><span class="toc-text">公司文档整理</span></a></li></ol>
         
     </div>
 </aside>
