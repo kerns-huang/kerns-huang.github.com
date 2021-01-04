@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="kerns的小窝">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content>
+
+
+<meta name="description" content="一般情况下maven的配置文件对开发而言都是一次配完，基本不会去关心的事情，但是如果对这个东西不熟悉，还是会遇到一些坑。
+deploy 把代码部署到自己的nexus上去具体的 maven 依赖
+...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    maven-plugin整理 |
+    
+    kerns的小窝
+</title>
+
+<link rel="alternate" href="/atom.xml" title="kerns的小窝" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='kerns'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        kerns的小窝</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/go/"><i class="fa "></i>
+                                go</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/node/"><i class="fa "></i>
+                                node</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/rust/"><i class="fa "></i>
+                                rust</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/运维/"><i class="fa "></i>
+                                运维</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="maven-plugin整理">
+            
+            maven-plugin整理
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/01/04</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>一般情况下maven的配置文件对开发而言都是一次配完，基本不会去关心的事情，但是如果对这个东西不熟悉，还是会遇到一些坑。</p>
+<h3 id="deploy-把代码部署到自己的nexus上去"><a href="#deploy-把代码部署到自己的nexus上去" class="headerlink" title="deploy 把代码部署到自己的nexus上去"></a>deploy 把代码部署到自己的nexus上去</h3><p>具体的 maven 依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;maven-deploy-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;version&#125;&lt;/version&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果你的项目不需要发布到私服上去，可以配置 configuration skip 为true。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;maven-deploy-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;skip&gt;true&lt;/skip&gt;</span><br><span class="line">    &lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+
+<p>默认该插件是默认集成的，所以我们可以不用显示的在pom文件里面导入该plugin，只需要配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;distributionManagement&gt;</span><br><span class="line">       &lt;repository&gt;</span><br><span class="line">           &lt;id&gt;releases&lt;/id&gt;</span><br><span class="line">   		&lt;url&gt;$&#123;releasesUrl&#125;&lt;/url&gt;</span><br><span class="line">       &lt;/repository&gt;</span><br><span class="line">       &lt;snapshotRepository&gt;</span><br><span class="line">           &lt;id&gt;snapshots&lt;/id&gt;</span><br><span class="line">          &lt;url&gt;$&#123;snapshotUrl&#125;&lt;/url&gt;</span><br><span class="line">       &lt;/snapshotRepository&gt;</span><br><span class="line">   &lt;/distributionManagement&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="maven-surefire-plugin-执行"><a href="#maven-surefire-plugin-执行" class="headerlink" title="maven-surefire-plugin 执行"></a>maven-surefire-plugin 执行</h3><p>默认集成的插件，所以你默认执行mvn clean package的时候会默认执行mvn test ,如果你写了测试用例，但是用例写了一半或者是不规范，就会导致打包失败。</p>
+<p>如果需要跳过测试用例，有下面几种方式:</p>
+<ol>
+<li>在properties中声明<br>在properties配置中声明跳过测试用例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;maven.test.skip&gt;true&lt;/maven.test.skip&gt;</span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>或:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;skipTests&gt;true&lt;/skipTests&gt;</span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2.在configuration中声明 skipTests</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.19&lt;/version&gt;</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.maven.surefire&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;surefire-junit47&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.19&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;skipTests&gt;true&lt;/skipTests&gt;</span><br><span class="line">    &lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3.在执行命令中声明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn test -Dmaven.test.skip=true</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn test -DskipTests=true</span><br></pre></td></tr></table></figure>
+
+<h3 id="maven-pmd-plugin-代码规范检查"><a href="#maven-pmd-plugin-代码规范检查" class="headerlink" title="maven-pmd-plugin 代码规范检查"></a>maven-pmd-plugin 代码规范检查</h3><p>目前ali的规范就有基于pmd执行的代码规范</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-pmd-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;3.8&lt;/version&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;printFailingErrors&gt;true&lt;/printFailingErrors&gt;</span><br><span class="line">                    &lt;verbose&gt;true&lt;/verbose&gt;</span><br><span class="line">                    &lt;rulesets&gt;</span><br><span class="line">                        &lt;ruleset&gt;rulesets/java/ali-comment.xml&lt;/ruleset&gt;</span><br><span class="line">                        &lt;ruleset&gt;rulesets/java/ali-concurrent.xml&lt;/ruleset&gt;</span><br><span class="line">                        &lt;ruleset&gt;rulesets/java/ali-constant.xml&lt;/ruleset&gt;</span><br><span class="line">                        &lt;ruleset&gt;rulesets/java/ali-exception.xml&lt;/ruleset&gt;</span><br><span class="line">                        &lt;ruleset&gt;rulesets/java/ali-flowcontrol.xml&lt;/ruleset&gt;</span><br><span class="line">                        &lt;ruleset&gt;rulesets/java/ali-naming.xml&lt;/ruleset&gt;</span><br><span class="line">                        &lt;ruleset&gt;rulesets/java/ali-oop.xml&lt;/ruleset&gt;</span><br><span class="line">                        &lt;ruleset&gt;rulesets/java/ali-orm.xml&lt;/ruleset&gt;</span><br><span class="line">                        &lt;ruleset&gt;rulesets/java/ali-other.xml&lt;/ruleset&gt;</span><br><span class="line">                        &lt;ruleset&gt;rulesets/java/ali-set.xml&lt;/ruleset&gt;</span><br><span class="line">                    &lt;/rulesets&gt;</span><br><span class="line">                    &lt;excludes&gt;</span><br><span class="line">                        &lt;exclude&gt;排除的类&lt;/exclude&gt;</span><br><span class="line">                    &lt;/excludes&gt;</span><br><span class="line">                &lt;/configuration&gt;</span><br><span class="line">                &lt;executions&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;id&gt;pmd-check-verify&lt;/id&gt;</span><br><span class="line">                        &lt;phase&gt;validate&lt;/phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;check&lt;/goal&gt;</span><br><span class="line">                        &lt;/goals&gt;</span><br><span class="line">                    &lt;/execution&gt;</span><br><span class="line">                &lt;/executions&gt;</span><br><span class="line">                &lt;dependencies&gt;</span><br><span class="line">                    &lt;dependency&gt;</span><br><span class="line">                        &lt;groupId&gt;com.alibaba.p3c&lt;/groupId&gt;</span><br><span class="line">                        &lt;artifactId&gt;p3c-pmd&lt;/artifactId&gt;</span><br><span class="line">                        &lt;version&gt;1.3.6&lt;/version&gt;</span><br><span class="line">                    &lt;/dependency&gt;</span><br><span class="line">                &lt;/dependencies&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+
+<p>通过这个插件，可以写符合自己公司习惯的插件。只要替换掉p3c-pmd包就OK了。</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2020/12/23/drone自动化部署/" class="next-post btn btn-default" title='gogs-drone自动化部署'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            gogs-drone自动化部署</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-Hans'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#deploy-把代码部署到自己的nexus上去"><span class="toc-text">deploy 把代码部署到自己的nexus上去</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#maven-surefire-plugin-执行"><span class="toc-text">maven-surefire-plugin 执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#maven-pmd-plugin-代码规范检查"><span class="toc-text">maven-pmd-plugin 代码规范检查</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>
