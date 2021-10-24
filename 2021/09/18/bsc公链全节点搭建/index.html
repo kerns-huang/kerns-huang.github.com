@@ -22,11 +22,7 @@
 <meta name="keywords" content>
 
 
-<meta name="description" content="快照安装过程
-下载bsc 快照数据
-
-使用快照的原因，从0开始同步数据会很慢，所以需要通过快照的加快区块的同步过程。
-1https://github.com/binance-chain/bsc-...">
+<meta name="description" content="快照安装过程前置条件安装git 环境安装12yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo...">
 
 
 <meta name="robots" content="all">
@@ -37,7 +33,7 @@
 
 <title>
     
-    bsc公链全节点搭建 |
+    centos7 bsc公链全节点搭建 |
     
     kerns的小窝
 </title>
@@ -152,9 +148,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="bsc公链全节点搭建">
+        <h1 id="centos7 bsc公链全节点搭建">
             
-            bsc公链全节点搭建
+            centos7 bsc公链全节点搭建
             
         </h1>
         <div class="post-meta">
@@ -187,11 +183,29 @@
     </div>
     
     <div class="post-body post-content">
-        <h1 id="快照安装过程"><a href="#快照安装过程" class="headerlink" title="快照安装过程"></a>快照安装过程</h1><ol>
+        <h1 id="快照安装过程"><a href="#快照安装过程" class="headerlink" title="快照安装过程"></a>快照安装过程</h1><h2 id="前置条件安装"><a href="#前置条件安装" class="headerlink" title="前置条件安装"></a>前置条件安装</h2><h3 id="git-环境安装"><a href="#git-环境安装" class="headerlink" title="git 环境安装"></a>git 环境安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.7-1.x86_64.rpm</span><br><span class="line">yum install git</span><br></pre></td></tr></table></figure>
+
+<h3 id="go-环境安装"><a href="#go-环境安装" class="headerlink" title="go 环境安装"></a>go 环境安装</h3><ol>
+<li><p>下载地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">标准官网：https://golang.org/ 需要墙</span><br><span class="line">镜像官网：https://golang.google.cn/dl/ 【国内推荐】</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf go*.linux-amd64.tar.gz -C /usr/local</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加环境变量</p>
+</li>
+</ol>
+<p>vi /etc/profile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export GO111MODULE=on</span><br><span class="line">export GOROOT=/usr/local/go</span><br><span class="line">export GOPATH=/home/gopath</span><br><span class="line">export PATH=$PATH:$GOROOT/bin:$GOPATH/bin</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
 <li>下载bsc 快照数据</li>
 </ol>
 <p>使用快照的原因，从0开始同步数据会很慢，所以需要通过快照的加快区块的同步过程。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/binance-chain/bsc-snapshots</span><br></pre></td></tr></table></figure>
+
+<p>下载命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup  wget -O geth.tar.gz &quot;snapurl&quot; &gt;/dev/null 2&gt;log &amp;</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>下载 bsc 快照</li>
@@ -199,10 +213,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/binance-chain/bsc</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
-<li><p>安装 go </p>
-</li>
-<li><p>编译geth</p>
-</li>
+<li>编译geth</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd bsc</span><br><span class="line">make geth</span><br></pre></td></tr></table></figure>
 
@@ -298,7 +309,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快照安装过程"><span class="toc-text">快照安装过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一些常用的命令"><span class="toc-text">一些常用的命令</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快照安装过程"><span class="toc-text">快照安装过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前置条件安装"><span class="toc-text">前置条件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-环境安装"><span class="toc-text">git 环境安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go-环境安装"><span class="toc-text">go 环境安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一些常用的命令"><span class="toc-text">一些常用的命令</span></a></li></ol>
         
     </div>
 </aside>
