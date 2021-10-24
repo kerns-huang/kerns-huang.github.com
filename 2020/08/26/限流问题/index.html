@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="kerns的小窝">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="高并发">
+
+
+<meta name="description" content="基本的概念：限流是为了解决流量超出服务器的承载量，为了保证服务器的稳定性而做的折中方案。通用的实现方式计数器代码实现具体实现
+缺点临界问题，11:59:59 秒100个请求，12:00:01秒 ...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    限流问题 |
+    
+    kerns的小窝
+</title>
+
+<link rel="alternate" href="/atom.xml" title="kerns的小窝" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='kerns'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        kerns的小窝</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/go/"><i class="fa "></i>
+                                go</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/node/"><i class="fa "></i>
+                                node</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/rust/"><i class="fa "></i>
+                                rust</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/运维/"><i class="fa "></i>
+                                运维</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="限流问题">
+            
+            限流问题
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/java/">java</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/高并发/">高并发</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/08/26</span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                423</strong>
+            天之前发表，文中内容可能已经过时。
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="基本的概念："><a href="#基本的概念：" class="headerlink" title="基本的概念："></a>基本的概念：</h2><pre><code>限流是为了解决流量超出服务器的承载量，为了保证服务器的稳定性而做的折中方案。</code></pre><h2 id="通用的实现方式"><a href="#通用的实现方式" class="headerlink" title="通用的实现方式"></a>通用的实现方式</h2><h3 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h3><h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p><a href="https://github.com/kerns-huang/java-test/blob/master/src/main/java/ratelimit/CounterLimiter.java" target="_blank" rel="noopener">具体实现</a></p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>临界问题，11:59:59 秒100个请求，12:00:01秒 又100个请求，导致请求超出服务器的承载能力。</p>
+<h3 id="滑动窗口限流"><a href="#滑动窗口限流" class="headerlink" title="滑动窗口限流"></a>滑动窗口限流</h3><h4 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h4><p>比如限流是按照1分钟100次，我细分为60个时间间隔，第一秒消耗了多少个，我新增一秒</p>
+<h4 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h4><p><a href>具体实现</a></p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>避免了固定窗口的突发请求</p>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><p>设置精度越高，算法消耗的空间越大精度低和固定窗口效果类似。</p>
+<h3 id="漏斗算法"><a href="#漏斗算法" class="headerlink" title="漏斗算法"></a>漏斗算法</h3><h3 id="令牌桶算法"><a href="#令牌桶算法" class="headerlink" title="令牌桶算法"></a>令牌桶算法</h3><h4 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<h2 id="常用的资源隔离"><a href="#常用的资源隔离" class="headerlink" title="常用的资源隔离"></a>常用的资源隔离</h2><h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><h3 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h3>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2020/09/02/fabric链包部署/" class="pre-post btn btn-default" title='fabric 链包开发和部署'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            fabric 链包开发和部署</span>
+    </a>
+    
+    
+    <a href="/2020/08/21/锁/" class="next-post btn btn-default" title='锁-未完成'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            锁-未完成</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-Hans'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本的概念："><span class="toc-text">基本的概念：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通用的实现方式"><span class="toc-text">通用的实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计数器"><span class="toc-text">计数器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码实现"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点"><span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#滑动窗口限流"><span class="toc-text">滑动窗口限流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本原理"><span class="toc-text">基本原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码实现-1"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优点"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点-1"><span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#漏斗算法"><span class="toc-text">漏斗算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#令牌桶算法"><span class="toc-text">令牌桶算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码实现-2"><span class="toc-text">代码实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用的资源隔离"><span class="toc-text">常用的资源隔离</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线程池"><span class="toc-text">线程池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信号量"><span class="toc-text">信号量</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>

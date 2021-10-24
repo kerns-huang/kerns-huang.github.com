@@ -1,0 +1,354 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="kerns的小窝">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="爬虫">
+
+
+<meta name="description" content="安装 seleniumpip install -U selenium
+ps: 在安装的过程中如果遇到被墙的问题的，很容易 timeout
+在mac 环境下需要修改下载源
+1234cd ~mkdi...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    selenium 爬虫 |
+    
+    kerns的小窝
+</title>
+
+<link rel="alternate" href="/atom.xml" title="kerns的小窝" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='kerns'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        kerns的小窝</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/go/"><i class="fa "></i>
+                                go</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/node/"><i class="fa "></i>
+                                node</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/rust/"><i class="fa "></i>
+                                rust</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/运维/"><i class="fa "></i>
+                                运维</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="selenium 爬虫">
+            
+            selenium 爬虫
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/python/">python</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/爬虫/">爬虫</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/09/14</span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                404</strong>
+            天之前发表，文中内容可能已经过时。
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="安装-selenium"><a href="#安装-selenium" class="headerlink" title="安装 selenium"></a>安装 selenium</h2><p>pip install -U selenium</p>
+<p>ps: 在安装的过程中如果遇到被墙的问题的，很容易 timeout</p>
+<p>在mac 环境下需要修改下载源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">mkdir .pip</span><br><span class="line">cd .pip</span><br><span class="line">vim pip.conf</span><br></pre></td></tr></table></figure>
+
+<p>接着进入vim编辑，写入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url=http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="内核安装"><a href="#内核安装" class="headerlink" title="内核安装"></a>内核安装</h3><p><a href="https://chromedriver.chromium.org/" target="_blank" rel="noopener">crome</a></p>
+<h3 id="selenium-等待页面加载完成。"><a href="#selenium-等待页面加载完成。" class="headerlink" title="selenium 等待页面加载完成。"></a>selenium 等待页面加载完成。</h3><p>强制等待,目前用着是最好用的一个操作，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time.sleep</span><br></pre></td></tr></table></figure>
+
+<p>隐式等待</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.implicitly_wait(10)</span><br></pre></td></tr></table></figure>
+
+<p>显示等待，有些时候执行不成功，具体原因还得定位，在python里面不好用，在java里面挺好用的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element = WebDriverWait(driver, 10).until(</span><br><span class="line">        EC.presence_of_element_located((By.XPATH, &apos;//*[@id=&quot;su&quot;]&apos;))</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<h3 id="后台执行"><a href="#后台执行" class="headerlink" title="后台执行"></a>后台执行</h3><p>当需要在服务端运行的时候，这个非常有用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chrome_options = Options()</span><br><span class="line">chrome_options.add_argument(&apos;--headless&apos;) chrome_options.add_argument(&apos;--no-sandbox&apos;)</span><br><span class="line">chrome_options.add_argument(&apos;--disable-dev-shm-usage&apos;)</span><br><span class="line">chrome_options.add_argument(&apos;--disable-gpu&apos;)</span><br><span class="line">dr = webdriver.Chrome(chrome_options=chrome_options)</span><br></pre></td></tr></table></figure>
+
+<h3 id="form-表单模拟登陆"><a href="#form-表单模拟登陆" class="headerlink" title="form 表单模拟登陆"></a>form 表单模拟登陆</h3><p>如下，非常简单的操作，通过send_keys 就可以给表单对象设置value</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">uInput = dr.find_element_by_id(&quot;username&quot;)</span><br><span class="line">uInput.send_keys(&quot;name&quot;)</span><br><span class="line">passInput = dr.find_element_by_id(&quot;password&quot;)</span><br><span class="line">passInput.send_keys(&quot;pasword&quot;)</span><br><span class="line">dr.find_element_by_class_name(&quot;btn-login&quot;).click()</span><br></pre></td></tr></table></figure>
+
+<h3 id="调用对应的事件"><a href="#调用对应的事件" class="headerlink" title="调用对应的事件"></a>调用对应的事件</h3><p>java:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Actions action = new Actions(driver);</span><br><span class="line">action.doubleClick(tds.get(2)).perform();</span><br></pre></td></tr></table></figure>
+
+<h3 id="回退和前进"><a href="#回退和前进" class="headerlink" title="回退和前进"></a>回退和前进</h3><p>java 回退</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.navigate().back();</span><br></pre></td></tr></table></figure>
+
+<p>java 前进</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.navigate().forward();</span><br></pre></td></tr></table></figure>
+
+<h3 id="多页面，切换页面"><a href="#多页面，切换页面" class="headerlink" title="多页面，切换页面"></a>多页面，切换页面</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;String&gt; set = driver.getWindowHandles();</span><br><span class="line">for (String handle : set) &#123;</span><br><span class="line">    driver.switchTo().window(handle);</span><br><span class="line">    //获取满足条件的 页面</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="selenium-反爬机制"><a href="#selenium-反爬机制" class="headerlink" title="selenium 反爬机制"></a>selenium 反爬机制</h2><p>目前在爬取 问财 网站的时候遇到了 反爬的机制，反爬机制的原因是因为selenium的一个特征机制被识别，导致爬虫失效。<br>可以添加 如果配置项消除 selenium 特征。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chrome_options.add_argument(&quot;--disable-blink-features&quot;)</span><br><span class="line">chrome_options.add_argument(&quot;--disable-blink-features=AutomationControlled&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="selenium方式的优劣"><a href="#selenium方式的优劣" class="headerlink" title="selenium方式的优劣"></a>selenium方式的优劣</h2><ul>
+<li><p>优势：虽然通过浏览器内核，是简单的通过http模拟是媲美不了的，如果ajax很多，而且有很多拼接操作的页面，通过http请求，分析各个接口的含义需要花很多的时间，这个时候通过selenium通过浏览器内核直接抓取页面元素会方便很多。</p>
+</li>
+<li><p>劣势：比如模拟表单提交，如果ajax请求很少，或者没有，只有一次请求，但是又有很多动态的元素生成，这种情况下直接分析请求报文是更简单的操作。</p>
+</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.python66.com/seleniumjiaocheng/182.html" target="_blank" rel="noopener">http://www.python66.com/seleniumjiaocheng/182.html</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2020/10/23/mysql连接数问题/" class="pre-post btn btn-default" title='mysql 问题定位'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            mysql 问题定位</span>
+    </a>
+    
+    
+    <a href="/2020/09/02/fabric链包部署/" class="next-post btn btn-default" title='fabric 链包开发和部署'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            fabric 链包开发和部署</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-Hans'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-selenium"><span class="toc-text">安装 selenium</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内核安装"><span class="toc-text">内核安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#selenium-等待页面加载完成。"><span class="toc-text">selenium 等待页面加载完成。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后台执行"><span class="toc-text">后台执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#form-表单模拟登陆"><span class="toc-text">form 表单模拟登陆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调用对应的事件"><span class="toc-text">调用对应的事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回退和前进"><span class="toc-text">回退和前进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多页面，切换页面"><span class="toc-text">多页面，切换页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#selenium-反爬机制"><span class="toc-text">selenium 反爬机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#selenium方式的优劣"><span class="toc-text">selenium方式的优劣</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>

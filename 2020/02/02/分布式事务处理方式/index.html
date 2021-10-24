@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="kerns的小窝">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="分布式,事务">
+
+
+<meta name="description" content="分布式事务1）什么是数据一致性
+在数据有多份副本的情况下，如果网络、服务器或者软件出现故障，会导致部分副本写入成功，部分副本写入失败。这就造成各个副本之间的数据不一致，数据内容冲突。
+造成事实上...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    分布式事务处理方式 |
+    
+    kerns的小窝
+</title>
+
+<link rel="alternate" href="/atom.xml" title="kerns的小窝" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='kerns'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        kerns的小窝</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/go/"><i class="fa "></i>
+                                go</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/node/"><i class="fa "></i>
+                                node</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/rust/"><i class="fa "></i>
+                                rust</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/运维/"><i class="fa "></i>
+                                运维</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="分布式事务处理方式">
+            
+            分布式事务处理方式
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/java/">java</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/事务/">事务</a> <a class="tag-link" href="/tags/分布式/">分布式</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/02/02</span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                630</strong>
+            天之前发表，文中内容可能已经过时。
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h2><p>1）什么是数据一致性</p>
+<p>在数据有多份副本的情况下，如果网络、服务器或者软件出现故障，会导致部分副本写入成功，部分副本写入失败。这就造成各个副本之间的数据不一致，数据内容冲突。</p>
+<p>造成事实上的数据不一致。</p>
+<p>2）CAP定理</p>
+<p>CAP理论认为在分布式的环境下设计和部署系统时，有3个核心的需求：</p>
+<p>Consistency，Availability和Partition Tolerance，即CAP。</p>
+<h3 id="两阶段提交"><a href="#两阶段提交" class="headerlink" title="两阶段提交"></a>两阶段提交</h3><h4 id="两个阶段的执行"><a href="#两个阶段的执行" class="headerlink" title="两个阶段的执行"></a>两个阶段的执行</h4><p>1.请求阶段（commit-request phase，或称表决阶段，voting phase）<br>在请求阶段，协调者将通知事务参与者准备提交或取消事务，然后进入表决过程。<br>在表决过程中，参与者将告知协调者自己的决策：同意（事务参与者本地作业执行成功）或取消（本地作业执行故障）。</p>
+<p>2.提交阶段（commit phase）<br>在该阶段，协调者将基于第一个阶段的投票结果进行决策：提交或取消。<br>当且仅当所有的参与者同意提交事务协调者才通知所有的参与者提交事务，否则协调者将通知所有的参与者取消事务。<br>参与者在接收到协调者发来的消息后将执行响应的操作。</p>
+<h4 id="两阶段提交的缺点"><a href="#两阶段提交的缺点" class="headerlink" title="两阶段提交的缺点"></a>两阶段提交的缺点</h4><p>1.同步阻塞问题。执行过程中，所有参与节点都是事务阻塞型的。<br>当参与者占有公共资源时，其他第三方节点访问公共资源不得不处于阻塞状态。</p>
+<p>2.单点故障。由于协调者的重要性，一旦协调者发生故障。<br>参与者会一直阻塞下去。尤其在第二阶段，协调者发生故障，那么所有的参与者还都处于锁定事务资源的状态中，而无法继续完成事务操作。（如果是协调者挂掉，可以重新选举一个协调者，但是无法解决因为协调者宕机导致的参与者处于阻塞状态的问题）</p>
+<p>3.数据不一致。在二阶段提交的阶段二中，当协调者向参与者发送commit请求之后，发生了局部网络异常或者在发送commit请求过程中协调者发生了故障，这回导致只有一部分参与者接受到了commit请求。<br>而在这部分参与者接到commit请求之后就会执行commit操作。但是其他部分未接到commit请求的机器则无法执行事务提交。于是整个分布式系统便出现了数据部一致性的现象。</p>
+<h4 id="两阶段提交无法解决的问题"><a href="#两阶段提交无法解决的问题" class="headerlink" title="两阶段提交无法解决的问题"></a>两阶段提交无法解决的问题</h4><p>当协调者出错，同时参与者也出错时，两阶段无法保证事务执行的完整性。<br>考虑协调者再发出commit消息之后宕机，而唯一接收到这条消息的参与者同时也宕机了。<br>那么即使协调者通过选举协议产生了新的协调者，这条事务的状态也是不确定的，没人知道事务是否被已经提交。</p>
+<h3 id="三阶段提交"><a href="#三阶段提交" class="headerlink" title="三阶段提交"></a>三阶段提交</h3><p>三阶段提交协议在协调者和参与者中都引入超时机制，并且把两阶段提交协议的第一个阶段拆分成了两步：询问，然后再锁资源，最后真正提交。</p>
+<h4 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h4><p>1.CanCommit阶段<br>3PC的CanCommit阶段其实和2PC的准备阶段很像。<br>协调者向参与者发送commit请求，参与者如果可以提交就返回Yes响应，否则返回No响应。</p>
+<p>2.PreCommit阶段<br>Coordinator根据Cohort的反应情况来决定是否可以继续事务的PreCommit操作。<br>根据响应情况，有以下两种可能。<br>A.假如Coordinator从所有的Cohort获得的反馈都是Yes响应，那么就会进行事务的预执行：<br>发送预提交请求。Coordinator向Cohort发送PreCommit请求，并进入Prepared阶段。<br>事务预提交。Cohort接收到PreCommit请求后，会执行事务操作，并将undo和redo信息记录到事务日志中。<br>响应反馈。如果Cohort成功的执行了事务操作，则返回ACK响应，同时开始等待最终指令。</p>
+<p>B.假如有任何一个Cohort向Coordinator发送了No响应，或者等待超时之后，Coordinator都没有接到Cohort的响应，那么就中断事务：<br>发送中断请求。Coordinator向所有Cohort发送abort请求。<br>中断事务。Cohort收到来自Coordinator的abort请求之后（或超时之后，仍未收到Cohort的请求），执行事务的中断。</p>
+<p>3.DoCommit阶段</p>
+<p>该阶段进行真正的事务提交，也可以分为以下两种情况:</p>
+<p>执行提交</p>
+<p>A.发送提交请求。Coordinator接收到Cohort发送的ACK响应，那么他将从预提交状态进入到提交状态。并向所有Cohort发送doCommit请求。<br>B.事务提交。Cohort接收到doCommit请求之后，执行正式的事务提交。并在完成事务提交之后释放所有事务资源。<br>C.响应反馈。事务提交完之后，向Coordinator发送ACK响应。<br>D.完成事务。Coordinator接收到所有Cohort的ACK响应之后，完成事务。</p>
+<p>中断事务</p>
+<p>Coordinator没有接收到Cohort发送的ACK响应（可能是接受者发送的不是ACK响应，也可能响应超时），那么就会执行中断事务。</p>
+<p>三阶段是为了解决2阶段提交的阻塞问题。</p>
+<h4 id="三阶段提交协议的缺点"><a href="#三阶段提交协议的缺点" class="headerlink" title="三阶段提交协议的缺点"></a>三阶段提交协议的缺点</h4><p>如果进入PreCommit后，Coordinator发出的是abort请求，假设只有一个Cohort收到并进行了abort操作，<br>而其他对于系统状态未知的Cohort会根据3PC选择继续Commit，此时系统状态发生不一致性。</p>
+<h3 id="tcc-try-confirm-cancel-柔性事务"><a href="#tcc-try-confirm-cancel-柔性事务" class="headerlink" title="tcc(try-confirm-cancel) 柔性事务"></a>tcc(try-confirm-cancel) 柔性事务</h3><h4 id><a href="#" class="headerlink" title></a></h4><h4 id="tcc-的具体实现"><a href="#tcc-的具体实现" class="headerlink" title="tcc 的具体实现"></a>tcc 的具体实现</h4><h4 id="华为的servicecomb-pack"><a href="#华为的servicecomb-pack" class="headerlink" title="华为的servicecomb-pack"></a>华为的<a href="https://github.com/apache/servicecomb-pack" target="_blank" rel="noopener">servicecomb-pack</a></h4><h4 id="通过mq处理分布式事务"><a href="#通过mq处理分布式事务" class="headerlink" title="通过mq处理分布式事务"></a>通过mq处理分布式事务</h4><h4 id="阿里的seta"><a href="#阿里的seta" class="headerlink" title="阿里的seta"></a>阿里的seta</h4><h4 id="ByteTcc"><a href="#ByteTcc" class="headerlink" title="ByteTcc"></a><a href="https://github.com/liuyangming/ByteTCC" target="_blank" rel="noopener">ByteTcc</a></h4><h4 id="hmily"><a href="#hmily" class="headerlink" title="hmily"></a><a href="https://github.com/Dromara/hmily" target="_blank" rel="noopener">hmily</a></h4><h4 id="tcc-transaction"><a href="#tcc-transaction" class="headerlink" title="tcc-transaction"></a><a href="https://github.com/changmingxie/tcc-transaction" target="_blank" rel="noopener">tcc-transaction</a></h4>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2020/02/24/为什么不适用jquery/" class="pre-post btn btn-default" title='vue 代码解读'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            vue 代码解读</span>
+    </a>
+    
+    
+    <a href="/2019/09/07/nginx_base/" class="next-post btn btn-default" title='nginx的基本操作配置'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            nginx的基本操作配置</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-Hans'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式事务"><span class="toc-text">分布式事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#两阶段提交"><span class="toc-text">两阶段提交</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#两个阶段的执行"><span class="toc-text">两个阶段的执行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#两阶段提交的缺点"><span class="toc-text">两阶段提交的缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#两阶段提交无法解决的问题"><span class="toc-text">两阶段提交无法解决的问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三阶段提交"><span class="toc-text">三阶段提交</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#执行过程"><span class="toc-text">执行过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三阶段提交协议的缺点"><span class="toc-text">三阶段提交协议的缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tcc-try-confirm-cancel-柔性事务"><span class="toc-text">tcc(try-confirm-cancel) 柔性事务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tcc-的具体实现"><span class="toc-text">tcc 的具体实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#华为的servicecomb-pack"><span class="toc-text">华为的servicecomb-pack</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过mq处理分布式事务"><span class="toc-text">通过mq处理分布式事务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#阿里的seta"><span class="toc-text">阿里的seta</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ByteTcc"><span class="toc-text">ByteTcc</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hmily"><span class="toc-text">hmily</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tcc-transaction"><span class="toc-text">tcc-transaction</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>

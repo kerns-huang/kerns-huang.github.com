@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="kerns的小窝">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="高并发">
+
+
+<meta name="description" content="如果我们没有在高并发场景下，我们获取单个用户信息
+1234567891011121314public class UserServiceImpl implements UserService &...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    高并发之请求合并 |
+    
+    kerns的小窝
+</title>
+
+<link rel="alternate" href="/atom.xml" title="kerns的小窝" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='kerns'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        kerns的小窝</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/go/"><i class="fa "></i>
+                                go</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/node/"><i class="fa "></i>
+                                node</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/rust/"><i class="fa "></i>
+                                rust</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/运维/"><i class="fa "></i>
+                                运维</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="高并发之请求合并">
+            
+            高并发之请求合并
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/java/">java</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/高并发/">高并发</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/07/27</span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                453</strong>
+            天之前发表，文中内容可能已经过时。
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>如果我们没有在高并发场景下，我们获取单个用户信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class UserServiceImpl implements UserService &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public User getById(Integer id) &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            //这段代码代码该方法的正常耗时</span><br><span class="line">            Thread.sleep(10l);</span><br><span class="line">            User user = new User();</span><br><span class="line">            user.setId(id);</span><br><span class="line">            return user;</span><br><span class="line">        &#125;catch (Exception e)&#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但在面向大批量to c的用户场景下，用户的请求会出现毛刺的现象。比如某段时间逛的人特别多，获取用户信息，或者商品信息的请求某段时间突然变大，导致单台服务器支持不住，如果做流控的话，体验不是很好。</p>
+<p>在这种情况下，两种办法：<br>    1: 添加服务器<br>    2: 请求合并</p>
+<p>添加服务器简单有效，但是成本上去了，请求合并能够解决单台服务器的吞吐量的问题，那么上面的代码需要变成。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">public class MergeUserServiceImpl implements UserService &#123;</span><br><span class="line"></span><br><span class="line">    static class Request &#123;</span><br><span class="line">        Integer id;</span><br><span class="line">        CompletableFuture future;</span><br><span class="line"></span><br><span class="line">        public Request(Integer id, CompletableFuture future) &#123;</span><br><span class="line">            this.id = id;</span><br><span class="line">            this.future = future;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private LinkedBlockingQueue&lt;Request&gt; linkedBlockingQueue = new LinkedBlockingQueue&lt;Request&gt;(1000);</span><br><span class="line"></span><br><span class="line">    public MergeUserServiceImpl()&#123;</span><br><span class="line">        init();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void init() &#123;</span><br><span class="line">        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(1);</span><br><span class="line">        scheduledExecutorService.scheduleAtFixedRate(new Runnable() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line">                try &#123;</span><br><span class="line">                    //1.从阻塞队列中取出queue的请求，生成一次批量查询。</span><br><span class="line">                    int size = linkedBlockingQueue.size();</span><br><span class="line">                    if (size == 0) &#123;</span><br><span class="line">                        return;</span><br><span class="line">                    &#125;</span><br><span class="line">                    List&lt;Request&gt; requests = new ArrayList&lt;&gt;(size);</span><br><span class="line">                    for (int i = 0; i &lt; size; i++) &#123;</span><br><span class="line">                        // 移出队列，并返回。</span><br><span class="line">                        Request poll = linkedBlockingQueue.poll();</span><br><span class="line">                        requests.add(poll);</span><br><span class="line">                    &#125;</span><br><span class="line">                    //2.组装一个批量查询请求参数。</span><br><span class="line">                    List&lt;Integer&gt; ids = new ArrayList&lt;&gt;();</span><br><span class="line">                    for (Request request : requests) &#123;</span><br><span class="line">                        ids.add(request.id);</span><br><span class="line">                    &#125;</span><br><span class="line">                    //3. http 请求，或者 dubbo 请求。批量请求，得到结果list。</span><br><span class="line">                    System.out.println(&quot;本次合并请求数量：&quot;+ids.size());</span><br><span class="line">                    //请求</span><br><span class="line">                    Map&lt;Integer, User&gt; responses = new HashMap&lt;&gt;();</span><br><span class="line">                    for(Integer id:ids)&#123;</span><br><span class="line">                        User user=new User();</span><br><span class="line">                        user.setId(id);</span><br><span class="line">                        responses.put(id,user);</span><br><span class="line">                    &#125;</span><br><span class="line">                    Thread.sleep(100l);</span><br><span class="line">                    //4.将结果响应给每一个单独的用户请求。</span><br><span class="line">                    for (Request request : requests) &#123;</span><br><span class="line">                        //根据请求中携带的能表示唯一参数，去批量查询的结果中找响应。</span><br><span class="line">                        User user= responses.get(request.id);</span><br><span class="line">                        //将结果返回到对应的请求线程。2个线程通信，异步编程赋值。</span><br><span class="line">                        //complete(),源码注释翻译：如果尚未完成，则将由方法和相关方法返回的值设置为给定值</span><br><span class="line">                        request.future.complete(user);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125; catch (Exception e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            // 立即执行任务，并间隔10 毫秒重复执行。</span><br><span class="line">        &#125;, 0, 10, TimeUnit.MILLISECONDS);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public User getById(Integer id) &#123;</span><br><span class="line">        CompletableFuture&lt;User&gt; future = new CompletableFuture();</span><br><span class="line">        linkedBlockingQueue.offer(new Request(id, future));</span><br><span class="line">        try &#123;</span><br><span class="line">            return future.get();</span><br><span class="line">        &#125;catch (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这么做的好处，可以合并io的操作，可以使用redis的pipline</p>
+<h3 id="spring-cloud-下Hystrix请求合并"><a href="#spring-cloud-下Hystrix请求合并" class="headerlink" title="spring cloud 下Hystrix请求合并"></a>spring cloud 下Hystrix请求合并</h3><p><a href="https://blog.csdn.net/u012702547/article/details/78213270" target="_blank" rel="noopener">demo1</a><br><a href="https://juejin.im/post/5a22a88851882554bd50deae" target="_blank" rel="noopener">demo2</a></p>
+<p>在spring 环境下的请求合并，使用了Spring的注解，逻辑思路还是如上面所示。</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2020/08/05/黑科技收集-持续更新/" class="pre-post btn btn-default" title='黑科技收集-持续更新'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            黑科技收集-持续更新</span>
+    </a>
+    
+    
+    <a href="/2020/07/24/h2-数据库源码阅读/" class="next-post btn btn-default" title='h2 数据库源码阅读'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            h2 数据库源码阅读</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-Hans'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#spring-cloud-下Hystrix请求合并"><span class="toc-text">spring cloud 下Hystrix请求合并</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>

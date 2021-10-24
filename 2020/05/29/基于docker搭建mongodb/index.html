@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="kerns的小窝">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="linux,docker,mongo">
+
+
+<meta name="description" content="mongo集群搭建第一步创建 docker-compose.yml文件docker-compose.yml: 
+1234567891011121314151617181920212223vers...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    基于docker搭建mongodb |
+    
+    kerns的小窝
+</title>
+
+<link rel="alternate" href="/atom.xml" title="kerns的小窝" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='kerns'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        kerns的小窝</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/go/"><i class="fa "></i>
+                                go</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/node/"><i class="fa "></i>
+                                node</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/rust/"><i class="fa "></i>
+                                rust</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/运维/"><i class="fa "></i>
+                                运维</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="基于docker搭建mongodb">
+            
+            基于docker搭建mongodb
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/运维/">运维</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/docker/">docker</a> <a class="tag-link" href="/tags/linux/">linux</a> <a class="tag-link" href="/tags/mongo/">mongo</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/05/29</span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                512</strong>
+            天之前发表，文中内容可能已经过时。
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="mongo集群搭建"><a href="#mongo集群搭建" class="headerlink" title="mongo集群搭建"></a>mongo集群搭建</h1><h2 id="第一步创建-docker-compose-yml文件"><a href="#第一步创建-docker-compose-yml文件" class="headerlink" title="第一步创建 docker-compose.yml文件"></a>第一步创建 docker-compose.yml文件</h2><p>docker-compose.yml: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">version: &apos;3&apos;</span><br><span class="line">services:</span><br><span class="line">  rs1:</span><br><span class="line">    image: mongo:latest</span><br><span class="line">    container_name: &quot;mongo-rs-1&quot;</span><br><span class="line">    network_mode: &quot;host&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - /data/mongodb/rs1:/data/db</span><br><span class="line">    command: mongod --port 57017 --dbpath /data/db --replSet mongoreplset</span><br><span class="line">  rs2:</span><br><span class="line">    image: mongo:latest</span><br><span class="line">    container_name: &quot;mongo-rs-2&quot;</span><br><span class="line">    network_mode: &quot;host&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - /data/mongodb/rs2:/data/db</span><br><span class="line">    command: mongod --port 57018 --dbpath /data/db --replSet mongoreplset</span><br><span class="line">  rs3:</span><br><span class="line">    image: mongo:latest</span><br><span class="line">    container_name: &quot;mongo-rs-3&quot;</span><br><span class="line">    network_mode: &quot;host&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - /data/mongodb/rs3:/data/db</span><br><span class="line">    command: mongod --port 57019 --dbpath /data/db --replSet mongoreplset</span><br></pre></td></tr></table></figure>
+
+<h3 id="host-文件配置"><a href="#host-文件配置" class="headerlink" title="host 文件配置"></a>host 文件配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 mongo-rs-3</span><br><span class="line">127.0.0.1 mongo-rs-2</span><br><span class="line">127.0.0.1 mongo-rs-1</span><br></pre></td></tr></table></figure>
+
+<h3 id="network的选择，为什么是host-而不是-bridge"><a href="#network的选择，为什么是host-而不是-bridge" class="headerlink" title="network的选择，为什么是host 而不是 bridge"></a>network的选择，为什么是host 而不是 bridge</h3><p>主要是如果是brigge 模式，外网访问也会调用mongodb的心跳，但因为两边网络不通，会导致客户端认为mongodb的集群是不成功的。<br>先要配置host文件，然后再启动docker，因为host配置默认会复制hosts文件到容器里面。</p>
+<h2 id="使用-docker-compose-组件启动集群"><a href="#使用-docker-compose-组件启动集群" class="headerlink" title="使用 docker-compose 组件启动集群"></a>使用 docker-compose 组件启动集群</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<p>如果没有安装 docker-compose组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install docker-compose</span><br></pre></td></tr></table></figure>
+
+<h2 id="集群replica-set-配置"><a href="#集群replica-set-配置" class="headerlink" title="集群replica set 配置"></a>集群replica set 配置</h2><h3 id="进入集群主节点"><a href="#进入集群主节点" class="headerlink" title="进入集群主节点"></a>进入集群主节点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mongo-rs-1 mongo --port=57017</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加集群配置"><a href="#添加集群配置" class="headerlink" title="添加集群配置"></a>添加集群配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rs.initiate()</span><br><span class="line">rs.add(&quot;mongo-rs-2:57018&quot;)</span><br><span class="line">rs.add(&quot;mongo-rs-2:57018&quot;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="默认情况下，主节点host是-是默认的域名，不会是mongo-rs-1，所以需要重新配置"><a href="#默认情况下，主节点host是-是默认的域名，不会是mongo-rs-1，所以需要重新配置" class="headerlink" title="默认情况下，主节点host是 是默认的域名，不会是mongo-rs-1，所以需要重新配置"></a>默认情况下，主节点host是 是默认的域名，不会是mongo-rs-1，所以需要重新配置</h4><p>关闭主节点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop mongo-rs-1</span><br></pre></td></tr></table></figure>
+
+<p>这时候备份节点有一个会变成主节点,在新的主节点操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mongo-rs-2 mongo --port=57018</span><br><span class="line"></span><br><span class="line">rs.remove(&quot;默认host:57017&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>启动老的主节点，这时候这是独立节点，在新的主节点操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs.add(&quot;mongo-rs-1:57017&quot;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://bazingafeng.com/2017/06/19/create-mongodb-replset-cluster-using-docker/</span><br></pre></td></tr></table></figure>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2020/06/21/spring-cloud-gateway-框架整理/" class="pre-post btn btn-default" title='spring cloud gateway 框架整理'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            spring cloud gateway 框架整理</span>
+    </a>
+    
+    
+    <a href="/2020/04/29/BPlugsTree-java实现/" class="next-post btn btn-default" title='BPlugsTree-java实现'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            BPlugsTree-java实现</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-Hans'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mongo集群搭建"><span class="toc-text">mongo集群搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一步创建-docker-compose-yml文件"><span class="toc-text">第一步创建 docker-compose.yml文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#host-文件配置"><span class="toc-text">host 文件配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#network的选择，为什么是host-而不是-bridge"><span class="toc-text">network的选择，为什么是host 而不是 bridge</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-docker-compose-组件启动集群"><span class="toc-text">使用 docker-compose 组件启动集群</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集群replica-set-配置"><span class="toc-text">集群replica set 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入集群主节点"><span class="toc-text">进入集群主节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加集群配置"><span class="toc-text">添加集群配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#默认情况下，主节点host是-是默认的域名，不会是mongo-rs-1，所以需要重新配置"><span class="toc-text">默认情况下，主节点host是 是默认的域名，不会是mongo-rs-1，所以需要重新配置</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>
