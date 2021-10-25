@@ -234,8 +234,8 @@
 <p>测试网络</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/binance-chain/bsc/releases/download/v1.1.2/testnet.zip</span><br><span class="line">unzip testnet.zip</span><br></pre></td></tr></table></figure>
 
-<p>config.toml 配置文件修改成可远程访问<br>需要把 HTTPHost 从 localhost 改成 0.0.0.0<br>HTTPVirtualHosts 从 localhost改成 0.0.0.0</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Node]</span><br><span class="line">IPCPath = &quot;geth.ipc&quot;</span><br><span class="line">HTTPHost = &quot;0.0.0.0&quot;</span><br><span class="line">NoUSB = true</span><br><span class="line">InsecureUnlockAllowed = false</span><br><span class="line">HTTPPort = 8545</span><br><span class="line">HTTPVirtualHosts = [&quot;*&quot;]</span><br><span class="line">HTTPModules = [&quot;eth&quot;, &quot;net&quot;, &quot;web3&quot;, &quot;txpool&quot;, &quot;parlia&quot;]</span><br><span class="line">WSPort = 8546</span><br><span class="line">WSModules = [&quot;net&quot;, &quot;web3&quot;, &quot;eth&quot;]</span><br></pre></td></tr></table></figure>
+<p>config.toml 节点配置修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Node]</span><br><span class="line">IPCPath = &quot;geth.ipc&quot;</span><br><span class="line">HTTPHost = &quot;0.0.0.0&quot;</span><br><span class="line">NoUSB = true</span><br><span class="line">InsecureUnlockAllowed = false</span><br><span class="line">HTTPPort = 8876</span><br><span class="line">HTTPVirtualHosts = [&quot;*&quot;]</span><br><span class="line">HTTPModules = [&quot;eth&quot;, &quot;net&quot;, &quot;web3&quot;, &quot;txpool&quot;, &quot;parlia&quot;]</span><br><span class="line">WSPort = 8877    </span><br><span class="line">WSModules = [&quot;net&quot;, &quot;web3&quot;, &quot;eth&quot;]</span><br></pre></td></tr></table></figure>
 
 <ol start="6">
 <li>初始化（当从快照执行的时候不用）</li>
@@ -251,15 +251,15 @@
 <h1 id="一些常用的命令"><a href="#一些常用的命令" class="headerlink" title="一些常用的命令"></a>一些常用的命令</h1><ol>
 <li>查看节点最新同步的区块高度</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s -H Content-Type:application/json -X POST --data &apos;&#123;&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_blockNumber&quot;,&quot;params&quot;:[],&quot;id&quot;:1&#125;&apos; http://127.0.0.1:8545</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s -H Content-Type:application/json -X POST --data &apos;&#123;&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_blockNumber&quot;,&quot;params&quot;:[],&quot;id&quot;:1&#125;&apos; http://127.0.0.1:8876</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>查看是否同步完成</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s -H Content-Type:application/json -X POST --data &apos;&#123;&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_syncing&quot;,&quot;params&quot;:[],&quot;id&quot;:1&#125;&apos; http://127.0.0.1:8545</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s -H Content-Type:application/json -X POST --data &apos;&#123;&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_syncing&quot;,&quot;params&quot;:[],&quot;id&quot;:1&#125;&apos; http://127.0.0.1:8876</span><br></pre></td></tr></table></figure>
 
 <p>3.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">geth attach http://localhost:8545</span><br><span class="line">eth.syncing</span><br><span class="line">eth.blockNumber</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">geth attach http://localhost:8876</span><br><span class="line">eth.syncing</span><br><span class="line">eth.blockNumber</span><br></pre></td></tr></table></figure>
     </div>
     
     <div class="post-footer">
