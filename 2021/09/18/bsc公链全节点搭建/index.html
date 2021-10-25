@@ -248,6 +248,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup geth --config ./config.toml --datadir ./server/data-seed/geth  --cache 32768 --rpc.allow-unprotected-txs --txlookuplimit 0 &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 
 <p>cache: 以m为单位，缓存设置约大，同步数据越快,目前设置为32G。</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="同步速度跟不上主链的高度"><a href="#同步速度跟不上主链的高度" class="headerlink" title="同步速度跟不上主链的高度"></a>同步速度跟不上主链的高度</h2><h3 id="添加常用节点"><a href="#添加常用节点" class="headerlink" title="添加常用节点"></a>添加常用节点</h3><p>节点设置： <datadir>/geth/static-nodes.json:</datadir></p>
+<h3 id="信任节点设置"><a href="#信任节点设置" class="headerlink" title="信任节点设置"></a>信任节点设置</h3><p>节点设置： <datadir>/geth/trusted-nodes.json </datadir></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://docs.binance.org/smart-chain/developer/fullnode.html" target="_blank" rel="noopener">https://docs.binance.org/smart-chain/developer/fullnode.html</a></p>
 <h1 id="一些常用的命令"><a href="#一些常用的命令" class="headerlink" title="一些常用的命令"></a>一些常用的命令</h1><ol>
 <li>查看节点最新同步的区块高度</li>
 </ol>
@@ -320,7 +323,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快照安装过程"><span class="toc-text">快照安装过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前置条件安装"><span class="toc-text">前置条件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-环境安装"><span class="toc-text">git 环境安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go-环境安装"><span class="toc-text">go 环境安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx-安装"><span class="toc-text">nginx 安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一些常用的命令"><span class="toc-text">一些常用的命令</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快照安装过程"><span class="toc-text">快照安装过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前置条件安装"><span class="toc-text">前置条件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-环境安装"><span class="toc-text">git 环境安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go-环境安装"><span class="toc-text">go 环境安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx-安装"><span class="toc-text">nginx 安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-text">问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#同步速度跟不上主链的高度"><span class="toc-text">同步速度跟不上主链的高度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加常用节点"><span class="toc-text">添加常用节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信任节点设置"><span class="toc-text">信任节点设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一些常用的命令"><span class="toc-text">一些常用的命令</span></a></li></ol>
         
     </div>
 </aside>
