@@ -226,6 +226,9 @@
 <p>测试网络</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/binance-chain/bsc/releases/download/v1.1.2/testnet.zip</span><br><span class="line">unzip testnet.zip</span><br></pre></td></tr></table></figure>
 
+<p>config.toml 配置文件修改成可远程访问<br>需要把 HTTPHost 从 localhost 改成 0.0.0.0<br>HTTPVirtualHosts 从 localhost改成 0.0.0.0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Node]</span><br><span class="line">IPCPath = &quot;geth.ipc&quot;</span><br><span class="line">HTTPHost = &quot;0.0.0.0&quot;</span><br><span class="line">NoUSB = true</span><br><span class="line">InsecureUnlockAllowed = false</span><br><span class="line">HTTPPort = 8545</span><br><span class="line">HTTPVirtualHosts = [&quot;*&quot;]</span><br><span class="line">HTTPModules = [&quot;eth&quot;, &quot;net&quot;, &quot;web3&quot;, &quot;txpool&quot;, &quot;parlia&quot;]</span><br><span class="line">WSPort = 8546</span><br><span class="line">WSModules = [&quot;net&quot;, &quot;web3&quot;, &quot;eth&quot;]</span><br></pre></td></tr></table></figure>
+
 <ol start="6">
 <li>初始化（当从快照执行的时候不用）</li>
 </ol>
