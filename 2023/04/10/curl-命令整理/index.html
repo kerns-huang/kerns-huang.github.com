@@ -19,11 +19,14 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="工具">
+<meta name="keywords" content>
 
 
-<meta name="description" content="远程联调，内网穿透内网穿透的好处是有利于远程协作，可以让别人看到你写的东西，而且不用服务器部署，节约成本，更利于快速的变更。
-frpfrp 目前开源，可以自己搭建服务器，和客户端，好处是可以固定...">
+<meta name="description" content="自动跳转1curl -L www.sina.com
+
+显示头信息1curl -i www.sina.com
+
+显示请求显示各项时间指标123curl -o /dev/null -s -w ‘%&...">
 
 
 <meta name="robots" content="all">
@@ -34,7 +37,7 @@ frpfrp 目前开源，可以自己搭建服务器，和客户端，好处是可�
 
 <title>
     
-    开发工具整理 |
+    curl 命令整理 |
     
     kerns的小窝
 </title>
@@ -149,9 +152,9 @@ frpfrp 目前开源，可以自己搭建服务器，和客户端，好处是可�
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="开发工具整理">
+        <h1 id="curl 命令整理">
             
-            开发工具整理
+            curl 命令整理
             
         </h1>
         <div class="post-meta">
@@ -166,8 +169,6 @@ frpfrp 目前开源，可以自己搭建服务器，和客户端，好处是可�
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/工具/">工具</a>
-            
         </span>
     </span>
     
@@ -176,38 +177,49 @@ frpfrp 目前开源，可以自己搭建服务器，和客户端，好处是可�
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2020/07/10</span>
+            2023/04/10</span>
     </span>
     
     
 </div>
         
         
-        <p class="fa fa-exclamation-triangle warning">
-            本文于<strong>
-                1004</strong>
-            天之前发表，文中内容可能已经过时。
-        </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <h1 id="远程联调，内网穿透"><a href="#远程联调，内网穿透" class="headerlink" title="远程联调，内网穿透"></a>远程联调，内网穿透</h1><p>内网穿透的好处是有利于远程协作，可以让别人看到你写的东西，而且不用服务器部署，节约成本，更利于快速的变更。</p>
-<h2 id="frp"><a href="#frp" class="headerlink" title="frp"></a><a href="https://www.google.com/" title="Google" target="_blank" rel="noopener">frp</a></h2><p>frp 目前开源，可以自己搭建服务器，和客户端，好处是可以固定ip</p>
-<h2 id="ngrok"><a href="#ngrok" class="headerlink" title="ngrok:"></a><a href="https://ngrok.com/download" target="_blank" rel="noopener">ngrok</a>:</h2><p>ngrok 的好处是不需要配置服务端，可以通过他自己的网络进行网络穿透，但外网ip是随机的，如果需要固定ip，则需要付费。</p>
-<p>基本的启动命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/apple/go/src/ngrok http 127.0.0.1:8872</span><br></pre></td></tr></table></figure>
+        <h3 id="自动跳转"><a href="#自动跳转" class="headerlink" title="自动跳转"></a>自动跳转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L www.sina.com</span><br></pre></td></tr></table></figure>
 
-<h1 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h1><h2 id="idea-插件"><a href="#idea-插件" class="headerlink" title="idea 插件"></a>idea 插件</h2><ol>
-<li>jclasslib bytecode viewer : 可以查看javap编译后的字节码变量，查看哪些是放在栈里面的。</li>
-<li>lombok ：不用说了，减少setter，getter的神器。</li>
-</ol>
-<h1 id="适合开发人员的压测工具"><a href="#适合开发人员的压测工具" class="headerlink" title="适合开发人员的压测工具"></a>适合开发人员的压测工具</h1><ol>
-<li>wrk<br>命令行工具，适合开发人员自我测试用</li>
-<li>jmeter<br>中量级工具，有ui工具可以用。</li>
-<li>ab ：命令行工具，安装过于复杂</li>
-</ol>
+<h3 id="显示头信息"><a href="#显示头信息" class="headerlink" title="显示头信息"></a>显示头信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -i www.sina.com</span><br></pre></td></tr></table></figure>
 
+<h3 id="显示请求显示各项时间指标"><a href="#显示请求显示各项时间指标" class="headerlink" title="显示请求显示各项时间指标"></a>显示请求显示各项时间指标</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -o /dev/null -s -w ‘%&#123;time_total&#125;’ http://www.miotour.com</span><br><span class="line">curl -o /dev/null -s -w ‘%&#123;http_code&#125;’ http://www.miotour.com</span><br><span class="line">curl -o /dev/null -s -w %&#123;http_code&#125;:%&#123;time_connect&#125;:%&#123;time_starttransfer&#125;:%&#123;time_total&#125; http://www.miotour.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示通信信息"><a href="#显示通信信息" class="headerlink" title="显示通信信息"></a>显示通信信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -v www.sina.com</span><br><span class="line">curl --trace output.txt www.sina.com</span><br><span class="line">curl --trace-ascii output.txt www.sina.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="post-请求"><a href="#post-请求" class="headerlink" title="post 请求"></a>post 请求</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl -d &quot;user=Summer&amp;passwd=12345678&quot; &quot;http://127.0.0.1:8080/check_your_status&quot;</span><br><span class="line"></span><br><span class="line">curl -X POST --data &quot;data=xxx&amp;data1=1231&quot; example.com/form.cgi</span><br><span class="line">curl -X POST &quot;http://192.168.2.43:8801/graph/hashrate/search?minerType=1&amp;timeType=123&quot; -H &quot;accept: */*&quot; -H &quot;userId: 12&quot;</span><br><span class="line"></span><br><span class="line">post方法还可以这样，传递json数据</span><br><span class="line">curl -H &quot;Content-Type:application/json&quot; -X POST --data &apos;&#123;&quot;message&quot;: &quot;sunshine&quot;&#125;&apos; http://localhost:8000/</span><br></pre></td></tr></table></figure>
+
+<h3 id="表达编码"><a href="#表达编码" class="headerlink" title="表达编码"></a>表达编码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST--data-urlencode &quot;date=April 1&quot; example.com/form.cgi</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加头信息"><a href="#添加头信息" class="headerlink" title="添加头信息"></a>添加头信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --user-agent &quot;[User Agent]&quot; [URL]</span><br><span class="line">curl --cookie &quot;name=xxx&quot; www.example.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -T wordpress.zip ftp://james:123456@202.121.137.58/path/to/backup/</span><br><span class="line">curl -T data.tar.gz -u james sftp://202.121.137.58/</span><br></pre></td></tr></table></figure>
+
+<h3 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h3><p>重定向</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L -o &apos;file.zip&apos; &apos;http://example.com/download.php?fileID=foo&apos;</span><br></pre></td></tr></table></figure>
+
+<p>下载需要用户名，密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -O ftp://james:123456@202.121.137.58:21/path/to/backup.tar.gz</span><br><span class="line">curl -O http://james:123456@202.121.137.58/file/path/data.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>节省带框</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L -O --compressed &apos;http://example.com/large.report-tab.html&apos;</span><br></pre></td></tr></table></figure>
+
+<p>显示下载进度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -# -O http://wordpress.org/latest.zip</span><br></pre></td></tr></table></figure>
+
+<p>重命名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o wordpress-3.8.zip &apos;http://wordpress.org/latest.zip&apos;</span><br></pre></td></tr></table></figure>
+
+<p>带加密的连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --ftp-ssl -u james:123456 -O ftp://202.121.137.58:21/backups/07/07/2012/mysql.blog.sql.tar.gz</span><br><span class="line">curl -u james -O sftp://202.121.137.58/backups/data.tar.gz</span><br></pre></td></tr></table></figure>
     </div>
     
     <div class="post-footer">
@@ -225,17 +237,11 @@ frpfrp 目前开源，可以自己搭建服务器，和客户端，好处是可�
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/07/20/go-web-初探/" class="pre-post btn btn-default" title='go gin web 初探'>
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            go gin web 初探</span>
-    </a>
     
-    
-    <a href="/2020/07/07/cacheline和伪共享问题/" class="next-post btn btn-default" title='cacheline和伪共享问题'>
+    <a href="/2023/03/21/kubectl-的命令收集/" class="next-post btn btn-default" title='kubectl 的命令收集'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            cacheline和伪共享问题</span><i class="fa fa-angle-right fa-fw"></i>
+            kubectl 的命令收集</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -274,7 +280,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#远程联调，内网穿透"><span class="toc-text">远程联调，内网穿透</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#frp"><span class="toc-text">frp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ngrok"><span class="toc-text">ngrok:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开发工具"><span class="toc-text">开发工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#idea-插件"><span class="toc-text">idea 插件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#适合开发人员的压测工具"><span class="toc-text">适合开发人员的压测工具</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#自动跳转"><span class="toc-text">自动跳转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示头信息"><span class="toc-text">显示头信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示请求显示各项时间指标"><span class="toc-text">显示请求显示各项时间指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示通信信息"><span class="toc-text">显示通信信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#post-请求"><span class="toc-text">post 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表达编码"><span class="toc-text">表达编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加头信息"><span class="toc-text">添加头信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传文件"><span class="toc-text">上传文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载文件"><span class="toc-text">下载文件</span></a></li></ol>
         
     </div>
 </aside>

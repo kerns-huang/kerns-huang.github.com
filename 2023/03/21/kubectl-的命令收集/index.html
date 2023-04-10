@@ -189,6 +189,7 @@
 <h2 id="配置相关"><a href="#配置相关" class="headerlink" title="配置相关"></a>配置相关</h2><h3 id="查看某个配置"><a href="#查看某个配置" class="headerlink" title="查看某个配置"></a>查看某个配置</h3><p>kubectl get cm centralsystem-mongodb-cm -ncentralsystem -oyaml</p>
 <h3 id="删除某个配置"><a href="#删除某个配置" class="headerlink" title="删除某个配置"></a>删除某个配置</h3><p>kubectl delete cm mongodb-cert</p>
 <h2 id="镜像里面内容"><a href="#镜像里面内容" class="headerlink" title="镜像里面内容"></a>镜像里面内容</h2><h3 id="查看镜像的内容"><a href="#查看镜像的内容" class="headerlink" title="查看镜像的内容"></a>查看镜像的内容</h3><p>kubectl exec -it api-interface-f644fdd64-z4999 sh -ncentralsystem</p>
+<h2 id="查看某个镜像的配置信息"><a href="#查看某个镜像的配置信息" class="headerlink" title="查看某个镜像的配置信息"></a>查看某个镜像的配置信息</h2><p>kubectl describe pods/api-interface-576475f4f5-k6sln -ncentralsystem</p>
 
     </div>
     
@@ -206,6 +207,12 @@
     </div>
 </article>
 <div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2023/04/10/curl-命令整理/" class="pre-post btn btn-default" title='curl 命令整理'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            curl 命令整理</span>
+    </a>
     
     
     <a href="/2023/01/11/vue环境搭建/" class="next-post btn btn-default" title='vue环境搭建'>
@@ -250,7 +257,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pod相关"><span class="toc-text">pod相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取某个项目的包含的pod"><span class="toc-text">获取某个项目的包含的pod</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日志相关"><span class="toc-text">日志相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看某个pod日志"><span class="toc-text">查看某个pod日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置相关"><span class="toc-text">配置相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看某个配置"><span class="toc-text">查看某个配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除某个配置"><span class="toc-text">删除某个配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#镜像里面内容"><span class="toc-text">镜像里面内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看镜像的内容"><span class="toc-text">查看镜像的内容</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pod相关"><span class="toc-text">pod相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取某个项目的包含的pod"><span class="toc-text">获取某个项目的包含的pod</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日志相关"><span class="toc-text">日志相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看某个pod日志"><span class="toc-text">查看某个pod日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置相关"><span class="toc-text">配置相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看某个配置"><span class="toc-text">查看某个配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除某个配置"><span class="toc-text">删除某个配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#镜像里面内容"><span class="toc-text">镜像里面内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看镜像的内容"><span class="toc-text">查看镜像的内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看某个镜像的配置信息"><span class="toc-text">查看某个镜像的配置信息</span></a></li></ol>
         
     </div>
 </aside>

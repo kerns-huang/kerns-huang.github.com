@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2023-03-22T05:42:55.284Z</updated>
+  <updated>2023-04-10T03:31:45.519Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>curl 命令整理</title>
+    <link href="http://yoursite.com/2023/04/10/curl-%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/"/>
+    <id>http://yoursite.com/2023/04/10/curl-命令整理/</id>
+    <published>2023-04-10T03:27:57.000Z</published>
+    <updated>2023-04-10T03:31:45.519Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="自动跳转"><a href="#自动跳转" class="headerlink" title="自动跳转"></a>自动跳转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L www.sina.com</span><br></pre></td></tr></table></figure><h3 id="显示头信息"><a href="#显示头信息" class="headerlink" title="显示头信息"></a>显示头信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -i www.sina.com</span><br></pre></td></tr></table></figure><h3 id="显示请求显示各项时间指标"><a href="#显示请求显示各项时间指标" class="headerlink" title="显示请求显示各项时间指标"></a>显示请求显示各项时间指标</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -o /dev/null -s -w ‘%&#123;time_total&#125;’ http://www.miotour.com</span><br><span class="line">curl -o /dev/null -s -w ‘%&#123;http_code&#125;’ http://www.miotour.com</span><br><span class="line">curl -o /dev/null -s -w %&#123;http_code&#125;:%&#123;time_connect&#125;:%&#123;time_starttransfer&#125;:%&#123;time_total&#125; http://www.miotour.com</span><br></pre></td></tr></table></figure><h3 id="显示通信信息"><a href="#显示通信信息" class="headerlink" title="显示通信信息"></a>显示通信信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -v www.sina.com</span><br><span class="line">curl --trace output.txt www.sina.com</span><br><span class="line">curl --trace-ascii output.txt www.sina.com</span><br></pre></td></tr></table></figure><h3 id="post-请求"><a href="#post-请求" class="headerlink" title="post 请求"></a>post 请求</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl -d &quot;user=Summer&amp;passwd=12345678&quot; &quot;http://127.0.0.1:8080/check_your_status&quot;</span><br><span class="line"></span><br><span class="line">curl -X POST --data &quot;data=xxx&amp;data1=1231&quot; example.com/form.cgi</span><br><span class="line">curl -X POST &quot;http://192.168.2.43:8801/graph/hashrate/search?minerType=1&amp;timeType=123&quot; -H &quot;accept: */*&quot; -H &quot;userId: 12&quot;</span><br><span class="line"></span><br><span class="line">post方法还可以这样，传递json数据</span><br><span class="line">curl -H &quot;Content-Type:application/json&quot; -X POST --data &apos;&#123;&quot;message&quot;: &quot;sunshine&quot;&#125;&apos; http://localhost:8000/</span><br></pre></td></tr></table></figure><h3 id="表达编码"><a href="#表达编码" class="headerlink" title="表达编码"></a>表达编码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST--data-urlencode &quot;date=April 1&quot; example.com/form.cgi</span><br></pre></td></tr></table></figure><h3 id="添加头信息"><a href="#添加头信息" class="headerlink" title="添加头信息"></a>添加头信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --user-agent &quot;[User Agent]&quot; [URL]</span><br><span class="line">curl --cookie &quot;name=xxx&quot; www.example.com</span><br></pre></td></tr></table></figure><h3 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -T wordpress.zip ftp://james:123456@202.121.137.58/path/to/backup/</span><br><span class="line">curl -T data.tar.gz -u james sftp://202.121.137.58/</span><br></pre></td></tr></table></figure><h3 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h3><p>重定向</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L -o &apos;file.zip&apos; &apos;http://example.com/download.php?fileID=foo&apos;</span><br></pre></td></tr></table></figure><p>下载需要用户名，密码</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -O ftp://james:123456@202.121.137.58:21/path/to/backup.tar.gz</span><br><span class="line">curl -O http://james:123456@202.121.137.58/file/path/data.tar.gz</span><br></pre></td></tr></table></figure><p>节省带框</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L -O --compressed &apos;http://example.com/large.report-tab.html&apos;</span><br></pre></td></tr></table></figure><p>显示下载进度</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -# -O http://wordpress.org/latest.zip</span><br></pre></td></tr></table></figure><p>重命名</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o wordpress-3.8.zip &apos;http://wordpress.org/latest.zip&apos;</span><br></pre></td></tr></table></figure><p>带加密的连接</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --ftp-ssl -u james:123456 -O ftp://202.121.137.58:21/backups/07/07/2012/mysql.blog.sql.tar.gz</span><br><span class="line">curl -u james -O sftp://202.121.137.58/backups/data.tar.gz</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;自动跳转&quot;&gt;&lt;a href=&quot;#自动跳转&quot; class=&quot;headerlink&quot; title=&quot;自动跳转&quot;&gt;&lt;/a&gt;自动跳转&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>kubectl 的命令收集</title>
     <link href="http://yoursite.com/2023/03/21/kubectl-%E7%9A%84%E5%91%BD%E4%BB%A4%E6%94%B6%E9%9B%86/"/>
     <id>http://yoursite.com/2023/03/21/kubectl-的命令收集/</id>
     <published>2023-03-21T06:40:08.000Z</published>
-    <updated>2023-03-22T05:42:55.284Z</updated>
+    <updated>2023-03-27T06:57:09.282Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="pod相关"><a href="#pod相关" class="headerlink" title="pod相关"></a>pod相关</h2><h3 id="获取某个项目的包含的pod"><a href="#获取某个项目的包含的pod" class="headerlink" title="获取某个项目的包含的pod"></a>获取某个项目的包含的pod</h3><p>kubectl get pod -ncentralsystem</p><h2 id="日志相关"><a href="#日志相关" class="headerlink" title="日志相关"></a>日志相关</h2><h3 id="查看某个pod日志"><a href="#查看某个pod日志" class="headerlink" title="查看某个pod日志"></a>查看某个pod日志</h3><p>kubectl logs -f api-interface-6d489d7f49-7j4b7 -ncentralsystem</p><h2 id="配置相关"><a href="#配置相关" class="headerlink" title="配置相关"></a>配置相关</h2><h3 id="查看某个配置"><a href="#查看某个配置" class="headerlink" title="查看某个配置"></a>查看某个配置</h3><p>kubectl get cm centralsystem-mongodb-cm -ncentralsystem -oyaml</p><h3 id="删除某个配置"><a href="#删除某个配置" class="headerlink" title="删除某个配置"></a>删除某个配置</h3><p>kubectl delete cm mongodb-cert</p><h2 id="镜像里面内容"><a href="#镜像里面内容" class="headerlink" title="镜像里面内容"></a>镜像里面内容</h2><h3 id="查看镜像的内容"><a href="#查看镜像的内容" class="headerlink" title="查看镜像的内容"></a>查看镜像的内容</h3><p>kubectl exec -it api-interface-f644fdd64-z4999 sh -ncentralsystem</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="pod相关"><a href="#pod相关" class="headerlink" title="pod相关"></a>pod相关</h2><h3 id="获取某个项目的包含的pod"><a href="#获取某个项目的包含的pod" class="headerlink" title="获取某个项目的包含的pod"></a>获取某个项目的包含的pod</h3><p>kubectl get pod -ncentralsystem</p><h2 id="日志相关"><a href="#日志相关" class="headerlink" title="日志相关"></a>日志相关</h2><h3 id="查看某个pod日志"><a href="#查看某个pod日志" class="headerlink" title="查看某个pod日志"></a>查看某个pod日志</h3><p>kubectl logs -f api-interface-6d489d7f49-7j4b7 -ncentralsystem</p><h2 id="配置相关"><a href="#配置相关" class="headerlink" title="配置相关"></a>配置相关</h2><h3 id="查看某个配置"><a href="#查看某个配置" class="headerlink" title="查看某个配置"></a>查看某个配置</h3><p>kubectl get cm centralsystem-mongodb-cm -ncentralsystem -oyaml</p><h3 id="删除某个配置"><a href="#删除某个配置" class="headerlink" title="删除某个配置"></a>删除某个配置</h3><p>kubectl delete cm mongodb-cert</p><h2 id="镜像里面内容"><a href="#镜像里面内容" class="headerlink" title="镜像里面内容"></a>镜像里面内容</h2><h3 id="查看镜像的内容"><a href="#查看镜像的内容" class="headerlink" title="查看镜像的内容"></a>查看镜像的内容</h3><p>kubectl exec -it api-interface-f644fdd64-z4999 sh -ncentralsystem</p><h2 id="查看某个镜像的配置信息"><a href="#查看某个镜像的配置信息" class="headerlink" title="查看某个镜像的配置信息"></a>查看某个镜像的配置信息</h2><p>kubectl describe pods/api-interface-576475f4f5-k6sln -ncentralsystem</p>]]></content>
     
     <summary type="html">
     
@@ -455,27 +476,6 @@
         &lt;p&gt;1:添加一行数据&lt;br&gt;获取初始保存点&lt;br&gt;遍历索引，添加数据的到索引里面。&lt;br&gt;if 异常：&lt;br&gt;   回滚到保存点。&lt;/p&gt;
 &lt;p&gt;MvPrimaryIndex中&lt;br&gt;如果有事务：&lt;br&gt;   添加数据到undo日志文件中&lt;/p&gt;
 &lt;img src=&quot;http:
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring boot 类加载机制</title>
-    <link href="http://yoursite.com/2020/07/21/Spring-boot-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/"/>
-    <id>http://yoursite.com/2020/07/21/Spring-boot-类加载机制/</id>
-    <published>2020-07-21T14:41:29.000Z</published>
-    <updated>2021-08-23T08:29:40.703Z</updated>
-    
-    <content type="html"><![CDATA[<p>spring boot的类加载机制其实和Spring 没有什么不同，如果有什么不同的，以前需要写一堆的xml配置文件来来申明类和类之间的关系，现在基本上不需要写这么多配置文件了。这说明Spring boot在Spring上还是做了优化了，能让程序员更好更快的开发自己的程序。<br>那么主要是那个变化省去了我们可以不用去写xml的麻烦。</p><p>扫描 -&gt; 注册 - 生成bean</p><p>扫描注册类的过程如下：</p><img src="http://www.plantuml.com/plantuml/svg/ZP7DIiD04CVl-nG3NfIQFa0F7louI_C4Ip995jFTibc4KWKL4OLYptee5W_joJO85R7Obp4VdleARbgBRPg2XpqC-zlVpFmN02oV1W7i8-M7w33E51EyIGmmbMJS1OUXRvCIkAXCIzHnUuTimQbWDjHGUSBMDS2vFbme1CbSJrKWgC_U9k57ydZzDUd6buEutKudGysHHSkg42hVDg-22iHFx-dR8FfSyKp7hU_kA0glT8jD_WEF-VO_6aHX9xxeBRrdNA5qg8MvLAheia39HcQ14iXPYN8LcevlVvFZj8QxEGNOI-0ToOPPparlCvyZVkr7DwteeK_qFFDrZhXYgc5Qb1zJwuIw63IpovpXZmBjI7lFqKidkHzgSGONH0A6SRQNcp93rtzd4raS4fJBHV3w5WNWma7W1m00"><p>获取bean的过程</p><img src="http://www.plantuml.com/plantuml/svg/uyhCAqajIajCJbLmIatCSqjCBialggpcugfLuChBBqbLACfCpoYnKaW2IYeytRxqQL_JyusxkHGK0000"><h2 id="核心类"><a href="#核心类" class="headerlink" title="核心类"></a>核心类</h2><ul><li>BeanDefinition: Bean的定义类, 和xml里的配置一一对应;</li><li>BeanFacotry: Bean工厂接口;</li><li>BeanDefinitionRegistry: BeanDefinition的注册定义接口;</li><li>DefaultListableBeanFactory: ListableBeanFactory（extends BeanFactory）和BeanDefinitionRegistry的默认实现，提供BeanDefinition注册功能;</li><li>ApplicationContext: Spring上下文环境;</li><li>AbstractApplicationContext: 执行refresh()方法;</li><li>AbstractRefreshableApplicationContext： 提供抽象方法loadBeanDefinitions(DefaultListableBeanFactory beanFactory) 用于加载BeanDefinition.</li></ul><h2 id="plantUML-参考资料"><a href="#plantUML-参考资料" class="headerlink" title="plantUML 参考资料"></a>plantUML 参考资料</h2><p><a href="https://juejin.im/post/5c072b62e51d4520cf0ed5f8" target="_blank" rel="noopener">https://juejin.im/post/5c072b62e51d4520cf0ed5f8</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;spring boot的类加载机制其实和Spring 没有什么不同，如果有什么不同的，以前需要写一堆的xml配置文件来来申明类和类之间的关系，现在基本上不需要写这么多配置文件了。这说明Spring boot在Spring上还是做了优化了，能让程序员更好更快的开发自己的程序。
       
     
     </summary>
