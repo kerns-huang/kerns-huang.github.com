@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2023-04-10T03:44:14.944Z</updated>
+  <updated>2024-03-15T01:59:01.346Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git 版本管理</title>
+    <link href="http://yoursite.com/2024/03/15/git-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
+    <id>http://yoursite.com/2024/03/15/git-版本管理/</id>
+    <published>2024-03-15T01:48:49.000Z</published>
+    <updated>2024-03-15T01:59:01.346Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="git-tag-管理"><a href="#git-tag-管理" class="headerlink" title="git tag 管理"></a>git tag 管理</h2><p>创建本地分支: git tag release-1.0.1 -m “drone调整”</p><p>推送本地所有分支: git push –tags</p><p>删除本地tag分支: git tag -d release-1.0.2</p><p>同步本地分和远程分支：git push origin :refs/tags/release-1.0.2</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;git-tag-管理&quot;&gt;&lt;a href=&quot;#git-tag-管理&quot; class=&quot;headerlink&quot; title=&quot;git tag 管理&quot;&gt;&lt;/a&gt;git tag 管理&lt;/h2&gt;&lt;p&gt;创建本地分支: git tag release-1.0.1 -m “dron
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>curl 命令整理</title>
@@ -463,29 +484,6 @@
     
     
       <category term="高并发" scheme="http://yoursite.com/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>h2 数据库源码阅读</title>
-    <link href="http://yoursite.com/2020/07/24/h2-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
-    <id>http://yoursite.com/2020/07/24/h2-数据库源码阅读/</id>
-    <published>2020-07-24T02:28:00.000Z</published>
-    <updated>2021-08-23T08:29:40.706Z</updated>
-    
-    <content type="html"><![CDATA[<p>1:添加一行数据<br>获取初始保存点<br>遍历索引，添加数据的到索引里面。<br>if 异常：<br>   回滚到保存点。</p><p>MvPrimaryIndex中<br>如果有事务：<br>   添加数据到undo日志文件中</p><img src="http://www.plantuml.com/plantuml/svg/uqhEIImkLl0D2qbCoacjvb9GK4XCIGdABzS0OeMY_79Dhbe5hhpyabI5eipqZ18hXPUxPxnOj-Jvh9OIa8wdw-OzxzlmVEDkBgxCl9BKehJ4v5G5pxoKr8fgBgvQ58tFjonwkcSg5nVKBWKbGoM5V5smfAw2KfuIH1lG1G00"><p>核心代码 MvTable</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;1:添加一行数据&lt;br&gt;获取初始保存点&lt;br&gt;遍历索引，添加数据的到索引里面。&lt;br&gt;if 异常：&lt;br&gt;   回滚到保存点。&lt;/p&gt;
-&lt;p&gt;MvPrimaryIndex中&lt;br&gt;如果有事务：&lt;br&gt;   添加数据到undo日志文件中&lt;/p&gt;
-&lt;img src=&quot;http:
-      
-    
-    </summary>
-    
     
   </entry>
   
