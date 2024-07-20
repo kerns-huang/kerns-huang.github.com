@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="kerns的小窝">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content>
+
+
+<meta name="description" content="需求1.快手所有的消息汇集到中控平台。
+2.新消息过来需要有声音提示
+3.需要实现类似微信那样点击用户名，回复该用户的功能。
+4.消息框输入消息，按Enter键发送消息的功能。需要代码实现快手所...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    pyqt6 实现快手中控平台 |
+    
+    kerns的小窝
+</title>
+
+<link rel="alternate" href="/atom.xml" title="kerns的小窝" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='kerns'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        kerns的小窝</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/go/"><i class="fa "></i>
+                                go</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/node/"><i class="fa "></i>
+                                node</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/rust/"><i class="fa "></i>
+                                rust</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/python/"><i class="fa "></i>
+                                python</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/运维/"><i class="fa "></i>
+                                运维</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="pyqt6 实现快手中控平台">
+            
+            pyqt6 实现快手中控平台
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2024/07/03</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><pre><code>1.快手所有的消息汇集到中控平台。
+2.新消息过来需要有声音提示
+3.需要实现类似微信那样点击用户名，回复该用户的功能。
+4.消息框输入消息，按Enter键发送消息的功能。</code></pre><h1 id="需要代码实现"><a href="#需要代码实现" class="headerlink" title="需要代码实现"></a>需要代码实现</h1><h2 id="快手所有消息汇集到中控平台"><a href="#快手所有消息汇集到中控平台" class="headerlink" title="快手所有消息汇集到中控平台"></a>快手所有消息汇集到中控平台</h2><p>通过socket把快手的消息转发给中控，通过 pyqtSignal 转发给gui页面</p>
+<p>server_socket.py</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class Server:</span><br><span class="line"></span><br><span class="line">    def __init__(self, host, port):</span><br><span class="line">        self.data = &apos;&apos; # 需要发送的消息</span><br><span class="line">        self.host = host</span><br><span class="line">        self.port = port</span><br><span class="line">        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">        self.outputs = []  # 流出</span><br><span class="line">        self.inputs = []  # 流入</span><br><span class="line">        self.msg_queue = &#123;&#125;  # 这个字典用来存放不同连接的消息队列</span><br><span class="line">        self.online_conversition = &#123;&#125;  # 在线用户名列表</span><br><span class="line">        self.sock.bind((self.host, self.port))  # 套接字绑定到指定地址</span><br><span class="line">        self.inputs.append(self.sock)  # 将sock加入传入列表，可以监控连接请求</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def add_conn(self,conn):</span><br><span class="line">            self.inputs.append(conn)</span><br><span class="line">            self.outputs.append(conn)</span><br><span class="line">            self.msg_queue[conn] = queue.Queue()  # 新建conn和消息队列的键值对</span><br><span class="line"></span><br><span class="line">    # 根据待发送消息的类型做不同处理</span><br><span class="line">    def send_message(self,conversition:str,data:dict):</span><br><span class="line">        # 发送消息给对应的地址</span><br><span class="line">         # 发送消息给对应的地址</span><br><span class="line">        sock=  self.get_client(conversition=conversition)</span><br><span class="line">        if sock is None:</span><br><span class="line">            return False</span><br><span class="line">        msg=json.dumps(data)</span><br><span class="line">        self.msg_queue[sock].put(msg.encode(&quot;utf-8&quot;))</span><br><span class="line">        return True</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def get_client(self,conversition:str):</span><br><span class="line">        # 遍历所有的连接，获取所有的客户端</span><br><span class="line">        for key, val in self.online_conversition.items():</span><br><span class="line">            if &quot;conversition&quot; in val and val[&apos;conversition&apos;] == conversition:</span><br><span class="line">                return key</span><br><span class="line">        return None</span><br></pre></td></tr></table></figure>
+
+<p>server_thread.py</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">class ServerThread(QThread):</span><br><span class="line"></span><br><span class="line">    message_signal = pyqtSignal(dict)</span><br><span class="line"></span><br><span class="line">    def __init__(self, sockServer:Server):</span><br><span class="line">        super().__init__()</span><br><span class="line">        self.sockServer = sockServer</span><br><span class="line">         # 定义字典型的signal，用于发送同步用户消息</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def handle_message(self,data,sock):</span><br><span class="line">        message=json.loads(data)</span><br><span class="line">        </span><br><span class="line">        if &quot;type&quot; in message and message[&apos;type&apos;] == &quot;heatbeat&quot;:</span><br><span class="line">                &quot;&quot;&quot;</span><br><span class="line">                监测消息是否是心跳消息，是心跳则更信息信息</span><br><span class="line">                &#123;&quot;conversition&quot;: &quot;测试直播-12313&quot;,type:&quot;heatbeat&quot;&#125;</span><br><span class="line">                &quot;&quot;&quot;</span><br><span class="line">                self.sockServer.online_conversition[sock]=&#123;&quot;last_heatbeat&quot;:time.time(),&quot;conversition&quot;:message[&apos;conversition&apos;]&#125;</span><br><span class="line">        elif &quot;type&quot; in message and message[&apos;type&apos;] == &quot;message&quot;:</span><br><span class="line">                &quot;&quot;&quot;</span><br><span class="line">                解析数据，并把数据放在一个日志文件里面。</span><br><span class="line">                    &#123;&quot;conversition&quot;: &quot;测试直播-12313&quot;,&quot;from&quot;:&quot;李四&quot;,&quot;content&quot;: &quot;12312312&quot;,time:12332423411,&quot;type&quot;:&quot;message&quot;&#125;</span><br><span class="line">                    &#123;&quot;conversition&quot;: &quot;\u4eac\u4e1c\u5bb6\u7535\u6e05\u6d17\u7279\u60e0\u4e13\u573a-12480794987&quot;, &quot;from&quot;: &quot;\uff20\u996d\u5c0f\u8431\uff08\u4eac\u4e1c\u5bb6\u7535\u6e05\u6d17\uff09&quot;, &quot;content&quot;: &quot;\u6709\u4ec0\u4e48\u95ee\u9898\u53ef\u4ee5\u6253\u5728\u516c\u5c4f\u4e0a\u54e6&quot;, &quot;time&quot;: 1718693761524, &quot;type&quot;: &quot;message&quot;&#125;</span><br><span class="line">                &quot;&quot;&quot;</span><br><span class="line">                self.sockServer.online_conversition[sock]=&#123;&quot;last_heatbeat&quot;:time.time(),&quot;conversition&quot;:message[&apos;conversition&apos;]&#125;</span><br><span class="line">                self.message_signal.emit(message) # 重置gui主线程有新的消息</span><br><span class="line"></span><br><span class="line">    # 监听请求</span><br><span class="line">    def listening(self):</span><br><span class="line">        self.sockServer.sock.listen(100)  # 可以挂起的最大连接数</span><br><span class="line">        print(&apos;Server start at: %s:%s&apos; % (self.sockServer.host, self.sockServer.port))</span><br><span class="line">        print(&apos;wait for connection...&apos;)</span><br><span class="line">        while True:</span><br><span class="line">            readable, writable, exceptional = select.select(self.sockServer.inputs, self.sockServer.outputs, self.sockServer.inputs)</span><br><span class="line">            for r in readable:</span><br><span class="line">                if r is self.sockServer.sock: </span><br><span class="line">                    # 表明有传入请求</span><br><span class="line">                    conn, addr = self.sockServer.sock.accept()</span><br><span class="line">                    print(&apos;Connected by &apos;, addr)</span><br><span class="line">                    self.sockServer.add_conn(conn=conn)</span><br><span class="line">                else:</span><br><span class="line">                    # 表示是已有的连接有传入数据</span><br><span class="line">                    body=&apos;&apos;</span><br><span class="line">                    try:</span><br><span class="line">                        l= r.recv(4)</span><br><span class="line">                        body_length=struct.unpack(&apos;i&apos;,l)[0] # 读取报文的长度</span><br><span class="line">                        body=r.recv(body_length)</span><br><span class="line">                    except:</span><br><span class="line">                        pass</span><br><span class="line">                    if body:</span><br><span class="line">                        # 如果接收到数据</span><br><span class="line">                        self.handle_message(body, r)</span><br><span class="line">                        body = &apos;&apos;  # 清空data</span><br><span class="line">                    else:</span><br><span class="line">                        # 连接已断开</span><br><span class="line">                        print(&quot;connection closed from &quot;, r.getpeername())</span><br><span class="line">                        if r in self.sockServer.outputs:</span><br><span class="line">                            # 就不再给它发消息了，移除outputs</span><br><span class="line">                            self.sockServer.outputs.remove(r)</span><br><span class="line">                            self.sockServer.inputs.remove(r)  # 从连接列表中也移去</span><br><span class="line"></span><br><span class="line">                        # 从在线用户中移除</span><br><span class="line">                        try:</span><br><span class="line">                            del  self.sockServer.msg_queue[r]</span><br><span class="line">                            del  self.sockServer.online_conversition[r]  # 删除对应的在线用户信息</span><br><span class="line">                        except:</span><br><span class="line">                            pass</span><br><span class="line">                        r.close()  # 关闭该连接</span><br><span class="line"></span><br><span class="line">            for w in writable:</span><br><span class="line">                if w in self.sockServer.msg_queue.keys() and not self.sockServer.msg_queue[w].empty():</span><br><span class="line">                    data = self.sockServer.msg_queue[w].get(False)</span><br><span class="line">                    w.send(data)    </span><br><span class="line"></span><br><span class="line">    # 覆盖Qthread的run方法，进行接收和发送信息的工作</span><br><span class="line">    def run(self):</span><br><span class="line">       self.listening()</span><br></pre></td></tr></table></figure>
+
+<h2 id="新消息过来需要有声音提示"><a href="#新消息过来需要有声音提示" class="headerlink" title="新消息过来需要有声音提示"></a>新消息过来需要有声音提示</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">effect = QtMultimedia.QSoundEffect() <span class="comment">#短声音组件，</span></span><br><span class="line">effect.setSource(QUrl.fromLocalFile(f&#123;app_path()&#125;/voice/receive.wav<span class="string">")) # 声音文件，目前只支持wav格式，mp3有问题</span></span><br><span class="line"><span class="string">effect.setVolume(1) # 设置音量</span></span><br><span class="line"><span class="string">effect.play() # 播放声音</span></span><br></pre></td></tr></table></figure></code></pre><h2 id="实现微信那样的汽泡"><a href="#实现微信那样的汽泡" class="headerlink" title="实现微信那样的汽泡"></a>实现微信那样的汽泡</h2><h3 id="一种基于小懵白小趣谈的画笔画图实现"><a href="#一种基于小懵白小趣谈的画笔画图实现" class="headerlink" title="一种基于小懵白小趣谈的画笔画图实现"></a>一种基于小懵白小趣谈的画笔画图实现</h3><p>但操作起来太过复杂，而且后面的代码也开始收费了，所以以另外一种方法实现，只是看代码还算有意思，就记录了一下，并不符合需求。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">window_height = <span class="number">10</span></span><br><span class="line">begin_width_spacing = <span class="number">20</span></span><br><span class="line">begin_height_spacing = <span class="number">16</span></span><br><span class="line">icon_width = <span class="number">40</span></span><br><span class="line">icon_height = <span class="number">40</span></span><br><span class="line">text_width_spacing = <span class="number">12</span></span><br><span class="line">text_height_spacing = <span class="number">12</span></span><br><span class="line">triangle_width = <span class="number">6</span></span><br><span class="line">triangle_height = <span class="number">10</span></span><br><span class="line">triangle_height_spacing = <span class="number">10</span></span><br><span class="line">text_min_width = <span class="number">0</span></span><br><span class="line">min_width = <span class="number">0</span></span><br><span class="line">text_max_width = <span class="number">0</span></span><br><span class="line">real_width = <span class="number">0</span></span><br><span class="line">text_height = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MessageItemWidget</span><span class="params">(QWidget)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,parent=None,fromUser=<span class="string">""</span>,content=<span class="string">""</span>)</span>:</span></span><br><span class="line">        super(MessageItemWidget,self).__init__(parent=parent)</span><br><span class="line">        self.content=content</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 重写paintEvent 否则不能使用样式表定义外观</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">paintEvent</span><span class="params">(self, event)</span>:</span></span><br><span class="line">        self.init_data() <span class="comment"># 获取文本长度、气泡框架问题</span></span><br><span class="line">        <span class="keyword">global</span> text_min_width, min_width, text_max_width, real_width, text_height, window_height</span><br><span class="line">        <span class="comment"># 初始化QPainter对象，一支画笔</span></span><br><span class="line">        painter = QtGui.QPainter(self)</span><br><span class="line">        painter.setRenderHints(QtGui.QPainter.Antialiasing | QtGui.QPainter.SmoothPixmapTransform)</span><br><span class="line">        font = QtGui.QFont()</span><br><span class="line">        font.setFamily(<span class="string">"实体"</span>)</span><br><span class="line">        font.setPointSize(<span class="number">12</span>)</span><br><span class="line">        painter.setFont(font)</span><br><span class="line">   </span><br><span class="line">        <span class="comment"># 画框架</span></span><br><span class="line">        bubbleRect = QRect(begin_width_spacing + icon_width, begin_height_spacing,</span><br><span class="line">                           triangle_width + text_width_spacing + text_max_width + text_width_spacing,</span><br><span class="line">                           text_height_spacing + text_height + text_height_spacing)</span><br><span class="line">        painter.setPen(Qt.NoPen)</span><br><span class="line">        painter.setBrush(QtGui.QBrush(QtGui.QColor(<span class="number">180</span>, <span class="number">180</span>, <span class="number">180</span>)))</span><br><span class="line">        painter.drawRoundedRect(bubbleRect.x() + triangle_width, bubbleRect.y(), bubbleRect.width() - triangle_width,</span><br><span class="line">                                bubbleRect.height(), <span class="number">18</span>, <span class="number">18</span>)</span><br><span class="line">        <span class="comment"># 实现颜色渐变                        </span></span><br><span class="line">        linearGradient = QtGui.QLinearGradient(QPointF(bubbleRect.x() + triangle_width + <span class="number">1</span>, bubbleRect.y() + <span class="number">1</span>),</span><br><span class="line">                                         QPointF(bubbleRect.x() + bubbleRect.width() - <span class="number">1</span>,</span><br><span class="line">                                                 bubbleRect.y() + bubbleRect.height() - <span class="number">1</span>))</span><br><span class="line">        linearGradient.setColorAt(<span class="number">0</span>, QtGui.QColor(<span class="number">151</span>, <span class="number">220</span>, <span class="number">227</span>))</span><br><span class="line">        linearGradient.setColorAt(<span class="number">0.25</span>, QtGui.QColor(<span class="number">151</span>, <span class="number">220</span>, <span class="number">227</span>))</span><br><span class="line">        linearGradient.setColorAt(<span class="number">0.5</span>, QtGui.QColor(<span class="number">151</span>, <span class="number">220</span>, <span class="number">227</span>))</span><br><span class="line">        linearGradient.setColorAt(<span class="number">0.75</span>, QtGui.QColor(<span class="number">151</span>, <span class="number">220</span>, <span class="number">227</span>))</span><br><span class="line">        linearGradient.setColorAt(<span class="number">1</span>, QtGui.QColor(<span class="number">151</span>, <span class="number">220</span>, <span class="number">227</span>))</span><br><span class="line">        painter.setBrush(linearGradient)</span><br><span class="line">        <span class="comment"># 画圆</span></span><br><span class="line">        painter.drawRoundedRect(bubbleRect.x() + triangle_width + <span class="number">1</span>, bubbleRect.y() + <span class="number">1</span>,</span><br><span class="line">                                bubbleRect.width() - triangle_width - <span class="number">2</span>, bubbleRect.height() - <span class="number">2</span>, <span class="number">18</span>, <span class="number">18</span>)</span><br><span class="line">        painter.setPen(QtGui.QPen(QtGui.QColor(<span class="number">244</span>, <span class="number">164</span>, <span class="number">96</span>)))</span><br><span class="line">        painter.drawPolygon(QPointF(bubbleRect.x(), bubbleRect.y() + triangle_height_spacing - <span class="number">4</span>),</span><br><span class="line">                            QPointF(bubbleRect.x() + triangle_width + <span class="number">1</span>, bubbleRect.y() + triangle_height_spacing),</span><br><span class="line">                            QPointF(bubbleRect.x() + <span class="number">6</span> + <span class="number">1</span>, bubbleRect.y() + <span class="number">10</span> + <span class="number">10</span>))</span><br><span class="line"></span><br><span class="line">        painter.setPen(QtGui.QPen(QtGui.QColor(<span class="number">180</span>, <span class="number">180</span>, <span class="number">180</span>)))</span><br><span class="line">        painter.drawLine(QPointF(bubbleRect.x(), bubbleRect.y() + <span class="number">10</span> - <span class="number">4</span>),</span><br><span class="line">                         QPointF(bubbleRect.x() + <span class="number">6</span>, bubbleRect.y() + <span class="number">10</span>))</span><br><span class="line">        painter.drawLine(QPointF(bubbleRect.x(), bubbleRect.y() + <span class="number">10</span> - <span class="number">4</span>),</span><br><span class="line">                         QPointF(bubbleRect.x() + <span class="number">6</span>, bubbleRect.y() + <span class="number">10</span> + <span class="number">10</span>))</span><br><span class="line">        <span class="comment"># 画文字</span></span><br><span class="line">        penText = QtGui.QPen()</span><br><span class="line">        penText.setColor(QtGui.QColor(<span class="number">56</span>, <span class="number">56</span>, <span class="number">56</span>))</span><br><span class="line">        painter.setPen(penText)</span><br><span class="line">        option = QtGui.QTextOption(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter)</span><br><span class="line">        option.setWrapMode(QtGui.QTextOption.WrapMode.WrapAtWordBoundaryOrAnywhere)</span><br><span class="line">        painter.drawText(</span><br><span class="line">            QRectF(bubbleRect.x() + triangle_width + text_width_spacing, bubbleRect.y() + text_height_spacing,</span><br><span class="line">                   text_max_width, text_height), self.content, option)          </span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init_data</span><span class="params">(self)</span>:</span></span><br><span class="line">        font = QtGui.QFont()</span><br><span class="line">        font.setFamily(<span class="string">"实体"</span>)</span><br><span class="line">        font.setPointSize(<span class="number">12</span>)</span><br><span class="line">        metrics = QtGui.QFontMetrics(font)</span><br><span class="line">        <span class="keyword">global</span> text_min_width, min_width,text_max_width,real_width, text_height, window_height</span><br><span class="line">        <span class="keyword">if</span> metrics.horizontalAdvance(<span class="string">"A"</span>) * <span class="number">2</span> + begin_height_spacing * <span class="number">1.5</span> &gt; text_width_spacing:</span><br><span class="line">            text_min_width = begin_height_spacing * <span class="number">1.5</span> - text_width_spacing</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            text_min_width = <span class="number">0</span></span><br><span class="line">        min_width = begin_width_spacing + icon_width + triangle_width + text_width_spacing + text_width_spacing + icon_width + begin_width_spacing</span><br><span class="line">        <span class="keyword">if</span> self.width()&lt; min_width+text_min_width:</span><br><span class="line">            self.setMinimumWidth(min_width + text_min_width)</span><br><span class="line">        text_max_width = self.width() - min_width</span><br><span class="line">        real_width = metrics.width(self.content)</span><br><span class="line">        <span class="keyword">if</span> real_width &lt; text_max_width:</span><br><span class="line">            text_max_width = real_width</span><br><span class="line">            <span class="keyword">if</span> text_height_spacing+metrics.height()+text_height_spacing&gt;triangle_height_spacing+triangle_height+triangle_height_spacing:</span><br><span class="line">                text_height = metrics.height()</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                text_height = triangle_height_spacing + triangle_height + triangle_height_spacing</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            flag = Qt.TextFlag.TextWordWrap</span><br><span class="line">            textRect = QRect(<span class="number">0</span>, <span class="number">0</span>, text_max_width, <span class="number">0</span>)</span><br><span class="line">                        <span class="comment"># 自动换行</span></span><br><span class="line">            textRect = metrics.boundingRect(textRect, flag, self.content)</span><br><span class="line">            text_height = textRect.height()</span><br></pre></td></tr></table></figure>
+
+<h4 id="实现的效果"><a href="#实现的效果" class="headerlink" title="实现的效果"></a>实现的效果</h4><p><img src="/images/pasted-19.png" alt="upload successful"></p>
+<h2 id="消息框输入消息，按Enter键发送消息的功能"><a href="#消息框输入消息，按Enter键发送消息的功能" class="headerlink" title="消息框输入消息，按Enter键发送消息的功能"></a>消息框输入消息，按Enter键发送消息的功能</h2>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2024/06/27/conda命令整理/" class="next-post btn btn-default" title='conda命令整理'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            conda命令整理</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-Hans'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#需求"><span class="toc-text">需求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#需要代码实现"><span class="toc-text">需要代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#快手所有消息汇集到中控平台"><span class="toc-text">快手所有消息汇集到中控平台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新消息过来需要有声音提示"><span class="toc-text">新消息过来需要有声音提示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现微信那样的汽泡"><span class="toc-text">实现微信那样的汽泡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一种基于小懵白小趣谈的画笔画图实现"><span class="toc-text">一种基于小懵白小趣谈的画笔画图实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实现的效果"><span class="toc-text">实现的效果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消息框输入消息，按Enter键发送消息的功能"><span class="toc-text">消息框输入消息，按Enter键发送消息的功能</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>
