@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2024-07-29T14:18:41.461Z</updated>
+  <updated>2024-09-14T05:28:33.841Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nginx自动更新</title>
+    <link href="http://yoursite.com/2024/09/14/nginx/"/>
+    <id>http://yoursite.com/2024/09/14/nginx/</id>
+    <published>2024-09-14T05:23:00.000Z</published>
+    <updated>2024-09-14T05:28:33.841Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="进入yum配置库"><a href="#进入yum配置库" class="headerlink" title="进入yum配置库"></a>进入yum配置库</h3><p>cd /etc/yum.repos.d/</p><h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><p>vi nginx.repo</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[nginx]</span><br><span class="line">name=nginx repo</span><br><span class="line">baseurl=http://nginx.org/packages/centos/操作系统版本/$basearch/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure><h3 id="查找nginx"><a href="#查找nginx" class="headerlink" title="查找nginx"></a>查找nginx</h3><pre><code>yum search nginx</code></pre><h3 id="更新nginx"><a href="#更新nginx" class="headerlink" title="更新nginx"></a>更新nginx</h3><pre><code>yum update nginx</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;进入yum配置库&quot;&gt;&lt;a href=&quot;#进入yum配置库&quot; class=&quot;headerlink&quot; title=&quot;进入yum配置库&quot;&gt;&lt;/a&gt;进入yum配置库&lt;/h3&gt;&lt;p&gt;cd /etc/yum.repos.d/&lt;/p&gt;
+&lt;h3 id=&quot;创建文件&quot;&gt;&lt;a href
+      
+    
+    </summary>
+    
+      <category term="运维" scheme="http://yoursite.com/categories/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+      <category term="nginx" scheme="http://yoursite.com/tags/nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>pyqt6 实现快手中控平台</title>
@@ -364,9 +390,9 @@
     <link href="http://yoursite.com/2020/12/15/%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2020/12/15/团队协作工具整理/</id>
     <published>2020-12-15T02:57:32.000Z</published>
-    <updated>2022-08-24T02:43:49.222Z</updated>
+    <updated>2024-08-19T05:34:57.005Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="办公聊天工具"><a href="#办公聊天工具" class="headerlink" title="办公聊天工具"></a>办公聊天工具</h2><ul><li>slack </li></ul><p>集成了很多的开发工具，你可以想安装插件一样在里面添加一些bug追踪工具，聊天的方式也更加的贴合远程协作的开发。对各个终端的支持也很全面，支持ios，android，mac和window端。</p><ul><li><p>Rocket Chat</p><p>slack 开源替代，没有聊天加密的功能</p></li></ul><h2 id="原型设计协作"><a href="#原型设计协作" class="headerlink" title="原型设计协作"></a>原型设计协作</h2><ul><li><a href="https://axhub.im/" target="_blank" rel="noopener">axhub</a></li></ul><ul><li><a href="https://modao.cc/" target="_blank" rel="noopener">墨刀</a></li></ul><h2 id="前后端交互"><a href="#前后端交互" class="headerlink" title="前后端交互"></a>前后端交互</h2><ul><li><p><a href="https://gitee.com/zhoujingjie/apiManager" target="_blank" rel="noopener">小幺鸡</a></p><p>java编写，开源，对于编写java的人而言，便于维护和继续扩展</p></li><li><p><a href="https://github.com/YMFE/yapi" target="_blank" rel="noopener">yapi</a></p><p>nodejs 编写，页面比小幺鸡美观舒服。做文档是不错</p></li><li><p>swagger</p><p>java的文档标准，在go上也支持，可以在代码里面直接通过文档的方式生成。</p></li></ul><h2 id="公司文档整理"><a href="#公司文档整理" class="headerlink" title="公司文档整理"></a>公司文档整理</h2><ul><li><p>gitbook :</p><p>代码规范制定，可以生成epub等电子书，功能比较强大。<br>安装：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install npm</span><br><span class="line">npm install gitbook-cli -g</span><br></pre></td></tr></table></figure></li></ul><p>  常用的命令：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">服务启动：gitbook serve</span><br><span class="line">编译 : gitbook build</span><br></pre></td></tr></table></figure></p><p>  参考的地址 ：<a href="https://gitee.com/kernsjava/code_rule.git" target="_blank" rel="noopener">https://gitee.com/kernsjava/code_rule.git</a></p><ul><li>docsify ：</li></ul><p>如果嫌弃gitbook build 太慢，没有那么多需要转换的功能，可以用这个。</p><h2 id="代码管理和自动发布"><a href="#代码管理和自动发布" class="headerlink" title="代码管理和自动发布"></a>代码管理和自动发布</h2><p>可以使用 gitlab和jenkins的组合,也可以使用gogs和drone组合,gitea也是一种代码管理工具,个人是比较推荐 gogs和drone的方式,简单轻便,但公司内部蛮多用的是jenkins<br><a href="https://www.warmjoke.com/2020/12/23/drone%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/" target="_blank" rel="noopener">https://www.warmjoke.com/2020/12/23/drone%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="办公聊天工具"><a href="#办公聊天工具" class="headerlink" title="办公聊天工具"></a>办公聊天工具</h2><ul><li>slack </li></ul><p>集成了很多的开发工具，你可以想安装插件一样在里面添加一些bug追踪工具，聊天的方式也更加的贴合远程协作的开发。对各个终端的支持也很全面，支持ios，android，mac和window端。</p><ul><li><p>Rocket Chat</p><p>slack 开源替代，没有聊天加密的功能</p></li><li><p>钉钉</p></li><li><p>飞书</p></li><li><p>企业微信</p></li></ul><p>上面三个是国内比较主流的办公聊天工具，也集成了蛮多的第三方应用。</p><h2 id="原型设计协作"><a href="#原型设计协作" class="headerlink" title="原型设计协作"></a>原型设计协作</h2><ul><li><a href="https://axhub.im/" target="_blank" rel="noopener">axhub</a></li></ul><ul><li><a href="https://modao.cc/" target="_blank" rel="noopener">墨刀</a></li></ul><h2 id="前后端交互"><a href="#前后端交互" class="headerlink" title="前后端交互"></a>前后端交互</h2><ul><li><p><a href="https://gitee.com/zhoujingjie/apiManager" target="_blank" rel="noopener">小幺鸡</a></p><p>java编写，开源，对于编写java的人而言，便于维护和继续扩展</p></li><li><p><a href="https://github.com/YMFE/yapi" target="_blank" rel="noopener">yapi</a></p><p>nodejs 编写，页面比小幺鸡美观舒服。做文档是不错</p></li><li><p>swagger</p><p>java的文档标准，在go上也支持，可以在代码里面直接通过文档的方式生成。</p></li></ul><h2 id="公司文档整理"><a href="#公司文档整理" class="headerlink" title="公司文档整理"></a>公司文档整理</h2><ul><li><p>gitbook :</p><p>代码规范制定，可以生成epub等电子书，功能比较强大。<br>安装：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install npm</span><br><span class="line">npm install gitbook-cli -g</span><br></pre></td></tr></table></figure></li></ul><p>  常用的命令：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">服务启动：gitbook serve</span><br><span class="line">编译 : gitbook build</span><br></pre></td></tr></table></figure></p><p>  参考的地址 ：<a href="https://gitee.com/kernsjava/code_rule.git" target="_blank" rel="noopener">https://gitee.com/kernsjava/code_rule.git</a></p><ul><li>docsify ：</li></ul><p>如果嫌弃gitbook build 太慢，没有那么多需要转换的功能，可以用这个。</p><h2 id="代码管理和自动发布"><a href="#代码管理和自动发布" class="headerlink" title="代码管理和自动发布"></a>代码管理和自动发布</h2><p>可以使用 gitlab和jenkins的组合,也可以使用gogs和drone组合,gitea也是一种代码管理工具,个人是比较推荐 gogs和drone的方式,简单轻便,但公司内部蛮多用的是jenkins<br><a href="https://www.warmjoke.com/2020/12/23/drone%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/" target="_blank" rel="noopener">https://www.warmjoke.com/2020/12/23/drone%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</a></p>]]></content>
     
     <summary type="html">
     
@@ -457,31 +483,6 @@
     
     
       <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>fabric 链包开发和部署</title>
-    <link href="http://yoursite.com/2020/09/02/fabric%E9%93%BE%E5%8C%85%E9%83%A8%E7%BD%B2/"/>
-    <id>http://yoursite.com/2020/09/02/fabric链包部署/</id>
-    <published>2020-09-01T16:00:00.000Z</published>
-    <updated>2021-08-23T08:29:40.705Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="下载-fabric-sample-工程"><a href="#下载-fabric-sample-工程" class="headerlink" title="下载 fabric-sample 工程"></a>下载 <a href="git@github.com:hyperledger/fabric-samples.git">fabric-sample</a> 工程</h2><p>master不稳定，可能部署不成功，切换到release-1.4</p><h1 id="测试链码"><a href="#测试链码" class="headerlink" title="测试链码"></a>测试链码</h1><h2 id="1进入目录-chaincode-docker-devmode"><a href="#1进入目录-chaincode-docker-devmode" class="headerlink" title="1进入目录 chaincode-docker-devmode"></a>1进入目录 chaincode-docker-devmode</h2><p>执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose -f docker-compose-simple.yaml up</span><br></pre></td></tr></table></figure><p>如果执行不成功，建议指定docker 版本号，目前我跑的是1.4.8</p><p>如果没有错误的话，我们的开发环境已经准备好了，接下来是对链码进行测试的步骤：</p><p>将编写的链码放到fabric-sample/chaincode/文件夹下</p><h2 id="2打开第二个终端执行："><a href="#2打开第二个终端执行：" class="headerlink" title="2打开第二个终端执行："></a>2打开第二个终端执行：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it chaincode sh</span><br></pre></td></tr></table></figure><p>编译链码,以官方的例子为例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd chaincode_example02/go</span><br><span class="line">go build -o chaincode_example02</span><br><span class="line">CORE_PEER_ADDRESS=peer:7052 CORE_CHAINCODE_ID_NAME=mycc:0 ./chaincode_example02</span><br></pre></td></tr></table></figure><h2 id="3-安装与实例化和测试："><a href="#3-安装与实例化和测试：" class="headerlink" title="3.安装与实例化和测试："></a>3.安装与实例化和测试：</h2><p>打开第三个终端执行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it cli bash</span><br></pre></td></tr></table></figure><h3 id="以下命令按照自己的链码内容自行修改"><a href="#以下命令按照自己的链码内容自行修改" class="headerlink" title="以下命令按照自己的链码内容自行修改"></a>以下命令按照自己的链码内容自行修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode install -p chaincodedev/chaincode/chaincode_example02/go -n mycc -v 0</span><br><span class="line">peer chaincode instantiate -n mycc -v 0 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;,&quot;100&quot;,&quot;b&quot;,&quot;200&quot;]&#125;&apos; -C myc</span><br></pre></td></tr></table></figure><h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><h4 id="调用-set-接口将-a-的值设置为20"><a href="#调用-set-接口将-a-的值设置为20" class="headerlink" title="调用 set() 接口将 a 的值设置为20:"></a>调用 set() 接口将 a 的值设置为20:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode invoke -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;set&quot;, &quot;a&quot;, &quot;20&quot;]&#125;&apos; -C myc</span><br></pre></td></tr></table></figure><h4 id="调用-get-接口查询-a-的值，发现a的值已经更新为20，测试完毕。"><a href="#调用-get-接口查询-a-的值，发现a的值已经更新为20，测试完毕。" class="headerlink" title="调用 get() 接口查询 a 的值，发现a的值已经更新为20，测试完毕。"></a>调用 get() 接口查询 a 的值，发现a的值已经更新为20，测试完毕。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode query -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;get&quot;,&quot;a&quot;]&#125;&apos; -C myc</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;下载-fabric-sample-工程&quot;&gt;&lt;a href=&quot;#下载-fabric-sample-工程&quot; class=&quot;headerlink&quot; title=&quot;下载 fabric-sample 工程&quot;&gt;&lt;/a&gt;下载 &lt;a href=&quot;git@github.com:hy
-      
-    
-    </summary>
-    
-      <category term="go" scheme="http://yoursite.com/categories/go/"/>
-    
-    
-      <category term="区块链" scheme="http://yoursite.com/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
     
   </entry>
   
