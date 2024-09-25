@@ -19,11 +19,11 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="linux">
+<meta name="keywords" content="mysql">
 
 
-<meta name="description" content="查看连接数问题查看执行中的进程SHOW FULL PROCESSLIST;show processlist;
-查看最大连接数show variables like ‘%max_connectio...">
+<meta name="description" content="查看连接数问题查看执行中的进程SHOW FULL PROCESSLIST;
+show processlist;查看最大连接数show variables like &apos;%max_conn...">
 
 
 <meta name="robots" content="all">
@@ -171,7 +171,7 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/linux/">linux</a>
+            <a class="tag-link" href="/tags/mysql/">mysql</a>
             
         </span>
     </span>
@@ -190,16 +190,22 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1422</strong>
+                1433</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
     </div>
     
     <div class="post-body post-content">
-        <h2 id="查看连接数问题"><a href="#查看连接数问题" class="headerlink" title="查看连接数问题"></a>查看连接数问题</h2><h3 id="查看执行中的进程"><a href="#查看执行中的进程" class="headerlink" title="查看执行中的进程"></a>查看执行中的进程</h3><p>SHOW FULL PROCESSLIST;<br>show processlist;</p>
-<h3 id="查看最大连接数"><a href="#查看最大连接数" class="headerlink" title="查看最大连接数"></a>查看最大连接数</h3><p>show variables like ‘%max_connections%’;</p>
-<h3 id="8-0-中设置最大连接数"><a href="#8-0-中设置最大连接数" class="headerlink" title="8.0 中设置最大连接数"></a>8.0 中设置最大连接数</h3><p>set persist max_connections=200;</p>
+        <h1 id="查看连接数问题"><a href="#查看连接数问题" class="headerlink" title="查看连接数问题"></a>查看连接数问题</h1><h2 id="查看执行中的进程"><a href="#查看执行中的进程" class="headerlink" title="查看执行中的进程"></a>查看执行中的进程</h2><pre><code>SHOW FULL PROCESSLIST;
+show processlist;</code></pre><h2 id="查看最大连接数"><a href="#查看最大连接数" class="headerlink" title="查看最大连接数"></a>查看最大连接数</h2><pre><code>show variables like &apos;%max_connections%&apos;;</code></pre><h2 id="8-0-中设置最大连接数"><a href="#8-0-中设置最大连接数" class="headerlink" title="8.0 中设置最大连接数"></a>8.0 中设置最大连接数</h2><pre><code>set persist max_connections=200;</code></pre><h1 id="锁问题查询"><a href="#锁问题查询" class="headerlink" title="锁问题查询"></a>锁问题查询</h1><h2 id="查看哪些表正在被使用当中"><a href="#查看哪些表正在被使用当中" class="headerlink" title="查看哪些表正在被使用当中"></a>查看哪些表正在被使用当中</h2><pre><code>show OPEN TABLES where In_use &gt; 0;</code></pre><h2 id="查看当前运行的所有事务"><a href="#查看当前运行的所有事务" class="headerlink" title="查看当前运行的所有事务"></a>查看当前运行的所有事务</h2><pre><code>select * from information_schema.innodb_trx</code></pre><h2 id="查看锁的情况"><a href="#查看锁的情况" class="headerlink" title="查看锁的情况"></a>查看锁的情况</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show status like &apos;innodb_row_lock_%&apos;;</span><br><span class="line">+-------------------------------+--------+</span><br><span class="line">| Variable_name                 | Value  |</span><br><span class="line">+-------------------------------+--------+</span><br><span class="line">| Innodb_row_lock_current_waits | 1      |</span><br><span class="line">| Innodb_row_lock_time          | 479764 |</span><br><span class="line">| Innodb_row_lock_time_avg      | 39980  |</span><br><span class="line">| Innodb_row_lock_time_max      | 51021  |</span><br><span class="line">| Innodb_row_lock_waits         | 12     |</span><br><span class="line">+-------------------------------+--------+</span><br><span class="line">5 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">解释如下：</span><br><span class="line">Innodb_row_lock_current_waits : 当前等待锁的数量</span><br><span class="line">Innodb_row_lock_time : 系统启动到现在，锁定的总时间长度</span><br><span class="line">Innodb_row_lock_time_avg : 每次平均锁定的时间</span><br><span class="line">Innodb_row_lock_time_max : 最长一次锁定时间</span><br><span class="line">Innodb_row_lock_waits : 系统启动到现在总共锁定的次数</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 
     </div>
     
@@ -267,7 +273,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看连接数问题"><span class="toc-text">查看连接数问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看执行中的进程"><span class="toc-text">查看执行中的进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看最大连接数"><span class="toc-text">查看最大连接数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-0-中设置最大连接数"><span class="toc-text">8.0 中设置最大连接数</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#查看连接数问题"><span class="toc-text">查看连接数问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看执行中的进程"><span class="toc-text">查看执行中的进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看最大连接数"><span class="toc-text">查看最大连接数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-0-中设置最大连接数"><span class="toc-text">8.0 中设置最大连接数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#锁问题查询"><span class="toc-text">锁问题查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看哪些表正在被使用当中"><span class="toc-text">查看哪些表正在被使用当中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看当前运行的所有事务"><span class="toc-text">查看当前运行的所有事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看锁的情况"><span class="toc-text">查看锁的情况</span></a></li></ol></li></ol>
         
     </div>
 </aside>

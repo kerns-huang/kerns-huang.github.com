@@ -440,15 +440,15 @@
     <link href="http://yoursite.com/2020/10/23/mysql%E8%BF%9E%E6%8E%A5%E6%95%B0%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2020/10/23/mysql连接数问题/</id>
     <published>2020-10-23T00:56:00.000Z</published>
-    <updated>2021-08-23T08:29:40.707Z</updated>
+    <updated>2024-09-25T05:37:19.520Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="查看连接数问题"><a href="#查看连接数问题" class="headerlink" title="查看连接数问题"></a>查看连接数问题</h2><h3 id="查看执行中的进程"><a href="#查看执行中的进程" class="headerlink" title="查看执行中的进程"></a>查看执行中的进程</h3><p>SHOW FULL PROCESSLIST;<br>show processlist;</p><h3 id="查看最大连接数"><a href="#查看最大连接数" class="headerlink" title="查看最大连接数"></a>查看最大连接数</h3><p>show variables like ‘%max_connections%’;</p><h3 id="8-0-中设置最大连接数"><a href="#8-0-中设置最大连接数" class="headerlink" title="8.0 中设置最大连接数"></a>8.0 中设置最大连接数</h3><p>set persist max_connections=200;</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="查看连接数问题"><a href="#查看连接数问题" class="headerlink" title="查看连接数问题"></a>查看连接数问题</h1><h2 id="查看执行中的进程"><a href="#查看执行中的进程" class="headerlink" title="查看执行中的进程"></a>查看执行中的进程</h2><pre><code>SHOW FULL PROCESSLIST;show processlist;</code></pre><h2 id="查看最大连接数"><a href="#查看最大连接数" class="headerlink" title="查看最大连接数"></a>查看最大连接数</h2><pre><code>show variables like &apos;%max_connections%&apos;;</code></pre><h2 id="8-0-中设置最大连接数"><a href="#8-0-中设置最大连接数" class="headerlink" title="8.0 中设置最大连接数"></a>8.0 中设置最大连接数</h2><pre><code>set persist max_connections=200;</code></pre><h1 id="锁问题查询"><a href="#锁问题查询" class="headerlink" title="锁问题查询"></a>锁问题查询</h1><h2 id="查看哪些表正在被使用当中"><a href="#查看哪些表正在被使用当中" class="headerlink" title="查看哪些表正在被使用当中"></a>查看哪些表正在被使用当中</h2><pre><code>show OPEN TABLES where In_use &gt; 0;</code></pre><h2 id="查看当前运行的所有事务"><a href="#查看当前运行的所有事务" class="headerlink" title="查看当前运行的所有事务"></a>查看当前运行的所有事务</h2><pre><code>select * from information_schema.innodb_trx</code></pre><h2 id="查看锁的情况"><a href="#查看锁的情况" class="headerlink" title="查看锁的情况"></a>查看锁的情况</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show status like &apos;innodb_row_lock_%&apos;;</span><br><span class="line">+-------------------------------+--------+</span><br><span class="line">| Variable_name                 | Value  |</span><br><span class="line">+-------------------------------+--------+</span><br><span class="line">| Innodb_row_lock_current_waits | 1      |</span><br><span class="line">| Innodb_row_lock_time          | 479764 |</span><br><span class="line">| Innodb_row_lock_time_avg      | 39980  |</span><br><span class="line">| Innodb_row_lock_time_max      | 51021  |</span><br><span class="line">| Innodb_row_lock_waits         | 12     |</span><br><span class="line">+-------------------------------+--------+</span><br><span class="line">5 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">解释如下：</span><br><span class="line">Innodb_row_lock_current_waits : 当前等待锁的数量</span><br><span class="line">Innodb_row_lock_time : 系统启动到现在，锁定的总时间长度</span><br><span class="line">Innodb_row_lock_time_avg : 每次平均锁定的时间</span><br><span class="line">Innodb_row_lock_time_max : 最长一次锁定时间</span><br><span class="line">Innodb_row_lock_waits : 系统启动到现在总共锁定的次数</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;查看连接数问题&quot;&gt;&lt;a href=&quot;#查看连接数问题&quot; class=&quot;headerlink&quot; title=&quot;查看连接数问题&quot;&gt;&lt;/a&gt;查看连接数问题&lt;/h2&gt;&lt;h3 id=&quot;查看执行中的进程&quot;&gt;&lt;a href=&quot;#查看执行中的进程&quot; class=&quot;headerli
+        &lt;h1 id=&quot;查看连接数问题&quot;&gt;&lt;a href=&quot;#查看连接数问题&quot; class=&quot;headerlink&quot; title=&quot;查看连接数问题&quot;&gt;&lt;/a&gt;查看连接数问题&lt;/h1&gt;&lt;h2 id=&quot;查看执行中的进程&quot;&gt;&lt;a href=&quot;#查看执行中的进程&quot; class=&quot;headerli
       
     
     </summary>
@@ -456,7 +456,7 @@
       <category term="运维" scheme="http://yoursite.com/categories/%E8%BF%90%E7%BB%B4/"/>
     
     
-      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
     
   </entry>
   
