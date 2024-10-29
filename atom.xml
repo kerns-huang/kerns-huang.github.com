@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2024-10-06T08:07:20.095Z</updated>
+  <updated>2024-10-29T15:28:17.915Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>excel命令整理</title>
+    <link href="http://yoursite.com/2024/10/29/excel%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/"/>
+    <id>http://yoursite.com/2024/10/29/excel命令整理/</id>
+    <published>2024-10-29T15:09:00.000Z</published>
+    <updated>2024-10-29T15:28:17.915Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在整理对虾养殖的收入和支出相关的数据，发现excel里面的一些命令挺好用的，所以对自己需要用的命令做下整理</p><h1 id="求和"><a href="#求和" class="headerlink" title="求和"></a>求和</h1><h2 id="SUMIF"><a href="#SUMIF" class="headerlink" title="SUMIF"></a>SUMIF</h2><pre><code>=SUMIF(A2:A5, &quot;张三&quot;, C2:C5)翻译:c=0 for(An :(A2...A5)){    if(An==&quot;张三&quot;){        c=Cn+c      }}return c</code></pre><h2 id="SUM"><a href="#SUM" class="headerlink" title="SUM"></a>SUM</h2><pre><code>=SUM(A2:A5)</code></pre><h2 id="SUMIFS"><a href="#SUMIFS" class="headerlink" title="SUMIFS"></a>SUMIFS</h2><pre><code>=SUMIFS(C2:C5, A2:A5, &quot;张三&quot;, B2:B5, &quot;产品B&quot;)</code></pre><p>  这个公式的意思是：在C2:C5的范围内求和，但是只包括A2:A5范围内是“张三”且B2:B5范围内是“产品B”的行。</p><h1 id="逻辑判断"><a href="#逻辑判断" class="headerlink" title="逻辑判断"></a>逻辑判断</h1><h2 id="IF"><a href="#IF" class="headerlink" title="IF"></a>IF</h2><pre><code>=IF(B2&gt;=90, &quot;A&quot;, IF(B2&gt;=80, &quot;B&quot;, &quot;C&quot;))</code></pre><p>这个公式的意思是：如果B2单元格的成绩大于等于90分，则返回”A”；如果成绩大于等于80分但小于90分，则返回”B”；如果成绩小于80分，则返回”C”。</p><h3 id="应用到整列"><a href="#应用到整列" class="headerlink" title="应用到整列"></a>应用到整列</h3><p>当你在C2单元格输入上述公式后，你可以通过以下步骤将其应用到整列：</p><pre><code>点击C2单元格。将鼠标指针移动到单元格的右下角，直到鼠标指针变成一个小十字。点击并拖动这个小十字向下，直到你想要应用公式的所有行。这样，Excel就会自动将公式应用到C列的每个单元格，并且根据B列对应的成绩计算出等级。</code></pre><h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><pre><code>确保B列的成绩数据是连续的，没有空行或非数字数据，否则公式可能会返回错误。如果你想要在公式中使用绝对引用（例如，当你复制公式到其他列时），你可以使用$符号，如$B2。这样，无论公式如何复制，引用的列始终是B列。    </code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近在整理对虾养殖的收入和支出相关的数据，发现excel里面的一些命令挺好用的，所以对自己需要用的命令做下整理&lt;/p&gt;
+&lt;h1 id=&quot;求和&quot;&gt;&lt;a href=&quot;#求和&quot; class=&quot;headerlink&quot; title=&quot;求和&quot;&gt;&lt;/a&gt;求和&lt;/h1&gt;&lt;h2 id=&quot;SU
+      
+    
+    </summary>
+    
+      <category term="excel" scheme="http://yoursite.com/categories/excel/"/>
+    
+    
+      <category term="excel" scheme="http://yoursite.com/tags/excel/"/>
+    
+  </entry>
   
   <entry>
     <title>openssh制作rpm包对线上环境升级</title>
@@ -455,31 +481,6 @@
     
       <category term="linux" scheme="http://yoursite.com/categories/%E8%BF%90%E7%BB%B4/linux/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>mysql 问题定位</title>
-    <link href="http://yoursite.com/2020/10/23/mysql%E8%BF%9E%E6%8E%A5%E6%95%B0%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2020/10/23/mysql连接数问题/</id>
-    <published>2020-10-23T00:56:00.000Z</published>
-    <updated>2024-09-25T05:37:19.520Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="查看连接数问题"><a href="#查看连接数问题" class="headerlink" title="查看连接数问题"></a>查看连接数问题</h1><h2 id="查看执行中的进程"><a href="#查看执行中的进程" class="headerlink" title="查看执行中的进程"></a>查看执行中的进程</h2><pre><code>SHOW FULL PROCESSLIST;show processlist;</code></pre><h2 id="查看最大连接数"><a href="#查看最大连接数" class="headerlink" title="查看最大连接数"></a>查看最大连接数</h2><pre><code>show variables like &apos;%max_connections%&apos;;</code></pre><h2 id="8-0-中设置最大连接数"><a href="#8-0-中设置最大连接数" class="headerlink" title="8.0 中设置最大连接数"></a>8.0 中设置最大连接数</h2><pre><code>set persist max_connections=200;</code></pre><h1 id="锁问题查询"><a href="#锁问题查询" class="headerlink" title="锁问题查询"></a>锁问题查询</h1><h2 id="查看哪些表正在被使用当中"><a href="#查看哪些表正在被使用当中" class="headerlink" title="查看哪些表正在被使用当中"></a>查看哪些表正在被使用当中</h2><pre><code>show OPEN TABLES where In_use &gt; 0;</code></pre><h2 id="查看当前运行的所有事务"><a href="#查看当前运行的所有事务" class="headerlink" title="查看当前运行的所有事务"></a>查看当前运行的所有事务</h2><pre><code>select * from information_schema.innodb_trx</code></pre><h2 id="查看锁的情况"><a href="#查看锁的情况" class="headerlink" title="查看锁的情况"></a>查看锁的情况</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show status like &apos;innodb_row_lock_%&apos;;</span><br><span class="line">+-------------------------------+--------+</span><br><span class="line">| Variable_name                 | Value  |</span><br><span class="line">+-------------------------------+--------+</span><br><span class="line">| Innodb_row_lock_current_waits | 1      |</span><br><span class="line">| Innodb_row_lock_time          | 479764 |</span><br><span class="line">| Innodb_row_lock_time_avg      | 39980  |</span><br><span class="line">| Innodb_row_lock_time_max      | 51021  |</span><br><span class="line">| Innodb_row_lock_waits         | 12     |</span><br><span class="line">+-------------------------------+--------+</span><br><span class="line">5 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">解释如下：</span><br><span class="line">Innodb_row_lock_current_waits : 当前等待锁的数量</span><br><span class="line">Innodb_row_lock_time : 系统启动到现在，锁定的总时间长度</span><br><span class="line">Innodb_row_lock_time_avg : 每次平均锁定的时间</span><br><span class="line">Innodb_row_lock_time_max : 最长一次锁定时间</span><br><span class="line">Innodb_row_lock_waits : 系统启动到现在总共锁定的次数</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;查看连接数问题&quot;&gt;&lt;a href=&quot;#查看连接数问题&quot; class=&quot;headerlink&quot; title=&quot;查看连接数问题&quot;&gt;&lt;/a&gt;查看连接数问题&lt;/h1&gt;&lt;h2 id=&quot;查看执行中的进程&quot;&gt;&lt;a href=&quot;#查看执行中的进程&quot; class=&quot;headerli
-      
-    
-    </summary>
-    
-      <category term="运维" scheme="http://yoursite.com/categories/%E8%BF%90%E7%BB%B4/"/>
-    
-    
-      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
     
   </entry>
   
