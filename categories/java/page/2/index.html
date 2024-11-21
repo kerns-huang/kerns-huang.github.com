@@ -227,35 +227,6 @@ G1收集器启动
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2019/09/02/java进程cpu过高问题定位/">
-                    jvm cpu 过高问题定位</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime="" title="">
-                    2019年09月02日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            操作步骤1:查找占用cpu高的进程
-1top
-
-2: 查看线程的cpu消耗
-1top -Hp pid(进程号)
-
-3:转换10进制为16进制
-1234  printf &amp;quot;%x\n&amp;quot; 线程ID```  4: 查找执行...
-            
-        </p>
-    </div>
-</article>
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
                 <a href="/2019/09/02/ignite整理/">
                     ignite整理</a>
             </h1>
@@ -291,6 +262,35 @@ G1收集器启动
             
             linux 进程 内存查看ps -p $pid -o rss,vsz查看应用逻辑内存，和实际物理内存使用。
 pmap -x $pid  | sort -n -k3top -csar123怀疑CPU存在瓶颈，可用 sar -u 和 sa...
+            
+        </p>
+    </div>
+</article>
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2019/09/02/java进程cpu过高问题定位/">
+                    jvm cpu 过高问题定位</a>
+            </h1>
+            <div class="post-meta"> &bull;
+                <time class="post-date" datetime="" title="">
+                    2019年09月02日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+            操作步骤1:查找占用cpu高的进程
+1top
+
+2: 查看线程的cpu消耗
+1top -Hp pid(进程号)
+
+3:转换10进制为16进制
+1234  printf &amp;quot;%x\n&amp;quot; 线程ID```  4: 查找执行...
             
         </p>
     </div>
