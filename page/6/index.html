@@ -163,8 +163,8 @@
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2019/09/02/java进程cpu过高问题定位/">
-                    jvm cpu 过高问题定位</a>
+                <a href="/2019/09/02/jvm 内存问题定位/">
+                    jvm内存问题定位</a>
             </h1>
             <div class="post-meta"> &bull;
                 <time class="post-date" datetime="" title="">
@@ -174,14 +174,8 @@
         </div>
         <p class="brief">
             
-            操作步骤1:查找占用cpu高的进程
-1top
-
-2: 查看线程的cpu消耗
-1top -Hp pid(进程号)
-
-3:转换10进制为16进制
-1234  printf &amp;quot;%x\n&amp;quot; 线程ID```  4: 查找执行...
+            linux 进程 内存查看ps -p $pid -o rss,vsz查看应用逻辑内存，和实际物理内存使用。
+pmap -x $pid  | sort -n -k3top -csar123怀疑CPU存在瓶颈，可用 sar -u 和 sa...
             
         </p>
     </div>
@@ -209,7 +203,7 @@
 </div>
         </div>
         <div class="post-permalink">
-            <a href="/2019/09/02/java进程cpu过高问题定位/" class="btn btn-default">
+            <a href="/2019/09/02/jvm 内存问题定位/" class="btn btn-default">
                 Read</a>
         </div>
     </footer>
