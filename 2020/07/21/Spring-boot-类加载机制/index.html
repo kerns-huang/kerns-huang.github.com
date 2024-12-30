@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,16 +19,16 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content>
+<meta name="keywords" content="" />
 
 
-<meta name="description" content="spring boot的类加载机制其实和Spring 没有什么不同，如果有什么不同的，以前需要写一堆的xml配置文件来来申明类和类之间的关系，现在基本上不需要写这么多配置文件了。这说明Sprin...">
+<meta name="description" content="spring boot的类加载机制其实和Spring 没有什么不同，如果有什么不同的，以前需要写一堆的xml配置文件来来申明类和类之间的关系，现在基本上不需要写这么多配置文件了。这说明Sprin..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -45,9 +45,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -61,7 +63,7 @@
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -187,7 +189,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1584</strong>
+                1622</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -231,14 +233,14 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/07/24/h2-数据库源码阅读/" class="pre-post btn btn-default" title='h2 数据库源码阅读'>
+    <a href="/2020/07/24/h2-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" class="pre-post btn btn-default" title='h2 数据库源码阅读'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             h2 数据库源码阅读</span>
     </a>
     
     
-    <a href="/2020/07/21/spring-boot-优雅关闭/" class="next-post btn btn-default" title='spring boot 优雅关闭'>
+    <a href="/2020/07/21/spring-boot-%E4%BC%98%E9%9B%85%E5%85%B3%E9%97%AD/" class="next-post btn btn-default" title='spring boot 优雅关闭'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             spring boot 优雅关闭</span><i class="fa fa-angle-right fa-fw"></i>
@@ -250,8 +252,10 @@
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -280,7 +284,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#核心类"><span class="toc-text">核心类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#plantUML-参考资料"><span class="toc-text">plantUML 参考资料</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%B1%BB"><span class="toc-text">核心类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#plantUML-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">plantUML 参考资料</span></a></li></ol>
         
     </div>
 </aside>
@@ -323,6 +327,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

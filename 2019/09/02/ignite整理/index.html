@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,16 +19,16 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="cache,ignite,内存关系型数据库">
+<meta name="keywords" content="cache,ignite,内存关系型数据库" />
 
 
-<meta name="description" content="简介ignite 是一个关系型的，可扩展的内存数据库，主要用于高速更新的数据的实时查询和关联查询，支持sql查询和流数据的插入。目前主要用于矿机实时数据的收集。优点 ：支持sql查询缺点：查询数...">
+<meta name="description" content="简介ignite 是一个关系型的，可扩展的内存数据库，主要用于高速更新的数据的实时查询和关联查询，支持sql查询和流数据的插入。目前主要用于矿机实时数据的收集。优点 ：支持sql查询缺点：查询数..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -45,9 +45,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -61,7 +63,7 @@
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -170,7 +172,7 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/cache/">cache</a> <a class="tag-link" href="/tags/ignite/">ignite</a> <a class="tag-link" href="/tags/内存关系型数据库/">内存关系型数据库</a>
+            <a class="tag-none-link" href="/tags/cache/" rel="tag">cache</a> <a class="tag-none-link" href="/tags/ignite/" rel="tag">ignite</a> <a class="tag-none-link" href="/tags/%E5%86%85%E5%AD%98%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">内存关系型数据库</a>
             
         </span>
     </span>
@@ -189,7 +191,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1908</strong>
+                1946</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -224,17 +226,17 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2019/09/02/java进程cpu过高问题定位/" class="pre-post btn btn-default" title='jvm cpu 过高问题定位'>
+    <a href="/2019/09/02/G1%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E9%85%8D%E7%BD%AE/" class="pre-post btn btn-default" title='G1垃圾收集器配置'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            jvm cpu 过高问题定位</span>
+            G1垃圾收集器配置</span>
     </a>
     
     
-    <a href="/2019/09/02/jvm 内存问题定位/" class="next-post btn btn-default" title='jvm内存问题定位'>
+    <a href="/2019/09/02/java%E8%BF%9B%E7%A8%8Bcpu%E8%BF%87%E9%AB%98%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/" class="next-post btn btn-default" title='jvm cpu 过高问题定位'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            jvm内存问题定位</span><i class="fa fa-angle-right fa-fw"></i>
+            jvm cpu 过高问题定位</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -243,8 +245,10 @@
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -273,7 +277,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建表和cache的关联，只能在public-schema-操作"><span class="toc-text">创建表和cache的关联，只能在public schema 操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置文件生成，参考ignite-官网"><span class="toc-text">配置文件生成，参考ignite 官网</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8Ccache%E7%9A%84%E5%85%B3%E8%81%94%EF%BC%8C%E5%8F%AA%E8%83%BD%E5%9C%A8public-schema-%E6%93%8D%E4%BD%9C"><span class="toc-text">创建表和cache的关联，只能在public schema 操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90%EF%BC%8C%E5%8F%82%E8%80%83ignite-%E5%AE%98%E7%BD%91"><span class="toc-text">配置文件生成，参考ignite 官网</span></a></li></ol>
         
     </div>
 </aside>
@@ -316,6 +320,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

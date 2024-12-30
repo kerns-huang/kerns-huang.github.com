@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,18 +19,18 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="高并发">
+<meta name="keywords" content="高并发" />
 
 
 <meta name="description" content="逃逸分析和栈上分配
 逃逸分析：
- 就是分析出对象的作用域。当一个对象在方法体内声明后，该对象的引用被其他外部所引用时该对象就发生了逃逸，反之就会在栈帧中为对象分配内存空间。就是一个对象如果尽量在...">
+ 就是分析出对象的作用域。当一个对象在方法体内声明后，该对象的引用被其他外部所引用时该对象就发生了逃逸，反之就会在栈帧中为对象分配内存空间。就是一个对象如果尽量在..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -47,9 +47,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -63,7 +65,7 @@
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -172,7 +174,7 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/高并发/">高并发</a>
+            <a class="tag-none-link" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" rel="tag">高并发</a>
             
         </span>
     </span>
@@ -191,7 +193,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1567</strong>
+                1605</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -253,14 +255,14 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/08/21/锁/" class="pre-post btn btn-default" title='锁-未完成'>
+    <a href="/2020/08/21/%E9%94%81/" class="pre-post btn btn-default" title='锁-未完成'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             锁-未完成</span>
     </a>
     
     
-    <a href="/2020/08/05/黑科技收集-持续更新/" class="next-post btn btn-default" title='黑科技收集-持续更新'>
+    <a href="/2020/08/05/%E9%BB%91%E7%A7%91%E6%8A%80%E6%94%B6%E9%9B%86-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" class="next-post btn btn-default" title='黑科技收集-持续更新'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             黑科技收集-持续更新</span><i class="fa fa-angle-right fa-fw"></i>
@@ -272,8 +274,10 @@
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -302,7 +306,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#逃逸分析和栈上分配"><span class="toc-text">逃逸分析和栈上分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用Integer的优化"><span class="toc-text">使用Integer的优化</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90%E5%92%8C%E6%A0%88%E4%B8%8A%E5%88%86%E9%85%8D"><span class="toc-text">逃逸分析和栈上分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Integer%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-text">使用Integer的优化</span></a></li></ol>
         
     </div>
 </aside>
@@ -345,6 +349,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

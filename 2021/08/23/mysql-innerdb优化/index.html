@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,16 +19,16 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content>
+<meta name="keywords" content="" />
 
 
-<meta name="description" content="join_buffer_size该值主要是用来设置 两个table的join操作 会用到的最大内存值。设置的值越大，一次性读取到内存中的数据越多，可以提供join操作的性能。一般情况下建议是设置...">
+<meta name="description" content="join_buffer_size该值主要是用来设置 两个table的join操作 会用到的最大内存值。设置的值越大，一次性读取到内存中的数据越多，可以提供join操作的性能。一般情况下建议是设置..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -45,9 +45,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -61,7 +63,7 @@
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -187,7 +189,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1186</strong>
+                1224</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -216,14 +218,14 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2021/09/17/使用python-调用-defi-函数/" class="pre-post btn btn-default" title='使用python 调用 defi 函数'>
+    <a href="/2021/09/17/%E4%BD%BF%E7%94%A8python-%E8%B0%83%E7%94%A8-defi-%E5%87%BD%E6%95%B0/" class="pre-post btn btn-default" title='使用python 调用 defi 函数'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             使用python 调用 defi 函数</span>
     </a>
     
     
-    <a href="/2020/12/23/drone自动化部署/" class="next-post btn btn-default" title='gogs drone搭建java自动化部署'>
+    <a href="/2020/12/23/drone%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/" class="next-post btn btn-default" title='gogs drone搭建java自动化部署'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             gogs drone搭建java自动化部署</span><i class="fa fa-angle-right fa-fw"></i>
@@ -235,8 +237,10 @@
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -265,7 +269,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#join-buffer-size"><span class="toc-text">join_buffer_size</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#想要临时调整为-1G应该如下操作"><span class="toc-text">想要临时调整为 1G应该如下操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#InnoDB-buffer-pool-size"><span class="toc-text">InnoDB_buffer_pool_size</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#InnoDB-lock-wait-timeout"><span class="toc-text">InnoDB_lock_wait_timeout</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#join-buffer-size"><span class="toc-text">join_buffer_size</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%83%B3%E8%A6%81%E4%B8%B4%E6%97%B6%E8%B0%83%E6%95%B4%E4%B8%BA-1G%E5%BA%94%E8%AF%A5%E5%A6%82%E4%B8%8B%E6%93%8D%E4%BD%9C"><span class="toc-text">想要临时调整为 1G应该如下操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#InnoDB-buffer-pool-size"><span class="toc-text">InnoDB_buffer_pool_size</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#InnoDB-lock-wait-timeout"><span class="toc-text">InnoDB_lock_wait_timeout</span></a></li></ol>
         
     </div>
 </aside>
@@ -308,6 +312,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

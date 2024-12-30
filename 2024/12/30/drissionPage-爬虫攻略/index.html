@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="kerns的小窝">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="爬虫" />
+
+
+<meta name="description" content="简单的代码示例12345678910111213141516from DrissionPage import WebPage, ChromiumOptions# 基于谷歌浏览器的配置option..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    drissionPage 爬虫攻略 |
+    
+    kerns的小窝
+</title>
+
+<link rel="alternate" href="/atom.xml" title="kerns的小窝" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='kerns'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        kerns的小窝</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/go/"><i class="fa "></i>
+                                go</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/node/"><i class="fa "></i>
+                                node</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/rust/"><i class="fa "></i>
+                                rust</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/python/"><i class="fa "></i>
+                                python</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/运维/"><i class="fa "></i>
+                                运维</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="drissionPage 爬虫攻略">
+            
+            drissionPage 爬虫攻略
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/python/">python</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2024/12/30</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="简单的代码示例"><a href="#简单的代码示例" class="headerlink" title="简单的代码示例"></a>简单的代码示例</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> DrissionPage <span class="keyword">import</span> WebPage, ChromiumOptions</span><br><span class="line"><span class="comment"># 基于谷歌浏览器的配置</span></span><br><span class="line">options = ChromiumOptions()</span><br><span class="line"><span class="comment"># 无头设置</span></span><br><span class="line">options.headless(<span class="keyword">True</span>)</span><br><span class="line">options.set_argument(<span class="string">'--no-sandbox'</span>)</span><br><span class="line"><span class="comment"># 可以设置代理的配置</span></span><br><span class="line"><span class="keyword">if</span> proxy:</span><br><span class="line">    options.set_proxy(proxy[<span class="string">'http'</span> <span class="keyword">if</span> <span class="string">'http'</span> <span class="keyword">in</span> proxy <span class="keyword">else</span> <span class="string">'https'</span>])</span><br><span class="line"><span class="comment"># 初始化 SessionPage 对象</span></span><br><span class="line">page = WebPage(timeout=<span class="number">50</span>, chromium_options=options)</span><br><span class="line"> page.get(baseurl)</span><br><span class="line">page.wait.ele_displayed(<span class="string">'__APP'</span>)</span><br><span class="line">match = re.search(<span class="string">r'href="([^"]*delisting\?[^"]*)"'</span>, page.html)</span><br><span class="line"><span class="keyword">if</span> match:</span><br><span class="line">   print(<span class="string">""</span><span class="number">12313</span><span class="string">")</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>和 selenium 类似，本来就是从 selenium 发展而来，但也可以实现request的方法，既可以爬去网页，也可以直接调用请求。</p>
+<h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://drissionpage.cn/" target="_blank" rel="noopener">https://drissionpage.cn/</a></p>
+<h1 id="开源代码"><a href="#开源代码" class="headerlink" title="开源代码"></a>开源代码</h1><p><a href="https://gitee.com/PLA-huiziqin/DrissionPage?skip_mobile=true" target="_blank" rel="noopener">https://gitee.com/PLA-huiziqin/DrissionPage?skip_mobile=true</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2024/11/21/sublime%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/" class="next-post btn btn-default" title='sublime命令整理'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            sublime命令整理</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-Hans'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-text">简单的代码示例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%98%E7%BD%91"><span class="toc-text">官网</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-text">开源代码</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

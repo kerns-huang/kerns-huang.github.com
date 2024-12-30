@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,17 +19,17 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="web开发">
+<meta name="keywords" content="web开发" />
 
 
 <meta name="description" content="1 ：gin 开发web使用goland新建一个go mod工程， 简单的 hello word 程序
-12345678910111213import (	&quot;github.com/gi...">
+12345678910111213import (	&quot;github.com/gi..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -46,9 +46,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -62,7 +64,7 @@
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -171,7 +173,7 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/web开发/">web开发</a>
+            <a class="tag-none-link" href="/tags/web%E5%BC%80%E5%8F%91/" rel="tag">web开发</a>
             
         </span>
     </span>
@@ -190,7 +192,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1585</strong>
+                1624</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -268,14 +270,14 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/07/21/spring-boot-优雅关闭/" class="pre-post btn btn-default" title='spring boot 优雅关闭'>
+    <a href="/2020/07/21/spring-boot-%E4%BC%98%E9%9B%85%E5%85%B3%E9%97%AD/" class="pre-post btn btn-default" title='spring boot 优雅关闭'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             spring boot 优雅关闭</span>
     </a>
     
     
-    <a href="/2020/07/10/开发工具整理/" class="next-post btn btn-default" title='开发工具整理'>
+    <a href="/2020/07/10/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/" class="next-post btn btn-default" title='开发工具整理'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             开发工具整理</span><i class="fa fa-angle-right fa-fw"></i>
@@ -287,8 +289,10 @@
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -317,7 +321,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-：gin-开发web"><span class="toc-text">1 ：gin 开发web</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-一般的web开发，总会使用到数据库，最常用的数据库就是mysql，所以我们需要引入mysql。"><span class="toc-text">2: 一般的web开发，总会使用到数据库，最常用的数据库就是mysql，所以我们需要引入mysql。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-如2那样的代码，sql直接写在代码里面会不会不是太符合面向对象的逻辑，是否能够逻辑结构更清晰一点。"><span class="toc-text">3 如2那样的代码，sql直接写在代码里面会不会不是太符合面向对象的逻辑，是否能够逻辑结构更清晰一点。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-参数的校验"><span class="toc-text">4 参数的校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-一般的web开发还涉及-登陆，注册，权限状态的变化。"><span class="toc-text">5 一般的web开发还涉及 登陆，注册，权限状态的变化。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-接口文档swagger的引入。"><span class="toc-text">6 接口文档swagger的引入。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-配置文件的引入"><span class="toc-text">7 配置文件的引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-微服务的引入。"><span class="toc-text">8 微服务的引入。</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%EF%BC%9Agin-%E5%BC%80%E5%8F%91web"><span class="toc-text">1 ：gin 开发web</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%80%E8%88%AC%E7%9A%84web%E5%BC%80%E5%8F%91%EF%BC%8C%E6%80%BB%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E6%9C%80%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B0%B1%E6%98%AFmysql%EF%BC%8C%E6%89%80%E4%BB%A5%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E5%BC%95%E5%85%A5mysql%E3%80%82"><span class="toc-text">2: 一般的web开发，总会使用到数据库，最常用的数据库就是mysql，所以我们需要引入mysql。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A6%822%E9%82%A3%E6%A0%B7%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8Csql%E7%9B%B4%E6%8E%A5%E5%86%99%E5%9C%A8%E4%BB%A3%E7%A0%81%E9%87%8C%E9%9D%A2%E4%BC%9A%E4%B8%8D%E4%BC%9A%E4%B8%8D%E6%98%AF%E5%A4%AA%E7%AC%A6%E5%90%88%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%80%BB%E8%BE%91%EF%BC%8C%E6%98%AF%E5%90%A6%E8%83%BD%E5%A4%9F%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84%E6%9B%B4%E6%B8%85%E6%99%B0%E4%B8%80%E7%82%B9%E3%80%82"><span class="toc-text">3 如2那样的代码，sql直接写在代码里面会不会不是太符合面向对象的逻辑，是否能够逻辑结构更清晰一点。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%8F%82%E6%95%B0%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="toc-text">4 参数的校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%B8%80%E8%88%AC%E7%9A%84web%E5%BC%80%E5%8F%91%E8%BF%98%E6%B6%89%E5%8F%8A-%E7%99%BB%E9%99%86%EF%BC%8C%E6%B3%A8%E5%86%8C%EF%BC%8C%E6%9D%83%E9%99%90%E7%8A%B6%E6%80%81%E7%9A%84%E5%8F%98%E5%8C%96%E3%80%82"><span class="toc-text">5 一般的web开发还涉及 登陆，注册，权限状态的变化。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3swagger%E7%9A%84%E5%BC%95%E5%85%A5%E3%80%82"><span class="toc-text">6 接口文档swagger的引入。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E5%BC%95%E5%85%A5"><span class="toc-text">7 配置文件的引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%BC%95%E5%85%A5%E3%80%82"><span class="toc-text">8 微服务的引入。</span></a></li></ol>
         
     </div>
 </aside>
@@ -360,6 +364,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

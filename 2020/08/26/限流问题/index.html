@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,17 +19,17 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="高并发">
+<meta name="keywords" content="高并发" />
 
 
 <meta name="description" content="基本的概念：限流是为了解决流量超出服务器的承载量，为了保证服务器的稳定性而做的折中方案。通用的实现方式计数器代码实现具体实现
-缺点临界问题，11:59:59 秒100个请求，12:00:01秒 ...">
+缺点临界问题，11:59:59 秒100个请求，12:00:01秒 ..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -46,9 +46,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -62,7 +64,7 @@
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -171,7 +173,7 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/高并发/">高并发</a>
+            <a class="tag-none-link" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" rel="tag">高并发</a>
             
         </span>
     </span>
@@ -190,7 +192,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1548</strong>
+                1586</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -223,14 +225,14 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/09/02/fabric链包部署/" class="pre-post btn btn-default" title='fabric 链包开发和部署'>
+    <a href="/2020/09/02/fabric%E9%93%BE%E5%8C%85%E9%83%A8%E7%BD%B2/" class="pre-post btn btn-default" title='fabric 链包开发和部署'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             fabric 链包开发和部署</span>
     </a>
     
     
-    <a href="/2020/08/21/锁/" class="next-post btn btn-default" title='锁-未完成'>
+    <a href="/2020/08/21/%E9%94%81/" class="next-post btn btn-default" title='锁-未完成'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             锁-未完成</span><i class="fa fa-angle-right fa-fw"></i>
@@ -242,8 +244,10 @@
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -272,7 +276,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本的概念："><span class="toc-text">基本的概念：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通用的实现方式"><span class="toc-text">通用的实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计数器"><span class="toc-text">计数器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码实现"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点"><span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#滑动窗口限流"><span class="toc-text">滑动窗口限流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本原理"><span class="toc-text">基本原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码实现-1"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优点"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点-1"><span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#漏斗算法"><span class="toc-text">漏斗算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#令牌桶算法"><span class="toc-text">令牌桶算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码实现-2"><span class="toc-text">代码实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用的资源隔离"><span class="toc-text">常用的资源隔离</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线程池"><span class="toc-text">线程池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信号量"><span class="toc-text">信号量</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9A"><span class="toc-text">基本的概念：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-text">通用的实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="toc-text">计数器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%99%90%E6%B5%81"><span class="toc-text">滑动窗口限流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-text">基本原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-1"><span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%96%97%E7%AE%97%E6%B3%95"><span class="toc-text">漏斗算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95"><span class="toc-text">令牌桶算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><span class="toc-text">代码实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E8%B5%84%E6%BA%90%E9%9A%94%E7%A6%BB"><span class="toc-text">常用的资源隔离</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-text">线程池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="toc-text">信号量</span></a></li></ol></li></ol>
         
     </div>
 </aside>
@@ -315,6 +319,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

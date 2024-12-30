@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,16 +19,16 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="spring boot,架构">
+<meta name="keywords" content="spring boot,架构" />
 
 
-<meta name="description" content="为什么要研究这个？开始开发系统的时候，系统部署上线，很容易执行kill -9 执行系统的关闭，但该关闭会有问题，一个是如果老板正在执行操作，你在重新部署系统，结果就是在老板那边各种拒绝服务错误，...">
+<meta name="description" content="为什么要研究这个？开始开发系统的时候，系统部署上线，很容易执行kill -9 执行系统的关闭，但该关闭会有问题，一个是如果老板正在执行操作，你在重新部署系统，结果就是在老板那边各种拒绝服务错误，..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -45,9 +45,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -61,7 +63,7 @@
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -170,7 +172,7 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/spring-boot/">spring boot</a> <a class="tag-link" href="/tags/架构/">架构</a>
+            <a class="tag-none-link" href="/tags/spring-boot/" rel="tag">spring boot</a> <a class="tag-none-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a>
             
         </span>
     </span>
@@ -189,7 +191,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1584</strong>
+                1623</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -231,14 +233,14 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/07/21/Spring-boot-类加载机制/" class="pre-post btn btn-default" title='Spring boot 类加载机制'>
+    <a href="/2020/07/21/Spring-boot-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" class="pre-post btn btn-default" title='Spring boot 类加载机制'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             Spring boot 类加载机制</span>
     </a>
     
     
-    <a href="/2020/07/20/go-web-初探/" class="next-post btn btn-default" title='go gin web 初探'>
+    <a href="/2020/07/20/go-web-%E5%88%9D%E6%8E%A2/" class="next-post btn btn-default" title='go gin web 初探'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             go gin web 初探</span><i class="fa fa-angle-right fa-fw"></i>
@@ -250,8 +252,10 @@
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -280,7 +284,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要研究这个？"><span class="toc-text">为什么要研究这个？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spring-boot里面如何实现"><span class="toc-text">spring boot里面如何实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自己实现一个"><span class="toc-text">自己实现一个</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#普通的java程序如果实现优雅停机"><span class="toc-text">普通的java程序如果实现优雅停机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spring-boot内置容器下如何实现-优雅关闭？"><span class="toc-text">spring boot内置容器下如何实现 优雅关闭？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spring-boot-外置容器下如何实现优雅关闭。"><span class="toc-text">spring boot 外置容器下如何实现优雅关闭。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%A0%94%E7%A9%B6%E8%BF%99%E4%B8%AA%EF%BC%9F"><span class="toc-text">为什么要研究这个？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spring-boot%E9%87%8C%E9%9D%A2%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">spring boot里面如何实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA"><span class="toc-text">自己实现一个</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E7%9A%84java%E7%A8%8B%E5%BA%8F%E5%A6%82%E6%9E%9C%E5%AE%9E%E7%8E%B0%E4%BC%98%E9%9B%85%E5%81%9C%E6%9C%BA"><span class="toc-text">普通的java程序如果实现优雅停机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spring-boot%E5%86%85%E7%BD%AE%E5%AE%B9%E5%99%A8%E4%B8%8B%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0-%E4%BC%98%E9%9B%85%E5%85%B3%E9%97%AD%EF%BC%9F"><span class="toc-text">spring boot内置容器下如何实现 优雅关闭？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spring-boot-%E5%A4%96%E7%BD%AE%E5%AE%B9%E5%99%A8%E4%B8%8B%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%BC%98%E9%9B%85%E5%85%B3%E9%97%AD%E3%80%82"><span class="toc-text">spring boot 外置容器下如何实现优雅关闭。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol>
         
     </div>
 </aside>
@@ -323,6 +327,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

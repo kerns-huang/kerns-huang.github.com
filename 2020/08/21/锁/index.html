@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,17 +19,17 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content>
+<meta name="keywords" content="" />
 
 
 <meta name="description" content="操作系统级别如何实现锁系统级别锁的实现互斥锁基本概念互斥锁，如果资源已经被占用，资源申请者只能进入睡眠状态。
-自旋锁基本概念自旋锁是专为防止多处理器并发而引入的一种锁，如果自旋锁已经被别的执行单...">
+自旋锁基本概念自旋锁是专为防止多处理器并发而引入的一种锁，如果自旋锁已经被别的执行单..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -46,9 +46,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -62,7 +64,7 @@
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -188,7 +190,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1553</strong>
+                1591</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -225,14 +227,14 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/08/26/限流问题/" class="pre-post btn btn-default" title='限流问题'>
+    <a href="/2020/08/26/%E9%99%90%E6%B5%81%E9%97%AE%E9%A2%98/" class="pre-post btn btn-default" title='限流问题'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             限流问题</span>
     </a>
     
     
-    <a href="/2020/08/07/jvm优化/" class="next-post btn btn-default" title='java高并发细节优化'>
+    <a href="/2020/08/07/jvm%E4%BC%98%E5%8C%96/" class="next-post btn btn-default" title='java高并发细节优化'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             java高并发细节优化</span><i class="fa fa-angle-right fa-fw"></i>
@@ -244,8 +246,10 @@
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -274,7 +278,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#操作系统级别如何实现锁"><span class="toc-text">操作系统级别如何实现锁</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#系统级别锁的实现"><span class="toc-text">系统级别锁的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#互斥锁"><span class="toc-text">互斥锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本概念"><span class="toc-text">基本概念</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自旋锁"><span class="toc-text">自旋锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本概念-1"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用场景"><span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注意事项"><span class="toc-text">注意事项</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java-级别如果实现锁"><span class="toc-text">java 级别如果实现锁</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念-2"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体的实现"><span class="toc-text">具体的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#可重入锁"><span class="toc-text">可重入锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自己实现的可重入锁"><span class="toc-text">自己实现的可重入锁</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#测试用例"><span class="toc-text">测试用例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#读写锁"><span class="toc-text">读写锁</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分布式锁"><span class="toc-text">分布式锁</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-text">实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基于redis的实现方式"><span class="toc-text">基于redis的实现方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于zookeeper的实现方式"><span class="toc-text">基于zookeeper的实现方式</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BA%A7%E5%88%AB%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E9%94%81"><span class="toc-text">操作系统级别如何实现锁</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%BA%A7%E5%88%AB%E9%94%81%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">系统级别锁的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E6%96%A5%E9%94%81"><span class="toc-text">互斥锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E6%97%8B%E9%94%81"><span class="toc-text">自旋锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-1"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">注意事项</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java-%E7%BA%A7%E5%88%AB%E5%A6%82%E6%9E%9C%E5%AE%9E%E7%8E%B0%E9%94%81"><span class="toc-text">java 级别如果实现锁</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-2"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">具体的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="toc-text">可重入锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="toc-text">自己实现的可重入锁</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="toc-text">测试用例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%BB%E5%86%99%E9%94%81"><span class="toc-text">读写锁</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-text">分布式锁</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-text">实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8Eredis%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-text">基于redis的实现方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8Ezookeeper%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-text">基于zookeeper的实现方式</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>
@@ -317,6 +321,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

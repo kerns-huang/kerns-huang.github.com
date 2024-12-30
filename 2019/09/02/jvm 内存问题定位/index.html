@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,17 +19,17 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="jvm">
+<meta name="keywords" content="jvm" />
 
 
 <meta name="description" content="linux 进程 内存查看ps -p $pid -o rss,vsz查看应用逻辑内存，和实际物理内存使用。
-pmap -x $pid  | sort -n -k3top -csar123怀疑CP...">
+pmap -x $pid  | sort -n -k3top -csar123怀疑CP..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -46,9 +46,11 @@ pmap -x $pid  | sort -n -k3top -csar123怀疑CP...">
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -62,7 +64,7 @@ pmap -x $pid  | sort -n -k3top -csar123怀疑CP...">
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -171,7 +173,7 @@ pmap -x $pid  | sort -n -k3top -csar123怀疑CP...">
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/jvm/">jvm</a>
+            <a class="tag-none-link" href="/tags/jvm/" rel="tag">jvm</a>
             
         </span>
     </span>
@@ -190,7 +192,7 @@ pmap -x $pid  | sort -n -k3top -csar123怀疑CP...">
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1908</strong>
+                1946</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -249,14 +251,14 @@ pmap -x $pid  | sort -n -k3top -csar123怀疑CP...">
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2019/09/02/ignite整理/" class="pre-post btn btn-default" title='ignite整理'>
+    <a href="/2019/09/02/java%E8%BF%9B%E7%A8%8Bcpu%E8%BF%87%E9%AB%98%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/" class="pre-post btn btn-default" title='jvm cpu 过高问题定位'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            ignite整理</span>
+            jvm cpu 过高问题定位</span>
     </a>
     
     
-    <a href="/2019/09/02/多线程数据读取 -cpu 信/" class="next-post btn btn-default" title='高速缓存'>
+    <a href="/2019/09/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96%20-cpu%20%E4%BF%A1/" class="next-post btn btn-default" title='高速缓存'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             高速缓存</span><i class="fa fa-angle-right fa-fw"></i>
@@ -268,8 +270,10 @@ pmap -x $pid  | sort -n -k3top -csar123怀疑CP...">
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -298,7 +302,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux-进程-内存查看"><span class="toc-text">linux 进程 内存查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ps-p-pid-o-rss-vsz"><span class="toc-text">ps -p $pid -o rss,vsz</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pmap-x-pid-sort-n-k3"><span class="toc-text">pmap -x $pid  | sort -n -k3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#top-c"><span class="toc-text">top -c</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sar"><span class="toc-text">sar</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gdb"><span class="toc-text">gdb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strace"><span class="toc-text">strace</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#堆内内存查看"><span class="toc-text">堆内内存查看</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-预先防范"><span class="toc-text">1 预先防范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-直接打印-hprof-，线上慎用。"><span class="toc-text">2 直接打印 .hprof ，线上慎用。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-hprof文件分析"><span class="toc-text">3 hprof文件分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关资料"><span class="toc-text">相关资料</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#堆外内存查看"><span class="toc-text">堆外内存查看</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看线程的内存使用"><span class="toc-text">查看线程的内存使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#需要解决的疑问"><span class="toc-text">需要解决的疑问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jvm-的内存计算"><span class="toc-text">jvm 的内存计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#相关资料-1"><span class="toc-text">相关资料</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存的定义"><span class="toc-text">内存的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mmap-文件"><span class="toc-text">mmap 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#很详细的一篇定位文章"><span class="toc-text">很详细的一篇定位文章</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux-%E8%BF%9B%E7%A8%8B-%E5%86%85%E5%AD%98%E6%9F%A5%E7%9C%8B"><span class="toc-text">linux 进程 内存查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ps-p-pid-o-rss-vsz"><span class="toc-text">ps -p $pid -o rss,vsz</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pmap-x-pid-sort-n-k3"><span class="toc-text">pmap -x $pid  | sort -n -k3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#top-c"><span class="toc-text">top -c</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sar"><span class="toc-text">sar</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gdb"><span class="toc-text">gdb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strace"><span class="toc-text">strace</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A0%86%E5%86%85%E5%86%85%E5%AD%98%E6%9F%A5%E7%9C%8B"><span class="toc-text">堆内内存查看</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%84%E5%85%88%E9%98%B2%E8%8C%83"><span class="toc-text">1 预先防范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%9B%B4%E6%8E%A5%E6%89%93%E5%8D%B0-hprof-%EF%BC%8C%E7%BA%BF%E4%B8%8A%E6%85%8E%E7%94%A8%E3%80%82"><span class="toc-text">2 直接打印 .hprof ，线上慎用。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-hprof%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90"><span class="toc-text">3 hprof文件分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99"><span class="toc-text">相关资料</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A0%86%E5%A4%96%E5%86%85%E5%AD%98%E6%9F%A5%E7%9C%8B"><span class="toc-text">堆外内存查看</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8"><span class="toc-text">查看线程的内存使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E8%A7%A3%E5%86%B3%E7%9A%84%E7%96%91%E9%97%AE"><span class="toc-text">需要解决的疑问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jvm-%E7%9A%84%E5%86%85%E5%AD%98%E8%AE%A1%E7%AE%97"><span class="toc-text">jvm 的内存计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99-1"><span class="toc-text">相关资料</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">内存的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mmap-%E6%96%87%E4%BB%B6"><span class="toc-text">mmap 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%88%E8%AF%A6%E7%BB%86%E7%9A%84%E4%B8%80%E7%AF%87%E5%AE%9A%E4%BD%8D%E6%96%87%E7%AB%A0"><span class="toc-text">很详细的一篇定位文章</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>
@@ -341,6 +345,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

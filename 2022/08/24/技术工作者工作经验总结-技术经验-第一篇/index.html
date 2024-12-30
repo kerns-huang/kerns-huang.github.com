@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,17 +19,17 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content>
+<meta name="keywords" content="" />
 
 
 <meta name="description" content="FutureTask的使用场景一我这边需要提供一个接口给客户端,这个接口需要请求外部接口20次,在这种场景下,我需要如何设计我的这个接口?
-解决方案java篇123456789101112131...">
+解决方案java篇123456789101112131..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -46,9 +46,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -62,7 +64,7 @@
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -188,7 +190,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                820</strong>
+                859</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -219,14 +221,14 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2022/10/26/mysql-全文索引/" class="pre-post btn btn-default" title='mysql 中文全文检索'>
+    <a href="/2022/10/26/mysql-%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95/" class="pre-post btn btn-default" title='mysql 中文全文检索'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             mysql 中文全文检索</span>
     </a>
     
     
-    <a href="/2022/08/24/工作经验总结一/" class="next-post btn btn-default" title='技术工作者工作经验总结(代码规范)第一篇'>
+    <a href="/2022/08/24/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93%E4%B8%80/" class="next-post btn btn-default" title='技术工作者工作经验总结(代码规范)第一篇'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             技术工作者工作经验总结(代码规范)第一篇</span><i class="fa fa-angle-right fa-fw"></i>
@@ -238,8 +240,10 @@
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -268,7 +272,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#FutureTask的使用"><span class="toc-text">FutureTask的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#场景一"><span class="toc-text">场景一</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#解决方案java篇"><span class="toc-text">解决方案java篇</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#长短缓存的使用"><span class="toc-text">长短缓存的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#场景一-1"><span class="toc-text">场景一</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#解决方案java篇-1"><span class="toc-text">解决方案java篇</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#FutureTask%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">FutureTask的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B8%80"><span class="toc-text">场景一</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88java%E7%AF%87"><span class="toc-text">解决方案java篇</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%BF%E7%9F%AD%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">长短缓存的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B8%80-1"><span class="toc-text">场景一</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88java%E7%AF%87-1"><span class="toc-text">解决方案java篇</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>
@@ -311,6 +315,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

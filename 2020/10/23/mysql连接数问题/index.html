@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,17 +19,17 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="mysql">
+<meta name="keywords" content="mysql" />
 
 
 <meta name="description" content="查看连接数问题查看执行中的进程SHOW FULL PROCESSLIST;
-show processlist;查看最大连接数show variables like &apos;%max_conn...">
+show processlist;查看最大连接数show variables like &apos;%max_conn..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -46,9 +46,11 @@ show processlist;查看最大连接数show variables like &apos;%max_conn...">
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -62,7 +64,7 @@ show processlist;查看最大连接数show variables like &apos;%max_conn...">
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -163,7 +165,7 @@ show processlist;查看最大连接数show variables like &apos;%max_conn...">
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/运维/">运维</a>
+        <a class="category-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
     </span>
     
     
@@ -171,7 +173,7 @@ show processlist;查看最大连接数show variables like &apos;%max_conn...">
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/mysql/">mysql</a>
+            <a class="tag-none-link" href="/tags/mysql/" rel="tag">mysql</a>
             
         </span>
     </span>
@@ -190,7 +192,7 @@ show processlist;查看最大连接数show variables like &apos;%max_conn...">
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1491</strong>
+                1529</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -231,7 +233,7 @@ show processlist;</code></pre><h2 id="查看最大连接数"><a href="#查看最
     </a>
     
     
-    <a href="/2020/09/14/selenium-爬虫/" class="next-post btn btn-default" title='selenium 爬虫'>
+    <a href="/2020/09/14/selenium-%E7%88%AC%E8%99%AB/" class="next-post btn btn-default" title='selenium 爬虫'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             selenium 爬虫</span><i class="fa fa-angle-right fa-fw"></i>
@@ -243,8 +245,10 @@ show processlist;</code></pre><h2 id="查看最大连接数"><a href="#查看最
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -273,7 +277,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#查看连接数问题"><span class="toc-text">查看连接数问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看执行中的进程"><span class="toc-text">查看执行中的进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看最大连接数"><span class="toc-text">查看最大连接数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-0-中设置最大连接数"><span class="toc-text">8.0 中设置最大连接数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#锁问题查询"><span class="toc-text">锁问题查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看哪些表正在被使用当中"><span class="toc-text">查看哪些表正在被使用当中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看当前运行的所有事务"><span class="toc-text">查看当前运行的所有事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看锁的情况"><span class="toc-text">查看锁的情况</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9E%E6%8E%A5%E6%95%B0%E9%97%AE%E9%A2%98"><span class="toc-text">查看连接数问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%A7%E8%A1%8C%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B"><span class="toc-text">查看执行中的进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%9C%80%E5%A4%A7%E8%BF%9E%E6%8E%A5%E6%95%B0"><span class="toc-text">查看最大连接数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-0-%E4%B8%AD%E8%AE%BE%E7%BD%AE%E6%9C%80%E5%A4%A7%E8%BF%9E%E6%8E%A5%E6%95%B0"><span class="toc-text">8.0 中设置最大连接数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%94%81%E9%97%AE%E9%A2%98%E6%9F%A5%E8%AF%A2"><span class="toc-text">锁问题查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%93%AA%E4%BA%9B%E8%A1%A8%E6%AD%A3%E5%9C%A8%E8%A2%AB%E4%BD%BF%E7%94%A8%E5%BD%93%E4%B8%AD"><span class="toc-text">查看哪些表正在被使用当中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%80%E6%9C%89%E4%BA%8B%E5%8A%A1"><span class="toc-text">查看当前运行的所有事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%94%81%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-text">查看锁的情况</span></a></li></ol></li></ol>
         
     </div>
 </aside>
@@ -316,6 +320,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

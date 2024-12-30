@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,18 +19,18 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="数据结构,数据库,h2">
+<meta name="keywords" content="数据结构,数据库,h2" />
 
 
 <meta name="description" content="背景b+ 树，目前删除还不是很完善，主要是为了搞明白h2数据库预先打下基础，后面会开始通过这个然后比对h2是如何实现这块的逻辑。
 应用的数据库h2，mysql，
-b+树的图解：![](/imag...">
+b+树的图解：![](/imag..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -47,9 +47,11 @@ b+树的图解：![](/imag...">
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -63,7 +65,7 @@ b+树的图解：![](/imag...">
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -172,7 +174,7 @@ b+树的图解：![](/imag...">
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/h2/">h2</a> <a class="tag-link" href="/tags/数据库/">数据库</a> <a class="tag-link" href="/tags/数据结构/">数据结构</a>
+            <a class="tag-none-link" href="/tags/h2/" rel="tag">h2</a> <a class="tag-none-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a> <a class="tag-none-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a>
             
         </span>
     </span>
@@ -191,7 +193,7 @@ b+树的图解：![](/imag...">
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1667</strong>
+                1705</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -225,14 +227,14 @@ b+树的图解：![](/imag...">
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/05/29/基于docker搭建mongodb/" class="pre-post btn btn-default" title='基于docker搭建mongodb'>
+    <a href="/2020/05/29/%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BAmongodb/" class="pre-post btn btn-default" title='基于docker搭建mongodb'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             基于docker搭建mongodb</span>
     </a>
     
     
-    <a href="/2020/04/09/linux内存和cpu查看/" class="next-post btn btn-default" title='linux内存和cpu查看'>
+    <a href="/2020/04/09/linux%E5%86%85%E5%AD%98%E5%92%8Ccpu%E6%9F%A5%E7%9C%8B/" class="next-post btn btn-default" title='linux内存和cpu查看'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             linux内存和cpu查看</span><i class="fa fa-angle-right fa-fw"></i>
@@ -244,8 +246,10 @@ b+树的图解：![](/imag...">
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -274,7 +278,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用的数据库"><span class="toc-text">应用的数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-树的图解："><span class="toc-text">b+树的图解：</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">应用的数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-%E6%A0%91%E7%9A%84%E5%9B%BE%E8%A7%A3%EF%BC%9A"><span class="toc-text">b+树的图解：</span></a></li></ol>
         
     </div>
 </aside>
@@ -317,6 +321,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

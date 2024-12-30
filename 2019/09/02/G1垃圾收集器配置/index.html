@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,7 +19,7 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="jvm">
+<meta name="keywords" content="jvm" />
 
 
 <meta name="description" content="常用的配置整理
@@ -36,13 +36,13 @@ G1收集器启动
 
 -XX:MaxGCPauseMillis=n
 垃圾收集的预期时间，尽量让实际收集时间和预期时间接近
-...">
+..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -59,9 +59,11 @@ G1收集器启动
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -75,7 +77,7 @@ G1收集器启动
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -184,7 +186,7 @@ G1收集器启动
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/jvm/">jvm</a>
+            <a class="tag-none-link" href="/tags/jvm/" rel="tag">jvm</a>
             
         </span>
     </span>
@@ -203,7 +205,7 @@ G1收集器启动
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1908</strong>
+                1946</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -320,10 +322,10 @@ G1收集器启动
     </a>
     
     
-    <a href="/2019/09/02/java进程cpu过高问题定位/" class="next-post btn btn-default" title='jvm cpu 过高问题定位'>
+    <a href="/2019/09/02/ignite%E6%95%B4%E7%90%86/" class="next-post btn btn-default" title='ignite整理'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            jvm cpu 过高问题定位</span><i class="fa fa-angle-right fa-fw"></i>
+            ignite整理</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -332,8 +334,10 @@ G1收集器启动
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -362,7 +366,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的配置整理"><span class="toc-text">常用的配置整理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日记配置整理"><span class="toc-text">日记配置整理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#试验性虚拟机标志"><span class="toc-text">试验性虚拟机标志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于堆内存满的问题"><span class="toc-text">关于堆内存满的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料："><span class="toc-text">参考资料：</span></a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E6%95%B4%E7%90%86"><span class="toc-text">常用的配置整理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E8%AE%B0%E9%85%8D%E7%BD%AE%E6%95%B4%E7%90%86"><span class="toc-text">日记配置整理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%95%E9%AA%8C%E6%80%A7%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%87%E5%BF%97"><span class="toc-text">试验性虚拟机标志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%A0%86%E5%86%85%E5%AD%98%E6%BB%A1%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">关于堆内存满的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%EF%BC%9A"><span class="toc-text">参考资料：</span></a>
         
     </div>
 </aside>
@@ -405,6 +409,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

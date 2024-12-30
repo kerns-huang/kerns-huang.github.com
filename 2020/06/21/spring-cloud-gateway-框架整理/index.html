@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,16 +19,16 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="spring cloud">
+<meta name="keywords" content="spring cloud" />
 
 
-<meta name="description" content="配置文件配置12345678910spring:  cloud:    gateway:      routes:      - id: fiction-server        uri: l...">
+<meta name="description" content="配置文件配置12345678910spring:  cloud:    gateway:      routes:      - id: fiction-server        uri: l..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -45,9 +45,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -61,7 +63,7 @@
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -170,7 +172,7 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/spring-cloud/">spring cloud</a>
+            <a class="tag-none-link" href="/tags/spring-cloud/" rel="tag">spring cloud</a>
             
         </span>
     </span>
@@ -189,7 +191,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1614</strong>
+                1652</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -229,14 +231,14 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/06/26/spring-boot-工作原理/" class="pre-post btn btn-default" title='spring boot 工作原理'>
+    <a href="/2020/06/26/spring-boot-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="pre-post btn btn-default" title='spring boot 工作原理'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             spring boot 工作原理</span>
     </a>
     
     
-    <a href="/2020/05/29/基于docker搭建mongodb/" class="next-post btn btn-default" title='基于docker搭建mongodb'>
+    <a href="/2020/05/29/%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BAmongodb/" class="next-post btn btn-default" title='基于docker搭建mongodb'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             基于docker搭建mongodb</span><i class="fa fa-angle-right fa-fw"></i>
@@ -248,8 +250,10 @@
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -278,7 +282,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置文件配置"><span class="toc-text">配置文件配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#各个接口简单说明"><span class="toc-text">各个接口简单说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Predicate"><span class="toc-text">Predicate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GatewayFilter"><span class="toc-text">GatewayFilter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GlobalFilter"><span class="toc-text">GlobalFilter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FilteringWebHandler"><span class="toc-text">FilteringWebHandler</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RoutePredicateHandlerMapping"><span class="toc-text">RoutePredicateHandlerMapping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RouteDefinitionRouteLocator"><span class="toc-text">RouteDefinitionRouteLocator</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-text">配置文件配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E4%B8%AA%E6%8E%A5%E5%8F%A3%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E"><span class="toc-text">各个接口简单说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Predicate"><span class="toc-text">Predicate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GatewayFilter"><span class="toc-text">GatewayFilter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GlobalFilter"><span class="toc-text">GlobalFilter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FilteringWebHandler"><span class="toc-text">FilteringWebHandler</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RoutePredicateHandlerMapping"><span class="toc-text">RoutePredicateHandlerMapping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RouteDefinitionRouteLocator"><span class="toc-text">RouteDefinitionRouteLocator</span></a></li></ol></li></ol>
         
     </div>
 </aside>
@@ -321,6 +325,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,17 +19,17 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="数据库">
+<meta name="keywords" content="数据库" />
 
 
 <meta name="description" content="系统外知识 1: 操作系统里的Page(页)是固定大小的内存，一般为4k,可以通过命令查找。
-数据库主要涉及的知识点1:事务，隔离级别2:MVCC3:多版本存储,每一个版本都是一个B-tree树...">
+数据库主要涉及的知识点1:事务，隔离级别2:MVCC3:多版本存储,每一个版本都是一个B-tree树..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -46,9 +46,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -62,7 +64,7 @@
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -171,7 +173,7 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/数据库/">数据库</a>
+            <a class="tag-none-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a>
             
         </span>
     </span>
@@ -190,7 +192,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1705</strong>
+                1743</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -224,14 +226,14 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/04/09/linux内存和cpu查看/" class="pre-post btn btn-default" title='linux内存和cpu查看'>
+    <a href="/2020/04/09/linux%E5%86%85%E5%AD%98%E5%92%8Ccpu%E6%9F%A5%E7%9C%8B/" class="pre-post btn btn-default" title='linux内存和cpu查看'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             linux内存和cpu查看</span>
     </a>
     
     
-    <a href="/2020/02/28/rust 入门一链表实现/" class="next-post btn btn-default" title='rust入门-链表实现'>
+    <a href="/2020/02/28/rust%20%E5%85%A5%E9%97%A8%E4%B8%80%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/" class="next-post btn btn-default" title='rust入门-链表实现'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             rust入门-链表实现</span><i class="fa fa-angle-right fa-fw"></i>
@@ -243,8 +245,10 @@
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -273,7 +277,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#系统外知识"><span class="toc-text">系统外知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库主要涉及的知识点"><span class="toc-text">数据库主要涉及的知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事务"><span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#需要解决的问题"><span class="toc-text">需要解决的问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据存储"><span class="toc-text">数据存储</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#延伸思考"><span class="toc-text">延伸思考</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%A4%96%E7%9F%A5%E8%AF%86"><span class="toc-text">系统外知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E8%A6%81%E6%B6%89%E5%8F%8A%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text">数据库主要涉及的知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1"><span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">需要解决的问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8"><span class="toc-text">数据存储</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E4%BC%B8%E6%80%9D%E8%80%83"><span class="toc-text">延伸思考</span></a></li></ol>
         
     </div>
 </aside>
@@ -316,6 +320,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

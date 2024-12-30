@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hans">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,17 +19,17 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content>
+<meta name="keywords" content="" />
 
 
 <meta name="description" content="pod相关获取某个项目的包含的podkubectl get pod -ncentralsystem
-日志相关查看某个pod日志kubectl logs -f api-interface-6d48...">
+日志相关查看某个pod日志kubectl logs -f api-interface-6d48..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -46,9 +46,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -62,7 +64,7 @@
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -163,7 +165,7 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/运维/">运维</a>
+        <a class="category-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
     </span>
     
     
@@ -188,7 +190,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                611</strong>
+                649</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -219,14 +221,14 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2023/04/10/curl-命令整理/" class="pre-post btn btn-default" title='curl 命令整理'>
+    <a href="/2023/04/10/curl-%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/" class="pre-post btn btn-default" title='curl 命令整理'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             curl 命令整理</span>
     </a>
     
     
-    <a href="/2023/01/11/vue环境搭建/" class="next-post btn btn-default" title='vue环境搭建'>
+    <a href="/2023/01/11/vue%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="next-post btn btn-default" title='vue环境搭建'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             vue环境搭建</span><i class="fa fa-angle-right fa-fw"></i>
@@ -238,8 +240,10 @@
     
 
 <div id="vcomments" class="valine"></div>
+
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 <script>
 new Valine({
     av: AV,
@@ -268,7 +272,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pod相关"><span class="toc-text">pod相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取某个项目的包含的pod"><span class="toc-text">获取某个项目的包含的pod</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日志相关"><span class="toc-text">日志相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看某个pod日志"><span class="toc-text">查看某个pod日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置相关"><span class="toc-text">配置相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看某个配置"><span class="toc-text">查看某个配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除某个配置"><span class="toc-text">删除某个配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#镜像里面内容"><span class="toc-text">镜像里面内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看镜像的内容"><span class="toc-text">查看镜像的内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看某个镜像的配置信息"><span class="toc-text">查看某个镜像的配置信息</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pod%E7%9B%B8%E5%85%B3"><span class="toc-text">pod相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%9F%90%E4%B8%AA%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%8C%85%E5%90%AB%E7%9A%84pod"><span class="toc-text">获取某个项目的包含的pod</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%9B%B8%E5%85%B3"><span class="toc-text">日志相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AApod%E6%97%A5%E5%BF%97"><span class="toc-text">查看某个pod日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%9B%B8%E5%85%B3"><span class="toc-text">配置相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E9%85%8D%E7%BD%AE"><span class="toc-text">查看某个配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%9F%90%E4%B8%AA%E9%85%8D%E7%BD%AE"><span class="toc-text">删除某个配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E9%87%8C%E9%9D%A2%E5%86%85%E5%AE%B9"><span class="toc-text">镜像里面内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%95%9C%E5%83%8F%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">查看镜像的内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E9%95%9C%E5%83%8F%E7%9A%84%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="toc-text">查看某个镜像的配置信息</span></a></li></ol>
         
     </div>
 </aside>
@@ -311,6 +315,8 @@ new Valine({
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>
