@@ -23,7 +23,7 @@
 
 
 <meta name="description" content="问题：1：RPC的实现是如何实现的?核心类：ReferenceConfig.createProxy()创建代理类,获取proxy代理类的顺序:
-12345671. 如果没有url指定：     ..." />
+123456781. 如果没有url指定：    ..." />
 
 
 <meta name="robots" content="all" />
@@ -200,24 +200,15 @@
     
     <div class="post-body post-content">
         <h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><h3 id="1：RPC的实现是如何实现的"><a href="#1：RPC的实现是如何实现的" class="headerlink" title="1：RPC的实现是如何实现的?"></a>1：RPC的实现是如何实现的?</h3><p>核心类：ReferenceConfig.createProxy()创建代理类,<br>获取proxy代理类的顺序:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 如果没有url指定：</span><br><span class="line">     		1:查找本地是否有接口</span><br><span class="line">2. 是否是url直连：</span><br><span class="line">3. 是否是注册中心连接：</span><br><span class="line">     配置文件加载：  </span><br><span class="line">     1：配置文件获取。</span><br><span class="line">     2：环境变量（&quot;dubbo.registry.address&quot;）获取</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 如果没有url指定：</span><br><span class="line">     		1:查找本地是否有接口</span><br><span class="line">2. 是否是url直连：</span><br><span class="line">3. 是否是注册中心连接：</span><br><span class="line">     配置文件加载：  </span><br><span class="line">     1：配置文件获取。</span><br><span class="line">     2：环境变量（&quot;dubbo.registry.address&quot;）获取</span><br><span class="line">     </span><br></pre></td></tr></table></figure>
 <p>第一步是生成代理类。<br>第二部当方法调用的时候，通过代理类发送信息给实际的执行类，然后等待返回结果封装到自己的返回结果里面。<br>rpc 的实现机制最终还是使用了jdk的动态代理的概念。</p>
 <h3 id="2：dubbo的数据传输的方式有几种？"><a href="#2：dubbo的数据传输的方式有几种？" class="headerlink" title="2：dubbo的数据传输的方式有几种？"></a>2：dubbo的数据传输的方式有几种？</h3><p>默认实现的方式：<br>dubbo<br>http<br>hessian<br>injvm<br>redis<br>rmi<br>memcached<br>thrift</p>
 <h3 id="3：dubbo事务的处理机制"><a href="#3：dubbo事务的处理机制" class="headerlink" title="3：dubbo事务的处理机制?"></a>3：dubbo事务的处理机制?</h3><h3 id="4：dubbo客户端配置文件的加载，是如何从spring-boots的资源文件加载的"><a href="#4：dubbo客户端配置文件的加载，是如何从spring-boots的资源文件加载的" class="headerlink" title="4：dubbo客户端配置文件的加载，是如何从spring boots的资源文件加载的?"></a>4：dubbo客户端配置文件的加载，是如何从spring boots的资源文件加载的?</h3><h3 id="5-dubbo的分布式服务端处理"><a href="#5-dubbo的分布式服务端处理" class="headerlink" title="5. dubbo的分布式服务端处理?"></a>5. dubbo的分布式服务端处理?</h3><h3 id="6-filter的应用场景和实例"><a href="#6-filter的应用场景和实例" class="headerlink" title="6.filter的应用场景和实例?"></a>6.filter的应用场景和实例?</h3><h3 id="7-负载均衡是如何实现的"><a href="#7-负载均衡是如何实现的" class="headerlink" title="7 负载均衡是如何实现的?"></a>7 负载均衡是如何实现的?</h3><p>LoadBalance接口，根据策略在来做不同的选举。<br>检查类的初始化</p>
 <h3 id="8-dubbo的分版本处理"><a href="#8-dubbo的分版本处理" class="headerlink" title="8 dubbo的分版本处理"></a>8 dubbo的分版本处理</h3><p>核心类：AnnotationBean.refer</p>
-<pre><code class="核心代码">        String key = reference.group() + &quot;/&quot; + interfaceName + &quot;:&quot; + reference.version();
-ReferenceBean&lt;?&gt; referenceConfig = referenceConfigs.get(key);
-if (referenceConfig == null) {
-    referenceConfig = new ReferenceBean&lt;Object&gt;(reference);
-    if (void.class.equals(reference.interfaceClass())
-            &amp;&amp; &quot;&quot;.equals(reference.interfaceName())
-            &amp;&amp; referenceClass.isInterface()) {
-        referenceConfig.setInterface(referenceClass);
-    }
-    ...</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">String key = reference.group() + &quot;/&quot; + interfaceName + &quot;:&quot; + reference.version();</span><br><span class="line">    ReferenceBean&lt;?&gt; referenceConfig = referenceConfigs.get(key);</span><br><span class="line">    if (referenceConfig == null) &#123;</span><br><span class="line">        referenceConfig = new ReferenceBean&lt;Object&gt;(reference);</span><br><span class="line">        if (void.class.equals(reference.interfaceClass())</span><br><span class="line">                &amp;&amp; &quot;&quot;.equals(reference.interfaceName())</span><br><span class="line">                &amp;&amp; referenceClass.isInterface()) &#123;</span><br><span class="line">            referenceConfig.setInterface(referenceClass);</span><br><span class="line">        &#125;</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
+
 <h3 id="9-dubbo对jsr303的处理"><a href="#9-dubbo对jsr303的处理" class="headerlink" title="9 dubbo对jsr303的处理"></a>9 dubbo对jsr303的处理</h3><p>spring mvc对validate的处理需要显示的声明validate<br>而dubbo不需要，根本原因是dubbo的传输协议会带过来validate的信息<br>核心的实现类ValidationFilter</p>
-<h3 id="优雅关机、灰度发布、熔断策略，链路追踪，分布式事务"><a href="#优雅关机、灰度发布、熔断策略，链路追踪，分布式事务" class="headerlink" title="优雅关机、灰度发布、熔断策略，链路追踪，分布式事务"></a>优雅关机、灰度发布、熔断策略，链路追踪，分布式事务</h3><h2 id="扩展的思考："><a href="#扩展的思考：" class="headerlink" title="扩展的思考："></a>扩展的思考：</h2><h3 id="1-jDK的动态代理是如何实现的"><a href="#1-jDK的动态代理是如何实现的" class="headerlink" title="1. jDK的动态代理是如何实现的?"></a>1. jDK的动态代理是如何实现的?</h3><p>参考的文章<br><a href="http://blog.csdn.net/mhmyqn/article/details/48474815" target="_blank" rel="noopener">http://blog.csdn.net/mhmyqn/article/details/48474815</a><br>上面的文章讲了下代理类生成的具体逻辑，但代理类和远程实现类的关联是如何实现的？<br>代理类只是把远程的调用接口通过自己返回给了调用方</p>
+<h3 id="优雅关机、灰度发布、熔断策略，链路追踪，分布式事务"><a href="#优雅关机、灰度发布、熔断策略，链路追踪，分布式事务" class="headerlink" title="优雅关机、灰度发布、熔断策略，链路追踪，分布式事务"></a>优雅关机、灰度发布、熔断策略，链路追踪，分布式事务</h3><h2 id="扩展的思考："><a href="#扩展的思考：" class="headerlink" title="扩展的思考："></a>扩展的思考：</h2><h3 id="1-jDK的动态代理是如何实现的"><a href="#1-jDK的动态代理是如何实现的" class="headerlink" title="1. jDK的动态代理是如何实现的?"></a>1. jDK的动态代理是如何实现的?</h3><p>参考的文章<br><a href="http://blog.csdn.net/mhmyqn/article/details/48474815">http://blog.csdn.net/mhmyqn/article/details/48474815</a><br>上面的文章讲了下代理类生成的具体逻辑，但代理类和远程实现类的关联是如何实现的？<br>代理类只是把远程的调用接口通过自己返回给了调用方</p>
 
     </div>
     

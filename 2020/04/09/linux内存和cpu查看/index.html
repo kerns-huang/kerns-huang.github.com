@@ -22,8 +22,7 @@
 <meta name="keywords" content="linux" />
 
 
-<meta name="description" content="1.CPU占用最多的前10个进程：1ps auxw|head -1;ps auxw|sort -rn -k3|head -10
-
+<meta name="description" content="1.CPU占用最多的前10个进程：1ps auxw|head -1;ps auxw|sort -rn -k3|head -10 
 2.内存消耗最多的前10个进程1ps auxw|head -1;..." />
 
 
@@ -200,39 +199,27 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="1-CPU占用最多的前10个进程："><a href="#1-CPU占用最多的前10个进程：" class="headerlink" title="1.CPU占用最多的前10个进程："></a>1.CPU占用最多的前10个进程：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps auxw|head -1;ps auxw|sort -rn -k3|head -10</span><br></pre></td></tr></table></figure>
+        <h3 id="1-CPU占用最多的前10个进程："><a href="#1-CPU占用最多的前10个进程：" class="headerlink" title="1.CPU占用最多的前10个进程："></a>1.CPU占用最多的前10个进程：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps auxw|head -1;ps auxw|sort -rn -k3|head -10 </span><br></pre></td></tr></table></figure>
+<h3 id="2-内存消耗最多的前10个进程"><a href="#2-内存消耗最多的前10个进程" class="headerlink" title="2.内存消耗最多的前10个进程"></a>2.内存消耗最多的前10个进程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps auxw|head -1;ps auxw|sort -rn -k4|head -10 </span><br></pre></td></tr></table></figure>
 
-<h3 id="2-内存消耗最多的前10个进程"><a href="#2-内存消耗最多的前10个进程" class="headerlink" title="2.内存消耗最多的前10个进程"></a>2.内存消耗最多的前10个进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps auxw|head -1;ps auxw|sort -rn -k4|head -10</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-虚拟内存使用最多的前10个进程"><a href="#3-虚拟内存使用最多的前10个进程" class="headerlink" title="3.虚拟内存使用最多的前10个进程"></a>3.虚拟内存使用最多的前10个进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps auxw|head -1;ps auxw|sort -rn -k5|head -10</span><br></pre></td></tr></table></figure>
+<h3 id="3-虚拟内存使用最多的前10个进程"><a href="#3-虚拟内存使用最多的前10个进程" class="headerlink" title="3.虚拟内存使用最多的前10个进程"></a>3.虚拟内存使用最多的前10个进程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps auxw|head -1;ps auxw|sort -rn -k5|head -10</span><br></pre></td></tr></table></figure>
 
 <h3 id="查看-内存信息"><a href="#查看-内存信息" class="headerlink" title="查看 内存信息"></a>查看 内存信息</h3><p>查看内存的统计信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -h</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -h</span><br></pre></td></tr></table></figure>
 <p>查看某个进程内存的具体使用信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pmap -X pid</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pmap -X pid</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>###查看文件句柄数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/sys/fs/file-nr</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/sys/fs/file-nr</span><br></pre></td></tr></table></figure>
+<h3 id="查看tcp连接数"><a href="#查看tcp连接数" class="headerlink" title="查看tcp连接数"></a>查看tcp连接数</h3> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -n | awk &#x27;/^tcp/ &#123;++S[$NF]&#125; END &#123;for(a in S) print a, S[a]&#125;&#x27;</span><br></pre></td></tr></table></figure>
+<h3 id="查看oom-信息"><a href="#查看oom-信息" class="headerlink" title="查看oom 信息"></a>查看oom 信息</h3> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dmesg | grep -i kill | less</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/proc/$PID/oom_adj</span><br><span class="line">/proc/$PID/oom_score</span><br><span class="line">/proc/$PID/oom_score_adj</span><br></pre></td></tr></table></figure>
 
-<h3 id="查看tcp连接数"><a href="#查看tcp连接数" class="headerlink" title="查看tcp连接数"></a>查看tcp连接数</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -n | awk &apos;/^tcp/ &#123;++S[$NF]&#125; END &#123;for(a in S) print a, S[a]&#125;&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -eo pid,comm,pmem --sort -rss | awk &#x27;&#123;&quot;cat /proc/&quot;$1&quot;/oom_score&quot; | getline oom; print $0&quot;\t&quot;oom&#125;&#x27;</span><br></pre></td></tr></table></figure>
 
-
-<h3 id="查看oom-信息"><a href="#查看oom-信息" class="headerlink" title="查看oom 信息"></a>查看oom 信息</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dmesg | grep -i kill | less</span><br></pre></td></tr></table></figure>
-
-
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/proc/$PID/oom_adj</span><br><span class="line">/proc/$PID/oom_score</span><br><span class="line">/proc/$PID/oom_score_adj</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -eo pid,comm,pmem --sort -rss | awk &apos;&#123;&quot;cat /proc/&quot;$1&quot;/oom_score&quot; | getline oom; print $0&quot;\t&quot;oom&#125;&apos;</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看硬盘问题"><a href="#查看硬盘问题" class="headerlink" title="查看硬盘问题"></a>查看硬盘问题</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df -lh</span><br><span class="line">du -sh /*</span><br><span class="line">du -h --max-depth=0 your_dest_dir/*</span><br><span class="line">lsof |grep delete</span><br><span class="line">du|sort -nr|more</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="查看当前文件夹下文件大小"><a href="#查看当前文件夹下文件大小" class="headerlink" title="查看当前文件夹下文件大小"></a>查看当前文件夹下文件大小</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -htla</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="java应用程序查看内存"><a href="#java应用程序查看内存" class="headerlink" title="java应用程序查看内存"></a>java应用程序查看内存</h3><p><a href="https://qsli.github.io/2017/12/02/google-perf-tools/" target="_blank" rel="noopener">https://qsli.github.io/2017/12/02/google-perf-tools/</a></p>
+<h3 id="查看硬盘问题"><a href="#查看硬盘问题" class="headerlink" title="查看硬盘问题"></a>查看硬盘问题</h3> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df -lh</span><br><span class="line">du -sh /*</span><br><span class="line">du -h --max-depth=0 your_dest_dir/*</span><br><span class="line">lsof |grep delete</span><br><span class="line">du|sort -nr|more</span><br></pre></td></tr></table></figure>
+<h3 id="查看当前文件夹下文件大小"><a href="#查看当前文件夹下文件大小" class="headerlink" title="查看当前文件夹下文件大小"></a>查看当前文件夹下文件大小</h3> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -htla</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="java应用程序查看内存"><a href="#java应用程序查看内存" class="headerlink" title="java应用程序查看内存"></a>java应用程序查看内存</h3><p><a href="https://qsli.github.io/2017/12/02/google-perf-tools/">https://qsli.github.io/2017/12/02/google-perf-tools/</a></p>
 
     </div>
     

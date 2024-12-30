@@ -189,11 +189,11 @@
 G1收集器启动
 
 
--XX:MaxGCPauseMillis=n
+-XX:MaxGCPauseMillis&amp;#x3D;n
 垃圾收集的预期时间，尽量让实际收集时间和预期时间接近
 
 
--XX:InitiatingHeap...
+-XX:Initiatin...
             
         </p>
     </div>
@@ -217,12 +217,10 @@ G1收集器启动
             
             操作步骤1:查找占用cpu高的进程
 1top
-
 2: 查看线程的cpu消耗
 1top -Hp pid(进程号)
-
 3:转换10进制为16进制
-1234  printf &amp;quot;%x\n&amp;quot; 线程ID```  4: 查找执行...
+1234  printf &amp;quot;%x\n&amp;quot; 线程ID```  4: 查找执行的对...
             
         </p>
     </div>

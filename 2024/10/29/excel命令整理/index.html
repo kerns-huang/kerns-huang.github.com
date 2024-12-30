@@ -197,19 +197,31 @@
 <h1 id="求和"><a href="#求和" class="headerlink" title="求和"></a>求和</h1><h2 id="SUMIF"><a href="#SUMIF" class="headerlink" title="SUMIF"></a>SUMIF</h2><pre><code>=SUMIF(A2:A5, &quot;张三&quot;, C2:C5)
 翻译:
 c=0 
-for(An :(A2...A5)){
-    if(An==&quot;张三&quot;){
+for(An :(A2...A5))&#123;
+    if(An==&quot;张三&quot;)&#123;
         c=Cn+c  
-    }
-}
-return c</code></pre><h2 id="SUM"><a href="#SUM" class="headerlink" title="SUM"></a>SUM</h2><pre><code>=SUM(A2:A5)</code></pre><h2 id="SUMIFS"><a href="#SUMIFS" class="headerlink" title="SUMIFS"></a>SUMIFS</h2><pre><code>=SUMIFS(C2:C5, A2:A5, &quot;张三&quot;, B2:B5, &quot;产品B&quot;)</code></pre><p>  这个公式的意思是：在C2:C5的范围内求和，但是只包括A2:A5范围内是“张三”且B2:B5范围内是“产品B”的行。</p>
-<h1 id="逻辑判断"><a href="#逻辑判断" class="headerlink" title="逻辑判断"></a>逻辑判断</h1><h2 id="IF"><a href="#IF" class="headerlink" title="IF"></a>IF</h2><pre><code>=IF(B2&gt;=90, &quot;A&quot;, IF(B2&gt;=80, &quot;B&quot;, &quot;C&quot;))</code></pre><p>这个公式的意思是：如果B2单元格的成绩大于等于90分，则返回”A”；如果成绩大于等于80分但小于90分，则返回”B”；如果成绩小于80分，则返回”C”。</p>
+    &#125;
+&#125;
+return c
+</code></pre>
+<h2 id="SUM"><a href="#SUM" class="headerlink" title="SUM"></a>SUM</h2><pre><code>=SUM(A2:A5)
+</code></pre>
+<h2 id="SUMIFS"><a href="#SUMIFS" class="headerlink" title="SUMIFS"></a>SUMIFS</h2><pre><code>=SUMIFS(C2:C5, A2:A5, &quot;张三&quot;, B2:B5, &quot;产品B&quot;)
+</code></pre>
+<p>  这个公式的意思是：在C2:C5的范围内求和，但是只包括A2:A5范围内是“张三”且B2:B5范围内是“产品B”的行。</p>
+<h1 id="逻辑判断"><a href="#逻辑判断" class="headerlink" title="逻辑判断"></a>逻辑判断</h1><h2 id="IF"><a href="#IF" class="headerlink" title="IF"></a>IF</h2><pre><code>  =IF(B2&gt;=90, &quot;A&quot;, IF(B2&gt;=80, &quot;B&quot;, &quot;C&quot;))
+</code></pre>
+<p>这个公式的意思是：如果B2单元格的成绩大于等于90分，则返回”A”；如果成绩大于等于80分但小于90分，则返回”B”；如果成绩小于80分，则返回”C”。</p>
 <h3 id="应用到整列"><a href="#应用到整列" class="headerlink" title="应用到整列"></a>应用到整列</h3><p>当你在C2单元格输入上述公式后，你可以通过以下步骤将其应用到整列：</p>
 <pre><code>点击C2单元格。
 将鼠标指针移动到单元格的右下角，直到鼠标指针变成一个小十字。
 点击并拖动这个小十字向下，直到你想要应用公式的所有行。
-这样，Excel就会自动将公式应用到C列的每个单元格，并且根据B列对应的成绩计算出等级。</code></pre><h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><pre><code>确保B列的成绩数据是连续的，没有空行或非数字数据，否则公式可能会返回错误。
-如果你想要在公式中使用绝对引用（例如，当你复制公式到其他列时），你可以使用$符号，如$B2。这样，无论公式如何复制，引用的列始终是B列。    </code></pre>
+这样，Excel就会自动将公式应用到C列的每个单元格，并且根据B列对应的成绩计算出等级。
+</code></pre>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><pre><code>确保B列的成绩数据是连续的，没有空行或非数字数据，否则公式可能会返回错误。
+如果你想要在公式中使用绝对引用（例如，当你复制公式到其他列时），你可以使用$符号，如$B2。这样，无论公式如何复制，引用的列始终是B列。    
+</code></pre>
+
     </div>
     
     <div class="post-footer">

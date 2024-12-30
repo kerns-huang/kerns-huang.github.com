@@ -34,9 +34,8 @@
 G1收集器启动
 
 
--XX:MaxGCPauseMillis=n
-垃圾收集的预期时间，尽量让实际收集时间和预期时间接近
-..." />
+-XX:MaxGCPauseMillis&#x3D;n
+垃圾收集的预期时间，尽量让实际收集时间和预期..." />
 
 
 <meta name="robots" content="all" />
@@ -224,36 +223,36 @@ G1收集器启动
 <td>G1收集器启动</td>
 </tr>
 <tr>
-<td>-XX:MaxGCPauseMillis=n</td>
+<td>-XX:MaxGCPauseMillis&#x3D;n</td>
 <td>垃圾收集的预期时间，尽量让实际收集时间和预期时间接近</td>
 </tr>
 <tr>
-<td>-XX:InitiatingHeapOccupancyPercent=n</td>
+<td>-XX:InitiatingHeapOccupancyPercent&#x3D;n</td>
 <td>设置触发标记周期的 Java 堆占用率阈值。默认占用率是整个 Java 堆的 45%。默认值 45.tip:避免使用 -Xmn 选项或 -XX:NewRatio 等其他相关选项显式设置年轻代大小。固定年轻代的大小会覆盖暂停时间目标。</td>
 </tr>
 <tr>
-<td>-XX:NewRatio=n</td>
-<td>new/old 年代的大小比例. 默认值 2.G1 一般不设置这个值，而是通过设置</td>
+<td>-XX:NewRatio&#x3D;n</td>
+<td>new&#x2F;old 年代的大小比例. 默认值 2.G1 一般不设置这个值，而是通过设置</td>
 </tr>
 <tr>
-<td>-XX:ConcGCThreads=n</td>
-<td>设置并行标记的线程数。将 n 设置为并行垃圾回收线程数 (ParallelGCThreads) 的 1/4 左右</td>
+<td>-XX:ConcGCThreads&#x3D;n</td>
+<td>设置并行标记的线程数。将 n 设置为并行垃圾回收线程数 (ParallelGCThreads) 的 1&#x2F;4 左右</td>
 </tr>
 <tr>
-<td>-XX:ParallelGCThreads=n</td>
+<td>-XX:ParallelGCThreads&#x3D;n</td>
 <td>垃圾收集的线程数，一般逻辑处理器的数量</td>
 </tr>
 <tr>
-<td>-XX:SurvivorRatio=n</td>
-<td>eden/survivor 空间的大小比例. 默认值 8.</td>
+<td>-XX:SurvivorRatio&#x3D;n</td>
+<td>eden&#x2F;survivor 空间的大小比例. 默认值 8.</td>
 </tr>
 <tr>
-<td>-XX:G1HeapRegionSize=n</td>
+<td>-XX:G1HeapRegionSize&#x3D;n</td>
 <td>使用G1，Java堆被划分为大小均匀的区域。这个参数配置各个子区域的大小。此参数的默认值根据堆大小的人工进行确定。最小值为 1Mb 且最大值为 32Mb，一般是2048个region，2G的内存空间设置为1M。</td>
 </tr>
 <tr>
-<td>-XX:SurvivorRatio=n</td>
-<td>eden/survivor 空间的大小比例. 默认值 8.</td>
+<td>-XX:SurvivorRatio&#x3D;n</td>
+<td>eden&#x2F;survivor 空间的大小比例. 默认值 8.</td>
 </tr>
 <tr>
 <td>-XX:+DisableExplicitGC</td>
@@ -264,7 +263,7 @@ G1收集器启动
 <td>优先尝试在TALB空间分配内存。如果是新生代分配，会同步锁定，tlab无所分配，所以效率相对稳定。</td>
 </tr>
 </tbody></table>
-<h3 id="日记配置整理"><a href="#日记配置整理" class="headerlink" title="日记配置整理"></a>日记配置整理</h3><p>-verbose:gc<br>-XX:+HeapDumpOnOutOfMemoryError<br>-XX:+PrintGCDetails<br>-XX:+PrintGCTimeStamps<br>-XX:+PrintGCDateStamps<br>-XX:+PrintAdaptiveSizePolicy<br>-Xloggc:/appl/gclogs/gc.log</p>
+<h3 id="日记配置整理"><a href="#日记配置整理" class="headerlink" title="日记配置整理"></a>日记配置整理</h3><p>-verbose:gc<br>-XX:+HeapDumpOnOutOfMemoryError<br>-XX:+PrintGCDetails<br>-XX:+PrintGCTimeStamps<br>-XX:+PrintGCDateStamps<br>-XX:+PrintAdaptiveSizePolicy<br>-Xloggc:&#x2F;appl&#x2F;gclogs&#x2F;gc.log</p>
 <h3 id="试验性虚拟机标志"><a href="#试验性虚拟机标志" class="headerlink" title="试验性虚拟机标志"></a>试验性虚拟机标志</h3><table>
 <thead>
 <tr>
@@ -294,10 +293,10 @@ G1收集器启动
 </tr>
 </tbody></table>
 <h3 id="关于堆内存满的问题"><a href="#关于堆内存满的问题" class="headerlink" title="关于堆内存满的问题"></a>关于堆内存满的问题</h3><p>可以优化的点</p>
-<p>1: 目标时间，设置短一点，减少吞吐量，但增加稳定行<br>2：增加并行标记时间-XX:ConcGCThreads=n，但一般为可能太大。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">触发Full GC</span><br><span class="line"></span><br><span class="line">在某些情况下，G1触发了Full GC，这时G1会退化使用Serial收集器来完成垃圾的清理工作，它仅仅使用单线程来完成GC工作，GC暂停时间将达到秒级别的。整个应用处于假死状态，不能处理任何请求，我们的程序当然不希望看到这些。那么发生Full GC的情况有哪些呢？</span><br><span class="line"></span><br><span class="line">并发模式失败</span><br><span class="line">G1启动标记周期，但在Mix GC之前，老年代就被填满，这时候G1会放弃标记周期。这种情形下，需要增加堆大小，或者调整周期（例如增加线程数-XX:ConcGCThreads等）。</span><br><span class="line"></span><br><span class="line">晋升失败或者疏散失败</span><br><span class="line">G1在进行GC的时候没有足够的内存供存活对象或晋升对象使用，由此触发了Full GC。可以在日志中看到(to-space exhausted)或者（to-space overflow）。解决这种问题的方式是：</span><br><span class="line"></span><br><span class="line">a,增加 -XX:G1ReservePercent 选项的值（并相应增加总的堆大小），为“目标空间”增加预留内存量。</span><br><span class="line"></span><br><span class="line">b,通过减少 -XX:InitiatingHeapOccupancyPercent 提前启动标记周期。</span><br><span class="line"></span><br><span class="line">c,也可以通过增加 -XX:ConcGCThreads 选项的值来增加并行标记线程的数目。</span><br><span class="line"></span><br><span class="line">巨型对象分配失败</span><br><span class="line">当巨型对象找不到合适的空间进行分配时，就会启动Full GC，来释放空间。这种情况下，应该避免分配大量的巨型对象，增加内存或者增大-XX:G1HeapRegionSize，使巨型对象不再是巨型对象。</span><br><span class="line"></span><br><span class="line">由于篇幅有限，G1还有很多调优实践，在此就不一一列出了，大家在平常的实践中可以慢慢探索。最后，期待java 9能正式发布，默认使用G1为垃圾收集器的java性能会不会又提高呢？</span><br></pre></td></tr></table></figure>
+<p>1: 目标时间，设置短一点，减少吞吐量，但增加稳定行<br>2：增加并行标记时间-XX:ConcGCThreads&#x3D;n，但一般为可能太大。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">触发Full GC</span><br><span class="line"></span><br><span class="line">在某些情况下，G1触发了Full GC，这时G1会退化使用Serial收集器来完成垃圾的清理工作，它仅仅使用单线程来完成GC工作，GC暂停时间将达到秒级别的。整个应用处于假死状态，不能处理任何请求，我们的程序当然不希望看到这些。那么发生Full GC的情况有哪些呢？</span><br><span class="line"></span><br><span class="line">并发模式失败</span><br><span class="line">G1启动标记周期，但在Mix GC之前，老年代就被填满，这时候G1会放弃标记周期。这种情形下，需要增加堆大小，或者调整周期（例如增加线程数-XX:ConcGCThreads等）。</span><br><span class="line"></span><br><span class="line">晋升失败或者疏散失败</span><br><span class="line">G1在进行GC的时候没有足够的内存供存活对象或晋升对象使用，由此触发了Full GC。可以在日志中看到(to-space exhausted)或者（to-space overflow）。解决这种问题的方式是：</span><br><span class="line"></span><br><span class="line">a,增加 -XX:G1ReservePercent 选项的值（并相应增加总的堆大小），为“目标空间”增加预留内存量。</span><br><span class="line"></span><br><span class="line">b,通过减少 -XX:InitiatingHeapOccupancyPercent 提前启动标记周期。</span><br><span class="line"></span><br><span class="line">c,也可以通过增加 -XX:ConcGCThreads 选项的值来增加并行标记线程的数目。</span><br><span class="line"></span><br><span class="line">巨型对象分配失败</span><br><span class="line">当巨型对象找不到合适的空间进行分配时，就会启动Full GC，来释放空间。这种情况下，应该避免分配大量的巨型对象，增加内存或者增大-XX:G1HeapRegionSize，使巨型对象不再是巨型对象。</span><br><span class="line"></span><br><span class="line">由于篇幅有限，G1还有很多调优实践，在此就不一一列出了，大家在平常的实践中可以慢慢探索。最后，期待java 9能正式发布，默认使用G1为垃圾收集器的java性能会不会又提高呢？</span><br></pre></td></tr></table></figure>
 
-<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/u013380694/article/details/83341913</span><br></pre></td></tr></table></figure>
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/u013380694/article/details/83341913</span><br></pre></td></tr></table></figure>
     </div>
     
     <div class="post-footer">

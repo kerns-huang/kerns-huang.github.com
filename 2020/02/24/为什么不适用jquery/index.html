@@ -200,7 +200,8 @@
     
     <div class="post-body post-content">
         <h1 id="为什么不用jquey"><a href="#为什么不用jquey" class="headerlink" title="为什么不用jquey"></a>为什么不用jquey</h1><h2 id="渲染引擎，js引擎"><a href="#渲染引擎，js引擎" class="headerlink" title="渲染引擎，js引擎"></a>渲染引擎，js引擎</h2><p>解析HTML -&gt; DOM Tree -&gt; Render Tree -&gt; 计算 -&gt; UI引擎渲染 </p>
-<h2 id="虚拟dom，真实dom"><a href="#虚拟dom，真实dom" class="headerlink" title="虚拟dom，真实dom"></a>虚拟dom，真实dom</h2><h3 id="虚拟dom-："><a href="#虚拟dom-：" class="headerlink" title="虚拟dom ："></a>虚拟dom ：</h3>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">是一个对象，通过diff算法刷选出变更过的对象，渲染真实dom</span><br></pre></td></tr></table></figure>
+<h2 id="虚拟dom，真实dom"><a href="#虚拟dom，真实dom" class="headerlink" title="虚拟dom，真实dom"></a>虚拟dom，真实dom</h2><h3 id="虚拟dom-："><a href="#虚拟dom-：" class="headerlink" title="虚拟dom ："></a>虚拟dom ：</h3>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">是一个对象，通过diff算法刷选出变更过的对象，渲染真实dom</span><br></pre></td></tr></table></figure>
+
 
 <p>真实dom：完全增删改，排版重绘<br>虚拟dom：虚拟dom的增删改，diff算法 真实dom增删改+排版重绘   </p>
 

@@ -199,11 +199,11 @@
         <p>spring boot的类加载机制其实和Spring 没有什么不同，如果有什么不同的，以前需要写一堆的xml配置文件来来申明类和类之间的关系，现在基本上不需要写这么多配置文件了。这说明Spring boot在Spring上还是做了优化了，能让程序员更好更快的开发自己的程序。<br>那么主要是那个变化省去了我们可以不用去写xml的麻烦。</p>
 <p>扫描 -&gt; 注册 - 生成bean</p>
 <p>扫描注册类的过程如下：</p>
-<img src="http://www.plantuml.com/plantuml/svg/ZP7DIiD04CVl-nG3NfIQFa0F7louI_C4Ip995jFTibc4KWKL4OLYptee5W_joJO85R7Obp4VdleARbgBRPg2XpqC-zlVpFmN02oV1W7i8-M7w33E51EyIGmmbMJS1OUXRvCIkAXCIzHnUuTimQbWDjHGUSBMDS2vFbme1CbSJrKWgC_U9k57ydZzDUd6buEutKudGysHHSkg42hVDg-22iHFx-dR8FfSyKp7hU_kA0glT8jD_WEF-VO_6aHX9xxeBRrdNA5qg8MvLAheia39HcQ14iXPYN8LcevlVvFZj8QxEGNOI-0ToOPPparlCvyZVkr7DwteeK_qFFDrZhXYgc5Qb1zJwuIw63IpovpXZmBjI7lFqKidkHzgSGONH0A6SRQNcp93rtzd4raS4fJBHV3w5WNWma7W1m00">
+<img  src=http://www.plantuml.com/plantuml/svg/ZP7DIiD04CVl-nG3NfIQFa0F7louI_C4Ip995jFTibc4KWKL4OLYptee5W_joJO85R7Obp4VdleARbgBRPg2XpqC-zlVpFmN02oV1W7i8-M7w33E51EyIGmmbMJS1OUXRvCIkAXCIzHnUuTimQbWDjHGUSBMDS2vFbme1CbSJrKWgC_U9k57ydZzDUd6buEutKudGysHHSkg42hVDg-22iHFx-dR8FfSyKp7hU_kA0glT8jD_WEF-VO_6aHX9xxeBRrdNA5qg8MvLAheia39HcQ14iXPYN8LcevlVvFZj8QxEGNOI-0ToOPPparlCvyZVkr7DwteeK_qFFDrZhXYgc5Qb1zJwuIw63IpovpXZmBjI7lFqKidkHzgSGONH0A6SRQNcp93rtzd4raS4fJBHV3w5WNWma7W1m00>
 
 
 <p>获取bean的过程</p>
-<img src="http://www.plantuml.com/plantuml/svg/uyhCAqajIajCJbLmIatCSqjCBialggpcugfLuChBBqbLACfCpoYnKaW2IYeytRxqQL_JyusxkHGK0000">
+<img  src=http://www.plantuml.com/plantuml/svg/uyhCAqajIajCJbLmIatCSqjCBialggpcugfLuChBBqbLACfCpoYnKaW2IYeytRxqQL_JyusxkHGK0000>
 
 <h2 id="核心类"><a href="#核心类" class="headerlink" title="核心类"></a>核心类</h2><ul>
 <li>BeanDefinition: Bean的定义类, 和xml里的配置一一对应;</li>
@@ -214,7 +214,7 @@
 <li>AbstractApplicationContext: 执行refresh()方法;</li>
 <li>AbstractRefreshableApplicationContext： 提供抽象方法loadBeanDefinitions(DefaultListableBeanFactory beanFactory) 用于加载BeanDefinition.</li>
 </ul>
-<h2 id="plantUML-参考资料"><a href="#plantUML-参考资料" class="headerlink" title="plantUML 参考资料"></a>plantUML 参考资料</h2><p><a href="https://juejin.im/post/5c072b62e51d4520cf0ed5f8" target="_blank" rel="noopener">https://juejin.im/post/5c072b62e51d4520cf0ed5f8</a></p>
+<h2 id="plantUML-参考资料"><a href="#plantUML-参考资料" class="headerlink" title="plantUML 参考资料"></a>plantUML 参考资料</h2><p><a href="https://juejin.im/post/5c072b62e51d4520cf0ed5f8">https://juejin.im/post/5c072b62e51d4520cf0ed5f8</a></p>
 
     </div>
     

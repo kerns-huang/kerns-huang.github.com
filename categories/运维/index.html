@@ -198,9 +198,9 @@
         </div>
         <p class="brief">
             
-            进入yum配置库cd /etc/yum.repos.d/
+            进入yum配置库cd &amp;#x2F;etc&amp;#x2F;yum.repos.d&amp;#x2F;
 创建文件vi nginx.repo
-12345[nginx]name=nginx repobaseurl=http://nginx.org/packages/centos/操作...
+12345[nginx]name=nginx repobaseurl=http://nginx.org/pac...
             
         </p>
     </div>
@@ -225,8 +225,7 @@
             自动跳转1curl -L www.sina.com
 
 显示头信息1curl -i www.sina.com
-
-显示请求显示各项时间指标123curl -o /dev/null -s -w ‘%&amp;#123;time_total&amp;#125...
+显示请求显示各项时间指标123curl -o /dev/null -s -w ‘%&amp;#123;time_total&amp;#125;...
             
         </p>
     </div>
@@ -300,8 +299,7 @@ docker-compose 安装
 1firewall-cmd --zone=public --list-ports
 
 永久添加端口
-1firewall-cmd --zone=public --add-port=80/tcp --permanent
-...
+1firewall-cmd --zone=public --add-port=80/tcp --permanent ...
             
         </p>
     </div>
@@ -324,7 +322,11 @@ docker-compose 安装
         <p class="brief">
             
             查看连接数问题查看执行中的进程SHOW FULL PROCESSLIST;
-show processlist;查看最大连接数show variables like &amp;apos;%max_connections%&amp;apos;;8.0 中...
+show processlist;
+
+查看最大连接数show variables like &amp;#39;%max_connections%&amp;#39;;
+
+8.0...
             
         </p>
     </div>
@@ -347,7 +349,7 @@ show processlist;查看最大连接数show variables like &amp;apos;%max_connect
         <p class="brief">
             
             mongo集群搭建第一步创建 docker-compose.yml文件docker-compose.yml: 
-1234567891011121314151617181920212223version: &amp;apos;3&amp;apos;se...
+123456789101112131415161718192021222324version: &amp;#x27;3&amp;#x27;...
             
         </p>
     </div>
@@ -369,8 +371,7 @@ show processlist;查看最大连接数show variables like &amp;apos;%max_connect
         </div>
         <p class="brief">
             
-            1.CPU占用最多的前10个进程：1ps auxw|head -1;ps auxw|sort -rn -k3|head -10
-
+            1.CPU占用最多的前10个进程：1ps auxw|head -1;ps auxw|sort -rn -k3|head -10 
 2.内存消耗最多的前10个进程1ps auxw|head -1;ps auxw|sort -rn -k4...
             
         </p>
