@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2024-12-30T02:53:36.024Z</updated>
+  <updated>2024-12-30T05:27:53.039Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>minicoda量化环境配置</title>
+    <link href="http://yoursite.com/2024/12/30/minicoda%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2024/12/30/minicoda%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</id>
+    <published>2024-12-30T04:56:00.000Z</published>
+    <updated>2024-12-30T05:27:53.039Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="minicoda-安装"><a href="#minicoda-安装" class="headerlink" title="minicoda 安装"></a>minicoda 安装</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/miniconda3</span><br><span class="line">wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh</span><br><span class="line">bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3</span><br><span class="line">rm ~/miniconda3/miniconda.sh</span><br><span class="line">source ~/miniconda3/bin/activate</span><br><span class="line">conda init --all</span><br></pre></td></tr></table></figure><h1 id="为什么安装-minicoda"><a href="#为什么安装-minicoda" class="headerlink" title="为什么安装 minicoda"></a>为什么安装 minicoda</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">服务器硬盘不够，anaconda3 基本上需要占用 8G得硬盘空间，小门小户有点受不了。minicode的初始包基本是1G以内。</span><br></pre></td></tr></table></figure><p>安装minicoda 之后的基础服务器配置，初始化的系统盘5.3g左右,相对anaconda3节省很多的空间。</p><p><img src="/images/pasted-25.png" alt="upload successful"></p><h1 id="创建最新的量化环境"><a href="#创建最新的量化环境" class="headerlink" title="创建最新的量化环境"></a>创建最新的量化环境</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n py312 python=3.12.7</span><br></pre></td></tr></table></figure><h1 id="创建python默认环境"><a href="#创建python默认环境" class="headerlink" title="创建python默认环境"></a>创建python默认环境</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br></pre></td></tr></table></figure><p>设置成如下的配置。</p><p><img src="/images/pasted-26.png" alt="upload successful"></p><h1 id="安装supervisor"><a href="#安装supervisor" class="headerlink" title="安装supervisor"></a>安装supervisor</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install -y supervisor</span><br><span class="line">systemctl enable supervisord # 开机自启动</span><br><span class="line">systemctl start supervisord # 启动supervisord服务</span><br><span class="line">systemctl status supervisord # 查看supervisord服务状态</span><br><span class="line">ps -ef|grep supervisord # 查看是否存在supervisord进程</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;minicoda-安装&quot;&gt;&lt;a href=&quot;#minicoda-安装&quot; class=&quot;headerlink&quot; title=&quot;minicoda 安装&quot;&gt;&lt;/a&gt;minicoda 安装&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+    <category term="量化" scheme="http://yoursite.com/tags/%E9%87%8F%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>drissionPage 爬虫攻略</title>
@@ -431,26 +455,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;安装-web3-py&quot;&gt;&lt;a href=&quot;#安装-web3-py&quot; class=&quot;headerlink&quot; title=&quot;安装 web3 py&quot;&gt;&lt;/a&gt;安装 web3 py&lt;/h2&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;tabl</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>mysql-innerdb优化</title>
-    <link href="http://yoursite.com/2021/08/23/mysql-innerdb%E4%BC%98%E5%8C%96/"/>
-    <id>http://yoursite.com/2021/08/23/mysql-innerdb%E4%BC%98%E5%8C%96/</id>
-    <published>2021-08-23T08:55:52.000Z</published>
-    <updated>2023-03-13T02:16:52.696Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="join-buffer-size"><a href="#join-buffer-size" class="headerlink" title="join_buffer_size"></a>join_buffer_size</h3><p>该值主要是用来设置 两个table的join操作 会用到的最大内存值。设置的值越大，一次性读取到内存中的数据越多，可以提供join操作的性能。一般情况下建议是设置8m-16m。<br><img src="/images/pasted-15.png" alt="upload successful"></p><h4 id="想要临时调整为-1G应该如下操作"><a href="#想要临时调整为-1G应该如下操作" class="headerlink" title="想要临时调整为 1G应该如下操作"></a>想要临时调整为 1G应该如下操作</h4><p>select &#x2F;*+  set_var(join_buffer_size&#x3D;1G) *&#x2F; * from …;</p><h3 id="InnoDB-buffer-pool-size"><a href="#InnoDB-buffer-pool-size" class="headerlink" title="InnoDB_buffer_pool_size"></a>InnoDB_buffer_pool_size</h3><p>这个参数定义InnoDB存储引擎的表数据和索引数据的最大内存缓冲区,InnoDB_buffer_pool_size参数同时提供为数据块和索引块做缓存.这个值设置的越高,访问表中数据需要的磁盘IO就越少.</p><h3 id="InnoDB-lock-wait-timeout"><a href="#InnoDB-lock-wait-timeout" class="headerlink" title="InnoDB_lock_wait_timeout"></a>InnoDB_lock_wait_timeout</h3><p>这个参数自动检测行锁导致的死锁并进行相应处理,但是对于表锁导致的死锁不能自动检测默认值为50秒.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;join-buffer-size&quot;&gt;&lt;a href=&quot;#join-buffer-size&quot; class=&quot;headerlink&quot; title=&quot;join_buffer_size&quot;&gt;&lt;/a&gt;join_buffer_size&lt;/h3&gt;&lt;p&gt;该值主要是用来设置 两个ta</summary>
       
     
     
