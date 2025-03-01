@@ -22,11 +22,30 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="查看所有打开的端口
-1firewall-cmd --zone=public --list-ports
+<meta name="description" content="
+数据库
+时序数据库
+嵌入式数据库 DuckDB
+ClickHouse
+DolphinDB
+InfluxDB
 
-永久添加端口
-1firewall-cmd --zone=public --add-port..." />
+
+关系型数据库
+mysql
+oracle
+
+
+图数据库
+neo4j
+
+
+
+
+
+
+
+..." />
 
 
 <meta name="robots" content="all" />
@@ -37,7 +56,7 @@
 
 <title>
     
-    centos firewall管理 |
+    数据库整理 |
     
     kerns的小窝
 </title>
@@ -159,16 +178,16 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="centos firewall管理">
+        <h1 id="数据库整理">
             
-            centos firewall管理
+            数据库整理
             
         </h1>
         <div class="post-meta">
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a> <a class="category-link" href="/categories/%E8%BF%90%E7%BB%B4/linux/">linux</a>
+        
     </span>
     
     
@@ -184,35 +203,43 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2020/11/06</span>
+            2025/03/01</span>
     </span>
     
     
 </div>
         
         
-        <p class="fa fa-exclamation-triangle warning">
-            本文于<strong>
-                1576</strong>
-            天之前发表，文中内容可能已经过时。
-        </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <p>查看所有打开的端口</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --list-ports</span><br></pre></td></tr></table></figure>
+        <blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>数据库<ul>
+<li>时序数据库<ul>
+<li>嵌入式数据库 DuckDB</li>
+<li>ClickHouse</li>
+<li>DolphinDB</li>
+<li>InfluxDB</li>
+</ul>
+</li>
+<li>关系型数据库<ul>
+<li>mysql</li>
+<li>oracle</li>
+</ul>
+</li>
+<li>图数据库<ul>
+<li>neo4j</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
 
-<p>永久添加端口</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent </span><br></pre></td></tr></table></figure>
-
-<p>更新防火墙规则</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<p>删除端口</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone= public --remove-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
 
 
+<p>DolphinDB<br>    适合金融时序,不开源</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
     
     <div class="post-footer">
@@ -230,17 +257,11 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/12/15/%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/" class="pre-post btn btn-default" title='团队协作工具整理'>
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            团队协作工具整理</span>
-    </a>
     
-    
-    <a href="/2020/10/23/mysql%E8%BF%9E%E6%8E%A5%E6%95%B0%E9%97%AE%E9%A2%98/" class="next-post btn btn-default" title='mysql 问题定位'>
+    <a href="/2025/02/27/go%E7%9A%84%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6%E6%95%B4%E7%90%86/" class="next-post btn btn-default" title='go工具包整理'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            mysql 问题定位</span><i class="fa fa-angle-right fa-fw"></i>
+            go工具包整理</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>

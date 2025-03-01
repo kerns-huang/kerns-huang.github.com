@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2025-02-27T13:25:09.383Z</updated>
+  <updated>2025-03-01T03:41:37.139Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据库整理</title>
+    <link href="http://yoursite.com/2025/03/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B4%E7%90%86/"/>
+    <id>http://yoursite.com/2025/03/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B4%E7%90%86/</id>
+    <published>2025-03-01T03:35:46.000Z</published>
+    <updated>2025-03-01T03:41:37.139Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>数据库<ul><li>时序数据库<ul><li>嵌入式数据库 DuckDB</li><li>ClickHouse</li><li>DolphinDB</li><li>InfluxDB</li></ul></li><li>关系型数据库<ul><li>mysql</li><li>oracle</li></ul></li><li>图数据库<ul><li>neo4j</li></ul></li></ul></li></ul></blockquote><p>DolphinDB<br>    适合金融时序,不开源</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote class=&quot;pullquote mindmap mindmap-md&quot;&gt;&lt;ul&gt;
+&lt;li&gt;数据库&lt;ul&gt;
+&lt;li&gt;时序数据库&lt;ul&gt;
+&lt;li&gt;嵌入式数据库 DuckDB&lt;/li&gt;
+&lt;li&gt;ClickHouse&lt;/li&gt;
+&lt;li&gt;DolphinDB&lt;/li</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>go工具包整理</title>
@@ -462,26 +487,6 @@
     
     
     <category term="vu e" scheme="http://yoursite.com/tags/vu-e/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mysql 中文全文检索</title>
-    <link href="http://yoursite.com/2022/10/26/mysql-%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95/"/>
-    <id>http://yoursite.com/2022/10/26/mysql-%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95/</id>
-    <published>2022-10-26T09:37:08.000Z</published>
-    <updated>2024-06-04T01:05:01.275Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>在我们项目里面主要需要通过用户的名字或者户籍地址,居住地址来查询数据,正常情况下索引只能同nomal 索引,但%%的模糊搜索都是全表扫描,提高不了任何的性能.这个时候是使用mysql的全文索引的好时候.</p><h3 id="默认分词索引的问题"><a href="#默认分词索引的问题" class="headerlink" title="默认分词索引的问题:"></a>默认分词索引的问题:</h3><p>ngram全文解析器默认的分词是两个为单位,如果在业务场景中需要通过姓氏之类的查询,需要修改mysql的默认配置.</p><p><img src="/images/pasted-17.png" alt="upload successful"></p><p>参看资料</p><p><a href="https://www.jianshu.com/p/c48106149b6a">https://www.jianshu.com/p/c48106149b6a</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;应用场景&quot;&gt;&lt;a href=&quot;#应用场景&quot; class=&quot;headerlink&quot; title=&quot;应用场景&quot;&gt;&lt;/a&gt;应用场景&lt;/h3&gt;&lt;p&gt;在我们项目里面主要需要通过用户的名字或者户籍地址,居住地址来查询数据,正常情况下索引只能同nomal 索引,但%%的模糊搜索</summary>
-      
-    
-    
-    
     
   </entry>
   
