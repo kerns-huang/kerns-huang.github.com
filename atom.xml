@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2025-03-01T03:41:37.139Z</updated>
+  <updated>2025-03-03T10:01:10.360Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ai短视频创作整理</title>
+    <link href="http://yoursite.com/2025/03/03/ai%E7%9F%AD%E8%A7%86%E9%A2%91%E5%88%9B%E4%BD%9C%E6%95%B4%E7%90%86/"/>
+    <id>http://yoursite.com/2025/03/03/ai%E7%9F%AD%E8%A7%86%E9%A2%91%E5%88%9B%E4%BD%9C%E6%95%B4%E7%90%86/</id>
+    <published>2025-03-03T09:27:15.000Z</published>
+    <updated>2025-03-03T10:01:10.360Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>短视频工具<ul><li>通过文本生产视频<ul><li><a href="https://hailuoai.com/">海螺ai</a></li></ul></li><li>去码，图片修复<ul><li><a href="https://www.codeformer.cn/">CodeFormer</a></li></ul></li><li>通过图片生产唱歌视频ai<ul><li><a href="https://www.e-m-o.ai/">emo ai</a></li></ul></li><li>P图</li><li>魔力橡皮擦<a href="https://magicstudio.com/zh/magiceraser/">Magic Eraser</a></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote class=&quot;pullquote mindmap mindmap-md&quot;&gt;&lt;ul&gt;
+&lt;li&gt;短视频工具&lt;ul&gt;
+&lt;li&gt;通过文本生产视频&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://hailuoai.com/&quot;&gt;海螺ai&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>数据库整理</title>
@@ -463,30 +487,6 @@
     
     <category term="运维" scheme="http://yoursite.com/categories/%E8%BF%90%E7%BB%B4/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>vue环境搭建</title>
-    <link href="http://yoursite.com/2023/01/11/vue%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>http://yoursite.com/2023/01/11/vue%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</id>
-    <published>2023-01-11T03:32:00.000Z</published>
-    <updated>2023-01-11T09:05:20.278Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="node-安装"><a href="#node-安装" class="headerlink" title="node 安装"></a>node 安装</h1><p>  <a href="https://nodejs.org/zh-cn/download/">node官网</a></p><h2 id="node-版本查看"><a href="#node-版本查看" class="headerlink" title="node 版本查看"></a>node 版本查看</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    node -V</span><br><span class="line">    npm -v</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line"># cnpm 安装</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>npm config set registry <a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a><br>npm install -g cnpm –registry&#x3D;<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># vue 脚手架安装</span><br></pre></td></tr></table></figure><p>  cnpm i -g @vue&#x2F;cli</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 创建一个新的vue项目</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>vue create vue-demo –registry&#x3D;<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p><pre><code>## vue项目的选择1. 在vue 里面可以选择初始化需要的基本配置,2. vue的版本(2.0和3.0有很大的区别,很多包可能只支持特定的版本号,需要仔细区分).# 下载指定版本的node包当没有制定版本的时候,默认下载最新的包,最新的包可能和vue的版本不兼容,需要需要设置特定的版本      </code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;node-安装&quot;&gt;&lt;a href=&quot;#node-安装&quot; class=&quot;headerlink&quot; title=&quot;node 安装&quot;&gt;&lt;/a&gt;node 安装&lt;/h1&gt;&lt;p&gt;  &lt;a href=&quot;https://nodejs.org/zh-cn/download/&quot;&gt;nod</summary>
-      
-    
-    
-    
-    <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="vu e" scheme="http://yoursite.com/tags/vu-e/"/>
     
   </entry>
   
