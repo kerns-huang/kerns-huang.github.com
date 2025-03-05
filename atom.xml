@@ -42,9 +42,9 @@
     <link href="http://yoursite.com/2025/03/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2025/03/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B4%E7%90%86/</id>
     <published>2025-03-01T03:35:46.000Z</published>
-    <updated>2025-03-05T06:06:17.691Z</updated>
+    <updated>2025-03-05T06:56:14.037Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>数据库<ul><li>时序数据库<ul><li>嵌入式数据库 DuckDB</li><li>ClickHouse</li><li>DolphinDB</li><li>InfluxDB</li></ul></li><li>关系型数据库<ul><li>mysql</li><li>oracle</li></ul></li><li>图数据库<ul><li>neo4j</li><li><a href="https://github.com/drawdb-io/drawdb">drawdb</a></li></ul></li></ul></li></ul></blockquote><p>DolphinDB<br>    适合金融时序,不开源</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>数据库<ul><li>时序数据库<ul><li>嵌入式数据库 DuckDB</li><li>ClickHouse</li><li>DolphinDB</li><li>InfluxDB</li></ul></li><li>关系型数据库<ul><li>mysql</li><li>oracle</li></ul></li><li>图数据库<ul><li>neo4j</li></ul></li></ul></li></ul></blockquote><p>DolphinDB<br>    适合金融时序,不开源</p><ul><li>画图工具  <ul><li><a href="https://github.com/drawdb-io/drawdb">drawdb</a></li></ul></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
