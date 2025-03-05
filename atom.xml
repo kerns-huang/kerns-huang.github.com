@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2025-03-03T10:01:10.360Z</updated>
+  <updated>2025-03-05T06:14:08.187Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ai短视频创作整理</title>
+    <title>ai工具整理</title>
     <link href="http://yoursite.com/2025/03/03/ai%E7%9F%AD%E8%A7%86%E9%A2%91%E5%88%9B%E4%BD%9C%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2025/03/03/ai%E7%9F%AD%E8%A7%86%E9%A2%91%E5%88%9B%E4%BD%9C%E6%95%B4%E7%90%86/</id>
     <published>2025-03-03T09:27:15.000Z</published>
-    <updated>2025-03-03T10:01:10.360Z</updated>
+    <updated>2025-03-05T06:14:08.187Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>短视频工具<ul><li>通过文本生产视频<ul><li><a href="https://hailuoai.com/">海螺ai</a></li></ul></li><li>去码，图片修复<ul><li><a href="https://www.codeformer.cn/">CodeFormer</a></li></ul></li><li>通过图片生产唱歌视频ai<ul><li><a href="https://www.e-m-o.ai/">emo ai</a></li></ul></li><li>P图</li><li>魔力橡皮擦<a href="https://magicstudio.com/zh/magiceraser/">Magic Eraser</a></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>短视频工具<ul><li>通过文本生产视频<ul><li><a href="https://hailuoai.com/">海螺ai</a></li></ul></li><li>去码，图片修复<ul><li><a href="https://www.codeformer.cn/">CodeFormer</a></li></ul></li><li>通过图片生产唱歌视频ai<ul><li><a href="https://www.e-m-o.ai/">emo ai</a></li></ul></li><li>P图</li><li>魔力橡皮擦<a href="https://magicstudio.com/zh/magiceraser/">Magic Eraser</a></li><li>视频剪辑<ul><li><a href="https://github.com/linyqh/NarratoAI">NarratoAI</a></li></ul></li></ul></li></ul></blockquote><blockquote class="pullquote mindmap mindmap-md"><ul><li>快速开发<ul><li>ide<ul><li><a href="https://www.trae.ai/">字节Trae</a></li></ul></li><li>需求变代码<ul><li><a href="https://www.codeflying.net/">码上飞</a></li></ul></li></ul></li></ul></blockquote><blockquote class="pullquote mindmap mindmap-md"><ul><li>ai部署<ul><li>ollama</li><li><a href="https://github.com/vllm-project/vllm">vllm</a></li><li>SGLang</li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
@@ -45,9 +45,9 @@
     <link href="http://yoursite.com/2025/03/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2025/03/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B4%E7%90%86/</id>
     <published>2025-03-01T03:35:46.000Z</published>
-    <updated>2025-03-01T03:41:37.139Z</updated>
+    <updated>2025-03-05T06:06:17.691Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>数据库<ul><li>时序数据库<ul><li>嵌入式数据库 DuckDB</li><li>ClickHouse</li><li>DolphinDB</li><li>InfluxDB</li></ul></li><li>关系型数据库<ul><li>mysql</li><li>oracle</li></ul></li><li>图数据库<ul><li>neo4j</li></ul></li></ul></li></ul></blockquote><p>DolphinDB<br>    适合金融时序,不开源</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>数据库<ul><li>时序数据库<ul><li>嵌入式数据库 DuckDB</li><li>ClickHouse</li><li>DolphinDB</li><li>InfluxDB</li></ul></li><li>关系型数据库<ul><li>mysql</li><li>oracle</li></ul></li><li>图数据库<ul><li>neo4j</li><li><a href="https://github.com/drawdb-io/drawdb">drawdb</a></li></ul></li></ul></li></ul></blockquote><p>DolphinDB<br>    适合金融时序,不开源</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
