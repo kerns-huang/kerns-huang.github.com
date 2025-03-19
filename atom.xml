@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2025-03-06T00:28:44.560Z</updated>
+  <updated>2025-03-19T21:39:44.950Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>服务器运维工具整理</title>
+    <link href="http://yoursite.com/2025/03/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/"/>
+    <id>http://yoursite.com/2025/03/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/</id>
+    <published>2025-03-19T21:35:00.000Z</published>
+    <updated>2025-03-19T21:39:44.950Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>top命令增强<ul><li><a href="https://www.warmjoke.com/2025/02/02/atop/">atop</a></li><li><a href="https://github.com/aristocratos/btop">btop</a></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote class=&quot;pullquote mindmap mindmap-md&quot;&gt;&lt;ul&gt;
+&lt;li&gt;top命令增强&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.warmjoke.com/2025/02/02/atop/&quot;&gt;atop&lt;/a&gt;&lt;/li&gt;
+</summary>
+      
+    
+    
+    
+    <category term="运维" scheme="http://yoursite.com/categories/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="运维" scheme="http://yoursite.com/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ai工具整理</title>
     <link href="http://yoursite.com/2025/03/03/ai%E7%9F%AD%E8%A7%86%E9%A2%91%E5%88%9B%E4%BD%9C%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2025/03/03/ai%E7%9F%AD%E8%A7%86%E9%A2%91%E5%88%9B%E4%BD%9C%E6%95%B4%E7%90%86/</id>
     <published>2025-03-03T09:27:15.000Z</published>
-    <updated>2025-03-06T00:28:44.560Z</updated>
+    <updated>2025-03-07T08:33:28.855Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="短视频开发"><a href="#短视频开发" class="headerlink" title="短视频开发"></a>短视频开发</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>短视频工具<ul><li>通过文本生产视频<ul><li><a href="https://hailuoai.com/">海螺ai</a></li></ul></li><li>去码，图片修复<ul><li><a href="https://www.codeformer.cn/">CodeFormer</a></li></ul></li><li>通过图片生产唱歌视频ai<ul><li><a href="https://www.e-m-o.ai/">emo ai</a></li></ul></li><li>P图</li><li>魔力橡皮擦<a href="https://magicstudio.com/zh/magiceraser/">Magic Eraser</a></li><li>视频剪辑<ul><li><a href="https://github.com/linyqh/NarratoAI">NarratoAI</a></li></ul></li><li>海报生成<br><a href="https://github.com/THUDM/CogView4">CogView4</a></li><li>图生视频<br><a href="https://www.vidu.cn/">Vidu</a></li></ul></li></ul></blockquote><h3 id="代码开发工具"><a href="#代码开发工具" class="headerlink" title="代码开发工具"></a>代码开发工具</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>快速开发<ul><li><a href="https://www.trae.ai/">字节Trae</a></li><li><a href="https://www.codeflying.net/">码上飞</a></li><li><a href="https://github.com/FellouAI/eko">Eko</a></li></ul></li><li>数据库交互<ul><li>[AskYourDatabase]收费(<a href="https://www.askyourdatabase.com/pricing">https://www.askyourdatabase.com/pricing</a>)</li></ul></li></ul></blockquote><h3 id="ai-部署"><a href="#ai-部署" class="headerlink" title="ai 部署"></a>ai 部署</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>ai部署<ul><li>ollama</li><li><a href="https://github.com/vllm-project/vllm">vllm</a></li><li>SGLang</li></ul></li><li>ai多模态集成工具<ul><li><a href="https://dify.ai/">dify</a></li><li><a href="https://anythingllm.com/">anything llm</a></li></ul></li><li>ai微调<ul><li><a href="https://github.com/hiyouga/LLaMA-Factory">LLama-Factory</a></li></ul></li></ul></blockquote><h3 id="ai-入门"><a href="#ai-入门" class="headerlink" title="ai 入门"></a>ai 入门</h3><p>llama_index</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<h3 id="短视频开发"><a href="#短视频开发" class="headerlink" title="短视频开发"></a>短视频开发</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>短视频工具<ul><li>通过文本生产视频<ul><li><a href="https://hailuoai.com/">海螺ai</a></li></ul></li><li>去码，图片修复<ul><li><a href="https://www.codeformer.cn/">CodeFormer</a></li></ul></li><li>通过图片生产唱歌视频ai<ul><li><a href="https://www.e-m-o.ai/">emo ai</a></li></ul></li><li>P图</li><li>魔力橡皮擦<a href="https://magicstudio.com/zh/magiceraser/">Magic Eraser</a></li><li>视频剪辑<ul><li><a href="https://github.com/linyqh/NarratoAI">NarratoAI</a></li></ul></li><li>海报生成<br><a href="https://github.com/THUDM/CogView4">CogView4</a></li><li>图生视频<br><a href="https://www.vidu.cn/">Vidu</a></li></ul></li></ul></blockquote><h3 id="代码开发工具"><a href="#代码开发工具" class="headerlink" title="代码开发工具"></a>代码开发工具</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>快速开发<ul><li><a href="https://www.trae.ai/">字节Trae</a></li><li><a href="https://www.codeflying.net/">码上飞</a></li><li><a href="https://github.com/FellouAI/eko">Eko</a></li></ul></li><li>数据库交互<ul><li>[AskYourDatabase]收费(<a href="https://www.askyourdatabase.com/pricing">https://www.askyourdatabase.com/pricing</a>)</li></ul></li></ul></blockquote><h3 id="ai-部署"><a href="#ai-部署" class="headerlink" title="ai 部署"></a>ai 部署</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>ai部署<ul><li>ollama</li><li><a href="https://github.com/vllm-project/vllm">vllm</a></li><li>SGLang</li><li><a href="https://inference.readthedocs.io/zh-cn">Xinfernce</a></li></ul></li><li>ai多模态集成工具<ul><li><a href="https://dify.ai/">dify</a></li><li><a href="https://anythingllm.com/">anything llm</a></li></ul></li><li>ai微调<ul><li><a href="https://github.com/hiyouga/LLaMA-Factory">LLama-Factory</a></li></ul></li></ul></blockquote><h3 id="ai-入门"><a href="#ai-入门" class="headerlink" title="ai 入门"></a>ai 入门</h3><p>llama_index</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
@@ -141,9 +168,9 @@
     <link href="http://yoursite.com/2025/01/09/python%E5%90%84%E7%A7%8D%E5%B7%A5%E5%85%B7%E5%8C%85%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2025/01/09/python%E5%90%84%E7%A7%8D%E5%B7%A5%E5%85%B7%E5%8C%85%E6%95%B4%E7%90%86/</id>
     <published>2025-01-09T01:42:00.000Z</published>
-    <updated>2025-03-05T01:14:50.114Z</updated>
+    <updated>2025-03-13T09:22:28.856Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>python<ul><li>基本功能<ul><li>生成requirements.txt<ul><li>pipreqs</li></ul></li><li>生成本地执行包<ul><li><a href="https://www.warmjoke.com/2024/02/26/pyinstaller%E5%BA%94%E7%94%A8%E6%95%B4%E7%90%86/">pyinstaller</a></li></ul></li></ul></li><li>爬虫<ul><li>drissionPage</li><li>curl_cffi</li><li>selenium</li></ul></li><li>日志<ul><li>loguru</li></ul></li><li>数据处理<ul><li>pandas</li><li>numpy</li></ul></li><li>画图<ul><li>pillow</li></ul></li><li>动态包导入<ul><li>importlib</li></ul></li><li>文件操作<ul><li>shutil</li></ul></li><li>yaml配置操作<ul><li>ruamel.yaml</li></ul></li><li>命令行输入<ul><li>cmd2</li></ul></li><li>链上交互<ul><li>web3</li></ul></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>python<ul><li>基本功能<ul><li>生成requirements.txt<ul><li>pipreqs</li></ul></li><li>生成本地执行包<ul><li><a href="https://www.warmjoke.com/2024/02/26/pyinstaller%E5%BA%94%E7%94%A8%E6%95%B4%E7%90%86/">pyinstaller</a></li></ul></li></ul></li><li>爬虫<ul><li>drissionPage</li><li>curl_cffi</li><li>selenium</li></ul></li><li>日志<ul><li>loguru</li></ul></li><li>数据处理<ul><li>pandas</li><li>numpy</li></ul></li><li>画图<ul><li>pillow</li></ul></li><li>动态包导入<ul><li>importlib</li></ul></li><li>文件操作<ul><li>shutil</li></ul></li><li>yaml配置操作<ul><li>ruamel.yaml</li></ul></li><li>命令行输入<ul><li>cmd2</li></ul></li><li>链上交互<ul><li>web3</li></ul></li><li>声音读区<ul><li>sounddevice</li><li>soundfile</li></ul></li><li>进度条<ul><li>tqdm</li></ul></li><li>环境变量读取<ul><li>dotenv</li></ul></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
@@ -456,28 +483,6 @@
       
       
     <summary type="html">&lt;h3 id=&quot;自动跳转&quot;&gt;&lt;a href=&quot;#自动跳转&quot; class=&quot;headerlink&quot; title=&quot;自动跳转&quot;&gt;&lt;/a&gt;自动跳转&lt;/h3&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;</summary>
-      
-    
-    
-    
-    <category term="运维" scheme="http://yoursite.com/categories/%E8%BF%90%E7%BB%B4/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>kubectl 的命令收集</title>
-    <link href="http://yoursite.com/2023/03/21/kubectl-%E7%9A%84%E5%91%BD%E4%BB%A4%E6%94%B6%E9%9B%86/"/>
-    <id>http://yoursite.com/2023/03/21/kubectl-%E7%9A%84%E5%91%BD%E4%BB%A4%E6%94%B6%E9%9B%86/</id>
-    <published>2023-03-21T06:40:00.000Z</published>
-    <updated>2023-04-10T03:43:56.120Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="pod相关"><a href="#pod相关" class="headerlink" title="pod相关"></a>pod相关</h2><h3 id="获取某个项目的包含的pod"><a href="#获取某个项目的包含的pod" class="headerlink" title="获取某个项目的包含的pod"></a>获取某个项目的包含的pod</h3><p>kubectl get pod -ncentralsystem</p><h2 id="日志相关"><a href="#日志相关" class="headerlink" title="日志相关"></a>日志相关</h2><h3 id="查看某个pod日志"><a href="#查看某个pod日志" class="headerlink" title="查看某个pod日志"></a>查看某个pod日志</h3><p>kubectl logs -f api-interface-6d489d7f49-7j4b7 -ncentralsystem</p><h2 id="配置相关"><a href="#配置相关" class="headerlink" title="配置相关"></a>配置相关</h2><h3 id="查看某个配置"><a href="#查看某个配置" class="headerlink" title="查看某个配置"></a>查看某个配置</h3><p>kubectl get cm centralsystem-mongodb-cm -ncentralsystem -oyaml</p><h3 id="删除某个配置"><a href="#删除某个配置" class="headerlink" title="删除某个配置"></a>删除某个配置</h3><p>kubectl delete cm mongodb-cert</p><h2 id="镜像里面内容"><a href="#镜像里面内容" class="headerlink" title="镜像里面内容"></a>镜像里面内容</h2><h3 id="查看镜像的内容"><a href="#查看镜像的内容" class="headerlink" title="查看镜像的内容"></a>查看镜像的内容</h3><p>kubectl exec -it api-interface-f644fdd64-z4999 sh -ncentralsystem</p><h2 id="查看某个镜像的配置信息"><a href="#查看某个镜像的配置信息" class="headerlink" title="查看某个镜像的配置信息"></a>查看某个镜像的配置信息</h2><p>kubectl describe pods&#x2F;api-interface-576475f4f5-k6sln -ncentralsystem</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;pod相关&quot;&gt;&lt;a href=&quot;#pod相关&quot; class=&quot;headerlink&quot; title=&quot;pod相关&quot;&gt;&lt;/a&gt;pod相关&lt;/h2&gt;&lt;h3 id=&quot;获取某个项目的包含的pod&quot;&gt;&lt;a href=&quot;#获取某个项目的包含的pod&quot; class=&quot;header</summary>
       
     
     
