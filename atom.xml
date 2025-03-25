@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2025-03-19T21:39:44.950Z</updated>
+  <updated>2025-03-25T09:08:42.274Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,16 @@
     <link href="http://yoursite.com/2025/03/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2025/03/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/</id>
     <published>2025-03-19T21:35:00.000Z</published>
-    <updated>2025-03-19T21:39:44.950Z</updated>
+    <updated>2025-03-25T09:08:42.274Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>top命令增强<ul><li><a href="https://www.warmjoke.com/2025/02/02/atop/">atop</a></li><li><a href="https://github.com/aristocratos/btop">btop</a></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>top命令增强<ul><li><a href="https://www.warmjoke.com/2025/02/02/atop/">atop</a>历史top信息记录和查找</li><li><a href="https://github.com/aristocratos/btop">btop</a></li></ul></li><li>挂载  <ul><li><a href="https://github.com/libfuse/sshfs">SSHFS</a></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
       
     <summary type="html">&lt;blockquote class=&quot;pullquote mindmap mindmap-md&quot;&gt;&lt;ul&gt;
 &lt;li&gt;top命令增强&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.warmjoke.com/2025/02/02/atop/&quot;&gt;atop&lt;/a&gt;&lt;/li&gt;
-</summary>
+&lt;li&gt;&lt;a href=&quot;https://www.warmjoke.com/2025/02/02/atop/&quot;&gt;atop&lt;/a&gt;历史top信</summary>
       
     
     
