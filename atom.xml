@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2025-03-25T09:08:42.274Z</updated>
+  <updated>2025-03-30T03:03:55.100Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ai开发工具整理</title>
+    <link href="http://yoursite.com/2025/03/29/ai%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/"/>
+    <id>http://yoursite.com/2025/03/29/ai%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/</id>
+    <published>2025-03-29T02:23:55.000Z</published>
+    <updated>2025-03-30T03:03:55.100Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="ai-部署"><a href="#ai-部署" class="headerlink" title="ai 部署"></a>ai 部署</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>ai本地部署和应用<ul><li>ollama</li><li><a href="https://github.com/vllm-project/vllm">vllm</a></li><li>SGLang</li><li><a href="https://inference.readthedocs.io/zh-cn">Xinfernce</a></li><li><a href="https://lmstudio.ai/">LMStudio</a></li></ul></li><li>本地知识库<ul><li><a href="https://dify.ai/">dify</a></li><li><a href="https://anythingllm.com/">anything llm</a></li></ul></li><li>ai聊天入口<ul><li>客户端<ul><li>cherry studio</li><li>chat box</li><li>ChatWise</li></ul></li><li>聊天插件<ul><li>Page Assist</li></ul></li><li>服务端<ul><li>LobeChat</li></ul></li></ul></li><li>自助式数据报表开发<ul><li>text2sql</li></ul></li><li>ai微调<ul><li><a href="https://github.com/hiyouga/LLaMA-Factory">LLama-Factory</a></li></ul></li><li>多任务应用开发<ul><li><a href="https://www.langchain.com/">langchain</a></li><li>LlamaIndex</li></ul></li></ul></blockquote><p>提示词工程</p><p>大模型会有幻觉，知识图谱可以人工检测，生成知识库。<br>chatBI，通过聊天生成报表。</p><p>firecrawl 把文件转成markdown，灌输给ai</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;ai-部署&quot;&gt;&lt;a href=&quot;#ai-部署&quot; class=&quot;headerlink&quot; title=&quot;ai 部署&quot;&gt;&lt;/a&gt;ai 部署&lt;/h3&gt;&lt;blockquote class=&quot;pullquote mindmap mindmap-md&quot;&gt;&lt;ul&gt;
+&lt;li&gt;ai本</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>服务器运维工具整理</title>
@@ -47,9 +68,9 @@
     <link href="http://yoursite.com/2025/03/03/ai%E7%9F%AD%E8%A7%86%E9%A2%91%E5%88%9B%E4%BD%9C%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2025/03/03/ai%E7%9F%AD%E8%A7%86%E9%A2%91%E5%88%9B%E4%BD%9C%E6%95%B4%E7%90%86/</id>
     <published>2025-03-03T09:27:15.000Z</published>
-    <updated>2025-03-07T08:33:28.855Z</updated>
+    <updated>2025-03-29T02:23:21.735Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="短视频开发"><a href="#短视频开发" class="headerlink" title="短视频开发"></a>短视频开发</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>短视频工具<ul><li>通过文本生产视频<ul><li><a href="https://hailuoai.com/">海螺ai</a></li></ul></li><li>去码，图片修复<ul><li><a href="https://www.codeformer.cn/">CodeFormer</a></li></ul></li><li>通过图片生产唱歌视频ai<ul><li><a href="https://www.e-m-o.ai/">emo ai</a></li></ul></li><li>P图</li><li>魔力橡皮擦<a href="https://magicstudio.com/zh/magiceraser/">Magic Eraser</a></li><li>视频剪辑<ul><li><a href="https://github.com/linyqh/NarratoAI">NarratoAI</a></li></ul></li><li>海报生成<br><a href="https://github.com/THUDM/CogView4">CogView4</a></li><li>图生视频<br><a href="https://www.vidu.cn/">Vidu</a></li></ul></li></ul></blockquote><h3 id="代码开发工具"><a href="#代码开发工具" class="headerlink" title="代码开发工具"></a>代码开发工具</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>快速开发<ul><li><a href="https://www.trae.ai/">字节Trae</a></li><li><a href="https://www.codeflying.net/">码上飞</a></li><li><a href="https://github.com/FellouAI/eko">Eko</a></li></ul></li><li>数据库交互<ul><li>[AskYourDatabase]收费(<a href="https://www.askyourdatabase.com/pricing">https://www.askyourdatabase.com/pricing</a>)</li></ul></li></ul></blockquote><h3 id="ai-部署"><a href="#ai-部署" class="headerlink" title="ai 部署"></a>ai 部署</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>ai部署<ul><li>ollama</li><li><a href="https://github.com/vllm-project/vllm">vllm</a></li><li>SGLang</li><li><a href="https://inference.readthedocs.io/zh-cn">Xinfernce</a></li></ul></li><li>ai多模态集成工具<ul><li><a href="https://dify.ai/">dify</a></li><li><a href="https://anythingllm.com/">anything llm</a></li></ul></li><li>ai微调<ul><li><a href="https://github.com/hiyouga/LLaMA-Factory">LLama-Factory</a></li></ul></li></ul></blockquote><h3 id="ai-入门"><a href="#ai-入门" class="headerlink" title="ai 入门"></a>ai 入门</h3><p>llama_index</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<h3 id="短视频开发"><a href="#短视频开发" class="headerlink" title="短视频开发"></a>短视频开发</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>短视频工具<ul><li>通过文本生产视频<ul><li><a href="https://hailuoai.com/">海螺ai</a></li></ul></li><li>去码，图片修复<ul><li><a href="https://www.codeformer.cn/">CodeFormer</a></li></ul></li><li>通过图片生产唱歌视频ai<ul><li><a href="https://www.e-m-o.ai/">emo ai</a></li></ul></li><li>P图</li><li>魔力橡皮擦<a href="https://magicstudio.com/zh/magiceraser/">Magic Eraser</a></li><li>视频剪辑<ul><li><a href="https://github.com/linyqh/NarratoAI">NarratoAI</a></li></ul></li><li>海报生成<br><a href="https://github.com/THUDM/CogView4">CogView4</a></li><li>图生视频<br><a href="https://www.vidu.cn/">Vidu</a></li></ul></li></ul></blockquote><h3 id="代码开发工具"><a href="#代码开发工具" class="headerlink" title="代码开发工具"></a>代码开发工具</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>快速开发<ul><li><a href="https://www.trae.ai/">字节Trae</a></li><li><a href="https://www.codeflying.net/">码上飞</a></li><li><a href="https://github.com/FellouAI/eko">Eko</a></li></ul></li><li>数据库交互<ul><li>[AskYourDatabase]收费(<a href="https://www.askyourdatabase.com/pricing">https://www.askyourdatabase.com/pricing</a>)</li></ul></li></ul></blockquote><h3 id="ai-入门"><a href="#ai-入门" class="headerlink" title="ai 入门"></a>ai 入门</h3><p>llama_index</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
@@ -93,9 +114,9 @@
     <link href="http://yoursite.com/2025/02/27/go%E7%9A%84%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2025/02/27/go%E7%9A%84%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6%E6%95%B4%E7%90%86/</id>
     <published>2025-02-27T13:15:00.000Z</published>
-    <updated>2025-02-27T13:25:09.383Z</updated>
+    <updated>2025-04-01T01:34:07.837Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>go<ul><li>web框架<ul><li><a href="https://github.com/gin-gonic/gin">gin</a></li></ul></li><li>配置文件<ul><li><a href="https://github.com/spf13/viper">viper</a></li></ul></li><li>数据库连接<ul><li><a href="https://github.com/go-gorm/gorm">gorm</a></li></ul></li><li>数据操作<ul><li>goda</li><li><a href="https://github.com/gonum/gonum">gonum</a></li></ul></li><li>微服务<ul><li>go-kit</li></ul></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>go<ul><li>web框架<ul><li><a href="https://github.com/gin-gonic/gin">gin</a></li></ul></li><li>配置文件<ul><li><a href="https://github.com/spf13/viper">viper</a></li></ul></li><li>数据库连接<ul><li><a href="https://github.com/go-gorm/gorm">gorm</a></li></ul></li><li>数据操作<ul><li>goda</li><li><a href="https://github.com/gonum/gonum">gonum</a></li></ul></li><li>微服务<ul><li>go-kit</li></ul></li><li>集成框架<ul><li><a href="https://goframe.org.cn/">goframe</a></li></ul></li><li>图形验证码<ul><li><a href="https://github.com/mojocn/base64Captcha">base64Captcha</a></li></ul></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
@@ -466,28 +487,6 @@
     <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
     <category term="打包" scheme="http://yoursite.com/tags/%E6%89%93%E5%8C%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>curl 命令整理</title>
-    <link href="http://yoursite.com/2023/04/10/curl-%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/"/>
-    <id>http://yoursite.com/2023/04/10/curl-%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/</id>
-    <published>2023-04-10T03:27:00.000Z</published>
-    <updated>2023-04-10T03:44:14.944Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="自动跳转"><a href="#自动跳转" class="headerlink" title="自动跳转"></a>自动跳转</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L www.sina.com</span><br></pre></td></tr></table></figure><h3 id="显示头信息"><a href="#显示头信息" class="headerlink" title="显示头信息"></a>显示头信息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -i www.sina.com</span><br></pre></td></tr></table></figure><h3 id="显示请求显示各项时间指标"><a href="#显示请求显示各项时间指标" class="headerlink" title="显示请求显示各项时间指标"></a>显示请求显示各项时间指标</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -o /dev/null -s -w ‘%&#123;time_total&#125;’ http://www.miotour.com</span><br><span class="line">curl -o /dev/null -s -w ‘%&#123;http_code&#125;’ http://www.miotour.com</span><br><span class="line">curl -o /dev/null -s -w %&#123;http_code&#125;:%&#123;time_connect&#125;:%&#123;time_starttransfer&#125;:%&#123;time_total&#125; http://www.miotour.com</span><br></pre></td></tr></table></figure><h3 id="显示通信信息"><a href="#显示通信信息" class="headerlink" title="显示通信信息"></a>显示通信信息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -v www.sina.com</span><br><span class="line">curl --trace output.txt www.sina.com</span><br><span class="line">curl --trace-ascii output.txt www.sina.com</span><br></pre></td></tr></table></figure><h3 id="post-请求"><a href="#post-请求" class="headerlink" title="post 请求"></a>post 请求</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl -d &quot;user=Summer&amp;passwd=12345678&quot; &quot;http://127.0.0.1:8080/check_your_status&quot;</span><br><span class="line"></span><br><span class="line">curl -X POST --data &quot;data=xxx&amp;data1=1231&quot; example.com/form.cgi</span><br><span class="line">curl -X POST &quot;http://192.168.2.43:8801/graph/hashrate/search?minerType=1&amp;timeType=123&quot; -H &quot;accept: */*&quot; -H &quot;userId: 12&quot;</span><br><span class="line"></span><br><span class="line">post方法还可以这样，传递json数据</span><br><span class="line">curl -H &quot;Content-Type:application/json&quot; -X POST --data &#x27;&#123;&quot;message&quot;: &quot;sunshine&quot;&#125;&#x27; http://localhost:8000/</span><br></pre></td></tr></table></figure><h3 id="表达编码"><a href="#表达编码" class="headerlink" title="表达编码"></a>表达编码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST--data-urlencode &quot;date=April 1&quot; example.com/form.cgi</span><br></pre></td></tr></table></figure><h3 id="添加头信息"><a href="#添加头信息" class="headerlink" title="添加头信息"></a>添加头信息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --user-agent &quot;[User Agent]&quot; [URL]</span><br><span class="line">curl --cookie &quot;name=xxx&quot; www.example.com</span><br></pre></td></tr></table></figure><h3 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -T wordpress.zip ftp://james:123456@202.121.137.58/path/to/backup/</span><br><span class="line">curl -T data.tar.gz -u james sftp://202.121.137.58/</span><br></pre></td></tr></table></figure><h3 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h3><p>重定向</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L -o &#x27;file.zip&#x27; &#x27;http://example.com/download.php?fileID=foo&#x27;</span><br></pre></td></tr></table></figure><p>下载需要用户名，密码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -O ftp://james:123456@202.121.137.58:21/path/to/backup.tar.gz</span><br><span class="line">curl -O http://james:123456@202.121.137.58/file/path/data.tar.gz</span><br></pre></td></tr></table></figure><p>节省带框</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L -O --compressed &#x27;http://example.com/large.report-tab.html&#x27;</span><br></pre></td></tr></table></figure><p>显示下载进度</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -# -O http://wordpress.org/latest.zip</span><br></pre></td></tr></table></figure><p>重命名</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o wordpress-3.8.zip &#x27;http://wordpress.org/latest.zip&#x27;</span><br></pre></td></tr></table></figure><p>带加密的连接</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --ftp-ssl -u james:123456 -O ftp://202.121.137.58:21/backups/07/07/2012/mysql.blog.sql.tar.gz</span><br><span class="line">curl -u james -O sftp://202.121.137.58/backups/data.tar.gz</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;自动跳转&quot;&gt;&lt;a href=&quot;#自动跳转&quot; class=&quot;headerlink&quot; title=&quot;自动跳转&quot;&gt;&lt;/a&gt;自动跳转&lt;/h3&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;</summary>
-      
-    
-    
-    
-    <category term="运维" scheme="http://yoursite.com/categories/%E8%BF%90%E7%BB%B4/"/>
-    
     
   </entry>
   
