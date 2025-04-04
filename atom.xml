@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2025-03-30T03:03:55.100Z</updated>
+  <updated>2025-04-03T14:39:18.288Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2025/03/29/ai%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2025/03/29/ai%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/</id>
     <published>2025-03-29T02:23:55.000Z</published>
-    <updated>2025-03-30T03:03:55.100Z</updated>
+    <updated>2025-04-03T14:39:18.288Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="ai-部署"><a href="#ai-部署" class="headerlink" title="ai 部署"></a>ai 部署</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>ai本地部署和应用<ul><li>ollama</li><li><a href="https://github.com/vllm-project/vllm">vllm</a></li><li>SGLang</li><li><a href="https://inference.readthedocs.io/zh-cn">Xinfernce</a></li><li><a href="https://lmstudio.ai/">LMStudio</a></li></ul></li><li>本地知识库<ul><li><a href="https://dify.ai/">dify</a></li><li><a href="https://anythingllm.com/">anything llm</a></li></ul></li><li>ai聊天入口<ul><li>客户端<ul><li>cherry studio</li><li>chat box</li><li>ChatWise</li></ul></li><li>聊天插件<ul><li>Page Assist</li></ul></li><li>服务端<ul><li>LobeChat</li></ul></li></ul></li><li>自助式数据报表开发<ul><li>text2sql</li></ul></li><li>ai微调<ul><li><a href="https://github.com/hiyouga/LLaMA-Factory">LLama-Factory</a></li></ul></li><li>多任务应用开发<ul><li><a href="https://www.langchain.com/">langchain</a></li><li>LlamaIndex</li></ul></li></ul></blockquote><p>提示词工程</p><p>大模型会有幻觉，知识图谱可以人工检测，生成知识库。<br>chatBI，通过聊天生成报表。</p><p>firecrawl 把文件转成markdown，灌输给ai</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<h3 id="ai-部署"><a href="#ai-部署" class="headerlink" title="ai 部署"></a>ai 部署</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>ai本地部署和应用<ul><li>ollama</li><li><a href="https://github.com/vllm-project/vllm">vllm</a></li><li>SGLang</li><li><a href="https://inference.readthedocs.io/zh-cn">Xinfernce</a></li><li><a href="https://lmstudio.ai/">LMStudio</a></li></ul></li><li>本地知识库<ul><li><a href="https://dify.ai/">dify</a></li><li><a href="https://anythingllm.com/">anything llm</a></li></ul></li><li>ai聊天入口<ul><li>客户端<ul><li>cherry studio</li><li>chat box</li><li>ChatWise</li></ul></li><li>聊天插件<ul><li>Page Assist</li></ul></li><li>服务端<ul><li>LobeChat</li></ul></li></ul></li><li>自助式数据报表开发<ul><li>text2sql</li></ul></li><li>ai微调<ul><li><a href="https://github.com/hiyouga/LLaMA-Factory">LLama-Factory</a></li></ul></li><li>多任务应用开发<ul><li><a href="https://www.langchain.com/">langchain</a></li><li>LlamaIndex</li></ul></li><li>模型库</li><li><a href="https://modelscope.cn/models">模型库</a></li><li>算力出租</li><li><a href="https://www.autodl.com/home">autodl</a></li><li>api接入</li><li><a href="https://dashscope.aliyun.com/">dashscope</a></li></ul></blockquote><p>提示词工程</p><p>大模型会有幻觉，知识图谱可以人工检测，生成知识库。<br>chatBI，通过聊天生成报表。</p><p>firecrawl 把文件转成markdown，灌输给ai</p><p>pip install modelscope 。</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
