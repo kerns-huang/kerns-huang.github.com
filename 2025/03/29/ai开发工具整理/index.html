@@ -19,10 +19,11 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="" />
+<meta name="keywords" content="ai" />
 
 
 <meta name="description" content="ai 部署
+ai开发
 ai本地部署和应用
 ollama
 vllm
@@ -31,14 +32,10 @@ Xinfernce
 LMStudio
 
 
-本地知识库
-dify
-anything llm
-
-
-ai聊天入口
-客户端
-cher..." />
+Embedding（向量模型）
+通用文本
+BGE-M3（智源研究院）
+t..." />
 
 
 <meta name="robots" content="all" />
@@ -180,13 +177,15 @@ cher..." />
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        
+        <a class="category-link" href="/categories/python/">python</a>
     </span>
     
     
     <span class="fa-wrap">
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/ai/" rel="tag">ai</a>
             
         </span>
     </span>
@@ -207,6 +206,7 @@ cher..." />
     
     <div class="post-body post-content">
         <h3 id="ai-部署"><a href="#ai-部署" class="headerlink" title="ai 部署"></a>ai 部署</h3><blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>ai开发<ul>
 <li>ai本地部署和应用<ul>
 <li>ollama</li>
 <li><a href="https://github.com/vllm-project/vllm">vllm</a></li>
@@ -215,14 +215,31 @@ cher..." />
 <li><a href="https://lmstudio.ai/">LMStudio</a></li>
 </ul>
 </li>
-<li>本地知识库<ul>
+<li>Embedding（向量模型）<ul>
+<li>通用文本<ul>
+<li>BGE-M3（智源研究院）</li>
+<li>text-embedding-3-large</li>
+<li>Jina-embeddings-v2</li>
+</ul>
+</li>
+<li>中文嵌入模型<ul>
+<li>xiaobu-embedding-v2</li>
+<li>M3E-Turbo</li>
+<li>stella-mrl-large-zh-v3.5-1792</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>RAG(检索增强生成)<ul>
+<li>NativeRAG</li>
 <li><a href="https://dify.ai/">dify</a></li>
 <li><a href="https://anythingllm.com/">anything llm</a></li>
+<li>cherry studio</li>
+<li>Coze</li>
 </ul>
 </li>
 <li>ai聊天入口<ul>
 <li>客户端<ul>
-<li>cherry studio</li>
 <li>chat box</li>
 <li>ChatWise</li>
 </ul>
@@ -256,13 +273,17 @@ cher..." />
 <li><a href="https://www.autodl.com/home">autodl</a></li>
 <li>api接入</li>
 <li><a href="https://dashscope.aliyun.com/">dashscope</a></li>
+<li>阿里云百炼</li>
+<li>ai插件网站</li>
+<li><a href="https://huggingface.co/spaces/mteb/leaderboard">huggingface</a></li>
+</ul>
+</li>
 </ul>
 </blockquote>
 
-<p>提示词工程</p>
-<p>大模型会有幻觉，知识图谱可以人工检测，生成知识库。<br>chatBI，通过聊天生成报表。</p>
-<p>firecrawl 把文件转成markdown，灌输给ai</p>
-<p>pip install modelscope 。</p>
+<h3 id="提示词工程"><a href="#提示词工程" class="headerlink" title="提示词工程"></a>提示词工程</h3><p>大模型会有幻觉，知识图谱可以人工检测，生成知识库。<br>chatBI，通过聊天生成报表。<br>firecrawl 把文件转成markdown，灌输给ai</p>
+<h3 id="RAG-检索增强生成"><a href="#RAG-检索增强生成" class="headerlink" title="RAG(检索增强生成)"></a>RAG(检索增强生成)</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>• 检索增强生成，是一种结合信息检索（Retrieval）和文本生<br>成（Generation）的技术<br>• RAG技术通过实时检索相关文档或信息，并将其作为上下文<br>输入到生成模型中，从而提高生成结果的时效性和准确性。</p>
+<h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><p>• 解决知识时效性问题：大模型的训练数据通常是静态的，无<br>法涵盖最新信息，而RAG可以检索外部知识库实时更新信息。<br>• 减少模型幻觉：通过引入外部知识，RAG能够减少模型生成<br>虚假或不准确内容的可能性。<br>• 提升专业领域回答质量：RAG能够结合垂直领域的专业知识<br>库，生成更具专业深度的回答</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
     
@@ -326,7 +347,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ai-%E9%83%A8%E7%BD%B2"><span class="toc-text">ai 部署</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ai-%E9%83%A8%E7%BD%B2"><span class="toc-text">ai 部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B"><span class="toc-text">提示词工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RAG-%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90"><span class="toc-text">RAG(检索增强生成)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%8A%BF"><span class="toc-text">优势</span></a></li></ol></li></ol>
         
     </div>
 </aside>
