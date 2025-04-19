@@ -1,3 +1,4 @@
+http://yoursite.com/2025/04/19/RAG%E6%8A%80%E6%9C%AF%E6%95%B4%E7%90%86/
 http://yoursite.com/2025/03/29/ai%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/
 http://yoursite.com/2025/02/02/atop/
 http://yoursite.com/2025/02/27/go%E7%9A%84%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6%E6%95%B4%E7%90%86/
@@ -120,3 +121,4 @@ http://yoursite.com/categories/rust/
 http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/
 http://yoursite.com/categories/node/
 http://yoursite.com/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/
+http://yoursite.com/categories/ai/
