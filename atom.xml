@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2025-04-21T01:04:37.367Z</updated>
+  <updated>2025-05-28T13:50:20.974Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Fine-tuning技术整理</title>
+    <link href="http://yoursite.com/2025/05/20/Fine-tuning%E6%8A%80%E6%9C%AF%E6%95%B4%E7%90%86/"/>
+    <id>http://yoursite.com/2025/05/20/Fine-tuning%E6%8A%80%E6%9C%AF%E6%95%B4%E7%90%86/</id>
+    <published>2025-05-20T13:47:00.000Z</published>
+    <updated>2025-05-28T13:50:20.974Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>当大模型能力不够的，需要通过Fine-tuning微调。</p><h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h1><p>成本很高，需要机器</p><h1 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h1><h2 id="P-Tuning"><a href="#P-Tuning" class="headerlink" title="P-Tuning"></a>P-Tuning</h2><p> <a href="https://arxiv.org/pdf/2110.07602">参考资料</a><br> <a href="https://github.com/THUDM/ChatGLM2-6B/blob/main/ptuning">P-Tuning方式</a></p><h2 id="Lora微调"><a href="#Lora微调" class="headerlink" title="Lora微调"></a>Lora微调</h2><p>在原始预训练模型旁边增加一个旁路</p><h1 id="数据获取的方式"><a href="#数据获取的方式" class="headerlink" title="数据获取的方式"></a>数据获取的方式</h1><ol><li>实际场景获取</li><li>老师模型获取</li></ol><h1 id="工具箱"><a href="#工具箱" class="headerlink" title="工具箱"></a>工具箱</h1><p><a href="https://github.com/huggingface/peft">PEFT</a>支持上面的几种微调方式。</p><p><a href="https://github.com/unslothai/unsloth">unsloth</a></p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://github.com/THUDM/ChatGLM2-6B">ChatGLM2-6B</a></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h1&gt;&lt;p&gt;当大模型能力不够的，需要通过Fine-tuning微调。&lt;/p&gt;
+&lt;h1 id=&quot;缺点&quot;&gt;&lt;a href=&quot;#缺点&quot; class=&quot;head</summary>
+      
+    
+    
+    
+    <category term="ai" scheme="http://yoursite.com/categories/ai/"/>
+    
+    
+    <category term="ai" scheme="http://yoursite.com/tags/ai/"/>
+    
+  </entry>
   
   <entry>
     <title>cursor配置管理</title>
@@ -69,15 +94,15 @@
     <link href="http://yoursite.com/2025/03/29/ai%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2025/03/29/ai%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/</id>
     <published>2025-03-29T02:23:00.000Z</published>
-    <updated>2025-04-17T23:46:48.902Z</updated>
+    <updated>2025-06-18T09:22:46.174Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="ai-部署"><a href="#ai-部署" class="headerlink" title="ai 部署"></a>ai 部署</h3><blockquote class="pullquote mindmap mindmap-md"><ul><li>ai开发<ul><li>ai本地部署和应用<ul><li>ollama</li><li><a href="https://github.com/vllm-project/vllm">vllm</a></li><li>SGLang</li><li><a href="https://inference.readthedocs.io/zh-cn">Xinfernce</a></li><li><a href="https://lmstudio.ai/">LMStudio</a></li></ul></li><li>Embedding（向量模型）<ul><li>通用文本<ul><li>BGE-M3（智源研究院）</li><li>text-embedding-3-large</li><li>Jina-embeddings-v2</li></ul></li><li>中文嵌入模型<ul><li>xiaobu-embedding-v2</li><li>M3E-Turbo</li><li>stella-mrl-large-zh-v3.5-1792</li></ul></li></ul></li><li>RAG(检索增强生成)<ul><li>NativeRAG</li><li><a href="https://dify.ai/">dify</a></li><li><a href="https://anythingllm.com/">anything llm</a></li><li>cherry studio</li><li>Coze</li></ul></li><li>ai聊天入口<ul><li>客户端<ul><li>chat box</li><li>ChatWise</li></ul></li><li>聊天插件<ul><li>Page Assist</li></ul></li><li>服务端<ul><li>LobeChat</li></ul></li></ul></li><li>自助式数据报表开发<ul><li>text2sql</li></ul></li><li>ai微调<ul><li><a href="https://github.com/hiyouga/LLaMA-Factory">LLama-Factory</a></li></ul></li><li>多任务应用开发<ul><li><a href="https://www.langchain.com/">langchain</a></li><li>LlamaIndex</li></ul></li><li>模型库<ul><li><a href="https://modelscope.cn/models">模型库</a></li></ul></li><li>算力租用<ul><li><a href="https://www.autodl.com/home">autodl</a></li></ul></li><li>api接入<ul><li><a href="https://dashscope.aliyun.com/">dashscope</a></li><li>阿里云百炼</li></ul></li><li>ai插件网站<ul><li><a href="https://huggingface.co/spaces/mteb/leaderboard">huggingface</a></li></ul></li></ul></li></ul></blockquote><h3 id="提示词工程"><a href="#提示词工程" class="headerlink" title="提示词工程"></a>提示词工程</h3><p>大模型会有幻觉，知识图谱可以人工检测，生成知识库。<br>chatBI，通过聊天生成报表。<br>firecrawl 把文件转成markdown，灌输给ai</p><h3 id="RAG-检索增强生成"><a href="#RAG-检索增强生成" class="headerlink" title="RAG(检索增强生成)"></a>RAG(检索增强生成)</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>• 检索增强生成，是一种结合信息检索（Retrieval）和文本生<br>成（Generation）的技术<br>• RAG技术通过实时检索相关文档或信息，并将其作为上下文<br>输入到生成模型中，从而提高生成结果的时效性和准确性。</p><h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><p>• 解决知识时效性问题：大模型的训练数据通常是静态的，无<br>法涵盖最新信息，而RAG可以检索外部知识库实时更新信息。<br>• 减少模型幻觉：通过引入外部知识，RAG能够减少模型生成<br>虚假或不准确内容的可能性。<br>• 提升专业领域回答质量：RAG能够结合垂直领域的专业知识<br>库，生成更具专业深度的回答</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<h1 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h1><blockquote class="pullquote mindmap mindmap-md"><ul><li>ai开发<ul><li>ai本地部署和应用<ul><li>ollama</li><li><a href="https://github.com/vllm-project/vllm">vllm</a></li><li>SGLang</li><li><a href="https://inference.readthedocs.io/zh-cn">Xinfernce</a></li><li><a href="https://lmstudio.ai/">LMStudio</a></li></ul></li><li>ai agent工作流</li><li><a href="https://dify.ai/">dify</a> </li><li><a href="https://www.coze.com/">Coze</a></li><li>cherry studio</li><li><a href="https://anythingllm.com/">anything llm</a></li><li><a href="https://n8n.io/">n8n</a></li><li>Embedding（向量模型）<ul><li>通用文本<ul><li>BGE-M3（智源研究院）</li><li>text-embedding-3-large</li><li>Jina-embeddings-v2</li></ul></li><li>中文嵌入模型<ul><li>xiaobu-embedding-v2</li><li>M3E-Turbo</li><li>stella-mrl-large-zh-v3.5-1792</li></ul></li></ul></li><li>预测模型<ul><li>XGBoost</li><li>LightGBM</li><li>CatBoost</li></ul></li><li>RAG(检索增强生成)<ul><li>NativeRAG</li></ul></li><li>ai聊天入口<ul><li>客户端<ul><li>chat box</li><li>ChatWise</li></ul></li><li>聊天插件<ul><li>Page Assist</li></ul></li><li>服务端<ul><li>LobeChat</li></ul></li></ul></li><li>自助式数据报表开发<ul><li>text2sql</li></ul></li><li>ai微调<ul><li><a href="https://github.com/hiyouga/LLaMA-Factory">LLama-Factory</a></li></ul></li><li>多任务应用开发<ul><li><a href="https://www.langchain.com/">langchain</a></li><li>LlamaIndex</li></ul></li><li>模型库<ul><li><a href="https://modelscope.cn/models">模型库</a></li></ul></li><li>算力租用<ul><li><a href="https://www.autodl.com/home">autodl</a></li></ul></li><li>api接入<ul><li><a href="https://dashscope.aliyun.com/">dashscope</a></li><li>阿里云百炼</li></ul></li><li>ai插件网站<ul><li><a href="https://huggingface.co/spaces/mteb/leaderboard">huggingface</a></li></ul></li></ul></li></ul></blockquote><h1 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h1><h3 id="ai-agent工作流工具整理"><a href="#ai-agent工作流工具整理" class="headerlink" title="ai agent工作流工具整理"></a>ai agent工作流工具整理</h3><p>dify 开源，可以私有化搭建<br>coze 抖音平台，方便快速搭建。</p><h3 id="提示词工程"><a href="#提示词工程" class="headerlink" title="提示词工程"></a>提示词工程</h3><p>大模型会有幻觉，知识图谱可以人工检测，生成知识库。<br>chatBI，通过聊天生成报表。<br>firecrawl 把文件转成markdown，灌输给ai</p><h3 id="常用预测（分类，回归）模型"><a href="#常用预测（分类，回归）模型" class="headerlink" title="常用预测（分类，回归）模型"></a>常用预测（分类，回归）模型</h3><pre><code>分类算法：LR，SVN，KNN树模型：GBDT，XGBoost，LightGBM，CatBoost，NGBoost</code></pre><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
       
-    <summary type="html">&lt;h3 id=&quot;ai-部署&quot;&gt;&lt;a href=&quot;#ai-部署&quot; class=&quot;headerlink&quot; title=&quot;ai 部署&quot;&gt;&lt;/a&gt;ai 部署&lt;/h3&gt;&lt;blockquote class=&quot;pullquote mindmap mindmap-md&quot;&gt;&lt;ul&gt;
-&lt;li&gt;ai开</summary>
+    <summary type="html">&lt;h1 id=&quot;开发工具&quot;&gt;&lt;a href=&quot;#开发工具&quot; class=&quot;headerlink&quot; title=&quot;开发工具&quot;&gt;&lt;/a&gt;开发工具&lt;/h1&gt;&lt;blockquote class=&quot;pullquote mindmap mindmap-md&quot;&gt;&lt;ul&gt;
+&lt;li&gt;ai开发&lt;ul</summary>
       
     
     
@@ -240,9 +265,9 @@
     <link href="http://yoursite.com/2025/01/09/python%E5%90%84%E7%A7%8D%E5%B7%A5%E5%85%B7%E5%8C%85%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2025/01/09/python%E5%90%84%E7%A7%8D%E5%B7%A5%E5%85%B7%E5%8C%85%E6%95%B4%E7%90%86/</id>
     <published>2025-01-09T01:42:00.000Z</published>
-    <updated>2025-03-13T09:22:28.856Z</updated>
+    <updated>2025-06-23T01:50:13.858Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>python<ul><li>基本功能<ul><li>生成requirements.txt<ul><li>pipreqs</li></ul></li><li>生成本地执行包<ul><li><a href="https://www.warmjoke.com/2024/02/26/pyinstaller%E5%BA%94%E7%94%A8%E6%95%B4%E7%90%86/">pyinstaller</a></li></ul></li></ul></li><li>爬虫<ul><li>drissionPage</li><li>curl_cffi</li><li>selenium</li></ul></li><li>日志<ul><li>loguru</li></ul></li><li>数据处理<ul><li>pandas</li><li>numpy</li></ul></li><li>画图<ul><li>pillow</li></ul></li><li>动态包导入<ul><li>importlib</li></ul></li><li>文件操作<ul><li>shutil</li></ul></li><li>yaml配置操作<ul><li>ruamel.yaml</li></ul></li><li>命令行输入<ul><li>cmd2</li></ul></li><li>链上交互<ul><li>web3</li></ul></li><li>声音读区<ul><li>sounddevice</li><li>soundfile</li></ul></li><li>进度条<ul><li>tqdm</li></ul></li><li>环境变量读取<ul><li>dotenv</li></ul></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>python<ul><li>基本功能<ul><li>生成requirements.txt<ul><li>pipreqs</li></ul></li><li>生成本地执行包<ul><li><a href="https://www.warmjoke.com/2024/02/26/pyinstaller%E5%BA%94%E7%94%A8%E6%95%B4%E7%90%86/">pyinstaller</a></li><li><a href="https://github.com/TanixLu/pyfuze">pyfuze</a></li></ul></li></ul></li><li>爬虫<ul><li>drissionPage</li><li>curl_cffi</li><li>selenium</li></ul></li><li>日志<ul><li>loguru</li></ul></li><li>数据处理<ul><li>pandas</li><li>numpy</li></ul></li><li>画图<ul><li>pillow</li></ul></li><li>动态包导入<ul><li>importlib</li></ul></li><li>文件操作<ul><li>shutil</li></ul></li><li>yaml配置操作<ul><li>ruamel.yaml</li></ul></li><li>命令行输入<ul><li>cmd2</li></ul></li><li>链上交互<ul><li>web3</li></ul></li><li>声音读区<ul><li>sounddevice</li><li>soundfile</li></ul></li><li>进度条<ul><li>tqdm</li></ul></li><li>环境变量读取<ul><li>dotenv</li></ul></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
@@ -465,26 +490,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;简单的操作&quot;&gt;&lt;a href=&quot;#简单的操作&quot; class=&quot;headerlink&quot; title=&quot;简单的操作&quot;&gt;&lt;/a&gt;简单的操作&lt;/h1&gt;&lt;h5 id=&quot;创建一个简单的分区表&quot;&gt;&lt;a href=&quot;#创建一个简单的分区表&quot; class=&quot;headerlink&quot; </summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>git 版本管理</title>
-    <link href="http://yoursite.com/2024/03/15/git-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
-    <id>http://yoursite.com/2024/03/15/git-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</id>
-    <published>2024-03-15T01:48:49.000Z</published>
-    <updated>2024-06-05T06:59:30.814Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="git-tag-管理"><a href="#git-tag-管理" class="headerlink" title="git tag 管理"></a>git tag 管理</h2><p>创建本地分支: git tag release-1.0.1 -m “drone调整”</p><p>推送本地所有分支: git push –tags</p><p>删除本地tag分支: git tag -d release-1.0.2</p><p>同步本地分和远程分支：git push origin :refs&#x2F;tags&#x2F;release-1.0.2</p><h3 id="tag-管理的好处"><a href="#tag-管理的好处" class="headerlink" title="tag 管理的好处"></a>tag 管理的好处</h3><ol><li>能够很好的做版本管理，随时可以通过tag分支进行版本的回退，比如如果你所有的代码的发布都是通过master版本发布，一旦你需要做代码回退的处理，就只能修改代码取做回退，而代码修改难免出现问题，当然也可以使用docker镜像这种做版本管理。</li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;git-tag-管理&quot;&gt;&lt;a href=&quot;#git-tag-管理&quot; class=&quot;headerlink&quot; title=&quot;git tag 管理&quot;&gt;&lt;/a&gt;git tag 管理&lt;/h2&gt;&lt;p&gt;创建本地分支: git tag release-1.0.1 -m “dron</summary>
       
     
     
