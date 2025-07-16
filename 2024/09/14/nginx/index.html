@@ -196,6 +196,12 @@
 </div>
         
         
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                305</strong>
+            天之前发表，文中内容可能已经过时。
+        </p>
+        
     </div>
     
     <div class="post-body post-content">
@@ -207,7 +213,9 @@
 </code></pre>
 <h3 id="更新nginx"><a href="#更新nginx" class="headerlink" title="更新nginx"></a>更新nginx</h3><pre><code>yum update nginx
 </code></pre>
-
+<h3 id="nginx升级的坑"><a href="#nginx升级的坑" class="headerlink" title="nginx升级的坑"></a>nginx升级的坑</h3><p><img src="/images/pasted-29.png" alt="upload successful"></p>
+<p>会在配置文件中生成一个 default.conf的配置文件会覆盖我们配置的80端口，导致我们的服务出问题，浏览器返回会有缓存问题，导致以为网站正常。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
     
     <div class="post-footer">
@@ -276,7 +284,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5yum%E9%85%8D%E7%BD%AE%E5%BA%93"><span class="toc-text">进入yum配置库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6"><span class="toc-text">创建文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BEnginx"><span class="toc-text">查找nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0nginx"><span class="toc-text">更新nginx</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5yum%E9%85%8D%E7%BD%AE%E5%BA%93"><span class="toc-text">进入yum配置库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6"><span class="toc-text">创建文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BEnginx"><span class="toc-text">查找nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0nginx"><span class="toc-text">更新nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx%E5%8D%87%E7%BA%A7%E7%9A%84%E5%9D%91"><span class="toc-text">nginx升级的坑</span></a></li></ol>
         
     </div>
 </aside>
