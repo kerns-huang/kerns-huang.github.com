@@ -33,13 +33,9 @@ pipreqs
 pyinstaller
 pyfuze
 nuitka
-py2app
+py2app &#x2F;py2exe
 
-
-
-
-爬虫
-drissio..." />
+..." />
 
 
 <meta name="robots" content="all" />
@@ -211,7 +207,7 @@ drissio..." />
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                318</strong>
+                345</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -229,7 +225,7 @@ drissio..." />
 <li><a href="https://www.warmjoke.com/2024/02/26/pyinstaller%E5%BA%94%E7%94%A8%E6%95%B4%E7%90%86/">pyinstaller</a></li>
 <li><a href="https://github.com/TanixLu/pyfuze">pyfuze</a></li>
 <li>nuitka</li>
-<li>py2app</li>
+<li>py2app &#x2F;py2exe</li>
 </ul>
 </li>
 </ul>
@@ -247,6 +243,7 @@ drissio..." />
 <li>数据处理<ul>
 <li>pandas</li>
 <li>numpy</li>
+<li>(Polars)[<a href="https://pola-rs.github.io/polars-book-cn/user-guide/introduction.html]">https://pola-rs.github.io/polars-book-cn/user-guide/introduction.html]</a></li>
 </ul>
 </li>
 <li>画图<ul>
@@ -286,19 +283,28 @@ drissio..." />
 <li>dotenv</li>
 </ul>
 </li>
+<li>javascript解析<ul>
+<li>PyExecJS</li>
+</ul>
+</li>
 <li>web<ul>
 <li><a href="https://uvicorn.dev/">Uvicorn</a></li>
 <li>falsk</li>
 </ul>
 </li>
+<li>mq<ul>
+<li>pyzmq</li>
+</ul>
+</li>
+<li>platformdirs</li>
 </ul>
 </li>
 </ul>
 </blockquote>
 
-<h1 id="详细说明"><a href="#详细说明" class="headerlink" title="详细说明"></a>详细说明</h1><h2 id="打包工具"><a href="#打包工具" class="headerlink" title="打包工具"></a>打包工具</h2><h3 id="nuitka"><a href="#nuitka" class="headerlink" title="nuitka"></a>nuitka</h3><p>打包复杂的依赖比较OK</p>
+<h1 id="详细说明"><a href="#详细说明" class="headerlink" title="详细说明"></a>详细说明</h1><h2 id="打包工具"><a href="#打包工具" class="headerlink" title="打包工具"></a>打包工具</h2><h3 id="nuitka"><a href="#nuitka" class="headerlink" title="nuitka"></a>nuitka</h3><p>打包复杂的依赖比较OK，把python转换成C++相关的代码，并且打包，所以比较慢，打的包功能比较稳定,对python的版本不能支持到最新。</p>
 <h3 id="pyinstaller"><a href="#pyinstaller" class="headerlink" title="pyinstaller"></a>pyinstaller</h3><p>简单的打包OK，复杂的打包相互依赖的设置比较麻烦。</p>
-<h3 id="py2app"><a href="#py2app" class="headerlink" title="py2app"></a>py2app</h3><p>macos 打包工具</p>
+<h3 id="py2app"><a href="#py2app" class="headerlink" title="py2app"></a>py2app</h3><p>macos下的 打包工具，在windows 环境下对应的是py2exe</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
     

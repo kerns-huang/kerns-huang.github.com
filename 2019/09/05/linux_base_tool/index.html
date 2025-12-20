@@ -197,7 +197,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                2271</strong>
+                2298</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -216,6 +216,8 @@
 
 <p>###查看文件句柄数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/sys/fs/file-nr</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看进程详细信息"><a href="#查看进程详细信息" class="headerlink" title="查看进程详细信息"></a>查看进程详细信息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ll /proc/pid</span><br></pre></td></tr></table></figure>
 <h3 id="查看tcp连接数"><a href="#查看tcp连接数" class="headerlink" title="查看tcp连接数"></a>查看tcp连接数</h3> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -n | awk &#x27;/^tcp/ &#123;++S[$NF]&#125; END &#123;for(a in S) print a, S[a]&#125;&#x27;</span><br></pre></td></tr></table></figure>
 <h3 id="查看oom-信息"><a href="#查看oom-信息" class="headerlink" title="查看oom 信息"></a>查看oom 信息</h3> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dmesg | grep -i kill | less</span><br></pre></td></tr></table></figure>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> /proc/$PID/oom_adj</span><br><span class="line">/proc/$PID/oom_score</span><br><span class="line">/proc/$PID/oom_score_adj</span><br></pre></td></tr></table></figure>
@@ -292,7 +294,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-CPU%E5%8D%A0%E7%94%A8%E6%9C%80%E5%A4%9A%E7%9A%84%E5%89%8D10%E4%B8%AA%E8%BF%9B%E7%A8%8B%EF%BC%9A"><span class="toc-text">1.CPU占用最多的前10个进程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%86%85%E5%AD%98%E6%B6%88%E8%80%97%E6%9C%80%E5%A4%9A%E7%9A%84%E5%89%8D10%E4%B8%AA%E8%BF%9B%E7%A8%8B"><span class="toc-text">2.内存消耗最多的前10个进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E6%9C%80%E5%A4%9A%E7%9A%84%E5%89%8D10%E4%B8%AA%E8%BF%9B%E7%A8%8B"><span class="toc-text">3.虚拟内存使用最多的前10个进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B-%E5%86%85%E5%AD%98%E4%BF%A1%E6%81%AF"><span class="toc-text">查看 内存信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Btcp%E8%BF%9E%E6%8E%A5%E6%95%B0"><span class="toc-text">查看tcp连接数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Boom-%E4%BF%A1%E6%81%AF"><span class="toc-text">查看oom 信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%A1%AC%E7%9B%98%E9%97%AE%E9%A2%98"><span class="toc-text">查看硬盘问题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-CPU%E5%8D%A0%E7%94%A8%E6%9C%80%E5%A4%9A%E7%9A%84%E5%89%8D10%E4%B8%AA%E8%BF%9B%E7%A8%8B%EF%BC%9A"><span class="toc-text">1.CPU占用最多的前10个进程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%86%85%E5%AD%98%E6%B6%88%E8%80%97%E6%9C%80%E5%A4%9A%E7%9A%84%E5%89%8D10%E4%B8%AA%E8%BF%9B%E7%A8%8B"><span class="toc-text">2.内存消耗最多的前10个进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E6%9C%80%E5%A4%9A%E7%9A%84%E5%89%8D10%E4%B8%AA%E8%BF%9B%E7%A8%8B"><span class="toc-text">3.虚拟内存使用最多的前10个进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B-%E5%86%85%E5%AD%98%E4%BF%A1%E6%81%AF"><span class="toc-text">查看 内存信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF"><span class="toc-text">查看进程详细信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Btcp%E8%BF%9E%E6%8E%A5%E6%95%B0"><span class="toc-text">查看tcp连接数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Boom-%E4%BF%A1%E6%81%AF"><span class="toc-text">查看oom 信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%A1%AC%E7%9B%98%E9%97%AE%E9%A2%98"><span class="toc-text">查看硬盘问题</span></a></li></ol>
         
     </div>
 </aside>

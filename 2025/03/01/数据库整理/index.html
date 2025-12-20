@@ -40,12 +40,7 @@ oracle
 neo4j
 
 
-
-
-
-
-
-..." />
+向量数据库..." />
 
 
 <meta name="robots" content="all" />
@@ -236,6 +231,12 @@ neo4j
 <li>neo4j</li>
 </ul>
 </li>
+<li>向量数据库<ul>
+<li>qdrant</li>
+<li>milvus</li>
+<li>warviate</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -244,12 +245,8 @@ neo4j
 
 
 <p>DolphinDB<br>    适合金融时序,不开源</p>
-<ul>
-<li>画图工具  <ul>
-<li><a href="https://github.com/drawdb-io/drawdb">drawdb</a></li>
-</ul>
-</li>
-</ul>
+<h1 id="具体说明"><a href="#具体说明" class="headerlink" title="具体说明"></a>具体说明</h1><h2 id="向量数据库"><a href="#向量数据库" class="headerlink" title="向量数据库"></a>向量数据库</h2><h3 id="qdrant"><a href="#qdrant" class="headerlink" title="qdrant"></a>qdrant</h3><p>相对比较轻量，但只支持单向量，rust编写，如果只是支持简单比较，是比较合适的。<br>比如视频需要对视频和音频都单独建立向量，但qdrant并不支持。</p>
+<h3 id="milvus"><a href="#milvus" class="headerlink" title="milvus"></a>milvus</h3><p> 支持多向量，相对qdrant部署比较复杂。</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
     
@@ -319,7 +316,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <p>暂无目录</p>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E8%AF%B4%E6%98%8E"><span class="toc-text">具体说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">向量数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#qdrant"><span class="toc-text">qdrant</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#milvus"><span class="toc-text">milvus</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>
