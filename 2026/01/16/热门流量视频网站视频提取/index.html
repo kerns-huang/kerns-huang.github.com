@@ -1,0 +1,364 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="kerns的小窝">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="" />
+
+
+<meta name="description" content="现在抖音，快手这种流量网站对于提取视频基本都做了严格的风控，这段时间本来想帮着父母整理下养虾相关的视频，却发现不知道怎么从抖音下载视频。做为一个程序员首先想到的是自己手搓一个下载工具
+第一个是试..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    热门视频网站视频提取 |
+    
+    kerns的小窝
+</title>
+
+<link rel="alternate" href="/atom.xml" title="kerns的小窝" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='kerns'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        kerns的小窝</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/go/"><i class="fa "></i>
+                                go</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/node/"><i class="fa "></i>
+                                node</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/rust/"><i class="fa "></i>
+                                rust</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/python/"><i class="fa "></i>
+                                python</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/ai/"><i class="fa "></i>
+                                ai</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/区块链/"><i class="fa "></i>
+                                区块链</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/运维/"><i class="fa "></i>
+                                运维</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="热门视频网站视频提取">
+            
+            热门视频网站视频提取
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2026/01/16</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>现在抖音，快手这种流量网站对于提取视频基本都做了严格的风控，这段时间本来想帮着父母整理下养虾相关的视频，却发现不知道怎么从抖音下载视频。<br>做为一个程序员首先想到的是自己手搓一个下载工具</p>
+<p>第一个是试了下cursor推荐的(yt-dlp)[<a href="https://github.com/yt-dlp/yt-dlp]%EF%BC%8C%E5%AF%B9%E4%BA%8E%E6%8A%96%E9%9F%B3%E8%BF%99%E5%9D%97%E4%B8%8D%E6%98%AF%E5%A4%AA%E5%8F%8B%E5%A5%BD%EF%BC%8C%E4%BB%A3%E7%A0%81%E5%88%B0%E6%98%AF%E5%8F%AF%E4%BB%A5%E6%89%BE%E4%B8%AA%E6%97%B6%E9%97%B4%E5%8F%82%E8%80%83%E4%B8%8B%EF%BC%8C%E7%9C%8B%E5%AF%B9%E4%BA%8E%E7%88%AC%E8%99%AB%E8%BF%99%E5%9D%97%E6%98%AF%E5%90%A6%E6%9C%89%E4%BB%B7%E5%80%BC%E3%80%82">https://github.com/yt-dlp/yt-dlp]，对于抖音这块不是太友好，代码到是可以找个时间参考下，看对于爬虫这块是否有价值。</a></p>
+<p>第二个是试了下(douyin-downloader)[<a href="https://github.com/jiji262/douyin-downloader]%E5%8F%B7%E7%A7%B0%E5%8F%AF%E4%BB%A5%E5%8E%BB%E6%8A%96%E9%9F%B3%E6%B0%B4%E5%8D%B0%E7%9A%84%EF%BC%8C%E7%9C%8B%E4%BA%86%E4%B8%8B%E4%BB%A3%E7%A0%81%EF%BC%8C%E7%BB%93%E5%90%88%E8%87%AA%E5%B7%B1%E5%88%86%E6%9E%90%E6%8A%96%E9%9F%B3%E7%BD%91%E9%A1%B5%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%A6%82%E6%9E%9C%E9%85%8D%E7%BD%AE%E6%88%90%E5%8A%9F%E5%BA%94%E8%AF%A5%E6%98%AF%E5%8F%AF%E8%A1%8C%E7%9A%84%EF%BC%8C%E5%B0%B1%E6%98%AF%E9%85%8D%E7%BD%AE%E6%9C%89%E7%82%B9%E5%A4%8D%E6%9D%82%EF%BC%8C%E6%84%9F%E8%A7%89%E9%85%8D%E7%BD%AE%E5%A5%BD%E4%BA%86%EF%BC%8C%E4%BC%B0%E8%AE%A1%E6%BA%90%E7%A0%81%E9%83%BD%E8%A6%81%E7%9C%8B%E4%B8%80%E9%81%8D%E4%BA%86%EF%BC%8C%E4%B8%BB%E8%A6%81%E7%9B%AE%E7%9A%84%E6%98%AF%E4%B8%BA%E4%BA%86%E6%8A%93%E5%8F%96%E6%8A%96%E9%9F%B3%E7%9A%84%E8%A7%86%E9%A2%91%E6%89%80%E4%BB%A5%E6%9E%9C%E6%96%AD%E6%94%BE%E5%BC%83%E4%BA%86%E3%80%82">https://github.com/jiji262/douyin-downloader]号称可以去抖音水印的，看了下代码，结合自己分析抖音网页代码，如果配置成功应该是可行的，就是配置有点复杂，感觉配置好了，估计源码都要看一遍了，主要目的是为了抓取抖音的视频所以果断放弃了。</a></p>
+<p>后来在douyin-downloader这个群里面一个群友在分享他是怎么抓取数据的插件，发现真的很香。一个是<a href="https://chromewebstore.google.com/detail/%E7%A4%BE%E5%AA%92%E5%8A%A9%E6%89%8B-%E5%B0%8F%E7%BA%A2%E4%B9%A6%E3%80%81%E6%8A%96%E9%9F%B3%E3%80%81%E5%BF%AB%E6%89%8B%E3%80%81tiktok%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/dbichmdlbjdeplpkhcejgkakobjbjalc">社媒助手</a>,这个真的很好用，单独的视频，整个达人的所有视频都可以下载，还有一个是<a href="https://chromewebstore.google.com/detail/%E7%A4%BE%E5%AA%92%E5%8A%A9%E6%89%8B-%E5%B0%8F%E7%BA%A2%E4%B9%A6%E3%80%81%E6%8A%96%E9%9F%B3%E3%80%81%E5%BF%AB%E6%89%8B%E3%80%81tiktok%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/dbichmdlbjdeplpkhcejgkakobjbjalc">阿抖</a>,主要抓的某个达人的视频，功能比较受限，不是太亲民。但也能用，有研究的价值，</p>
+<p>还想整理下群友分享的一个视频处理的工具，还有这段时间自己做视频素材比较的一些经验总结，到时候不知道怎么用了，可以做个备忘。</p>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>热门视频网站<ul>
+<li>图片处理<ul>
+<li><a href="https://imagemagick.org/script/download.php#windows&gsc.tab=0">imagemagick</a></li>
+</ul>
+</li>
+<li>视频处理<ul>
+<li>ffmpeg</li>
+<li>opencv</li>
+</ul>
+</li>
+<li>视频下载插件<ul>
+<li><a href="https://chromewebstore.google.com/detail/%E7%A4%BE%E5%AA%92%E5%8A%A9%E6%89%8B-%E5%B0%8F%E7%BA%A2%E4%B9%A6%E3%80%81%E6%8A%96%E9%9F%B3%E3%80%81%E5%BF%AB%E6%89%8B%E3%80%81tiktok%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/dbichmdlbjdeplpkhcejgkakobjbjalc">社媒助手</a></li>
+</ul>
+</li>
+<li>视频提取开源框架-适合二次开发<ul>
+<li><a href="https://github.com/jiji262/douyin-downloader">douyin-downloader</a></li>
+<li><a href="https://github.com/yt-dlp/yt-dlp">yt-dlp</a></li>
+</ul>
+</li>
+<li>音频特征提取算法<ul>
+<li>wav2vec2</li>
+<li>yamnet</li>
+<li>RMS能量相似度</li>
+<li>零交叉相似率</li>
+<li>FFT频普相似度特征</li>
+<li>MFCC特征</li>
+<li>VGGish</li>
+</ul>
+</li>
+<li>视频特征提取算法<ul>
+<li>直方图</li>
+<li>汉明距离</li>
+<li>梯度相似度</li>
+<li>clip</li>
+<li>videoMAE</li>
+<li>3D CNN</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2025/11/20/%E7%88%AC%E8%99%AB%E6%8A%80%E6%9C%AF%E6%95%B4%E7%90%86/" class="next-post btn btn-default" title='爬虫技术整理'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            爬虫技术整理</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-Hans'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <p>暂无目录</p>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
