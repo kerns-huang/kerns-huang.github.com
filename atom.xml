@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2026-01-20T03:25:47.133Z</updated>
+  <updated>2026-01-21T05:37:36.171Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,82 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个社交网站的设计</title>
+    <link href="http://yoursite.com/2026/01/21/Untitled/"/>
+    <id>http://yoursite.com/2026/01/21/Untitled/</id>
+    <published>2026-01-21T02:18:00.000Z</published>
+    <updated>2026-01-21T05:37:36.171Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="短信防刷的设计"><a href="#短信防刷的设计" class="headerlink" title="短信防刷的设计"></a>短信防刷的设计</h2><h3 id="1-设备id的设计"><a href="#1-设备id的设计" class="headerlink" title="1. 设备id的设计"></a>1. 设备id的设计</h3><p>   如果通过ip限制，局域网的情况下，容易误伤他人，手机号的限制，防不住那种使用多批量号码的人。</p><h3 id="2-风控系统的设计，"><a href="#2-风控系统的设计，" class="headerlink" title="2. 风控系统的设计，"></a>2. 风控系统的设计，</h3><p>   设备指纹、行为序列分析，鼠标轨迹获取、风险评分，如果不符合正常人的操作，直接弹出一个滑块验证码，或者拼图。</p><h3 id="3-短信通道"><a href="#3-短信通道" class="headerlink" title="3. 短信通道"></a>3. 短信通道</h3><p>   对虚拟号的限制，增加刷短信的成本。</p><h3 id="4-异步清洗"><a href="#4-异步清洗" class="headerlink" title="4. 异步清洗"></a>4. 异步清洗</h3><p>   对超过n天没有登陆的账户作出标记，重新登陆的时候重新发短信验证码，或者其它的验证。</p><h2 id="秒杀场景"><a href="#秒杀场景" class="headerlink" title="秒杀场景"></a>秒杀场景</h2><h3 id="1-流量控制"><a href="#1-流量控制" class="headerlink" title="1. 流量控制"></a>1. 流量控制</h3><p>   当库存里面只有100个库存，可以设置通过200个流量进来。</p><h3 id="2-redis-lua-原子扣库存。"><a href="#2-redis-lua-原子扣库存。" class="headerlink" title="2. redis lua 原子扣库存。"></a>2. redis lua 原子扣库存。</h3><h3 id="3-异步同步到数据库。"><a href="#3-异步同步到数据库。" class="headerlink" title="3. 异步同步到数据库。"></a>3. 异步同步到数据库。</h3><p>   无竞争修改数据库，减少数据库锁竞争。</p><h2 id="评论系统设计"><a href="#评论系统设计" class="headerlink" title="评论系统设计"></a>评论系统设计</h2><h3 id="1-冗余root-id，按照根评论一次性查询"><a href="#1-冗余root-id，按照根评论一次性查询" class="headerlink" title="1.冗余root_id，按照根评论一次性查询"></a>1.冗余root_id，按照根评论一次性查询</h3><p>  如果只设计parent_id的话，查询的时候会涉及层级查询。<br>  删除的时候也会涉及 层级删除。</p><h3 id="2-冷热分离"><a href="#2-冷热分离" class="headerlink" title="2.冷热分离"></a>2.冷热分离</h3><p>  top n 设计：点赞数，点赞的操作放在redis缓存里面，通过mq或者定时刷新到数据库。</p><h2 id="大V直播间打赏"><a href="#大V直播间打赏" class="headerlink" title="大V直播间打赏"></a>大V直播间打赏</h2><h3 id="出现的问题"><a href="#出现的问题" class="headerlink" title="出现的问题"></a>出现的问题</h3><h4 id="热点行锁"><a href="#热点行锁" class="headerlink" title="热点行锁"></a>热点行锁</h4><p>  用户扣钱，主播加钱，主播的数据会出现热点行锁</p><p>  用户扣钱，可以实时扣除，使用乐观锁保证不透支，主播加钱可以异步，然后把多次加钱合并成一次。减少主播数据的行锁压力。</p><h4 id="广播风暴"><a href="#广播风暴" class="headerlink" title="广播风暴"></a>广播风暴</h4><h5 id="解决的办法"><a href="#解决的办法" class="headerlink" title="解决的办法"></a>解决的办法</h5><p>  分桶同步</p><p>  合并发布，</p><h2 id="订单超时设计"><a href="#订单超时设计" class="headerlink" title="订单超时设计"></a>订单超时设计</h2><h3 id="定时器扫描"><a href="#定时器扫描" class="headerlink" title="定时器扫描"></a>定时器扫描</h3><p>   缺点：全表扫描问题，会导致表压力增大，数据库io飙升。<br>   优点：简单，直接。</p><h3 id="redis-发布订阅"><a href="#redis-发布订阅" class="headerlink" title="redis 发布订阅"></a>redis 发布订阅</h3><p>   缺点： 不稳定</p><h3 id="mq-延时队列-和-幂等操作"><a href="#mq-延时队列-和-幂等操作" class="headerlink" title="mq 延时队列 和 幂等操作"></a>mq 延时队列 和 幂等操作</h3><p>   注意点：更新的时候需要验证订单是未支付状态。因为有可能中途支付。</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;短信防刷的设计&quot;&gt;&lt;a href=&quot;#短信防刷的设计&quot; class=&quot;headerlink&quot; title=&quot;短信防刷的设计&quot;&gt;&lt;/a&gt;短信防刷的设计&lt;/h2&gt;&lt;h3 id=&quot;1-设备id的设计&quot;&gt;&lt;a href=&quot;#1-设备id的设计&quot; class=&quot;header</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>nodejs工具包整理</title>
+    <link href="http://yoursite.com/2026/01/21/nodejs%E5%B7%A5%E5%85%B7%E5%8C%85%E6%95%B4%E7%90%86/"/>
+    <id>http://yoursite.com/2026/01/21/nodejs%E5%B7%A5%E5%85%B7%E5%8C%85%E6%95%B4%E7%90%86/</id>
+    <published>2026-01-21T01:20:00.000Z</published>
+    <updated>2026-01-21T01:33:57.859Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>nodejs<ul><li>浏览器插件开发<ul><li><a href="https://wxt.dev/">wxt</a></li></ul></li><li>软件包管理<ul><li>pnpm</li><li>npm</li></ul></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote class=&quot;pullquote mindmap mindmap-md&quot;&gt;&lt;ul&gt;
+&lt;li&gt;nodejs&lt;ul&gt;
+&lt;li&gt;浏览器插件开发&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://wxt.dev/&quot;&gt;wxt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;</summary>
+      
+    
+    
+    
+    <category term="node" scheme="http://yoursite.com/categories/node/"/>
+    
+    
+    <category term="node" scheme="http://yoursite.com/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java工具包整理</title>
+    <link href="http://yoursite.com/2026/01/21/java%E5%B7%A5%E5%85%B7%E5%8C%85%E6%95%B4%E7%90%86/"/>
+    <id>http://yoursite.com/2026/01/21/java%E5%B7%A5%E5%85%B7%E5%8C%85%E6%95%B4%E7%90%86/</id>
+    <published>2026-01-21T00:16:41.000Z</published>
+    <updated>2026-01-21T00:19:02.111Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>go<ul><li>微服务<ul><li>Spring cloud</li></ul></li><li>表达式引擎<ul><li>Aviator</li></ul></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote class=&quot;pullquote mindmap mindmap-md&quot;&gt;&lt;ul&gt;
+&lt;li&gt;go&lt;ul&gt;
+&lt;li&gt;微服务&lt;ul&gt;
+&lt;li&gt;Spring cloud&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;表达式引擎&lt;ul&gt;
+&lt;li&gt;Aviator&lt;/li</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>AI视频生成</title>
@@ -65,9 +141,9 @@
     <link href="http://yoursite.com/2025/11/20/%E7%88%AC%E8%99%AB%E6%8A%80%E6%9C%AF%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2025/11/20/%E7%88%AC%E8%99%AB%E6%8A%80%E6%9C%AF%E6%95%B4%E7%90%86/</id>
     <published>2025-11-20T01:55:24.000Z</published>
-    <updated>2026-01-14T09:49:00.162Z</updated>
+    <updated>2026-01-21T02:42:38.954Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>爬虫技术<ul><li>代理ip<ul><li><a href="https://h.shanchendaili.com/">闪臣</a></li></ul></li><li>http请求<ul><li>指纹<ul><li>curl_cffi</li><li>tls-client</li><li><a href="https://github.com/wangluozhe/requests-go">request-go</a></li></ul></li><li>默认的<ul><li>requests</li></ul></li></ul></li><li>无头浏览器<ul><li>Selenium</li><li>Playwright</li><li>Puppeteer  </li><li>Cheerio</li><li>(drissionpage)[<a href="https://www.drissionpage.cn/]">https://www.drissionpage.cn/]</a></li></ul></li><li>gui<ul><li>(pywebview)[<a href="https://pywebview.idepy.com/]">https://pywebview.idepy.com/]</a></li><li>pyqt6,Qt WebEngine</li></ul></li><li>验证码<ul><li><a href="https://www.jfbym.com/">云码</a></li></ul></li><li>浏览器插件<ul><li><a href="https://chromewebstore.google.com/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc">cookies信息获取</a></li><li>cat-catch</li></ul></li></ul></li></ul></blockquote><h1 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h1><h2 id="指纹http套件"><a href="#指纹http套件" class="headerlink" title="指纹http套件"></a>指纹http套件</h2><h3 id="curl-cffi"><a href="#curl-cffi" class="headerlink" title="curl_cffi"></a>curl_cffi</h3><p>优点：对各个系统的支持都比较OK。<br>缺点：只支持低版本的指纹，对于热门，最新版本的指纹不积极。</p><h3 id="tls-client"><a href="#tls-client" class="headerlink" title="tls-client"></a>tls-client</h3><p>优点：支持最新版本的指纹相关的操作</p><p>缺点：在window环境下对代理的设置不友好,常用的代理方式基本无效，只能通过环境变量的方式去设置。</p><h2 id="无头浏览器"><a href="#无头浏览器" class="headerlink" title="无头浏览器"></a>无头浏览器</h2><h3 id="Playwright"><a href="#Playwright" class="headerlink" title="Playwright"></a>Playwright</h3><p>对于浏览器的支持很OK，基本支持最新的版本</p><h3 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h3><p>很老的无头浏览器，</p><h3 id="drissionpage"><a href="#drissionpage" class="headerlink" title="drissionpage"></a>drissionpage</h3><p>Selenium 和 requests的集成。</p><h2 id="gui"><a href="#gui" class="headerlink" title="gui"></a>gui</h2><h3 id="pyqt6-Qt-WebEngine"><a href="#pyqt6-Qt-WebEngine" class="headerlink" title="pyqt6,Qt WebEngine"></a>pyqt6,Qt WebEngine</h3><p>Qt WebEngine 基于Chromium，和chrome引擎类似，但是引擎的版本比较老，容易被快手这类应用风控。</p><h3 id="pywebview"><a href="#pywebview" class="headerlink" title="pywebview"></a>pywebview</h3><p>目前应用了下还可以，而且能打开快手对浏览器的监控。</p><h2 id="视频下载工具"><a href="#视频下载工具" class="headerlink" title="视频下载工具"></a>视频下载工具</h2><h3 id="yt-dlp-https-github-com-yt-dlp-yt-dlp"><a href="#yt-dlp-https-github-com-yt-dlp-yt-dlp" class="headerlink" title="(yt-dlp)[https://github.com/yt-dlp/yt-dlp]"></a>(yt-dlp)[<a href="https://github.com/yt-dlp/yt-dlp]">https://github.com/yt-dlp/yt-dlp]</a></h3><p>抖音，</p><h2 id="浏览器插件"><a href="#浏览器插件" class="headerlink" title="浏览器插件"></a>浏览器插件</h2><h3 id="抖音视频获取"><a href="#抖音视频获取" class="headerlink" title="抖音视频获取"></a>抖音视频获取</h3><p><a href="https://chromewebstore.google.com/detail/%E9%98%BF%E6%8A%96-%E6%8A%96%E9%9F%B3%E8%A7%86%E9%A2%91%E9%87%87%E9%9B%86%E5%8A%A9%E6%89%8B/kckmfllnpncljamnlfnaoplpmlbgjeal">阿抖-抖音视频采集助手</a> 比较适合抓某个博主的全部视频，比较好用，单个视频不是太好抓。</p><p><a href="https://chromewebstore.google.com/detail/%E7%A4%BE%E5%AA%92%E5%8A%A9%E6%89%8B-%E5%B0%8F%E7%BA%A2%E4%B9%A6%E3%80%81%E6%8A%96%E9%9F%B3%E3%80%81%E5%BF%AB%E6%89%8B%E3%80%81tiktok%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/dbichmdlbjdeplpkhcejgkakobjbjalc">社媒助手</a> 这个插件更加好用下，单个视频，分享到飞书这些都OK。</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>爬虫技术<ul><li>代理ip<ul><li><a href="https://h.shanchendaili.com/">闪臣</a></li></ul></li><li>http请求<ul><li>指纹<ul><li>curl_cffi</li><li>tls-client</li><li><a href="https://github.com/wangluozhe/requests-go">request-go</a></li></ul></li><li>默认的<ul><li>requests</li><li><a href="https://github.com/jawah/niquests">Niquests,request增强</a></li></ul></li><li>异步请求<ul><li>aiohttp</li></ul></li><li>请求增强<ul><li><a href="https://github.com/wangluozhe/requests-go">request-go</a></li></ul></li></ul></li><li>无头浏览器<ul><li>Selenium</li><li>Playwright</li><li>Puppeteer  </li><li>Cheerio</li><li>(drissionpage)[<a href="https://www.drissionpage.cn/]">https://www.drissionpage.cn/]</a></li></ul></li><li>gui<ul><li>(pywebview)[<a href="https://pywebview.idepy.com/]">https://pywebview.idepy.com/]</a></li><li>pyqt6,Qt WebEngine</li></ul></li><li>验证码<ul><li><a href="https://www.jfbym.com/">云码</a></li></ul></li><li>浏览器插件<ul><li><a href="https://chromewebstore.google.com/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc">cookies信息获取</a></li><li>cat-catch</li></ul></li></ul></li></ul></blockquote><h1 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h1><h2 id="指纹http套件"><a href="#指纹http套件" class="headerlink" title="指纹http套件"></a>指纹http套件</h2><h3 id="curl-cffi"><a href="#curl-cffi" class="headerlink" title="curl_cffi"></a>curl_cffi</h3><p>优点：对各个系统的支持都比较OK。<br>缺点：只支持低版本的指纹，对于热门，最新版本的指纹不积极。</p><h3 id="tls-client"><a href="#tls-client" class="headerlink" title="tls-client"></a>tls-client</h3><p>优点：支持最新版本的指纹相关的操作</p><p>缺点：在window环境下对代理的设置不友好,常用的代理方式基本无效，只能通过环境变量的方式去设置。</p><h2 id="无头浏览器"><a href="#无头浏览器" class="headerlink" title="无头浏览器"></a>无头浏览器</h2><h3 id="Playwright"><a href="#Playwright" class="headerlink" title="Playwright"></a>Playwright</h3><p>对于浏览器的支持很OK，基本支持最新的版本</p><h3 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h3><p>很老的无头浏览器，</p><h3 id="drissionpage"><a href="#drissionpage" class="headerlink" title="drissionpage"></a>drissionpage</h3><p>Selenium 和 requests的集成。</p><h2 id="gui"><a href="#gui" class="headerlink" title="gui"></a>gui</h2><h3 id="pyqt6-Qt-WebEngine"><a href="#pyqt6-Qt-WebEngine" class="headerlink" title="pyqt6,Qt WebEngine"></a>pyqt6,Qt WebEngine</h3><p>Qt WebEngine 基于Chromium，和chrome引擎类似，但是引擎的版本比较老，容易被快手这类应用风控。</p><h3 id="pywebview"><a href="#pywebview" class="headerlink" title="pywebview"></a>pywebview</h3><p>目前应用了下还可以，而且能打开快手对浏览器的监控。</p><h2 id="视频下载工具"><a href="#视频下载工具" class="headerlink" title="视频下载工具"></a>视频下载工具</h2><h3 id="yt-dlp-https-github-com-yt-dlp-yt-dlp"><a href="#yt-dlp-https-github-com-yt-dlp-yt-dlp" class="headerlink" title="(yt-dlp)[https://github.com/yt-dlp/yt-dlp]"></a>(yt-dlp)[<a href="https://github.com/yt-dlp/yt-dlp]">https://github.com/yt-dlp/yt-dlp]</a></h3><p>抖音，</p><h2 id="浏览器插件"><a href="#浏览器插件" class="headerlink" title="浏览器插件"></a>浏览器插件</h2><h3 id="抖音视频获取"><a href="#抖音视频获取" class="headerlink" title="抖音视频获取"></a>抖音视频获取</h3><p><a href="https://chromewebstore.google.com/detail/%E9%98%BF%E6%8A%96-%E6%8A%96%E9%9F%B3%E8%A7%86%E9%A2%91%E9%87%87%E9%9B%86%E5%8A%A9%E6%89%8B/kckmfllnpncljamnlfnaoplpmlbgjeal">阿抖-抖音视频采集助手</a> 比较适合抓某个博主的全部视频，比较好用，单个视频不是太好抓。</p><p><a href="https://chromewebstore.google.com/detail/%E7%A4%BE%E5%AA%92%E5%8A%A9%E6%89%8B-%E5%B0%8F%E7%BA%A2%E4%B9%A6%E3%80%81%E6%8A%96%E9%9F%B3%E3%80%81%E5%BF%AB%E6%89%8B%E3%80%81tiktok%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/dbichmdlbjdeplpkhcejgkakobjbjalc">社媒助手</a> 这个插件更加好用下，单个视频，分享到飞书这些都OK。</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
@@ -106,6 +182,26 @@
     
     
     <category term="ai" scheme="http://yoursite.com/tags/ai/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AI开发</title>
+    <link href="http://yoursite.com/2025/04/25/AI%E5%BC%80%E5%8F%91/"/>
+    <id>http://yoursite.com/2025/04/25/AI%E5%BC%80%E5%8F%91/</id>
+    <published>2025-04-25T01:24:11.000Z</published>
+    <updated>2026-01-20T09:58:29.202Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基于ai的自动开发"><a href="#基于ai的自动开发" class="headerlink" title="基于ai的自动开发"></a>基于ai的自动开发</h1><blockquote class="pullquote mindmap mindmap-md"><ul><li>多进程ai开发<ul><li><a href="https://github.com/BloopAI/vibe-kanban">vibe-kanban</a></li></ul></li></ul></blockquote><h1 id="代码-LLM-模型选择"><a href="#代码-LLM-模型选择" class="headerlink" title="代码 LLM 模型选择"></a>代码 LLM 模型选择</h1><h2 id="闭源模型"><a href="#闭源模型" class="headerlink" title="闭源模型"></a>闭源模型</h2><p>Qwen-Turbo：<br>DeepSeek-v3：简单任务使用v3<br>DeepSeek-R1: 多步思考，容易把问题想复杂。<br>claude：<br>gemini<br>gpt-4o</p><h2 id="开源代码补全大模型"><a href="#开源代码补全大模型" class="headerlink" title="开源代码补全大模型"></a>开源代码补全大模型</h2><p>Qwen*-coder：能力强，接近一线大模型，<br>CodeGeex：智谱开源的代码大模型，<br>SqlCoder：专为sql生成的大模型，维护更新慢。<br>DeepSeek-Coder：</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;基于ai的自动开发&quot;&gt;&lt;a href=&quot;#基于ai的自动开发&quot; class=&quot;headerlink&quot; title=&quot;基于ai的自动开发&quot;&gt;&lt;/a&gt;基于ai的自动开发&lt;/h1&gt;&lt;blockquote class=&quot;pullquote mindmap mindmap-</summary>
+      
+    
+    
+    
     
   </entry>
   
@@ -333,9 +429,9 @@
     <link href="http://yoursite.com/2025/01/09/python%E5%90%84%E7%A7%8D%E5%B7%A5%E5%85%B7%E5%8C%85%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2025/01/09/python%E5%90%84%E7%A7%8D%E5%B7%A5%E5%85%B7%E5%8C%85%E6%95%B4%E7%90%86/</id>
     <published>2025-01-09T01:42:00.000Z</published>
-    <updated>2026-01-12T07:58:42.007Z</updated>
+    <updated>2026-01-21T02:44:25.681Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>python<ul><li>基本功能<ul><li>生成requirements.txt<ul><li>pipreqs</li></ul></li><li>生成本地执行包<ul><li><a href="https://www.warmjoke.com/2024/02/26/pyinstaller%E5%BA%94%E7%94%A8%E6%95%B4%E7%90%86/">pyinstaller</a></li><li><a href="https://github.com/TanixLu/pyfuze">pyfuze</a></li><li>nuitka</li><li>py2app &#x2F;py2exe</li></ul></li></ul></li><li>爬虫<ul><li>drissionPage</li><li>curl_cffi</li><li>selenium</li></ul></li><li>日志<ul><li>loguru</li></ul></li><li>数据处理<ul><li>pandas</li><li>numpy</li><li>(Polars)[<a href="https://pola-rs.github.io/polars-book-cn/user-guide/introduction.html]">https://pola-rs.github.io/polars-book-cn/user-guide/introduction.html]</a></li></ul></li><li>画图<ul><li>pillow</li></ul></li><li>动态包导入<ul><li>importlib</li></ul></li><li>文件操作<ul><li>shutil</li></ul></li><li>yaml配置操作<ul><li>ruamel.yaml</li></ul></li><li>命令行输入<ul><li>cmd2</li></ul></li><li>链上交互<ul><li>web3</li></ul></li><li>声音读区<ul><li>sounddevice</li><li>soundfile</li></ul></li><li>进度条<ul><li>tqdm</li></ul></li><li>环境变量读取<ul><li>dotenv</li></ul></li><li>javascript解析<ul><li>PyExecJS</li></ul></li><li>web<ul><li><a href="https://uvicorn.dev/">Uvicorn</a></li><li>falsk</li></ul></li><li>mq<ul><li>pyzmq</li></ul></li><li>platformdirs  </li><li>命令行交互<ul><li>rich</li><li>click</li></ul></li></ul></li></ul></blockquote><h1 id="详细说明"><a href="#详细说明" class="headerlink" title="详细说明"></a>详细说明</h1><h2 id="打包工具"><a href="#打包工具" class="headerlink" title="打包工具"></a>打包工具</h2><h3 id="nuitka"><a href="#nuitka" class="headerlink" title="nuitka"></a>nuitka</h3><p>打包复杂的依赖比较OK，把python转换成C++相关的代码，并且打包，所以比较慢，打的包功能比较稳定,对python的版本不能支持到最新。</p><h3 id="pyinstaller"><a href="#pyinstaller" class="headerlink" title="pyinstaller"></a>pyinstaller</h3><p>简单的打包OK，复杂的打包相互依赖的设置比较麻烦。</p><h3 id="py2app"><a href="#py2app" class="headerlink" title="py2app"></a>py2app</h3><p>macos下的 打包工具，在windows 环境下对应的是py2exe</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>python<ul><li>基本功能<ul><li>生成requirements.txt<ul><li>pipreqs</li></ul></li><li>生成本地执行包<ul><li><a href="https://www.warmjoke.com/2024/02/26/pyinstaller%E5%BA%94%E7%94%A8%E6%95%B4%E7%90%86/">pyinstaller</a></li><li><a href="https://github.com/TanixLu/pyfuze">pyfuze</a></li><li>nuitka</li><li>py2app &#x2F;py2exe</li></ul></li></ul></li><li>爬虫<ul><li>drissionPage</li><li>curl_cffi</li><li>selenium</li></ul></li><li>日志<ul><li>loguru</li></ul></li><li>数据处理<ul><li>pandas</li><li>numpy</li><li>(Polars)[<a href="https://pola-rs.github.io/polars-book-cn/user-guide/introduction.html]">https://pola-rs.github.io/polars-book-cn/user-guide/introduction.html]</a></li></ul></li><li>画图<ul><li>pillow</li></ul></li><li>动态包导入<ul><li>importlib</li></ul></li><li>文件操作<ul><li>shutil</li></ul></li><li>yaml配置操作<ul><li>ruamel.yaml</li></ul></li><li>命令行输入<ul><li>cmd2</li></ul></li><li>链上交互<ul><li>web3</li></ul></li><li>声音读区<ul><li>sounddevice</li><li>soundfile</li></ul></li><li>进度条<ul><li>tqdm</li></ul></li><li>环境变量读取<ul><li>dotenv</li></ul></li><li>javascript解析<ul><li>PyExecJS</li></ul></li><li>web<ul><li><a href="https://uvicorn.dev/">Uvicorn</a></li><li>falsk</li></ul></li><li>mq<ul><li>pyzmq</li></ul></li><li>platformdirs  </li><li>命令行交互<ul><li>rich</li><li>click</li></ul></li><li>http请求<ul><li>requests</li><li>aiohttp</li><li><a href="https://github.com/jawah/niquests">niquests</a></li></ul></li></ul></li></ul></blockquote><h1 id="详细说明"><a href="#详细说明" class="headerlink" title="详细说明"></a>详细说明</h1><h2 id="打包工具"><a href="#打包工具" class="headerlink" title="打包工具"></a>打包工具</h2><h3 id="nuitka"><a href="#nuitka" class="headerlink" title="nuitka"></a>nuitka</h3><p>打包复杂的依赖比较OK，把python转换成C++相关的代码，并且打包，所以比较慢，打的包功能比较稳定,对python的版本不能支持到最新。</p><h3 id="pyinstaller"><a href="#pyinstaller" class="headerlink" title="pyinstaller"></a>pyinstaller</h3><p>简单的打包OK，复杂的打包相互依赖的设置比较麻烦。</p><h3 id="py2app"><a href="#py2app" class="headerlink" title="py2app"></a>py2app</h3><p>macos下的 打包工具，在windows 环境下对应的是py2exe</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
@@ -402,99 +498,6 @@
     
     
     <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sublime命令整理</title>
-    <link href="http://yoursite.com/2024/11/21/sublime%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/"/>
-    <id>http://yoursite.com/2024/11/21/sublime%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/</id>
-    <published>2024-11-21T08:08:29.000Z</published>
-    <updated>2024-11-21T08:20:37.519Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="正则表达式数据替换"><a href="#正则表达式数据替换" class="headerlink" title="正则表达式数据替换"></a>正则表达式数据替换</h3><p>排除cid之后的字符串</p><p><img src="/images/pasted-22.png" alt="upload successful"></p><p>打开正则表达式模式</p><p><img src="/images/pasted-23.png" alt="upload successful"></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;正则表达式数据替换&quot;&gt;&lt;a href=&quot;#正则表达式数据替换&quot; class=&quot;headerlink&quot; title=&quot;正则表达式数据替换&quot;&gt;&lt;/a&gt;正则表达式数据替换&lt;/h3&gt;&lt;p&gt;排除cid之后的字符串&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/paste</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>excel命令整理</title>
-    <link href="http://yoursite.com/2024/10/29/excel%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/"/>
-    <id>http://yoursite.com/2024/10/29/excel%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/</id>
-    <published>2024-10-29T15:09:00.000Z</published>
-    <updated>2024-10-29T15:28:17.915Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近在整理对虾养殖的收入和支出相关的数据，发现excel里面的一些命令挺好用的，所以对自己需要用的命令做下整理</p><h1 id="求和"><a href="#求和" class="headerlink" title="求和"></a>求和</h1><h2 id="SUMIF"><a href="#SUMIF" class="headerlink" title="SUMIF"></a>SUMIF</h2><pre><code>=SUMIF(A2:A5, &quot;张三&quot;, C2:C5)翻译:c=0 for(An :(A2...A5))&#123;    if(An==&quot;张三&quot;)&#123;        c=Cn+c      &#125;&#125;return c</code></pre><h2 id="SUM"><a href="#SUM" class="headerlink" title="SUM"></a>SUM</h2><pre><code>=SUM(A2:A5)</code></pre><h2 id="SUMIFS"><a href="#SUMIFS" class="headerlink" title="SUMIFS"></a>SUMIFS</h2><pre><code>=SUMIFS(C2:C5, A2:A5, &quot;张三&quot;, B2:B5, &quot;产品B&quot;)</code></pre><p>  这个公式的意思是：在C2:C5的范围内求和，但是只包括A2:A5范围内是“张三”且B2:B5范围内是“产品B”的行。</p><h1 id="逻辑判断"><a href="#逻辑判断" class="headerlink" title="逻辑判断"></a>逻辑判断</h1><h2 id="IF"><a href="#IF" class="headerlink" title="IF"></a>IF</h2><pre><code>  =IF(B2&gt;=90, &quot;A&quot;, IF(B2&gt;=80, &quot;B&quot;, &quot;C&quot;))</code></pre><p>这个公式的意思是：如果B2单元格的成绩大于等于90分，则返回”A”；如果成绩大于等于80分但小于90分，则返回”B”；如果成绩小于80分，则返回”C”。</p><h3 id="应用到整列"><a href="#应用到整列" class="headerlink" title="应用到整列"></a>应用到整列</h3><p>当你在C2单元格输入上述公式后，你可以通过以下步骤将其应用到整列：</p><pre><code>点击C2单元格。将鼠标指针移动到单元格的右下角，直到鼠标指针变成一个小十字。点击并拖动这个小十字向下，直到你想要应用公式的所有行。这样，Excel就会自动将公式应用到C列的每个单元格，并且根据B列对应的成绩计算出等级。</code></pre><h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><pre><code>确保B列的成绩数据是连续的，没有空行或非数字数据，否则公式可能会返回错误。如果你想要在公式中使用绝对引用（例如，当你复制公式到其他列时），你可以使用$符号，如$B2。这样，无论公式如何复制，引用的列始终是B列。    </code></pre><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;最近在整理对虾养殖的收入和支出相关的数据，发现excel里面的一些命令挺好用的，所以对自己需要用的命令做下整理&lt;/p&gt;
-&lt;h1 id=&quot;求和&quot;&gt;&lt;a href=&quot;#求和&quot; class=&quot;headerlink&quot; title=&quot;求和&quot;&gt;&lt;/a&gt;求和&lt;/h1&gt;&lt;h2 id=&quot;SU</summary>
-      
-    
-    
-    
-    <category term="excel" scheme="http://yoursite.com/categories/excel/"/>
-    
-    
-    <category term="excel" scheme="http://yoursite.com/tags/excel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>openssh制作rpm包对线上环境升级</title>
-    <link href="http://yoursite.com/2024/09/28/openssh%E5%88%B6%E4%BD%9Crpm%E5%8C%85/"/>
-    <id>http://yoursite.com/2024/09/28/openssh%E5%88%B6%E4%BD%9Crpm%E5%8C%85/</id>
-    <published>2024-09-28T01:54:00.000Z</published>
-    <updated>2024-10-06T08:07:20.095Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前置原因"><a href="#前置原因" class="headerlink" title="前置原因"></a>前置原因</h1><p>为了通过等保3，扫码提示一堆的openssh错误，openssh目前没有针对centos的最新包rpm，网上都是一些自行编译源码，然后升级的教程。但有一个担心，因为自行编译源吗，需要安装依赖包，有可能导致线上运行环境不稳定，所以还是想着自己生成rpm包，然后在测试环境测试通过之后再放到线上环境。<br><img src="/images/pasted-20.png" alt="upload successful"></p><h1 id="操作流程"><a href="#操作流程" class="headerlink" title="操作流程"></a>操作流程</h1><h2 id="依赖安装"><a href="#依赖安装" class="headerlink" title="依赖安装"></a>依赖安装</h2><p>yum install rpm-build zlib-devel openssl-devel gcc perl-devel libXt-devel imake gtk2-devel krb5-devel pam-devel perl-IPC-Cmd</p><h2 id="下载对应的源码包"><a href="#下载对应的源码包" class="headerlink" title="下载对应的源码包"></a>下载对应的源码包</h2><p>下载最新的依赖包 x11-ssh-askpass包</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/sigmavirus24/x11-ssh-askpass</span><br></pre></td></tr></table></figure><p>下载最新的依赖包 openssl包</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://openssl-library.org/source/</span><br></pre></td></tr></table></figure><p>下载最新openssh</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.openssh.com/portable.html</span><br></pre></td></tr></table></figure><h2 id="备份升级前配置文件"><a href="#备份升级前配置文件" class="headerlink" title="备份升级前配置文件"></a>备份升级前配置文件</h2><p>下面这两个文件如果不做备份，会在升级后自动修改</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/pam.d/sshd</span><br><span class="line">/etc/ssh/sshd_config</span><br></pre></td></tr></table></figure><h2 id="编译openssl"><a href="#编译openssl" class="headerlink" title="编译openssl"></a>编译openssl</h2><h4 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Can&#x27;t locate IPC/Cmd.pm in @INC (you may need to install the IPC::Cmd module)</span><br></pre></td></tr></table></figure><p>解决方案：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install perl-IPC-Cmd</span><br></pre></td></tr></table></figure><h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf openssl-3.3.2.tar.gz </span><br><span class="line">cd openssl-3.3.2/</span><br></pre></td></tr></table></figure><h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./config --prefix=/usr/local/openssl shared -fPIC</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure><h4 id="检查函数库"><a href="#检查函数库" class="headerlink" title="检查函数库"></a>检查函数库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ldd /usr/local/openssl/bin/openssl  # 检查函数库</span><br></pre></td></tr></table></figure><h4 id="创建软链接"><a href="#创建软链接" class="headerlink" title="创建软链接"></a>创建软链接</h4><p>ln -s &#x2F;usr&#x2F;local&#x2F;openssl&#x2F;bin&#x2F;openssl &#x2F;usr&#x2F;bin&#x2F;openssl<br>ln -s &#x2F;usr&#x2F;local&#x2F;openssl&#x2F;include&#x2F;openssl &#x2F;usr&#x2F;include&#x2F;openssl</p><h4 id="添加动态链接库数据"><a href="#添加动态链接库数据" class="headerlink" title="添加动态链接库数据"></a>添加动态链接库数据</h4><p>echo “&#x2F;usr&#x2F;local&#x2F;openssl&#x2F;lib&#x2F;“ &gt;&gt; &#x2F;etc&#x2F;ld.so.conf</p><h4 id="更新函数库"><a href="#更新函数库" class="headerlink" title="更新函数库"></a>更新函数库</h4><p>ldconfig -v  </p><h4 id="检查版本"><a href="#检查版本" class="headerlink" title="检查版本"></a>检查版本</h4><p>openssl version  </p><h2 id="编译openssh"><a href="#编译openssh" class="headerlink" title="编译openssh"></a>编译openssh</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar xf openssh-9.6p1.tar.gz -C /home/</span><br><span class="line"></span><br><span class="line">mkdir -p /root/rpmbuild/&#123;SOURCES,SPECS&#125;</span><br><span class="line">cp /root/openssh-9.6p1.tar.gz /root/rpmbuild/SOURCES/</span><br><span class="line">cp /root/x11-ssh-askpass-1.2.4.1.tar.gz /root/rpmbuild/SOURCES/</span><br><span class="line">cp /home/openssh-9.6p1/contrib/redhat/openssh.spec /root/rpmbuild/SPECS/</span><br></pre></td></tr></table></figure><h3 id="rpmbuild-的知识介绍"><a href="#rpmbuild-的知识介绍" class="headerlink" title="rpmbuild 的知识介绍"></a>rpmbuild 的知识介绍</h3><p><a href="https://www.cnblogs.com/zhangxinglong/p/11904922.html">https://www.cnblogs.com/zhangxinglong/p/11904922.html</a></p><h2 id="rpm-构建"><a href="#rpm-构建" class="headerlink" title="rpm 构建"></a>rpm 构建</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpmbuild -ba openssh.spec </span><br></pre></td></tr></table></figure><p>执行成功的结果</p><p><img src="/images/pasted-21.png" alt="upload successful"></p><h2 id="通过rpm升级ssh版本。"><a href="#通过rpm升级ssh版本。" class="headerlink" title="通过rpm升级ssh版本。"></a>通过rpm升级ssh版本。</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh openssh-* --nodeps --force</span><br></pre></td></tr></table></figure><h2 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sshd</span><br></pre></td></tr></table></figure><h1 id="执行的时候遇到的问题"><a href="#执行的时候遇到的问题" class="headerlink" title="执行的时候遇到的问题"></a>执行的时候遇到的问题</h1><h2 id="缺少libcrypto-so-3，libssl-so-3"><a href="#缺少libcrypto-so-3，libssl-so-3" class="headerlink" title="缺少libcrypto.so.3，libssl.so.3"></a>缺少libcrypto.so.3，libssl.so.3</h2><p>拷贝openssl里面的对应包到对应的&#x2F;usr&#x2F;lib64 环境中去。</p><h1 id="相关命令解析"><a href="#相关命令解析" class="headerlink" title="相关命令解析"></a>相关命令解析</h1><h2 id="ldd"><a href="#ldd" class="headerlink" title="ldd"></a>ldd</h2><pre><code>打印程序或者库文件所依赖的共享库列表</code></pre><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><pre><code>https://wangchujiang.com/linux-command/c/ldd.html</code></pre><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;前置原因&quot;&gt;&lt;a href=&quot;#前置原因&quot; class=&quot;headerlink&quot; title=&quot;前置原因&quot;&gt;&lt;/a&gt;前置原因&lt;/h1&gt;&lt;p&gt;为了通过等保3，扫码提示一堆的openssh错误，openssh目前没有针对centos的最新包rpm，网上都是一些自行编译</summary>
-      
-    
-    
-    
-    <category term="运维" scheme="http://yoursite.com/categories/%E8%BF%90%E7%BB%B4/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>nginx自动更新</title>
-    <link href="http://yoursite.com/2024/09/14/nginx/"/>
-    <id>http://yoursite.com/2024/09/14/nginx/</id>
-    <published>2024-09-14T05:23:00.000Z</published>
-    <updated>2025-07-16T06:52:46.647Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="进入yum配置库"><a href="#进入yum配置库" class="headerlink" title="进入yum配置库"></a>进入yum配置库</h3><p>cd &#x2F;etc&#x2F;yum.repos.d&#x2F;</p><h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><p>vi nginx.repo</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[nginx]</span><br><span class="line">name=nginx repo</span><br><span class="line">baseurl=http://nginx.org/packages/centos/操作系统版本/$basearch/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure><h3 id="查找nginx"><a href="#查找nginx" class="headerlink" title="查找nginx"></a>查找nginx</h3><pre><code>yum search nginx</code></pre><h3 id="更新nginx"><a href="#更新nginx" class="headerlink" title="更新nginx"></a>更新nginx</h3><pre><code>yum update nginx</code></pre><h3 id="nginx升级的坑"><a href="#nginx升级的坑" class="headerlink" title="nginx升级的坑"></a>nginx升级的坑</h3><p><img src="/images/pasted-29.png" alt="upload successful"></p><p>会在配置文件中生成一个 default.conf的配置文件会覆盖我们配置的80端口，导致我们的服务出问题，浏览器返回会有缓存问题，导致以为网站正常。</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;进入yum配置库&quot;&gt;&lt;a href=&quot;#进入yum配置库&quot; class=&quot;headerlink&quot; title=&quot;进入yum配置库&quot;&gt;&lt;/a&gt;进入yum配置库&lt;/h3&gt;&lt;p&gt;cd &amp;#x2F;etc&amp;#x2F;yum.repos.d&amp;#x2F;&lt;/p&gt;
-&lt;h3 id</summary>
-      
-    
-    
-    
-    <category term="运维" scheme="http://yoursite.com/categories/%E8%BF%90%E7%BB%B4/"/>
-    
-    
-    <category term="nginx" scheme="http://yoursite.com/tags/nginx/"/>
     
   </entry>
   
