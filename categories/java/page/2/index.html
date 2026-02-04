@@ -63,7 +63,7 @@
 
     
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -273,11 +273,13 @@ G1收集器启动
         <p class="brief">
             
             操作步骤1:查找占用cpu高的进程
-1top
+  
 2: 查看线程的cpu消耗
-1top -Hp pid(进程号)
+  
 3:转换10进制为16进制
-1234  printf &amp;quot;%x\n&amp;quot; 线程ID```  4: 查找执行的对...
+  
+jstack 进程ID |grep -a10 线程16进制ID&amp;#96;&amp;#96;&amp;#96;
+
             
         </p>
     </div>
@@ -300,7 +302,9 @@ G1收集器启动
         <p class="brief">
             
             linux 进程 内存查看ps -p $pid -o rss,vsz查看应用逻辑内存，和实际物理内存使用。
-pmap -x $pid  | sort -n -k3top -csar123怀疑CPU存在瓶颈，可用 sar -u 和 sa...
+pmap -x $pid  | sort -n -k3top -csar  
+参考资料  
+gdbgdb –batch –pi...
             
         </p>
     </div>
@@ -322,7 +326,7 @@ pmap -x $pid  | sort -n -k3top -csar123怀疑CPU存在瓶颈，可用 sar -u 和
         </div>
         <p class="brief">
             
-            cpu  –&amp;gt; L1缓存-单线程共享，L2缓存 -&amp;gt; 单cpu共享，L3缓存 – &amp;gt;主内存查看 mac电脑的 L2cache 和L3 cache查看cpu的物理核：sysctl hw.physicalcpu
+            cpu  –&gt; L1缓存-单线程共享，L2缓存 -&gt; 单cpu共享，L3缓存 – &gt;主内存查看 mac电脑的 L2cache 和L3 cache查看cpu的物理核：sysctl hw.physicalcpu
 查看cp...
             
         </p>
@@ -346,7 +350,8 @@ pmap -x $pid  | sort -n -k3top -csar123怀疑CPU存在瓶颈，可用 sar -u 和
         <p class="brief">
             
             问题：1：RPC的实现是如何实现的?核心类：ReferenceConfig.createProxy()创建代理类,获取proxy代理类的顺序:
-123456781. 如果没有url指定：     		1:查找本地是否有接口2. 是否是...
+  
+第一步是生成代理类。第二部当方法调用的时候，通过代理类发送信息给实际的执行类，然后等...
             
         </p>
     </div>
@@ -355,7 +360,7 @@ pmap -x $pid  | sort -n -k3top -csar123怀疑CPU存在瓶颈，可用 sar -u 和
 
 <nav class="pagination" role="navigation">
     <div id="page-nav">
-        <a class="extend prev" rel="prev" href="/categories/java/">&lt;i class&#x3D;&#39;fa fa-angle-left&#39;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/categories/java/">1</a><span class="page-number current">2</span>
+        <a class="extend prev" rel="prev" href="/categories/java/"><i class='fa fa-angle-left'></i></a><a class="page-number" href="/categories/java/">1</a><span class="page-number current">2</span>
     </div>
 </nav>
 
@@ -401,7 +406,7 @@ pmap -x $pid  | sort -n -k3top -csar123怀疑CPU存在瓶颈，可用 sar -u 和
     <h3 class="title">
         Categories
     </h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ai/"><i class="fa" aria-hidden="true">ai</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/excel/"><i class="fa" aria-hidden="true">excel</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/"><i class="fa" aria-hidden="true">go</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/"><i class="fa" aria-hidden="true">java</i></a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/"><i class="fa" aria-hidden="true">nginx</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/"><i class="fa" aria-hidden="true">node</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/"><i class="fa" aria-hidden="true">python</i></a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rust/"><i class="fa" aria-hidden="true">rust</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web%E5%89%8D%E7%AB%AF/"><i class="fa" aria-hidden="true">web前端</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/"><i class="fa" aria-hidden="true">前端</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/"><i class="fa" aria-hidden="true">运维</i></a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li></ul></li></ul>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ai/"><i class="fa" aria-hidden="true">ai</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/excel/"><i class="fa" aria-hidden="true">excel</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/"><i class="fa" aria-hidden="true">go</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/"><i class="fa" aria-hidden="true">java</i></a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/"><i class="fa" aria-hidden="true">nginx</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/"><i class="fa" aria-hidden="true">node</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/"><i class="fa" aria-hidden="true">python</i></a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rust/"><i class="fa" aria-hidden="true">rust</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web%E5%89%8D%E7%AB%AF/"><i class="fa" aria-hidden="true">web前端</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/"><i class="fa" aria-hidden="true">前端</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/"><i class="fa" aria-hidden="true">运维</i></a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li></ul></li></ul>
 </div>
 
     
