@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2026-01-21T05:37:36.171Z</updated>
+  <updated>2026-03-10T15:41:38.615Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,102 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hardhat3开发</title>
+    <link href="http://yoursite.com/2026/03/05/hardhat3%E5%BC%80%E5%8F%91/"/>
+    <id>http://yoursite.com/2026/03/05/hardhat3%E5%BC%80%E5%8F%91/</id>
+    <published>2026-03-05T01:12:44.000Z</published>
+    <updated>2026-03-10T15:41:38.615Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br><span class="line">npm install --save-dev hardhat@latest</span><br><span class="line">npx hardhat --init</span><br></pre></td></tr></table></figure><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="编译所有合约"><a href="#编译所有合约" class="headerlink" title="编译所有合约"></a>编译所有合约</h4><p>编译contracts目录下的所有Solidity文件，生成artifacts和cache目录。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx hardhat compile</span><br></pre></td></tr></table></figure><h4 id="清理缓存"><a href="#清理缓存" class="headerlink" title="清理缓存"></a>清理缓存</h4><p>如果遇到编译问题，可以清理缓存：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx hardhat clean</span><br></pre></td></tr></table></figure><p>然后重新编译。<br>显示Gas报告：</p><p>设置环境变量REPORT_GAS&#x3D;true，然后运行测试：</p><p>REPORT_GAS&#x3D;true npx hardhat test</p><h3 id="脚本测试"><a href="#脚本测试" class="headerlink" title="脚本测试"></a>脚本测试</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx hardhat run scripts/send-op-tx.ts</span><br></pre></td></tr></table></figure><p>部署到特定网络，可以添加–network参数：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx hardhat run scripts/send-op-tx.ts --network sepolia</span><br></pre></td></tr></table></figure><h3 id="运行测试用例"><a href="#运行测试用例" class="headerlink" title="运行测试用例"></a>运行测试用例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx hardhat test</span><br></pre></td></tr></table></figure><p>运行特定的测试用例</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx hardhat test ts文件路径</span><br></pre></td></tr></table></figure><h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><h4 id="传统部署"><a href="#传统部署" class="headerlink" title="传统部署"></a>传统部署</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 部署到本地网络</span><br><span class="line">npx hardhat run scripts/send-op-tx.ts</span><br><span class="line"># 部署到Sepolia测试网</span><br><span class="line">npx hardhat run scripts/send-op-tx.ts --network sepolia</span><br><span class="line"># 部署到主网</span><br><span class="line">npx hardhat run scripts/send-op-tx.ts --network mainnet</span><br></pre></td></tr></table></figure><h4 id="ignition部署"><a href="#ignition部署" class="headerlink" title="ignition部署"></a>ignition部署</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 部署到本地网络</span><br><span class="line">npx hardhat ignition deploy ignition/modules/Counter.ts</span><br><span class="line"># 部署到Sepolia测试网</span><br><span class="line">npx hardhat ignition deploy ignition/modules/Counter.ts --network sepolia</span><br><span class="line"># 查看部署状态</span><br><span class="line">npx hardhat ignition status chain-11155111</span><br><span class="line"># 验证已部署的合约</span><br><span class="line">npx hardhat ignition verify chain-11155111</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>chain-11155111对应Sepolia测试网，不同的网络有不同的链ID。</p><h4 id="部署后浏览器查看"><a href="#部署后浏览器查看" class="headerlink" title="部署后浏览器查看"></a>部署后浏览器查看</h4><p><a href="https://sepolia.etherscan.io/">https://sepolia.etherscan.io/</a></p><h4 id="带参数部署"><a href="#带参数部署" class="headerlink" title="带参数部署"></a>带参数部署</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx hardhat ignition deploy ignition/modules/NfgAuctionUpgradeWithAddressModule.ts --network sepolia --parameters params.json</span><br></pre></td></tr></table></figure><h4 id="多合约部署"><a href="#多合约部署" class="headerlink" title="多合约部署"></a>多合约部署</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import &#123; buildModule &#125; from &quot;@nomicfoundation/hardhat-ignition/modules&quot;;</span><br><span class="line"></span><br><span class="line">export default buildModule(&quot;VaultSystem&quot;, (m) =&gt; &#123;</span><br><span class="line">  // 先部署Token合约</span><br><span class="line">  const token = m.contract(&quot;Token&quot;);</span><br><span class="line">  </span><br><span class="line">  // 然后部署Vault合约，传入Token地址</span><br><span class="line">  const vault = m.contract(&quot;Vault&quot;, &#123;</span><br><span class="line">    args: [token],</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line">  // 可选：给某个地址转账一些Token</span><br><span class="line">  const deployer = m.getAccount(0);</span><br><span class="line">  m.call(token, &quot;transfer&quot;, [deployer, 1000n]);</span><br><span class="line">  </span><br><span class="line">  return &#123; token, vault &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>依赖处理：</p><p>Vault合约依赖于Token合约<br>Ignition会自动先部署Token，然后部署Vault<br>正确传递依赖关系，无需手动管理顺序</p><h4 id="参数化部署"><a href="#参数化部署" class="headerlink" title="参数化部署"></a>参数化部署</h4><p>对于不同网络，可能需要不同的参数。Ignition支持参数化部署。</p><p>使用参数文件：</p><p>在ignition&#x2F;parameters目录下创建参数文件：</p><p>sepolia.json：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;SimpleStorageModule&quot;: &#123;</span><br><span class="line">    &quot;SimpleStorage&quot;: &#123;</span><br><span class="line">      &quot;args&quot;: [200]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>mainnet.json：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;SimpleStorageModule&quot;: &#123;</span><br><span class="line">    &quot;SimpleStorage&quot;: &#123;</span><br><span class="line">      &quot;args&quot;: [100]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>部署时，Ignition会自动读取对应网络的参数文件，使用指定的参数进行部署。</p><h3 id="敏感信息保存"><a href="#敏感信息保存" class="headerlink" title="敏感信息保存"></a>敏感信息保存</h3><p>为了安全地管理敏感信息，我们需要使用环境变量。</p><p>创建.env文件：</p><p>在项目根目录创建.env文件，存储敏感信息：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># RPC节点URL</span><br><span class="line">SEPOLIA_URL=https://sepolia.infura.io/v3/your-project-id</span><br><span class="line">MAINNET_URL=https://mainnet.infura.io/v3/your-project-id</span><br><span class="line"></span><br><span class="line"># 私钥（敏感信息，切勿泄露）</span><br><span class="line">PRIVATE_KEY=your-private-key-here</span><br><span class="line"></span><br><span class="line"># API密钥</span><br><span class="line">ETHERSCAN_API_KEY=your-etherscan-api-key</span><br><span class="line">COINMARKETCAP_API_KEY=your-coinmarketcap-api-key</span><br></pre></td></tr></table></figure><h4 id="安装dotenv："><a href="#安装dotenv：" class="headerlink" title="安装dotenv："></a>安装dotenv：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install dotenv --save-dev</span><br></pre></td></tr></table></figure><p>在配置文件中，导入dotenv&#x2F;config，这会自动加载.env文件中的环境变量：<br>import “dotenv&#x2F;config”;<br>然后就可以使用process.env.VARIABLE_NAME访问这些变量。</p><h2 id="网络相关"><a href="#网络相关" class="headerlink" title="网络相关"></a>网络相关</h2><p>启动本地节点：</p><p>npx hardhat node<br>这会启动一个HTTP和WebSocket JSON-RPC服务器，默认地址是<a href="http://127.0.0.1:8545/%E3%80%82">http://127.0.0.1:8545/。</a></p><p>在本地节点上运行脚本：</p><p>npx hardhat run scripts&#x2F;send-op-tx.ts –network localhost</p><h3 id="获取RPC节点URL"><a href="#获取RPC节点URL" class="headerlink" title="获取RPC节点URL"></a>获取RPC节点URL</h3><p>Infura：</p><p>访问infura.io<br>注册账号并创建项目<br>获取项目ID<br>RPC URL格式：<a href="https://sepolia.infura.io/v3/YOUR-PROJECT-ID">https://sepolia.infura.io/v3/YOUR-PROJECT-ID</a><br>Alchemy：</p><p>访问alchemy.com<br>注册账号并创建应用<br>获取API密钥<br>RPC URL格式：<a href="https://eth-sepolia.g.alchemy.com/v2/YOUR-API-KEY">https://eth-sepolia.g.alchemy.com/v2/YOUR-API-KEY</a><br>公共RPC节点：</p><p>也可以使用公共RPC节点，但可能有速率限制：</p><p>Sepolia: <a href="https://rpc.sepolia.org/">https://rpc.sepolia.org</a><br>Mainnet: <a href="https://eth.llamarpc.com/">https://eth.llamarpc.com</a></p><p>获取测试ETH<br>在测试网上部署合约需要测试ETH。获取方式：</p><h3 id="Sepolia水龙头："><a href="#Sepolia水龙头：" class="headerlink" title="Sepolia水龙头："></a>Sepolia水龙头：</h3><p>Alchemy Sepolia Faucet：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">访问：https://www.alchemy.com/faucets/ethereum-sepolia</span><br><span class="line">连接钱包 每天可以领取0.1 ETH 需要有0.001的真实eth</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;初始化&quot;&gt;&lt;a href=&quot;#初始化&quot; class=&quot;headerlink&quot; title=&quot;初始化&quot;&gt;&lt;/a&gt;初始化&lt;/h3&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>solidity数据结构</title>
+    <link href="http://yoursite.com/2026/02/13/solidity%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <id>http://yoursite.com/2026/02/13/solidity%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</id>
+    <published>2026-02-13T01:48:00.000Z</published>
+    <updated>2026-02-27T01:39:42.101Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="基础类型"><a href="#基础类型" class="headerlink" title="基础类型"></a>基础类型</h2><ol><li>bool：布尔类型</li><li>int &#x2F; uint：整数类型</li><li>address：地址类型</li><li>bytes1 到 bytes32：固定大小字节数组</li><li>enum：枚举类型</li></ol><h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><h3 id="array"><a href="#array" class="headerlink" title="array"></a>array</h3><h4 id="定长数组（Fixed-size-Array）："><a href="#定长数组（Fixed-size-Array）：" class="headerlink" title="定长数组（Fixed-size Array）："></a>定长数组（Fixed-size Array）：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uint[5] public fixedArray;  // 长度固定为5</span><br></pre></td></tr></table></figure><p>特点：</p><pre><code>长度在声明时确定长度永远不可改变所有元素初始化为默认值（数字类型为0）不能使用push或pop方法</code></pre><p>动态数组（Dynamic Array）：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uint[] public dynamicArray;  // 长度可变</span><br></pre></td></tr></table></figure><p>特点：</p><pre><code>长度可以动态改变可以使用push添加元素可以使用pop删除最后一个元素length是可变属性   </code></pre><h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><h3 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h3><h3 id="mapping"><a href="#mapping" class="headerlink" title="mapping"></a>mapping</h3><h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><pre><code>solidity 里面的mapping和java，python这些常用语言的区别是没有迭代器，所以对mapping的迭代需要优化的代码去维护。参考下投票相关的代码，需要另外的字段来辅助实现，而不能通过新生成的对象直接替换，或者通过迭代器来实现</code></pre><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">contract Vote&#123;</span><br><span class="line">    // 用户投票数</span><br><span class="line">    mapping(address =&gt; uint256) private _userVote;</span><br><span class="line">    address[] private _voters;</span><br><span class="line">    // 记录某个地址是否已在当前版本的_voters数组中</span><br><span class="line">    mapping(address =&gt; bool) private _isInVoters;</span><br><span class="line">    </span><br><span class="line">    //投票给某个用户</span><br><span class="line">    function vote(address voter) external  &#123;</span><br><span class="line">        if(!_isInVoters[voter])&#123;</span><br><span class="line">            _voters.push(voter);</span><br><span class="line">            _isInVoters[voter]=true;    </span><br><span class="line">        &#125;</span><br><span class="line">        _userVote[voter] += 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 返回某个候选人的投票数</span><br><span class="line">    function getVotes(address voter) view public returns (uint256) &#123;</span><br><span class="line">        return _userVote[voter];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 重置所有候选人的得票数</span><br><span class="line">    function resetVotes() external  &#123;</span><br><span class="line">        uint voterCount = _voters.length;</span><br><span class="line">        for(uint i=0;i &lt; voterCount;i++)&#123;</span><br><span class="line">            _userVote[_voters[i]] = 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="bytes"><a href="#bytes" class="headerlink" title="bytes"></a>bytes</h3><h1 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h1><h2 id="为什么uint256最常用"><a href="#为什么uint256最常用" class="headerlink" title="为什么uint256最常用"></a>为什么uint256最常用</h2><p>既然有uint8、uint16等更小的类型，为什么不用它们来节省空间？<br>答案：EVM的设计特性<br>以太坊虚拟机（EVM）是按照256位设计的，这意味着：<br>EVM原生处理256位数据：EVM内部的所有操作都是基于256位的<br>使用较小类型需要额外操作：当使用uint8、uint16等类型时，EVM需要进行额外的截断和转换操作<br>截断操作消耗更多gas：这些额外操作反而会增加gas消耗</p><h3 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h3><p>默认使用 uint256<br>需要负数时使用 int256<br>只有在变量打包的时候才需要考虑使用更小的字段，因为更小的字段在变量打包的时候可以节省空间，减少gas</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;数据结构&quot;&gt;&lt;a href=&quot;#数据结构&quot; class=&quot;headerlink&quot; title=&quot;数据结构&quot;&gt;&lt;/a&gt;数据结构&lt;/h1&gt;&lt;h2 id=&quot;基础类型&quot;&gt;&lt;a href=&quot;#基础类型&quot; class=&quot;headerlink&quot; title=&quot;基础类型&quot;&gt;&lt;/a</summary>
+      
+    
+    
+    
+    <category term="区块链" scheme="http://yoursite.com/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+    
+    <category term="solidity" scheme="http://yoursite.com/tags/solidity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>EVM存储结构和相关优化</title>
+    <link href="http://yoursite.com/2026/02/13/EVM%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E5%92%8C%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/"/>
+    <id>http://yoursite.com/2026/02/13/EVM%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E5%92%8C%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/</id>
+    <published>2026-02-12T23:10:00.000Z</published>
+    <updated>2026-02-12T23:22:01.163Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h1><table><thead><tr><th>Syntax</th><th>Storage</th><th>memory</th><th>calldata</th></tr></thead><tbody><tr><td>生命周期</td><td>永久</td><td>函数执行期</td><td>函数执行期</td></tr><tr><td>可修改性</td><td>可修改</td><td>可修改</td><td>只读</td></tr><tr><td>gas</td><td>查看操作成本</td><td>3gas&#x2F;字节</td><td>3gas&#x2F;字节</td></tr></tbody></table><h2 id="storage操作成本"><a href="#storage操作成本" class="headerlink" title="storage操作成本"></a>storage操作成本</h2><ol><li>写入新变量 约 20000 Gas</li><li>修改已有变量 约5000 Gas</li><li>读取存储变量 冷访问800gas，热访问 100 Gas</li><li>删除存储槽 可获得 15000 Gas返还</li><li>冷读取（第一次）：~2,100 gas</li><li>热读取（同一交易内再次读取）：~100 gas</li></ol><h2 id="storage的优化方式"><a href="#storage的优化方式" class="headerlink" title="storage的优化方式"></a>storage的优化方式</h2><p><img src="/images/pasted-35.png" alt="upload successful"></p><h3 id="变量打包规则"><a href="#变量打包规则" class="headerlink" title="变量打包规则"></a>变量打包规则</h3><ol><li>变量必须连续声明，中间不能有大类型变量间隔</li><li>只有静态大小类型可以打包（排除mapping和动态数组）</li><li>当累计大小超过32字节时，使用新的存储槽</li></ol><h2 id="存储结构gas优化实践"><a href="#存储结构gas优化实践" class="headerlink" title="存储结构gas优化实践"></a>存储结构gas优化实践</h2><p><img src="/images/pasted-36.png" alt="upload successful"></p><h2 id="Calldata-vs-Memory"><a href="#Calldata-vs-Memory" class="headerlink" title="Calldata vs Memory"></a>Calldata vs Memory</h2><p>原理说明：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">当你使用memory参数时，EVM会进行以下操作：</span><br><span class="line">从交易输入（calldata区域）读取数据</span><br><span class="line">复制到内存（memory区域）</span><br><span class="line">函数访问memory区域的数据</span><br><span class="line">当你使用calldata参数时：</span><br><span class="line">直接从交易输入读取数据</span><br><span class="line">无需复制，节省Gas</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;存储结构&quot;&gt;&lt;a href=&quot;#存储结构&quot; class=&quot;headerlink&quot; title=&quot;存储结构&quot;&gt;&lt;/a&gt;存储结构&lt;/h1&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Syntax&lt;/th&gt;
+&lt;th&gt;Storage&lt;/th&gt;
+&lt;th&gt;memory&lt;</summary>
+      
+    
+    
+    
+    <category term="区块链" scheme="http://yoursite.com/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+    
+    <category term="solidity" scheme="http://yoursite.com/tags/solidity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>区块链开发工具整理</title>
+    <link href="http://yoursite.com/2026/02/08/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF%E6%95%B4%E7%90%86/"/>
+    <id>http://yoursite.com/2026/02/08/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF%E6%95%B4%E7%90%86/</id>
+    <published>2026-02-08T03:52:48.000Z</published>
+    <updated>2026-02-26T08:15:11.340Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>solidity开发工具<ul><li>网页开发<ul><li><a href="https://remix.polkadot.io/">remix</a></li></ul></li><li>搭建本地测试网络 <ul><li>truffle</li><li>Ganache</li></ul></li><li>合约gas计算<ul><li>Hardhat + hardhat-gas-reporter</li><li>Tenderly</li></ul></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote class=&quot;pullquote mindmap mindmap-md&quot;&gt;&lt;ul&gt;
+&lt;li&gt;solidity开发工具&lt;ul&gt;
+&lt;li&gt;网页开发&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://remix.polkadot.io/&quot;&gt;remix&lt;/a&gt;&lt;/</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>一个社交网站的设计</title>
@@ -41,9 +137,9 @@
     <link href="http://yoursite.com/2026/01/21/nodejs%E5%B7%A5%E5%85%B7%E5%8C%85%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2026/01/21/nodejs%E5%B7%A5%E5%85%B7%E5%8C%85%E6%95%B4%E7%90%86/</id>
     <published>2026-01-21T01:20:00.000Z</published>
-    <updated>2026-01-21T01:33:57.859Z</updated>
+    <updated>2026-03-05T11:06:56.080Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>nodejs<ul><li>浏览器插件开发<ul><li><a href="https://wxt.dev/">wxt</a></li></ul></li><li>软件包管理<ul><li>pnpm</li><li>npm</li></ul></li></ul></li></ul></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>nodejs<ul><li>浏览器插件开发<ul><li><a href="https://wxt.dev/">wxt</a></li></ul></li><li>软件包管理<ul><li>pnpm</li><li>npm</li></ul></li><li>多版本管理<ul><li><a href="https://github.com/nvm-sh/nvm">nvm</a></li></ul></li><li>断言库<ul><li>Chai</li></ul></li><li>单元测试<ul><li>Mocha</li></ul></li></ul></li></ul></blockquote><h1 id="工具说明"><a href="#工具说明" class="headerlink" title="工具说明"></a>工具说明</h1><h2 id="多版本管理"><a href="#多版本管理" class="headerlink" title="多版本管理"></a>多版本管理</h2><h3 id="nvm"><a href="#nvm" class="headerlink" title="nvm"></a>nvm</h3><ol><li>安装Node.js 22：</li></ol>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 22</span><br></pre></td></tr></table></figure><ol start="2"><li>切换到Node.js 22：</li></ol>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use 22</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
@@ -334,9 +430,9 @@
     <link href="http://yoursite.com/2025/03/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2025/03/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B4%E7%90%86/</id>
     <published>2025-03-01T03:35:46.000Z</published>
-    <updated>2025-12-20T06:48:41.287Z</updated>
+    <updated>2026-03-06T01:38:59.191Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>数据库<ul><li>时序数据库<ul><li>嵌入式数据库 DuckDB</li><li>ClickHouse</li><li>DolphinDB</li><li>InfluxDB</li></ul></li><li>关系型数据库<ul><li>mysql</li><li>oracle</li></ul></li><li>图数据库<ul><li>neo4j</li></ul></li><li>向量数据库<ul><li>qdrant</li><li>milvus</li><li>warviate</li></ul></li></ul></li></ul></blockquote><p>DolphinDB<br>    适合金融时序,不开源</p><h1 id="具体说明"><a href="#具体说明" class="headerlink" title="具体说明"></a>具体说明</h1><h2 id="向量数据库"><a href="#向量数据库" class="headerlink" title="向量数据库"></a>向量数据库</h2><h3 id="qdrant"><a href="#qdrant" class="headerlink" title="qdrant"></a>qdrant</h3><p>相对比较轻量，但只支持单向量，rust编写，如果只是支持简单比较，是比较合适的。<br>比如视频需要对视频和音频都单独建立向量，但qdrant并不支持。</p><h3 id="milvus"><a href="#milvus" class="headerlink" title="milvus"></a>milvus</h3><p> 支持多向量，相对qdrant部署比较复杂。</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>数据库<ul><li>时序数据库<ul><li>嵌入式数据库 DuckDB</li><li>ClickHouse</li><li>DolphinDB</li><li>InfluxDB</li><li><a href="https://github.com/apache/druid">Druid</a></li></ul></li><li>关系型数据库<ul><li>mysql</li><li>oracle</li></ul></li><li>图数据库<ul><li>neo4j</li></ul></li><li>向量数据库<ul><li>qdrant</li><li>milvus</li><li>warviate</li></ul></li></ul></li></ul></blockquote><p>DolphinDB<br>适合金融时序,不开源</p><h1 id="具体说明"><a href="#具体说明" class="headerlink" title="具体说明"></a>具体说明</h1><h2 id="向量数据库"><a href="#向量数据库" class="headerlink" title="向量数据库"></a>向量数据库</h2><h3 id="qdrant"><a href="#qdrant" class="headerlink" title="qdrant"></a>qdrant</h3><p>相对比较轻量，但只支持单向量，rust编写，如果只是支持简单比较，是比较合适的。<br>比如视频需要对视频和音频都单独建立向量，但qdrant并不支持。</p><h3 id="milvus"><a href="#milvus" class="headerlink" title="milvus"></a>milvus</h3><p> 支持多向量，相对qdrant部署比较复杂。</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
     
       
@@ -403,105 +499,6 @@
     
     
     <category term="运维" scheme="http://yoursite.com/tags/%E8%BF%90%E7%BB%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>rust 入门篇</title>
-    <link href="http://yoursite.com/2025/01/09/rust%E5%85%A5%E9%97%A8/"/>
-    <id>http://yoursite.com/2025/01/09/rust%E5%85%A5%E9%97%A8/</id>
-    <published>2025-01-09T09:11:00.000Z</published>
-    <updated>2025-01-09T10:52:32.467Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="rustc查看版本"><a href="#rustc查看版本" class="headerlink" title="rustc查看版本"></a>rustc查看版本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustc --version</span><br></pre></td></tr></table></figure><h3 id="cargo-查看版本"><a href="#cargo-查看版本" class="headerlink" title="cargo 查看版本"></a>cargo 查看版本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo --version</span><br></pre></td></tr></table></figure><h3 id="rust-升级到最新的稳定版本"><a href="#rust-升级到最新的稳定版本" class="headerlink" title="rust 升级到最新的稳定版本"></a>rust 升级到最新的稳定版本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustup update stable</span><br></pre></td></tr></table></figure><h3 id="新建工程"><a href="#新建工程" class="headerlink" title="新建工程"></a>新建工程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo new hello_cargo</span><br></pre></td></tr></table></figure><h3 id="构建已有的工程"><a href="#构建已有的工程" class="headerlink" title="构建已有的工程"></a>构建已有的工程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo build</span><br></pre></td></tr></table></figure><h3 id="查看rustup-版本，检查是否要更新"><a href="#查看rustup-版本，检查是否要更新" class="headerlink" title="查看rustup 版本，检查是否要更新"></a>查看rustup 版本，检查是否要更新</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustup --version </span><br></pre></td></tr></table></figure><h3 id="更新rustup"><a href="#更新rustup" class="headerlink" title="更新rustup"></a>更新rustup</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustup self update</span><br></pre></td></tr></table></figure><h3 id="安装rust格式化"><a href="#安装rust格式化" class="headerlink" title="安装rust格式化"></a>安装rust格式化</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustup component add rustfmt</span><br></pre></td></tr></table></figure><h2 id="多版本"><a href="#多版本" class="headerlink" title="多版本"></a>多版本</h2><h3 id="rust多版本显示"><a href="#rust多版本显示" class="headerlink" title="rust多版本显示"></a>rust多版本显示</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustup toolchain list</span><br></pre></td></tr></table></figure><h3 id="切换rust版本"><a href="#切换rust版本" class="headerlink" title="切换rust版本"></a>切换rust版本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustup default aarch64-apple-darwin</span><br></pre></td></tr></table></figure><h3 id="显示rust概况"><a href="#显示rust概况" class="headerlink" title="显示rust概况"></a>显示rust概况</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustup show</span><br></pre></td></tr></table></figure><h1 id="入门文档"><a href="#入门文档" class="headerlink" title="入门文档"></a>入门文档</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://kaisery.github.io/trpl-zh-cn/ch01-02-hello-world.html</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;rustc查看版本&quot;&gt;&lt;a href=&quot;#rustc查看版本&quot; class=&quot;headerlink&quot; title=&quot;rustc查看版本&quot;&gt;&lt;/a&gt;rustc查看版本&lt;/h3&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;t</summary>
-      
-    
-    
-    
-    <category term="rust" scheme="http://yoursite.com/categories/rust/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>python工具包导航</title>
-    <link href="http://yoursite.com/2025/01/09/python%E5%90%84%E7%A7%8D%E5%B7%A5%E5%85%B7%E5%8C%85%E6%95%B4%E7%90%86/"/>
-    <id>http://yoursite.com/2025/01/09/python%E5%90%84%E7%A7%8D%E5%B7%A5%E5%85%B7%E5%8C%85%E6%95%B4%E7%90%86/</id>
-    <published>2025-01-09T01:42:00.000Z</published>
-    <updated>2026-01-21T02:44:25.681Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>python<ul><li>基本功能<ul><li>生成requirements.txt<ul><li>pipreqs</li></ul></li><li>生成本地执行包<ul><li><a href="https://www.warmjoke.com/2024/02/26/pyinstaller%E5%BA%94%E7%94%A8%E6%95%B4%E7%90%86/">pyinstaller</a></li><li><a href="https://github.com/TanixLu/pyfuze">pyfuze</a></li><li>nuitka</li><li>py2app &#x2F;py2exe</li></ul></li></ul></li><li>爬虫<ul><li>drissionPage</li><li>curl_cffi</li><li>selenium</li></ul></li><li>日志<ul><li>loguru</li></ul></li><li>数据处理<ul><li>pandas</li><li>numpy</li><li>(Polars)[<a href="https://pola-rs.github.io/polars-book-cn/user-guide/introduction.html]">https://pola-rs.github.io/polars-book-cn/user-guide/introduction.html]</a></li></ul></li><li>画图<ul><li>pillow</li></ul></li><li>动态包导入<ul><li>importlib</li></ul></li><li>文件操作<ul><li>shutil</li></ul></li><li>yaml配置操作<ul><li>ruamel.yaml</li></ul></li><li>命令行输入<ul><li>cmd2</li></ul></li><li>链上交互<ul><li>web3</li></ul></li><li>声音读区<ul><li>sounddevice</li><li>soundfile</li></ul></li><li>进度条<ul><li>tqdm</li></ul></li><li>环境变量读取<ul><li>dotenv</li></ul></li><li>javascript解析<ul><li>PyExecJS</li></ul></li><li>web<ul><li><a href="https://uvicorn.dev/">Uvicorn</a></li><li>falsk</li></ul></li><li>mq<ul><li>pyzmq</li></ul></li><li>platformdirs  </li><li>命令行交互<ul><li>rich</li><li>click</li></ul></li><li>http请求<ul><li>requests</li><li>aiohttp</li><li><a href="https://github.com/jawah/niquests">niquests</a></li></ul></li></ul></li></ul></blockquote><h1 id="详细说明"><a href="#详细说明" class="headerlink" title="详细说明"></a>详细说明</h1><h2 id="打包工具"><a href="#打包工具" class="headerlink" title="打包工具"></a>打包工具</h2><h3 id="nuitka"><a href="#nuitka" class="headerlink" title="nuitka"></a>nuitka</h3><p>打包复杂的依赖比较OK，把python转换成C++相关的代码，并且打包，所以比较慢，打的包功能比较稳定,对python的版本不能支持到最新。</p><h3 id="pyinstaller"><a href="#pyinstaller" class="headerlink" title="pyinstaller"></a>pyinstaller</h3><p>简单的打包OK，复杂的打包相互依赖的设置比较麻烦。</p><h3 id="py2app"><a href="#py2app" class="headerlink" title="py2app"></a>py2app</h3><p>macos下的 打包工具，在windows 环境下对应的是py2exe</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote class=&quot;pullquote mindmap mindmap-md&quot;&gt;&lt;ul&gt;
-&lt;li&gt;python&lt;ul&gt;
-&lt;li&gt;基本功能&lt;ul&gt;
-&lt;li&gt;生成requirements.txt&lt;ul&gt;
-&lt;li&gt;pipreqs&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;l</summary>
-      
-    
-    
-    
-    <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>minicoda量化环境配置</title>
-    <link href="http://yoursite.com/2024/12/30/minicoda%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    <id>http://yoursite.com/2024/12/30/minicoda%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</id>
-    <published>2024-12-30T04:56:00.000Z</published>
-    <updated>2024-12-30T05:27:53.039Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="minicoda-安装"><a href="#minicoda-安装" class="headerlink" title="minicoda 安装"></a>minicoda 安装</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/miniconda3</span><br><span class="line">wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh</span><br><span class="line">bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3</span><br><span class="line">rm ~/miniconda3/miniconda.sh</span><br><span class="line">source ~/miniconda3/bin/activate</span><br><span class="line">conda init --all</span><br></pre></td></tr></table></figure><h1 id="为什么安装-minicoda"><a href="#为什么安装-minicoda" class="headerlink" title="为什么安装 minicoda"></a>为什么安装 minicoda</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">服务器硬盘不够，anaconda3 基本上需要占用 8G得硬盘空间，小门小户有点受不了。minicode的初始包基本是1G以内。</span><br></pre></td></tr></table></figure><p>安装minicoda 之后的基础服务器配置，初始化的系统盘5.3g左右,相对anaconda3节省很多的空间。</p><p><img src="/images/pasted-25.png" alt="upload successful"></p><h1 id="创建最新的量化环境"><a href="#创建最新的量化环境" class="headerlink" title="创建最新的量化环境"></a>创建最新的量化环境</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n py312 python=3.12.7</span><br></pre></td></tr></table></figure><h1 id="创建python默认环境"><a href="#创建python默认环境" class="headerlink" title="创建python默认环境"></a>创建python默认环境</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br></pre></td></tr></table></figure><p>设置成如下的配置。</p><p><img src="/images/pasted-26.png" alt="upload successful"></p><h1 id="安装supervisor"><a href="#安装supervisor" class="headerlink" title="安装supervisor"></a>安装supervisor</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install -y supervisor</span><br><span class="line">systemctl enable supervisord # 开机自启动</span><br><span class="line">systemctl start supervisord # 启动supervisord服务</span><br><span class="line">systemctl status supervisord # 查看supervisord服务状态</span><br><span class="line">ps -ef|grep supervisord # 查看是否存在supervisord进程</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;minicoda-安装&quot;&gt;&lt;a href=&quot;#minicoda-安装&quot; class=&quot;headerlink&quot; title=&quot;minicoda 安装&quot;&gt;&lt;/a&gt;minicoda 安装&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;</summary>
-      
-    
-    
-    
-    <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-    
-    <category term="量化" scheme="http://yoursite.com/tags/%E9%87%8F%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>drissionPage 爬虫攻略</title>
-    <link href="http://yoursite.com/2024/12/30/drissionPage-%E7%88%AC%E8%99%AB%E6%94%BB%E7%95%A5/"/>
-    <id>http://yoursite.com/2024/12/30/drissionPage-%E7%88%AC%E8%99%AB%E6%94%BB%E7%95%A5/</id>
-    <published>2024-12-30T01:51:00.000Z</published>
-    <updated>2024-12-30T02:53:36.024Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="简单的代码示例"><a href="#简单的代码示例" class="headerlink" title="简单的代码示例"></a>简单的代码示例</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> DrissionPage <span class="keyword">import</span> WebPage, ChromiumOptions</span><br><span class="line"><span class="comment"># 基于谷歌浏览器的配置</span></span><br><span class="line">options = ChromiumOptions()</span><br><span class="line"><span class="comment"># 无头设置</span></span><br><span class="line">options.headless(<span class="literal">True</span>)</span><br><span class="line">options.set_argument(<span class="string">&#x27;--no-sandbox&#x27;</span>)</span><br><span class="line"><span class="comment"># 可以设置代理的配置</span></span><br><span class="line"><span class="keyword">if</span> proxy:</span><br><span class="line">    options.set_proxy(proxy[<span class="string">&#x27;http&#x27;</span> <span class="keyword">if</span> <span class="string">&#x27;http&#x27;</span> <span class="keyword">in</span> proxy <span class="keyword">else</span> <span class="string">&#x27;https&#x27;</span>])</span><br><span class="line"><span class="comment"># 初始化 SessionPage 对象</span></span><br><span class="line">page = WebPage(timeout=<span class="number">50</span>, chromium_options=options)</span><br><span class="line"> page.get(baseurl)</span><br><span class="line">page.wait.ele_displayed(<span class="string">&#x27;__APP&#x27;</span>)</span><br><span class="line"><span class="keyword">match</span> = re.search(<span class="string">r&#x27;href=&quot;([^&quot;]*delisting\?[^&quot;]*)&quot;&#x27;</span>, page.html)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">match</span>:</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;&quot;</span><span class="number">12313</span><span class="string">&quot;)</span></span><br></pre></td></tr></table></figure><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>和 selenium 类似，本来就是从 selenium 发展而来，但也可以实现request的方法，既可以爬去网页，也可以直接调用请求。</p><h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://drissionpage.cn/">https://drissionpage.cn/</a></p><h1 id="开源代码"><a href="#开源代码" class="headerlink" title="开源代码"></a>开源代码</h1><p><a href="https://gitee.com/PLA-huiziqin/DrissionPage?skip_mobile=true">https://gitee.com/PLA-huiziqin/DrissionPage?skip_mobile=true</a></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;简单的代码示例&quot;&gt;&lt;a href=&quot;#简单的代码示例&quot; class=&quot;headerlink&quot; title=&quot;简单的代码示例&quot;&gt;&lt;/a&gt;简单的代码示例&lt;/h1&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class</summary>
-      
-    
-    
-    
-    <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-    
-    <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   

@@ -1,0 +1,389 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="kerns的小窝">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="solidity" />
+
+
+<meta name="description" content="存储结构
+
+
+Syntax
+Storage
+memory
+calldata
+
+
+
+生命周期
+永久
+函数执行期
+函数执行期
+
+
+可修改性
+可修改
+可修改
+只读
+
+
+gas
+查看操作成本
+3gas&..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    EVM存储结构和相关优化 |
+    
+    kerns的小窝
+</title>
+
+<link rel="alternate" href="/atom.xml" title="kerns的小窝" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='kerns'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        kerns的小窝</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/go/"><i class="fa "></i>
+                                go</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/node/"><i class="fa "></i>
+                                node</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/rust/"><i class="fa "></i>
+                                rust</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/python/"><i class="fa "></i>
+                                python</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/ai/"><i class="fa "></i>
+                                ai</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/区块链/"><i class="fa "></i>
+                                区块链</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/运维/"><i class="fa "></i>
+                                运维</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="EVM存储结构和相关优化">
+            
+            EVM存储结构和相关优化
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/solidity/" rel="tag">solidity</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2026/02/13</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h1><table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Storage</th>
+<th>memory</th>
+<th>calldata</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>生命周期</td>
+<td>永久</td>
+<td>函数执行期</td>
+<td>函数执行期</td>
+</tr>
+<tr>
+<td>可修改性</td>
+<td>可修改</td>
+<td>可修改</td>
+<td>只读</td>
+</tr>
+<tr>
+<td>gas</td>
+<td>查看操作成本</td>
+<td>3gas&#x2F;字节</td>
+<td>3gas&#x2F;字节</td>
+</tr>
+</tbody></table>
+<h2 id="storage操作成本"><a href="#storage操作成本" class="headerlink" title="storage操作成本"></a>storage操作成本</h2><ol>
+<li>写入新变量 约 20000 Gas</li>
+<li>修改已有变量 约5000 Gas</li>
+<li>读取存储变量 冷访问800gas，热访问 100 Gas</li>
+<li>删除存储槽 可获得 15000 Gas返还</li>
+<li>冷读取（第一次）：~2,100 gas</li>
+<li>热读取（同一交易内再次读取）：~100 gas</li>
+</ol>
+<h2 id="storage的优化方式"><a href="#storage的优化方式" class="headerlink" title="storage的优化方式"></a>storage的优化方式</h2><p><img src="/images/pasted-35.png" alt="upload successful"></p>
+<h3 id="变量打包规则"><a href="#变量打包规则" class="headerlink" title="变量打包规则"></a>变量打包规则</h3><ol>
+<li>变量必须连续声明，中间不能有大类型变量间隔</li>
+<li>只有静态大小类型可以打包（排除mapping和动态数组）</li>
+<li>当累计大小超过32字节时，使用新的存储槽</li>
+</ol>
+<h2 id="存储结构gas优化实践"><a href="#存储结构gas优化实践" class="headerlink" title="存储结构gas优化实践"></a>存储结构gas优化实践</h2><p><img src="/images/pasted-36.png" alt="upload successful"></p>
+<h2 id="Calldata-vs-Memory"><a href="#Calldata-vs-Memory" class="headerlink" title="Calldata vs Memory"></a>Calldata vs Memory</h2><p>原理说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">当你使用memory参数时，EVM会进行以下操作：</span><br><span class="line">从交易输入（calldata区域）读取数据</span><br><span class="line">复制到内存（memory区域）</span><br><span class="line">函数访问memory区域的数据</span><br><span class="line">当你使用calldata参数时：</span><br><span class="line">直接从交易输入读取数据</span><br><span class="line">无需复制，节省Gas</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2026/02/13/solidity%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="pre-post btn btn-default" title='solidity数据结构'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            solidity数据结构</span>
+    </a>
+    
+    
+    <a href="/2026/02/08/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF%E6%95%B4%E7%90%86/" class="next-post btn btn-default" title='区块链开发工具整理'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            区块链开发工具整理</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-Hans'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-text">存储结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#storage%E6%93%8D%E4%BD%9C%E6%88%90%E6%9C%AC"><span class="toc-text">storage操作成本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#storage%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E5%BC%8F"><span class="toc-text">storage的优化方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E6%89%93%E5%8C%85%E8%A7%84%E5%88%99"><span class="toc-text">变量打包规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84gas%E4%BC%98%E5%8C%96%E5%AE%9E%E8%B7%B5"><span class="toc-text">存储结构gas优化实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Calldata-vs-Memory"><span class="toc-text">Calldata vs Memory</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
