@@ -124,7 +124,7 @@ http://yoursite.com/tags/btcoin/
 http://yoursite.com/tags/vu-e/
 http://yoursite.com/tags/node/
 http://yoursite.com/tags/solidity/
-http://yoursite.com/tags/rust/
+http://yoursite.com/tags/%E4%BA%A4%E6%98%93/
 http://yoursite.com/categories/java/
 http://yoursite.com/categories/ai/
 http://yoursite.com/categories/%E8%BF%90%E7%BB%B4/
@@ -139,4 +139,3 @@ http://yoursite.com/categories/rust/
 http://yoursite.com/categories/node/
 http://yoursite.com/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/
 http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/
-http://yoursite.com/categories/%E4%BA%A4%E6%98%93/
