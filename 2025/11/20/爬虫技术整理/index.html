@@ -19,7 +19,7 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="" />
+<meta name="keywords" content="爬虫" />
 
 
 <meta name="description" content="
@@ -33,14 +33,13 @@ http请求
 curl_cffi
 tls-client
 request-go
+wreq
 
 
 默认的
 requests
 Niquests,request增强
-
-
-异步请..." />
+..." />
 
 
 <meta name="robots" content="all" />
@@ -200,6 +199,8 @@ Niquests,request增强
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
+            <a class="tag-none-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a>
+            
         </span>
     </span>
     
@@ -229,6 +230,7 @@ Niquests,request增强
 <li>curl_cffi</li>
 <li>tls-client</li>
 <li><a href="https://github.com/wangluozhe/requests-go">request-go</a></li>
+<li><a href="https://github.com/0x676e67/wreq">wreq</a></li>
 </ul>
 </li>
 <li>默认的<ul>
@@ -246,12 +248,16 @@ Niquests,request增强
 </li>
 </ul>
 </li>
-<li>无头浏览器<ul>
+<li>浏览器爬虫框架<ul>
 <li>Selenium</li>
 <li>Playwright</li>
 <li>Puppeteer  </li>
-<li>Cheerio</li>
+<li>Cheerio </li>
 <li>(drissionpage)[<a href="https://www.drissionpage.cn/]">https://www.drissionpage.cn/]</a></li>
+</ul>
+</li>
+<li>ai无头浏览器<ul>
+<li>(obscura)[<a href="https://github.com/h4ckf0r0day/obscura]">https://github.com/h4ckf0r0day/obscura]</a></li>
 </ul>
 </li>
 <li>gui<ul>
@@ -276,7 +282,12 @@ Niquests,request增强
 <h1 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h1><h2 id="指纹http套件"><a href="#指纹http套件" class="headerlink" title="指纹http套件"></a>指纹http套件</h2><h3 id="curl-cffi"><a href="#curl-cffi" class="headerlink" title="curl_cffi"></a>curl_cffi</h3><p>优点：对各个系统的支持都比较OK。<br>缺点：只支持低版本的指纹，对于热门，最新版本的指纹不积极。</p>
 <h3 id="tls-client"><a href="#tls-client" class="headerlink" title="tls-client"></a>tls-client</h3><p>优点：支持最新版本的指纹相关的操作</p>
 <p>缺点：在window环境下对代理的设置不友好,常用的代理方式基本无效，只能通过环境变量的方式去设置。</p>
-<h2 id="无头浏览器"><a href="#无头浏览器" class="headerlink" title="无头浏览器"></a>无头浏览器</h2><h3 id="Playwright"><a href="#Playwright" class="headerlink" title="Playwright"></a>Playwright</h3><p>对于浏览器的支持很OK，基本支持最新的版本</p>
+<h2 id="ai无头浏览器"><a href="#ai无头浏览器" class="headerlink" title="ai无头浏览器"></a>ai无头浏览器</h2><p>obscura ：使用rust编写，是给ai使用的浏览器，支持mcp。<br>隐藏了浏览器特征，目前阅读下来，主要做了两个事情</p>
+<h3 id="1-js-环境伪造"><a href="#1-js-环境伪造" class="headerlink" title="1.js 环境伪造"></a>1.js 环境伪造</h3><p>在 bootstrap.js里面 添加通用chrome 特征信息，浏览器指纹（Canvas、WebGL、TLS、navigator 等） </p>
+<h3 id="TLS-HTTP2-指纹（JA3-JA4）"><a href="#TLS-HTTP2-指纹（JA3-JA4）" class="headerlink" title="TLS&#x2F;HTTP2 指纹（JA3&#x2F;JA4）"></a>TLS&#x2F;HTTP2 指纹（JA3&#x2F;JA4）</h3><p>模拟了chrome 145 </p>
+<p>整体来说，解决不了ip被封，验证码之类， 的问题，还是需要另外想办法，</p>
+<p>核心的逻辑还在wreq里面</p>
+<h2 id="浏览器爬虫框架"><a href="#浏览器爬虫框架" class="headerlink" title="浏览器爬虫框架"></a>浏览器爬虫框架</h2><h3 id="Playwright"><a href="#Playwright" class="headerlink" title="Playwright"></a>Playwright</h3><p>对于浏览器的支持很OK，基本支持最新的版本</p>
 <h3 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h3><p>很老的无头浏览器，</p>
 <h3 id="drissionpage"><a href="#drissionpage" class="headerlink" title="drissionpage"></a>drissionpage</h3><p>Selenium 和 requests的集成。</p>
 <h2 id="gui"><a href="#gui" class="headerlink" title="gui"></a>gui</h2><h3 id="pyqt6-Qt-WebEngine"><a href="#pyqt6-Qt-WebEngine" class="headerlink" title="pyqt6,Qt WebEngine"></a>pyqt6,Qt WebEngine</h3><p>Qt WebEngine 基于Chromium，和chrome引擎类似，但是引擎的版本比较老，容易被快手这类应用风控。</p>
@@ -353,7 +364,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-text">详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E7%BA%B9http%E5%A5%97%E4%BB%B6"><span class="toc-text">指纹http套件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#curl-cffi"><span class="toc-text">curl_cffi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tls-client"><span class="toc-text">tls-client</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%A4%B4%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-text">无头浏览器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Playwright"><span class="toc-text">Playwright</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Selenium"><span class="toc-text">Selenium</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#drissionpage"><span class="toc-text">drissionpage</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gui"><span class="toc-text">gui</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pyqt6-Qt-WebEngine"><span class="toc-text">pyqt6,Qt WebEngine</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pywebview"><span class="toc-text">pywebview</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7"><span class="toc-text">视频下载工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#yt-dlp-https-github-com-yt-dlp-yt-dlp"><span class="toc-text">(yt-dlp)[https:&#x2F;&#x2F;github.com&#x2F;yt-dlp&#x2F;yt-dlp]</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6"><span class="toc-text">浏览器插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%96%E9%9F%B3%E8%A7%86%E9%A2%91%E8%8E%B7%E5%8F%96"><span class="toc-text">抖音视频获取</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-text">详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E7%BA%B9http%E5%A5%97%E4%BB%B6"><span class="toc-text">指纹http套件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#curl-cffi"><span class="toc-text">curl_cffi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tls-client"><span class="toc-text">tls-client</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ai%E6%97%A0%E5%A4%B4%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-text">ai无头浏览器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-js-%E7%8E%AF%E5%A2%83%E4%BC%AA%E9%80%A0"><span class="toc-text">1.js 环境伪造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TLS-HTTP2-%E6%8C%87%E7%BA%B9%EF%BC%88JA3-JA4%EF%BC%89"><span class="toc-text">TLS&#x2F;HTTP2 指纹（JA3&#x2F;JA4）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6"><span class="toc-text">浏览器爬虫框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Playwright"><span class="toc-text">Playwright</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Selenium"><span class="toc-text">Selenium</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#drissionpage"><span class="toc-text">drissionpage</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gui"><span class="toc-text">gui</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pyqt6-Qt-WebEngine"><span class="toc-text">pyqt6,Qt WebEngine</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pywebview"><span class="toc-text">pywebview</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7"><span class="toc-text">视频下载工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#yt-dlp-https-github-com-yt-dlp-yt-dlp"><span class="toc-text">(yt-dlp)[https:&#x2F;&#x2F;github.com&#x2F;yt-dlp&#x2F;yt-dlp]</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6"><span class="toc-text">浏览器插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%96%E9%9F%B3%E8%A7%86%E9%A2%91%E8%8E%B7%E5%8F%96"><span class="toc-text">抖音视频获取</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>

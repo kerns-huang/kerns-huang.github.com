@@ -22,23 +22,25 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="
-ai开发
-ai助手
-nanobot
-openclaw
-nanoclaw
+<meta name="description" content="工具包
+web开发
+actix-web
 
 
-源码阅读
-zread
+序列化
+serde
+json支持
+serde_json
+yaml支持
+serde_yaml
 
 
-开源大模型
-Qwen*-coder
-CodeGeex
-SqlCoder
-DeepSeek-..." />
+
+
+异步运行时
+tokio
+数据库连接
+mysql_a..." />
 
 
 <meta name="robots" content="all" />
@@ -49,7 +51,7 @@ DeepSeek-..." />
 
 <title>
     
-    AI开发 |
+    rust工具包整理 |
     
     kerns的小窝
 </title>
@@ -181,9 +183,9 @@ DeepSeek-..." />
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="AI开发">
+        <h1 id="rust工具包整理">
             
-            AI开发
+            rust工具包整理
             
         </h1>
         <div class="post-meta">
@@ -206,7 +208,7 @@ DeepSeek-..." />
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2025/04/25</span>
+            2025/03/24</span>
     </span>
     
     
@@ -215,49 +217,40 @@ DeepSeek-..." />
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                322</strong>
+                479</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
     </div>
     
     <div class="post-body post-content">
-        <blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>ai开发<ul>
-<li>ai助手<ul>
-<li><a href="https://github.com/HKUDS/nanobot">nanobot</a></li>
-<li><a href="https://github.com/openclaw/openclaw">openclaw</a></li>
-<li><a href="https://github.com/gavrielc/nanoclaw">nanoclaw</a></li>
+        <h3 id="工具包"><a href="#工具包" class="headerlink" title="工具包"></a>工具包</h3><blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>web开发<ul>
+<li>actix-web</li>
 </ul>
 </li>
-<li>源码阅读<ul>
-<li><a href="https://zread.ai/">zread</a></li>
+<li>序列化<ul>
+<li>serde<ul>
+<li>json支持</li>
+<li>serde_json</li>
+<li>yaml支持</li>
+<li>serde_yaml</li>
 </ul>
 </li>
-<li>开源大模型<ul>
-<li>Qwen*-coder</li>
-<li>CodeGeex</li>
-<li>SqlCoder</li>
-<li>DeepSeek-Coder</li>
 </ul>
 </li>
-<li>闭源模型<ul>
-<li>Qwen-Turbo</li>
-<li>DeepSeek-v3</li>
-<li>DeepSeek-R1</li>
-<li>claude</li>
-<li>gemini</li>
-<li>gpt-4o</li>
+<li>异步运行时<ul>
+<li>tokio<ul>
+<li>数据库连接<ul>
+<li>mysql_async</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-</blockquote>
-
-<h1 id="代码-LLM-模型选择"><a href="#代码-LLM-模型选择" class="headerlink" title="代码 LLM 模型选择"></a>代码 LLM 模型选择</h1><h2 id="闭源模型"><a href="#闭源模型" class="headerlink" title="闭源模型"></a>闭源模型</h2><p>Qwen-Turbo：<br>DeepSeek-v3：简单任务使用v3<br>DeepSeek-R1: 多步思考，容易把问题想复杂。<br>claude：<br>gemini<br>gpt-4o</p>
-<h2 id="开源代码补全大模型"><a href="#开源代码补全大模型" class="headerlink" title="开源代码补全大模型"></a>开源代码补全大模型</h2><p>Qwen*-coder：能力强，接近一线大模型，<br>CodeGeex：智谱开源的代码大模型，<br>SqlCoder：专为sql生成的大模型，维护更新慢。<br>DeepSeek-Coder：</p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+</li>
+</ul>
+</blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
     
     <div class="post-footer">
@@ -275,17 +268,17 @@ DeepSeek-..." />
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2025/05/20/Fine-tuning%E6%8A%80%E6%9C%AF%E6%95%B4%E7%90%86/" class="pre-post btn btn-default" title='Fine-tuning技术整理'>
+    <a href="/2025/03/29/ai%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/" class="pre-post btn btn-default" title='ai开发工具整理'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            Fine-tuning技术整理</span>
+            ai开发工具整理</span>
     </a>
     
     
-    <a href="/2025/04/21/cursor%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" class="next-post btn btn-default" title='cursor配置管理'>
+    <a href="/2025/03/20/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/" class="next-post btn btn-default" title='服务器运维工具整理'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            cursor配置管理</span><i class="fa fa-angle-right fa-fw"></i>
+            服务器运维工具整理</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -326,7 +319,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-LLM-%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9"><span class="toc-text">代码 LLM 模型选择</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E6%BA%90%E6%A8%A1%E5%9E%8B"><span class="toc-text">闭源模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E4%BB%A3%E7%A0%81%E8%A1%A5%E5%85%A8%E5%A4%A7%E6%A8%A1%E5%9E%8B"><span class="toc-text">开源代码补全大模型</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E5%8C%85"><span class="toc-text">工具包</span></a></li></ol>
         
     </div>
 </aside>
