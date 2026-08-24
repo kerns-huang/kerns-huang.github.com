@@ -19,7 +19,7 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="" />
+<meta name="keywords" content="数据库" />
 
 
 <meta name="description" content="
@@ -32,15 +32,13 @@ InfluxDB
 Druid
 
 
+kv数据库
+RocksDB
+Redis
+
+
 关系型数据库
-mysql
-oracle
-
-
-图数据库
-neo4j
-
-..." />
+mysql..." />
 
 
 <meta name="robots" content="all" />
@@ -200,6 +198,8 @@ neo4j
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
+            <a class="tag-none-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a>
+            
         </span>
     </span>
     
@@ -217,7 +217,7 @@ neo4j
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                503</strong>
+                540</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -232,6 +232,11 @@ neo4j
 <li>DolphinDB</li>
 <li>InfluxDB</li>
 <li><a href="https://github.com/apache/druid">Druid</a></li>
+</ul>
+</li>
+<li>kv数据库<ul>
+<li>RocksDB</li>
+<li>Redis</li>
 </ul>
 </li>
 <li>关系型数据库<ul>
@@ -258,7 +263,15 @@ neo4j
 
 <p>DolphinDB<br>	适合金融时序,不开源</p>
 <h1 id="具体说明"><a href="#具体说明" class="headerlink" title="具体说明"></a>具体说明</h1><h2 id="向量数据库"><a href="#向量数据库" class="headerlink" title="向量数据库"></a>向量数据库</h2><h3 id="qdrant"><a href="#qdrant" class="headerlink" title="qdrant"></a>qdrant</h3><p>相对比较轻量，但只支持单向量，rust编写，如果只是支持简单比较，是比较合适的。<br>比如视频需要对视频和音频都单独建立向量，但qdrant并不支持。</p>
-<h3 id="milvus"><a href="#milvus" class="headerlink" title="milvus"></a>milvus</h3><p> 支持多向量，相对qdrant部署比较复杂。</p>
+<h3 id="milvus"><a href="#milvus" class="headerlink" title="milvus"></a>milvus</h3><p> 支持多向量，相对qdrant部署比较复杂。目前对素材库的处理，主要是对音频和视频做了向量化操作后，然后再比较相似度</p>
+<h2 id="KV数据库"><a href="#KV数据库" class="headerlink" title="KV数据库"></a>KV数据库</h2><h3 id="RocksDB"><a href="#RocksDB" class="headerlink" title="RocksDB"></a>RocksDB</h3><p>比较适合 mq消费后处理去重的场景。</p>
+<h4 id="相比redis的优势"><a href="#相比redis的优势" class="headerlink" title="相比redis的优势"></a>相比redis的优势</h4><ol>
+<li>写性能极高LSM-Tree 的核心设计是顺序写。所有写入操作先写内存中的 MemTable，达到阈值后以 SSTable 文件的形式顺序落盘。没有随机写，没有原地更新——这对高吞吐写入场景极其友好。</li>
+<li>读取有布隆过滤器加速每个 SSTable 文件都自带布隆过滤器，可以在访问前快速判断 key 是否可能存在。绝大多数重复消息在内存中被拦截，真正落到磁盘的读请求很少。</li>
+<li>天然支持数据淘汰通过 TTL（Time To Live）机制，可以自动过期超出窗口期的数据，无需手动清理。</li>
+<li>嵌入式、零依赖RocksDB 是一个库（提供 Java JNI 接口），不需要单独部署 Redis 或 MySQL 集群，运维成本极低。</li>
+</ol>
+<h4 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h4><p>当请求落到磁盘的时候，毛刺会比较多，不是太适合 平滑高性能的场景。</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
     
@@ -328,7 +341,7 @@ new Valine({
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E8%AF%B4%E6%98%8E"><span class="toc-text">具体说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">向量数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#qdrant"><span class="toc-text">qdrant</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#milvus"><span class="toc-text">milvus</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E8%AF%B4%E6%98%8E"><span class="toc-text">具体说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">向量数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#qdrant"><span class="toc-text">qdrant</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#milvus"><span class="toc-text">milvus</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KV%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">KV数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RocksDB"><span class="toc-text">RocksDB</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E6%AF%94redis%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-text">相比redis的优势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A3%E5%8A%BF"><span class="toc-text">劣势</span></a></li></ol></li></ol></li></ol></li></ol>
         
     </div>
 </aside>
