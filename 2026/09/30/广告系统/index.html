@@ -1,0 +1,500 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="kerns的小窝">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="广告系统" />
+
+
+<meta name="description" content="价格指标计算本文整理程序化广告里 eCPM、CPM、CPC 的计算口径。仓库当前出价代码只读取计划上的 bid_cpm &#x2F; max_bid_cpm，没有按计费方式换算；下面的公式来自公..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    广告系统价格指标计算 |
+    
+    kerns的小窝
+</title>
+
+<link rel="alternate" href="/atom.xml" title="kerns的小窝" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='kerns'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        kerns的小窝</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/java/"><i class="fa "></i>
+                                java</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/go/"><i class="fa "></i>
+                                go</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/node/"><i class="fa "></i>
+                                node</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/rust/"><i class="fa "></i>
+                                rust</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/python/"><i class="fa "></i>
+                                python</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/ai/"><i class="fa "></i>
+                                ai</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/区块链/"><i class="fa "></i>
+                                区块链</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/运维/"><i class="fa "></i>
+                                运维</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="广告系统价格指标计算">
+            
+            广告系统价格指标计算
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2026/09/30</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="价格指标计算"><a href="#价格指标计算" class="headerlink" title="价格指标计算"></a>价格指标计算</h1><p>本文整理程序化广告里 <strong>eCPM、CPM、CPC</strong> 的计算口径。仓库当前出价代码只读取计划上的 <code>bid_cpm</code> &#x2F; <code>max_bid_cpm</code>，没有按计费方式换算；下面的公式来自公开的 DSP 出价与广告报表定义，供后续实现和报表对齐。</p>
+<p>金额在公式里用同一币种即可。落到本仓库时，金额字段单位是<strong>分</strong>，点击率按<strong>万分比</strong>存储（<code>50</code> 表示 <code>0.5%</code>）。</p>
+<hr>
+<h2 id="1-三个指标分别算什么"><a href="#1-三个指标分别算什么" class="headerlink" title="1. 三个指标分别算什么"></a>1. 三个指标分别算什么</h2><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>全称</th>
+<th>回答的问题</th>
+<th>计算时机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CPM</td>
+<td>Cost Per Mille，千次展示成本</td>
+<td>每一千次曝光花多少钱</td>
+<td>计划出价，或按展示结算后的报表</td>
+</tr>
+<tr>
+<td>CPC</td>
+<td>Cost Per Click，单次点击成本</td>
+<td>每一次点击花多少钱</td>
+<td>计划出价，或按点击结算后的报表</td>
+</tr>
+<tr>
+<td>eCPM</td>
+<td>effective &#x2F; expected Cost Per Mille，有效（或预估）千次展示成本</td>
+<td>不管原来按 CPM 还是 CPC 卖，折成每一千次曝光值多少钱</td>
+<td>竞价前用预估点击率算出价；投放后用真实消耗和曝光回算</td>
+</tr>
+</tbody></table>
+<p>ADX 的竞价单位是 CPM。CPC 计划不能直接拿「单次点击价」去和别人的「千次曝光价」比，要先折成 eCPM，再参与排序和回价。</p>
+<hr>
+<h2 id="2-报表口径（投放之后）"><a href="#2-报表口径（投放之后）" class="headerlink" title="2. 报表口径（投放之后）"></a>2. 报表口径（投放之后）</h2><p>报表用真实消耗、曝光、点击，不依赖预估模型。Google Ad Manager &#x2F; AdMob 的定义是：收入（或消耗）除以曝光再乘 1000 得到 eCPM，CPC 等于收入（或消耗）除以点击。</p>
+<p>记：</p>
+<ul>
+<li><code>Cost</code>：该维度下的广告消耗</li>
+<li><code>Impressions</code>：曝光次数</li>
+<li><code>Clicks</code>：点击次数</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CTR  = Clicks / Impressions</span><br><span class="line"></span><br><span class="line">CPM  = Cost / Impressions × 1000</span><br><span class="line"></span><br><span class="line">CPC  = Cost / Clicks</span><br><span class="line"></span><br><span class="line">eCPM = Cost / Impressions × 1000</span><br></pre></td></tr></table></figure>
+
+<p>几点对齐方式：</p>
+<ul>
+<li><strong>只按 CPM 结算</strong>时，报表 CPM 与 eCPM 相同，都是千次曝光的实际花费。</li>
+<li><strong>只按 CPC 结算</strong>时，消耗来自点击：<code>Cost = Clicks × 成交 CPC</code>。此时没有单独的「展示单价」，用来和 CPM 计划对比的是 eCPM。</li>
+<li>把上面的 CPC、CTR 代回去，CPC 计划的事后 eCPM 可以写成：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eCPM = CPC × CTR × 1000</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>曝光为 0 时不算 CPM &#x2F; eCPM；点击为 0 时不算 CPC。</li>
+</ul>
+<p>例：消耗 90 元，曝光 10,000，点击 90。</p>
+<ul>
+<li>CTR &#x3D; 90 &#x2F; 10000 &#x3D; 0.9%</li>
+<li>CPM 或 eCPM &#x3D; 90 &#x2F; 10000 × 1000 &#x3D; 9 元</li>
+<li>CPC &#x3D; 90 &#x2F; 90 &#x3D; 1 元</li>
+<li>用 CPC 回算：1 × 0.009 × 1000 &#x3D; 9 元，与 eCPM 一致</li>
+</ul>
+<hr>
+<h2 id="3-竞价口径（请求进来时）"><a href="#3-竞价口径（请求进来时）" class="headerlink" title="3. 竞价口径（请求进来时）"></a>3. 竞价口径（请求进来时）</h2><p>竞价时还没有这次曝光的真实点击，用<strong>预估点击率 pCTR</strong>（predicted CTR，0～1 的小数）代替 CTR。DSP 内部把不同计费方式都折成 eCPM，按 eCPM 从高到低选一条，再把这个价格以 CPM 单位返回给 ADX。</p>
+<h3 id="3-1-CPM：出价就是-eCPM"><a href="#3-1-CPM：出价就是-eCPM" class="headerlink" title="3.1 CPM：出价就是 eCPM"></a>3.1 CPM：出价就是 eCPM</h3><p>固定 CPM（计划上直接填千次曝光价）时：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">eCPM = CPM</span><br><span class="line">Bid  = CPM</span><br></pre></td></tr></table></figure>
+
+<p>目标 CPM（TCPM）会按这条流量的点击率相对计划均值上下浮动，点击率更高的流量出更高的 CPM：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bid = Target_CPM × (pCTR / AVG_CTR)</span><br></pre></td></tr></table></figure>
+
+<p><code>AVG_CTR</code> 是该计划历史平均点击率。比值需要封顶，避免异常高的 pCTR 把出价打得过高。</p>
+<h3 id="3-2-CPC：先折成-eCPM-再出价"><a href="#3-2-CPC：先折成-eCPM-再出价" class="headerlink" title="3.2 CPC：先折成 eCPM 再出价"></a>3.2 CPC：先折成 eCPM 再出价</h3><p>广告主填写的是目标点击价 <code>Target_CPC</code>。行业里 DSP 的换算是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">eCPM = pCTR × Target_CPC × 1000</span><br><span class="line">Bid  = eCPM</span><br></pre></td></tr></table></figure>
+
+<p>含义：若每一千次曝光里预期会点 <code>pCTR × 1000</code> 次，每次点击值 <code>Target_CPC</code>，则这一千次曝光的预期成本就是上面的 eCPM。</p>
+<p>例：CPC 出价 0.9 元，pCTR &#x3D; 0.9% &#x3D; 0.009。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eCPM = 0.009 × 0.9 × 1000 = 8.1 元</span><br></pre></td></tr></table></figure>
+
+<p>同一 CPC，pCTR 从 0.9% 降到 0.45%，eCPM 降到 4.05 元，出价跟着下降。CPC 本身不变。</p>
+<p>若先用平均点击率得到基准 CPM，再按当前流量相对均值缩放，结果与上式相同：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">基准 CPM = Target_CPC × AVG_CTR × 1000</span><br><span class="line">Bid      = 基准 CPM × (pCTR / AVG_CTR)</span><br><span class="line">         = Target_CPC × pCTR × 1000</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-返回给-ADX-之前的约束"><a href="#3-3-返回给-ADX-之前的约束" class="headerlink" title="3.3 返回给 ADX 之前的约束"></a>3.3 返回给 ADX 之前的约束</h3><p>内部胜出的 eCPM 还要落在广告位底价和计划上限之间，才作为 <code>bid.price</code>（分&#x2F;CPM）返回：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Bid &gt; 0</span><br><span class="line">Bid ≥ bidfloor</span><br><span class="line">Bid ≤ max_bid_cpm</span><br></pre></td></tr></table></figure>
+
+<p>底价或上限不满足则这条计划不出价。多条计划同时可投时，按 eCPM 取最高的一条（本仓库当前实现按 <code>priority</code>、<code>weight</code> 排序，尚未按 eCPM 排序）。</p>
+<p>更完整的在线调价会在基础 eCPM 上再乘预算节奏、一价拍卖的压价、以及目标成本纠偏：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Final_Bid = Base_eCPM × Pacing × Shading × Correction</span><br><span class="line"></span><br><span class="line">Correction = Target_CPC / Actual_CPC    （CPC 计划）</span><br><span class="line">Correction = Target_CPM / Actual_CPM    （CPM 计划）</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>Pacing</code>：预算花得过快则小于 1，花得过慢则大于 1。</li>
+<li><code>Shading</code>：一价拍卖里通常取 0.7～0.95，避免按预估价值全额出价。</li>
+<li><code>Correction</code>：实际 CPC（或 CPM）高于目标时压价，低于目标时放价。</li>
+</ul>
+<p>这三项目前都没有进 dl-rtb，实现第一版时可以先只做第 3.1、3.2 节的基础 eCPM。</p>
+<hr>
+<h2 id="4-和本仓库字段怎么对齐"><a href="#4-和本仓库字段怎么对齐" class="headerlink" title="4. 和本仓库字段怎么对齐"></a>4. 和本仓库字段怎么对齐</h2><p>计划表（<code>campaigns</code>）与 Redis 快照里已有这些字段，单位见 <a href="schema.sql">schema.sql</a>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>单位</th>
+<th>用在</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>billing_type</code></td>
+<td><code>CPM</code> &#x2F; <code>CPC</code></td>
+<td>选择下面哪条公式</td>
+</tr>
+<tr>
+<td><code>bid_cpm</code></td>
+<td>分 &#x2F; 千次曝光</td>
+<td>CPM 计划的出价</td>
+</tr>
+<tr>
+<td><code>max_bid_cpm</code></td>
+<td>分 &#x2F; 千次曝光</td>
+<td>出价上限</td>
+</tr>
+<tr>
+<td><code>target_cpc</code></td>
+<td>分 &#x2F; 次点击</td>
+<td>CPC 计划的目标点击价</td>
+</tr>
+<tr>
+<td><code>default_pctr</code></td>
+<td>万分比，50 &#x3D; 0.5%</td>
+<td>没有实时 pCTR 时的默认点击率</td>
+</tr>
+</tbody></table>
+<p>万分比换成公式里的小数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pCTR = default_pctr / 10000</span><br></pre></td></tr></table></figure>
+
+<p>金额保持「分」时，CPC 折 eCPM（整数，向下取整）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eCPM_分 = target_cpc × default_pctr / 10</span><br></pre></td></tr></table></figure>
+
+<p>推导：<code>target_cpc × (default_pctr / 10000) × 1000 = target_cpc × default_pctr / 10</code>。</p>
+<p>例：<code>target_cpc = 90</code>（0.9 元），<code>default_pctr = 90</code>（0.9%）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eCPM_分 = 90 × 90 / 10 = 810    （8.10 元 / 千次曝光）</span><br></pre></td></tr></table></figure>
+
+<p>建议的出价伪代码（尚未实现，当前 <code>effectiveBidCPM</code> 只在 <code>bid_cpm &gt; 0</code> 时用 <code>bid_cpm</code>，否则用 <code>max_bid_cpm</code>，不看 <code>billing_type</code>）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">若 billing_type = CPM:</span><br><span class="line">    bid = bid_cpm（bid_cpm 为空或 ≤ 0 时用 max_bid_cpm）</span><br><span class="line">若 billing_type = CPC:</span><br><span class="line">    bid = target_cpc × pCTR × 1000</span><br><span class="line">    bid = min(bid, max_bid_cpm)</span><br><span class="line">若 bid ≤ 0 或 bid &lt; bidfloor:</span><br><span class="line">    不出价</span><br><span class="line">否则:</span><br><span class="line">    响应 price = bid    // 分/CPM</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5-对照例"><a href="#5-对照例" class="headerlink" title="5. 对照例"></a>5. 对照例</h2><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>输入</th>
+<th>计算</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CPM 出价</td>
+<td><code>bid_cpm</code> &#x3D; 300 分</td>
+<td>eCPM &#x3D; CPM</td>
+<td>出价 300 分（3 元&#x2F;千次）</td>
+</tr>
+<tr>
+<td>CPC 出价</td>
+<td>CPC &#x3D; 200 分，pCTR &#x3D; 50（0.5%）</td>
+<td>200 × 50 &#x2F; 10</td>
+<td>出价 1000 分（10 元&#x2F;千次）</td>
+</tr>
+<tr>
+<td>CPC 报表</td>
+<td>消耗 2000 分，曝光 10000，点击 20</td>
+<td>CPC &#x3D; 2000&#x2F;20；eCPM &#x3D; 2000&#x2F;10000×1000</td>
+<td>CPC &#x3D; 100 分；eCPM &#x3D; 200 分</td>
+</tr>
+<tr>
+<td>同一 CPC 不同点击率</td>
+<td>CPC &#x3D; 100 分；pCTR 1% 与 0.2%</td>
+<td>100×0.01×1000 与 100×0.002×1000</td>
+<td>eCPM 分别为 1000 分、200 分</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://news.qq.com/rain/a/20210820A046S800">互联网广告：CPM 和 eCPM 有什么不同</a>（人人都是产品经理）：CPM 时 eCPM &#x3D; CPM；CPC 时 eCPM &#x3D; CTR × CPC × 1000。</li>
+<li><a href="https://www.leadswork.net/en/leadswork-en/price-model-in-dsp-system/">Price Model in DSP System</a>（LeadsWORK）：固定 CPM、TCPM、TCPC 的线性出价；TCPC 的基准 CPM &#x3D; TCPC × AVG_CTR × 1000。</li>
+<li><a href="https://medium.com/@felipedutratine/dsp-bidding-strategies-a-3-part-series-59c0d368cc08">DSP Bidding Strategies</a>：eCPM &#x3D; 1000 × p(click) × Target CPC；最终出价再乘 Pacing、Shading、Correction。</li>
+<li><a href="https://support.google.com/admob/answer/3016008">Google AdMob：eCPM</a>：eCPM &#x3D; (Total Earnings &#x2F; Impressions) × 1000。</li>
+<li><a href="https://support.google.com/admanager/table/7568664">Google Ad Manager report metrics</a>：eCPM &#x3D; (Revenue &#x2F; impressions) × 1000；CPC &#x3D; Estimated revenue &#x2F; Clicks。</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2026/08/06/%E5%A0%A1%E5%9E%92%E6%9C%BA%E7%9B%B8%E5%85%B3%E6%95%B4%E7%90%86/" class="next-post btn btn-default" title='堡垒机相关整理'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            堡垒机相关整理</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-Hans'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%B7%E6%A0%BC%E6%8C%87%E6%A0%87%E8%AE%A1%E7%AE%97"><span class="toc-text">价格指标计算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%89%E4%B8%AA%E6%8C%87%E6%A0%87%E5%88%86%E5%88%AB%E7%AE%97%E4%BB%80%E4%B9%88"><span class="toc-text">1. 三个指标分别算什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%8A%A5%E8%A1%A8%E5%8F%A3%E5%BE%84%EF%BC%88%E6%8A%95%E6%94%BE%E4%B9%8B%E5%90%8E%EF%BC%89"><span class="toc-text">2. 报表口径（投放之后）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%AB%9E%E4%BB%B7%E5%8F%A3%E5%BE%84%EF%BC%88%E8%AF%B7%E6%B1%82%E8%BF%9B%E6%9D%A5%E6%97%B6%EF%BC%89"><span class="toc-text">3. 竞价口径（请求进来时）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-CPM%EF%BC%9A%E5%87%BA%E4%BB%B7%E5%B0%B1%E6%98%AF-eCPM"><span class="toc-text">3.1 CPM：出价就是 eCPM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-CPC%EF%BC%9A%E5%85%88%E6%8A%98%E6%88%90-eCPM-%E5%86%8D%E5%87%BA%E4%BB%B7"><span class="toc-text">3.2 CPC：先折成 eCPM 再出价</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E8%BF%94%E5%9B%9E%E7%BB%99-ADX-%E4%B9%8B%E5%89%8D%E7%9A%84%E7%BA%A6%E6%9D%9F"><span class="toc-text">3.3 返回给 ADX 之前的约束</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%92%8C%E6%9C%AC%E4%BB%93%E5%BA%93%E5%AD%97%E6%AE%B5%E6%80%8E%E4%B9%88%E5%AF%B9%E9%BD%90"><span class="toc-text">4. 和本仓库字段怎么对齐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AF%B9%E7%85%A7%E4%BE%8B"><span class="toc-text">5. 对照例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
